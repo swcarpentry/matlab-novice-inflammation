@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Analyzing Patient Data</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">Analyzing Patient Data</h1>
+          
+<p>We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets. The data sets are stored in <a href="../../gloss.html#comma-separated-values">Comma Separated Values (CSV)</a> format: each row holds information for a single patient, and the columns represent successive days. The first few rows of our first file, <code>inflammation-01.csv</code>, look like this:</p>
+<pre><code>0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
+0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
+0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
+0,0,2,0,4,2,2,1,6,7,10,7,9,13,8,8,15,10,10,7,17,4,4,7,6,15,6,4,9,11,3,5,6,3,3,4,2,3,2,1
+0,1,1,3,3,1,3,5,2,4,4,7,6,5,3,10,8,10,6,17,9,14,9,7,13,9,12,6,7,7,9,6,3,2,2,4,2,0,1,1</code></pre>
+<p>We want to:</p>
+<ul>
+<li>load that data into memory,</li>
+<li>calculate the average inflammation per day across all patients, and</li>
+<li>plot the result.</li>
+</ul>
+<p>To do all that, we'll have to learn a little bit about programming.</p>
+<div class="objectives" markdown="1">
+<h4>Objectives</h4>
+<ul>
+<li>Get to know the MATLAB environment.</li>
+<li>Learn about MATLAB arrays.</li>
+<li>Read tabular data from a file into a program.</li>
+<li>Assign values to variables.</li>
+<li>Select individual values and subsections from data.</li>
+<li>Perform operations on arrays of data.</li>
+<li>Display simple graphs.</li>
+</ul>
+</div>
+<h3 id="matlab-gui">MATLAB GUI</h3>
+<p>We have a dozen datasets that need analysis, stored as <code>.csv</code> files - but MATLAB doesn't know about these files yet. The first thing we need to do is set MATLAB's <a href="../../gloss.html#current-working-directory">working directory</a> to the directory containing the files. To do this, we go to the <code>Home</code> tab, click on <code>Set Path</code>, and then on <code>Add with Subfolders...</code>. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files.</p>
+<p>Before we can start programming, we need to know a little about the MATLAB interface. Using the default setup, the MATLAB desktop contains several important sections:</p>
+<ul>
+<li>In the <strong>Command Window</strong> or shell we can run and debug our code. Everything that's typed into the command window is executed immediately.</li>
+<li>Alternatively, we can open the <strong>Editor</strong>, write our code and run it all at once. The upside of this is that we can save our code and run it again in the same way at a later stage.</li>
+<li><strong>Search Documentation</strong> on the top right of your screen lets you search for functions. Suggestions for functions that would do what you want to do will pop up. Clicking on them will open the documentation.</li>
+</ul>
+<h3 id="loading-data">Loading Data</h3>
+<p>Reading data from files and writing data to them are essential tasks in scientific computing, and admittedly, something that we'd rather not spend a lot of time thinking about. Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently, sparing us the grisly detail.</p>
+<p>If we know what our data looks like (in this case, we have comma-separated values) and we're unsure about what command we want to use, we can search the documentation. Type <code>read csv</code> into the documentation toolbar. MATLAB suggests using <code>csvread</code>. If we have a closer look at the documentation, MATLAB also tells us, which in- and output arguments this function has.</p>
+<p>To load the data from our CSV file into MATLAB, type following command into the MATLAB shell, and press <code>Enter</code>:</p>
+<pre><code>csvread(&#39;inflammation-01.csv&#39;)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>You should see a wall of numbers on the screen---these are the values from the CSV file. It can sometimes be useful to see the output from MATLAB commands, but it is often not. To suppress the output, simply put a semicolon at the end of your command:</p>
+<pre><code>csvread(&#39;inflammation-01.csv&#39;);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>The expression <code>csvread(...)</code> is a <a href="../../gloss.html#function-call">function call</a>. Functions generally need <a href="../../gloss.html#parameter">parameters</a> to run. In the case of the <code>csvread</code> function, we need to provide a single parameter: the name of the file we want to read data from. This parameter needs to be a character string or <a href="../../gloss.html#string">string</a>, so we put it in quotes.</p>
+<p>Our call to <code>csvread</code> read our file, and printed the data inside to the screen. And adding a semicolon rendered it even less useful--- we have no way to modify those values or compute with them. To do that, we need to assign the array to a <a href="../../gloss.html#variable">variable</a>.</p>
+<pre><code>patient_data = csvread(&#39;inflammation-01.csv&#39;);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>A variable is just a name for a piece of data or <em>value</em>. Variable names must begin with a letter, and can contain numbers or underscores. Examples of valid variable names are <code>x</code>, <code>f_0</code> or <code>current_temperature</code>.</p>
+<p>We can create a new variable simply by assigning a value to it using <code>=</code>:</p>
+<pre><code>weight_kg = 55;</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>Once a variable has a value, we can print it using the <code>disp</code> function:</p>
+<pre><code>disp(weight_kg);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>55</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>and do arithmetic with it:</p>
+<pre><code>weight_in_pounds = 2.2 * weight_kg;
+disp([&#39;Weight in pounds: &#39;, num2str(weight_in_pounds)]);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Weight in pounds: 121.0</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>The <code>disp</code> function takes a single parameter -- the value to print. To print more than one value on a single line, we could print an <em>array</em> of values. All values in this array need to be the same type. So, if we want to print a string and a numerical value together, we <em>have</em> to convert that numerical value to a string with the <code>num2str</code> function.</p>
+<h3 id="understanding-assignment">Understanding Assignment</h3>
+<p>If we imagine the variable as a sticky note with a name written on it, assignment is like putting the sticky note on a particular value:</p>
+<div>
+<img src="img/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+</div>
+<p>Assigning a value to one variable does not change the values of other variables. For example,</p>
+<pre><code>weight_kg = 57.5;
+weight_lb = 2.2 * weight_in__kg;
+disp([&#39;Weight in kg: &#39;, num2str(weight_kg); &#39;Weight in pounds: &#39;, num2str(weight_lb)]);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Weight in kg: 57.5
+Weight in pounds: 126.5</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<div>
+<img src="img/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
+</div>
+<p>Let's update the value of one of our variable, and print the values of both:</p>
+<pre><code>weight_kg = 100;
+disp([&#39;Weight in kg: &#39;, num2str(weight_kg); &#39;Weight in pounds: &#39;,
+num2str(weight_lb)]);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Weight in kg: 100
+Weight in pounds: 126.5</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<div>
+<img src="img/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
+</div>
+<p>Since <code>weight_lb</code> doesn't &quot;remember&quot; where its value came from, it isnt automatically updated when <code>weight_kg</code> changes. This is important to remember, and different from the way spreadsheets work.</p>
+<p>Now that we know how to assign things to variables, let's re-run <code>csvread</code> and save its result.</p>
+<pre><code>patient_data = csvread(&#39;inflammation-01.csv&#39;);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>MATLAB provides a command to list all variables that have been assigned data.</p>
+<pre><code>who</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Variables in the current scope:
+
+patient_data
+weight_kg
+weight_lb
+</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>To remove a variable from MATLAB, use the <code>clear</code> command:</p>
+<pre><code>clear weight_lb
+who</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Variables in the current scope:
+
+patient_data
+weight_kg
+</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>Alternatively, we can look at the <strong>Workspace</strong>. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available, which is why it's good to keep it clean to not accidentally overwriting a variable of function that you later use. It can be cleaned up typing <code>clear all</code>.</p>
+<h4 id="challenges">Challenges</h4>
+<ol style="list-style-type: decimal">
+<li>Draw diagrams showing what variables refer to what values after each statement in the following program:</li>
+</ol>
+<pre><code>mass = 47.5
+age = 122
+mass = mass * 2.0
+age = age - 20</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<h3 id="matlab-arrays">MATLAB Arrays</h3>
+<p>Now that our data is in memory, we can start doing things with it. First, let's find out its size or <a href="../../gloss.html#shape">shape</a>:</p>
+<pre><code>size(patient_data)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+    60 40</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>The output tells us that the variable <code>patient_data</code> refers to a table of values that has 60 rows and 40 columns.</p>
+<p>MATLAB stores <em>all</em> data in the form of arrays. For example:</p>
+<ul>
+<li>Numbers, or <em>scalars</em> are arrays of zero dimensions, as are single characters,</li>
+<li>Lists of numbers, or <em>vectors</em> are arrays of one dimension,</li>
+<li>Tables of numbers, or <em>matrices</em> are arrays of two dimensions,</li>
+<li>Even character strings, like sentences, are stored as an &quot;array of characters&quot;.</li>
+</ul>
+<p>Normally, MATLAB arrays can't store elements of different data types. For instance, a MATLAB array can't store both a <code>float</code> and a <code>char</code>. To do that, you have to use a <a href="http://www.mathworks.com/help/matlab/cell-arrays.html">Cell Array</a>.</p>
+<p>We can use the <code>class</code> function to find out what kind of data lives inside an array:</p>
+<pre><code>class(patient_data)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans = double</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>This output tells us that <code>patient_data</code> refers to an array of double precision floating-point numbers. This is the default numeric data type in MATLAB. If you want to store other numeric data types, you need to tell MATLAB explicitly. For example, the command,</p>
+<pre><code>x = int16(325);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>assigns the value <code>325</code> to the name <code>x</code>, storing it as a 16-bit signed integer.</p>
+<h3 id="accessing-array-elements">Accessing Array Elements</h3>
+<p>Let's create an 8-by-8 &quot;magic&quot; Matrix:</p>
+<pre><code>M = magic(8)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   64    2    3   61   60    6    7   57
+    9   55   54   12   13   51   50   16
+   17   47   46   20   21   43   42   24
+   40   26   27   37   36   30   31   33
+   32   34   35   29   28   38   39   25
+   41   23   22   44   45   19   18   48
+   49   15   14   52   53   11   10   56
+    8   58   59    5    4   62   63    1</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>We want to access a single value from the matrix:</p>
+<div>
+<img src="img/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
+</div>
+<p>To do that, we must provide its <a href="../../gloss.html#index">index</a> in brackets:</p>
+<pre><code>M(5, 6)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans = 38</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>Indices are provided as (row, column). So the index <code>(5, 6)</code> selects the element on the fifth row and sixth column.</p>
+<p>An index like <code>(5, 6)</code> selects a single element of an array, but we can also access sections of the matrix, or <a href="../../gloss.html#slice">slices</a>. To access a row of values:</p>
+<div>
+<img src="img/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
+</div>
+<p>we can do:</p>
+<pre><code>M(5, :)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   32   34   35   29   28   38   39   25
+</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>Providing <code>:</code> as the index for a dimension selects <em>all</em> elements along that dimension. So, the index <code>(5, :)</code> selects the elements on row <code>5</code>, and <em>all</em> columns---effectively, the entire row. We can also select multiple rows,</p>
+<div>
+<img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
+</div>
+<pre><code>M(1:4, :)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   64    2    3   61   60    6    7   57
+    9   55   54   12   13   51   50   16
+   17   47   46   20   21   43   42   24
+   40   26   27   37   36   30   31   33</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>and columns:</p>
+<div>
+<img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
+</div>
+<pre><code>M(:, 6:end)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+    6    7   57
+   51   50   16
+   43   42   24
+   30   31   33
+   38   39   25
+   19   18   48
+   11   10   56
+   62   63    1</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>To select a submatrix,</p>
+<div>
+<img src="img/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
+</div>
+<p>we have to take slices in both dimensions:</p>
+<pre><code>M(4:6, 5:7)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   36   30   31
+   28   38   39
+   45   19   18
+</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>We don't have to take all the values in the slice---if we provide a <a href="../../gloss.html#stride">stride</a>. Let's say we want to start with row <code>2</code>, and subsequently select every third row:</p>
+<div>
+<img src="img/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
+</div>
+<pre><code>M(2:3:end, :)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+    9   55   54   12   13   51   50   16
+   32   34   35   29   28   38   39   25
+    8   58   59    5    4   62   63    1</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>And we can also select values in a &quot;checkerboard&quot;,</p>
+<div>
+<img src="img/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
+</div>
+<p>by taking appropriate strides in both dimensions:</p>
+<pre><code>M(1:3:end, 2:2:end)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+    2   61    6   57
+   26   37   30   33
+   15   52   11   56</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<h4 id="challenges-1">Challenges</h4>
+<p>A subsection of an array is called a <a href="../../gloss.html#slice">slice</a>. We can take slices of character strings as well:</p>
+<pre><code>element = &#39;oxygen&#39;;
+disp([&#39;first three characters: &#39;, element(1:3)])
+disp([&#39;last three characters: &#39;, element(4:6)])</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>first three characters: oxy
+last three characters: gen</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<ol style="list-style-type: decimal">
+<li><p>What is the value of <code>element(4:end)</code>? What about <code>element(1:2:end)</code>? Or <code>element(2:end - 1)</code>?</p></li>
+<li><p>For any size array, Matlab allows us to index with a single colon operator (<code>:</code>). This can have surprising effects. For instance, compare <code>element</code> with <code>element(:)</code>. What is <code>size(element)</code> versus <code>size(element(:))</code>? Finally, try using the single colon on the matrix <code>M</code> above: <code>M(:)</code>. What seems to be happening when we use the single colon operator for slicing?</p></li>
+</ol>
+<h3 id="computing-with-arrays">Computing With Arrays</h3>
+<p>Now that we know how to access data we want to compute with, we're ready to analyze <code>patient_data</code>. MATLAB knows how to perform common mathematical operations on arrays. If we want to find the average inflammation for all patients on all days, we can just ask for the mean of the array:</p>
+<pre><code>mean(patient_data(:))</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans = 6.1487</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>We couldn't just do <code>mean(patient_data)</code> because, that would compute the mean of <em>each column</em> in our table, and return an array of mean values. The expression <code>patient_data(:)</code> <em>flattens</em> the table into a one-dimensional array.</p>
+<p>To get details about what a function, like <code>mean</code>, does and how to use it, use MATLAB's <code>help</code> command.</p>
+<pre><code>help mean</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code> -- Function File: mean (X)
+ -- Function File: mean (X, DIM)
+ -- Function File: mean (X, OPT)
+ -- Function File: mean (X, DIM, OPT)
+     Compute the mean of the elements of the vector X.
+
+          mean (x) = SUM_i x(i) / N
+
+     If X is a matrix, compute the mean for each column and return them
+     in a row vector.
+
+     The optional argument OPT selects the type of mean to compute.  The
+     following options are recognized:
+
+     &quot;a&quot;
+          Compute the (ordinary) arithmetic mean.  [default]
+
+     &quot;g&quot;
+          Compute the geometric mean.
+
+     &quot;h&quot;
+          Compute the harmonic mean.
+
+     If the optional argument DIM is given, operate along this
+     dimension.
+
+     Both DIM and OPT are optional.  If both are supplied, either may
+     appear first.
+
+     See also: median, mode.</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>We can also compute other statistics, like the maximum, minimum and standard deviation.</p>
+<pre><code>disp([&#39;Maximum inflammation: &#39;, num2str(max(patient_data(:)))]);
+disp([&#39;Minimum inflammation: &#39;, num2str(min(patient_data(:)))]);
+disp([&#39;Standard deviation: &#39;, num2str(std(patient_data(:)))]);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Maximum inflammation: 20
+Minimum inflammation: 0
+Standard deviation: 4.6148</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>When analyzing data, though, we often want to look at partial statistics, such as the maximum value per patient or the average value per day. One way to do this is to assign the data we want to a new temporary array, then ask it to do the calculation:</p>
+<pre><code>patient_1 = patient_data(1, :)
+disp([&#39;Maximum inflation for patient 1: &#39;, max(patient_1));</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Maximum inflation for patient 1: 18</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>We don't actually need to store the row in a variable of its own. Instead, we can combine the selection and the function call:</p>
+<pre><code>max(patient_data(1, :))</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans = 18</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>What if we need the maximum inflammation for <em>all</em> patients, or the average for each day? As the diagram below shows, we want to perform the operation across an axis:</p>
+<div>
+<img src="img/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
+</div>
+<p>To support this, MATLAB allows us to specify the <em>dimension</em> we want to work on. If we ask for the average across the dimension 1, we get:</p>
+<pre><code>mean(patient_data, 1)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+ Columns 1 through 13:
+
+    0.00000    0.45000    1.11667    1.75000    2.43333    3.15000    3.80000    3.88333    5.23333    5.51667    5.95000    5.90000    8.35000
+
+ Columns 14 through 26:
+
+    7.73333    8.36667    9.50000    9.58333   10.63333   11.56667   12.35000   13.25000   11.96667   11.03333   10.16667   10.00000    8.66667
+
+ Columns 27 through 39:
+
+    9.15000    7.25000    7.33333    6.58333    6.06667    5.95000    5.11667    3.60000    3.30000    3.56667    2.48333    1.50000    1.13333
+
+ Column 40:
+
+    0.56667
+</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>As a quick check, we can check the shape of this array:</p>
+<pre><code>size(mean(patient_data, 1))</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+    1    40</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>The shape tells us we have a 1-by-40 vector, so this is the average inflammation per day for all patients. If we average across axis 2, we get:</p>
+<pre><code>mean(patient_data, 2)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   5.4500
+   5.4250
+   6.1000
+   5.9000
+   5.5500
+   6.2250
+   5.9750
+   6.6500
+   6.6250
+   6.5250
+   6.7750
+   5.8000
+   6.2250
+   5.7500
+   5.2250
+   6.3000
+   6.5500
+   5.7000
+   5.8500
+   6.5500
+   5.7750
+   5.8250
+   6.1750
+   6.1000
+   5.8000
+   6.4250
+   6.0500
+   6.0250
+   6.1750
+   6.5500
+   6.1750
+   6.3500
+   6.7250
+   6.1250
+   7.0750
+   5.7250
+   5.9250
+   6.1500
+   6.0750
+   5.7500
+   5.9750
+   5.7250
+   6.3000
+   5.9000
+   6.7500
+   5.9250
+   7.2250
+   6.1500
+   5.9500
+   6.2750
+   5.7000
+   6.1000
+   6.8250
+   5.9750
+   6.7250
+   5.7000
+   6.2500
+   6.4000
+   7.0500
+   5.9000</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>which is the average inflammation per patient across all days.</p>
+<h3 id="plotting">Plotting</h3>
+<p>The mathematician Richard Hamming once said, &quot;The purpose of computing is insight, not numbers,&quot; and the best way to develop insight is often to visualize data. Visualization deserves an entire lecture (or course) of its own, but we can explore a few features of MATLAB here.</p>
+<p>Let's display a heat map of our data:</p>
+<pre><code>imagesc(patient_data)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<div>
+<img src="img/01-intro_1.png" style="height:350px">
+</div>
+<p>The <code>imagesc</code> function represents the matrix as a color image. Every value in the matrix is <em>mapped</em> to a color. Blue regions in this heat map are low values, while red shows high values. As we can see, inflammation rises and falls over a 40 day period. Let's take a look at the average inflammation over time:</p>
+<pre><code>ave_inflammation = mean(patient_data, 1);
+plot(ave_inflammation);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<div>
+<img src="img/01-intro_2.png" style="height:350px">
+</div>
+<p>Here, we have put the average per day across all patients in the variable <code>ave_inflammation</code>, then used the <code>plot</code> function to display a line graph of those values. The result is roughly a linear rise and fall, which is suspicious: based on other studies, we expect a sharper rise and slower fall. Let's have a look at two other statistics: the maximum and minimum inflammation per day across all patients.</p>
+<pre><code>plot(max(patient_data, [], 1));
+title(&#39;Maximum inflammation per day&#39;);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<div>
+<img src="img/01-intro_3.png" style="height:350px">
+</div>
+<pre><code>plot(min(patient_data, [], 1));
+title(&#39;Minimum inflammation per day&#39;);</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<div>
+<img src="img/01-intro_4.png" style="height:350px">
+</div>
+<p>Like <code>mean()</code>, the functions <code>max()</code> and <code>min()</code> can also operate across a specified dimension of the matrix. However, the syntax is slightly different. To see why, run a <code>help</code> on each of these functions.</p>
+<p>From the figures, we see that the maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there 's a mistake in our calculations or something is wrong with our data.</p>
+<h4 id="challenges-2">Challenges</h4>
+<ol style="list-style-type: decimal">
+<li><p>Why do our graphs stop just short of 0 at their left edge? Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical?</p></li>
+<li><p>Create a plot showing the standard deviation of the inflammation data for each day across all patients.</p></li>
+</ol>
+<h3 id="wrapping-up">Wrapping up</h3>
+<p>It's common to put multiple figures &quot;side-by-side&quot; in a single window for presentation and convenience. Here's how to use the <code>subplot</code> function to do this:</p>
+<pre><code>subplot(1, 2, 1);
+plot(max(patient_data, [], 1));
+ylabel(&#39;max&#39;)
+
+subplot(1, 2, 2);
+plot(min(patient_data, [], 1));
+ylabel(&#39;min&#39;)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<div>
+<img src="img/01-intro_5.png" style="width:800px; height:300px">
+</div>
+<div class="keypoints" markdown="1">
+<h4>Key Points</h4>
+<ul>
+<li>A value is a piece of data that a program works with. In MATLAB, values are always stored as arrays. Values can be numbers, vectors, matrices, characters, strings, or a number of other things, but they are <em>always</em> represented by an array.</li>
+<li>The &quot;size&quot; of an array is the number of elements it has in each dimension.</li>
+<li>Use <code>variable = value</code> to assign a value to a variable. The &quot;value&quot; is always an array in MATLAB, and can contain different kinds of data, like integers, floats or characters.</li>
+<li>Use the <code>disp()</code> function to print things to screen. If you want to print many things on the same line, print an array of things.</li>
+<li>Use <code>array(x, y)</code> to select a single element from an array.</li>
+<li>Array indices in MATLAB start at 1, not 0 like in C or Python.</li>
+<li>Use <code>low:high</code> to specify a slice that includes the indices from <code>low</code> to <code>high</code>.</li>
+<li><code>mean()</code>, <code>max()</code> and <code>min()</code> can be used to calculate simple statistics about an array, or along specified dimensions of that array.</li>
+<li>The <code>imagesc()</code> function produces a heat map from a matrix (2-D array), and the <code>plot()</code> function can be used to produce a line graph from a vector (1-D array).</li>
+</ul>
+</div>
+<h4 id="next-steps">Next Steps</h4>
+<p>Our work so far has convinced us that something is wrong with our first data file. We would like to check the other 11 the same way, but typing in the same commands repeatedly is tedious and error-prone. Since computers don't get bored (that we know of), we should create a way to do a complete analysis with a single command, and then figure out how to repeat that step once for each file. These operations are the subjects of the next two lessons.</p>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>
