@@ -1,7 +1,7 @@
 for idx = 1:3
     
     % Generate strings for file and image names:
-    file_name = sprintf('inflammation-%02d.csv', idx);
+    file_name = sprintf('data/inflammation-%02d.csv', idx);
     img_name = sprintf ('patient_data-%02d.png', idx);
 
     patient_data = csvread(file_name);
