@@ -261,7 +261,7 @@ Alternatively, we can look at the **Workspace**. The workspace contains all vari
 
 #### Challenges
 
-1.  Draw diagrams showing what variables refer to what values after each statement in the following program:
+1.  Predict the values of the variables after each statement in the following program:
 
 ~~~
 mass = 47.5
@@ -405,8 +405,11 @@ Providing `:` as the index for a dimension selects *all* elements
 along that dimension.
 So, the index `(5, :)` selects
 the elements on row `5`, and *all* columns---effectively, the entire row.
-We can also
-select multiple rows,
+
+The `:` (colon) operator `:` can also be used to select multiple rows and even 
+determine the spacing. All we need to do is to define a start value, a 
+[stride](../../gloss.html#stride), and an end value. 
+
 
 <div>
   <img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
@@ -432,6 +435,8 @@ and columns:
 <div>
   <img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
 </div>
+
+Instead of counting the rows ourselves, we can also use the `end` keyword:
 
 ~~~
 M(:, 6:end)

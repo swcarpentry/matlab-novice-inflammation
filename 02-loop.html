@@ -49,6 +49,7 @@
 <!-- FIXME: The 0 lesson should talk about the colon operator -->
 <!-- FIXME: Need to mention that strings are arrays -->
 <!-- FIXME: Decide on consistent string---single or double quotes? -->
+
 <h3 id="saving-our-work">Saving Our Work</h3>
 <h3 id="writing-scripts">Writing Scripts</h3>
 <p>In addition to running MATLAB commands one-by-one on the command line, we can also write several commands in a <em>script</em>. A MATLAB script is just a text file with a <code>.m</code> extension. We've written commands to load data from a <code>.csv</code> file and displays some statistics about that data. Let's put those commands in a script called <code>analyze.m</code>:</p>
@@ -108,9 +109,17 @@ ylabel(&#39;min&#39;)
 
 % save plot to disk as png image:
 print -dpng &quot;patient_data-01.png&quot;</code></pre>
+<h4 id="challenges">Challenges</h4>
+<ol style="list-style-type: decimal">
+<li>Write a script that opens two inflammation data files and computes and displays the difference between the files. Plot and save this data.</li>
+</ol>
+<h3 id="analyzing-multiple-datasets">Analyzing Multiple Datasets</h3>
+<p>We have a dozen data sets right now, and more on the way. We want to create plots for all our data sets without repeating the above commands each time. To do that we'll have to learn how to get the computer to repeat things.</p>
 <h4 id="the-colon-operator">The Colon Operator</h4>
 <!-- FIXME: Maybe this should be in a box? -->
-<p>You can use the <code>:</code> (colon) operator to generate sequences in MATLAB:</p>
+
+<p>We have used the <code>:</code> (colon) operator before to access certain fields in an array.</p>
+<p>We can also use it to generate sequences in MATLAB and it will soon help us analyzing multiple data sets:</p>
 <pre><code>4:10</code></pre>
 <p>{:class=&quot;in&quot;} <sub>~</sub> ans =</p>
 <pre><code>4    5    6    7    8    9   10</code></pre>
@@ -128,8 +137,6 @@ print -dpng &quot;patient_data-01.png&quot;</code></pre>
     4.5000    4.7500    5.0000
 </code></pre>
 <p>{:class=&quot;out&quot;}</p>
-<h3 id="analyzing-multiple-datasets">Analyzing Multiple Datasets</h3>
-<p>We have a dozen data sets right now, and more on the way. We want to create plots for all our data sets without repeating the above commands each time. To do that we'll have to learn how to get the computer to repeat things.</p>
 <h3 id="for-loops">for loops</h3>
 <p>Suppose we want to print each character in the word &quot;lead&quot; on a line of its own. One way is to use four <code>disp</code> statements:</p>
 <pre><code>word = &#39;lead&#39;;
@@ -225,7 +232,7 @@ disp([&#39;Number of vowels: &#39;, num2str(len)])</code></pre>
 <pre><code>u</code></pre>
 <p>{:class=&quot;out&quot;}</p>
 <p>After the loop, <code>vowel</code> refers to the last value in <code>aeiou</code>, i.e., <code>u</code>.</p>
-<h4 id="challenges">Challenges</h4>
+<h4 id="challenges-1">Challenges</h4>
 <ol style="list-style-type: decimal">
 <li>Write a loop that spells the word &quot;aluminum,&quot; adding one letter at a time:</li>
 </ol>
@@ -329,34 +336,11 @@ end</code></pre>
 <img src="img/02-loop_3.png" style="width:500px; height:400px">
 </div>
 <p>Sure enough, the maxima of these data sets show exactly the same ramp as the first, and their minima show the same staircase structure.</p>
-<h4 id="challenges-1">Challenges</h4>
+<h4 id="challenges-2">Challenges</h4>
 <ol style="list-style-type: decimal">
-<li>In cases where our file names don't follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="../../gloss.html#wildcard">wildcard</a>:</li>
+<li>Templates can also be used to display certain values on the screen. Use a loop and templates to display the mean, the maximum, and the minimum of each data file in the following format:</li>
 </ol>
-<p><sub>~</sub> ls *.csv <sub>~</sub> {:class=&quot;in&quot;}</p>
-<p>Thankfully, Matlab also has <code>ls</code>, though it returns a single long string:</p>
-<p><sub>~</sub> filestr = ls('*.csv') <sub>~</sub> {:class=&quot;in&quot;}</p>
-<p><sub>~</sub> inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv <sub>~</sub> {:class=&quot;out&quot;}</p>
-<p>To turn this string into an array we can loop over (actually, a <a href="http://www.mathworks.com/help/matlab/cell-arrays.html">Cell Array</a>), we need to &quot;split&quot; the string at each occurrence of whitespace:</p>
-<p><sub>~</sub> file_string = ls('*.csv'); file_list = strsplit(file_string) <sub>~</sub> {:class=&quot;in&quot;}</p>
-<p><sub>~</sub> file_list =</p>
-<pre><code> Columns 1 through 3
-
-   &#39;inflammation-01.csv&#39;    &#39;inflammation-04.csv&#39;    &#39;inflammation-07.csv&#39;
-
- Columns 4 through 6
-
-   &#39;inflammation-10.csv&#39;    &#39;inflammation-02.csv&#39;    &#39;inflammation-05.csv&#39;
-
- Columns 7 through 9
-
-   &#39;inflammation-08.csv&#39;    &#39;inflammation-11.csv&#39;    &#39;inflammation-03.csv&#39;
-
- Columns 10 through 13
-
-   &#39;inflammation-06.csv&#39;    &#39;inflammation-09.csv&#39;    &#39;inflammation-12.csv&#39;    &#39;&#39;</code></pre>
-<p><sub>~</sub> {:class=&quot;out&quot;}</p>
-<p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
+<p>The average inflammation value in file (filename) is (value).</p>
 <div class="keypoints" markdown="1">
 <h4 id="key-points">Key Points</h4>
 <ul>
