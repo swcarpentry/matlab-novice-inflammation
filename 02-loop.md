@@ -169,11 +169,30 @@ print -dpng "patient_data-01.png"
 ~~~
 
 
+
+#### Challenges
+
+1. Write a script that opens two inflammation data files and
+computes and displays the difference between the files. Plot and 
+save this data. 
+
+
+### Analyzing Multiple Datasets
+
+We have a dozen data sets right now, and more on the way. We want
+to create plots for all our data sets without repeating the
+above commands each time. To do that we'll have to learn how to
+get the computer to repeat things.
+
+
 #### The Colon Operator
 <!-- FIXME: Maybe this should be in a box? -->
 
-You can use the `:` (colon) operator to generate
-sequences in MATLAB:
+We have used the `:` (colon) operator before to access
+certain fields in an array. 
+
+We can also use it to generate
+sequences:
 
 ~~~
 4:10
@@ -204,13 +223,6 @@ ans =
 
 ~~~
 {:class="out"}
-
-### Analyzing Multiple Datasets
-
-We have a dozen data sets right now, and more on the way. We want
-to create plots for all our data sets without repeating the
-above commands each time. To do that we'll have to learn how to
-get the computer to repeat things.
 
 
 ### for loops
@@ -674,7 +686,7 @@ as the first, and their minima show the same staircase structure.
        'inflammation-06.csv'    'inflammation-09.csv'    'inflammation-12.csv'    ''
    ~~~
    {:class="out"}
-
+ 
    Using this trick, rewrite the `analyze` script to analyze all `csv` files in
    the current directory. Be careful of the empty string `''` at the end of
    `file_list`!

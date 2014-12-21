@@ -45,7 +45,67 @@
 <li>Explain why variables should be initialized using actual data values rather than arbitrary constants.</li>
 <li>Debug code containing an error systematically.</li>
 </ul>
+<h3 id="testing-and-documentation">Testing and Documentation</h3>
+<p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let's write a function to center a dataset around a particular value:</p>
+<pre><code>function out = center(data, desired)
+    out = (data - mean(data)) + desired
+end</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>We could test this on our actual data, but since we don't know what the values ought to be, it will be hard to tell if the result was correct, Instead, let's create a matrix of 0's, and then center that around 3:</p>
+<pre><code>z = zeros(2,2);
+center(z, 3)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>ans =
+
+   3   3
+   3   3</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>That looks right, so let's try out <code>center</code> function on our real data:</p>
+<pre><code>data = csvread(&#39;inflammation-01.csv&#39;);
+centered = center(data(:), 0)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>It's hard to tell from the default output whether the result is correct--this is often the case when working with fairly large arrays--but, there are a few simple tests that will reassure us.</p>
+<p>Let's calculate some simple statistics:</p>
+<pre><code>disp([min(data(:)), mean(data(:)), max(data(:))])</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>0.00000    6.14875   20.00000</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>And let's do the same after applying our <code>center</code> function to the data:</p>
+<pre><code>disp([min(centered(:)), mean(centered(:)), max(centered(:))])</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>-6.1487e+00  -2.2962e-14   1.3851e+01</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<!-- FIXME: challenge -->
+
+<p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn't quite zero--we'll explore why not in the challenges--but it's pretty close. We can even go further and check that the standard deviation hasn't changed:</p>
+<pre><code>std(data(:)) - std(centered)</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>5.3291e-15</code></pre>
+<p>{:class=&quot;out&quot;}</p>
+<p>The difference is very small. It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="../../gloss.html#documentation">documentation</a> for our function to remind ourselves later what it's for and how to use it.</p>
+<pre><code>function out = center(data, desired)
+    %   Center data around a desired value.
+    %
+    %       center(DATA, DESIRED)
+    %
+    %   Returns a new array containing the values in
+    %   DATA centered around the value.
+
+    out = (data  - mean(data)) + desired;
+end</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<p>Comment lines immediately below the function definition line are called &quot;help text&quot;. Typing <code>help function_name</code> brings up the help text for that function:</p>
+<pre><code>help center</code></pre>
+<p>{:class=&quot;in&quot;}</p>
+<pre><code>Center data around a desired value.
+
+    center(DATA, DESIRED)
+
+Returns a new array containing the values in
+DATA centered around the value.</code></pre>
+<p>{:class=&quot;out&quot;}</p>
 <h3 id="assertions">Assertions</h3>
+<p>We now know one way to test our code, but it's hard to redo. A better way of making sure our code does what we ask is to use something called <a href="../../gloss.html#assertion">assertions</a>.</p>
 <p>The first step toward getting the right answers from our programs is to assume that mistakes <em>will</em> happen and to guard against them. This is called <a href="../../gloss.html#defensive-programming">defensive programming</a>, and the most common way to do it is to add <a href="../../gloss.html#assertion">assertions</a> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When MATLAB sees one, it checks the assertion's condition. If it's true, MATLAB does nothing, but if it's false, MATLAB halts the program immediately and prints an error message. For example, this piece of code halts as soon as the loop encounters a value that isn't positive:</p>
 <pre><code>numbers = [1.5, 2.3, 0.7, -0.001, 4.4];
 total = 0;
