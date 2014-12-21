@@ -192,8 +192,7 @@ We have used the `:` (colon) operator before to access
 certain fields in an array. 
 
 We can also use it to generate
-sequences in MATLAB and it will soon help us analyzing multiple
-data sets:
+sequences:
 
 ~~~
 4:10
@@ -633,12 +632,64 @@ as the first, and their minima show the same staircase structure.
 
 #### Challenges
 
-1. Templates can also be used to display certain values on the screen.
-Use a loop and templates to display the mean, the maximum, and the minimum 
-of each data file in the following format:
+1. In cases where our file names don't follow such a regular pattern, we might
+   want to process all files that end with a given extension, say `.csv`. At the
+   command line we could get this list of files by using a
+   [wildcard](../../gloss.html#wildcard):
 
-The average inflammation value in file (filename) is (value).
+   ~~~
+   ls *.csv
+   ~~~
+   {:class="in"}
 
+   Thankfully, Matlab also has `ls`, though it returns a single long string:
+
+   ~~~
+   filestr = ls('*.csv')
+   ~~~
+   {:class="in"}
+
+   ~~~
+   inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv
+   inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv
+   inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv
+   ~~~
+   {:class="out"}
+
+   To turn this string into an array we can loop over (actually, a
+   [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html)),
+   we need to "split" the string at each occurrence of whitespace:
+
+   ~~~
+   file_string = ls('*.csv');
+   file_list = strsplit(file_string)
+   ~~~
+   {:class="in"}
+
+   ~~~
+   file_list =
+
+     Columns 1 through 3
+
+       'inflammation-01.csv'    'inflammation-04.csv'    'inflammation-07.csv'
+
+     Columns 4 through 6
+
+       'inflammation-10.csv'    'inflammation-02.csv'    'inflammation-05.csv'
+
+     Columns 7 through 9
+
+       'inflammation-08.csv'    'inflammation-11.csv'    'inflammation-03.csv'
+
+     Columns 10 through 13
+
+       'inflammation-06.csv'    'inflammation-09.csv'    'inflammation-12.csv'    ''
+   ~~~
+   {:class="out"}
+ 
+   Using this trick, rewrite the `analyze` script to analyze all `csv` files in
+   the current directory. Be careful of the empty string `''` at the end of
+   `file_list`!
 
 <div class="keypoints" markdown="1">
 #### Key Points
