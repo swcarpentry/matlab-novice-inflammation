@@ -37,7 +37,7 @@ To do all that, we'll have to learn a little bit about programming.
 > * Perform operations on arrays of data.
 > * Display simple graphs.
 
-We have a dozen datasets that need analysis, stored as `.csv` files - 
+We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
 [working directory](gloss.html#current-working-directory)
@@ -49,14 +49,14 @@ and then on `Add with Subfolders...`.
 We navigate to the directory containing our files and
 add it to the path to tell MATLAB where to look for our files.
 
-Before we can start programming, we need to know a little about the MATLAB interface. 
+Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
 * In the **Command Window** or shell we can run and debug our code.
 Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
-we can save our code and run it again in the same way at a later stage. 
+we can save our code and run it again in the same way at a later stage.
 
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
@@ -242,9 +242,9 @@ It's generally a good idea to keep the workspace as clean as possible.
 To do that, simply type `clear all`.
 
 > ## Predicting Values of Variables {.challenge}
-> 
+>
 > 1.  Draw diagrams showing what variables refer to what values after each statement in the following program:
-> 
+>
 > ~~~{.matlab}
 > mass = 47.5
 > age = 122
@@ -460,22 +460,22 @@ ans =
 ~~~
 
 > ## Working with the Colon Operator {.challenge}
-> 
+>
 > A subsection of an array is called a [slice](gloss.html#slice). We can take slices of character strings as well:
-> 
+>
 > ~~~{.matlab}
 > element = 'oxygen';
 > disp(['first three characters: ', element(1:3)])
 > disp(['last three characters: ', element(4:6)])
 > ~~~
-> 
+>
 > ~~~{.output}
 > first three characters: oxy
 > last three characters: gen
 > ~~~
-> 
-> 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
-> 
+>
+> 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`?
+>
 > 2. For any size array, Matlab allows us to index with a single colon operator (`:`).
 > This can have surprising effects.
 > For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?
@@ -772,10 +772,10 @@ seems particularly likely, so either there 's a mistake in our
 calculations or something is wrong with our data.
 
 > ## Plots {.challenge}
-> 
+>
 > 1. Why do our graphs stop just short of 0 at their left edge?
-> Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
-> 
+> Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical?
+>
 > 2. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
 
