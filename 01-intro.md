@@ -1,13 +1,12 @@
 ---
-layout: lesson
-root: ../..
+layout: page
 title: Analyzing Patient Data
 ---
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)](../../gloss.html#comma-separated-values) format:
+[Comma Separated Values (CSV)](gloss.html#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
@@ -21,7 +20,6 @@ The first few rows of our first file,
 0,1,1,3,3,1,3,5,2,4,4,7,6,5,3,10,8,10,6,17,9,14,9,7,13,9,12,6,7,7,9,6,3,2,2,4,2,0,1,1
 ~~~
 
-
 We want to:
 
 * load that data into memory,
@@ -30,21 +28,19 @@ We want to:
 
 To do all that, we'll have to learn a little bit about programming.
 
-<div class="objectives" markdown="1">
-#### Objectives
-* Get to know the MATLAB environment.
-* Learn about MATLAB arrays.
-* Read tabular data from a file into a program.
-* Assign values to variables.
-* Select individual values and subsections from data.
-* Perform operations on arrays of data.
-* Display simple graphs.
-</div>
+> ## Learning Objectives
+> * Get to know the MATLAB environment.
+> * Learn about MATLAB arrays.
+> * Read tabular data from a file into a program.
+> * Assign values to variables.
+> * Select individual values and subsections from data.
+> * Perform operations on arrays of data.
+> * Display simple graphs.
 
 We have a dozen datasets that need analysis, stored as `.csv` files - 
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
-[working directory](../../gloss.html#current-working-directory)
+[working directory](gloss.html#current-working-directory)
 to the directory containing the files.
 To do this,
 we go to the `Home` tab,
@@ -61,6 +57,7 @@ Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
 we can save our code and run it again in the same way at a later stage. 
+
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
@@ -99,19 +96,19 @@ csvread('inflammation-01.csv');
 ~~~
 
 The expression `csvread(...)` is a
-[function call](../../gloss.html#function-call).
-Functions generally need [parameters](../../gloss.html#parameter)
+[function call](gloss.html#function-call).
+Functions generally need [parameters](gloss.html#parameter)
 to run.
 In the case of the `csvread` function, we need to provide a single
 parameter: the name of the file we want to read data from. This
 parameter needs to be a character string or
-[string](../../gloss.html#string), so we put it in quotes.
+[string](gloss.html#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
 to the screen. And adding a semicolon rendered it even less useful---
 we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
-[variable](../../gloss.html#variable).
+[variable](gloss.html#variable).
 
 ~~~ {.matlab}
 patient_data = csvread('inflammation-01.csv');
@@ -156,16 +153,10 @@ of values. All values in this array need to be the same type. So, if
 we want to print a string and a numerical value together, we *have* to
 convert that numerical value to a string with the `num2str` function.
 
-
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
 
-
-<div>
-  <img src="img/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
-</div>
-
-
+<img src="img/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
 
 Assigning a value to one variable does not change the values of other
 variables.
@@ -182,12 +173,7 @@ Weight in kg: 57.5
 Weight in pounds: 126.5
 ~~~
 
-
-<div>
-  <img src="img/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
-</div>
-
-
+<img src="img/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
 
 Let's update the value of one of our variable, and print the values
 of both:
@@ -203,10 +189,7 @@ Weight in kg: 100
 Weight in pounds: 126.5
 ~~~
 
-
-<div>
-  <img src="img/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
-</div>
+<img src="img/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
 
 Since `weight_lb` doesn't "remember" where its value came from, it isnt
 automatically updated when `weight_kg` changes. This is important to
@@ -272,7 +255,7 @@ age = age - 20
 
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its size or [shape](../../gloss.html#shape):
+First, let's find out its size or [shape](gloss.html#shape):
 
 ~~~ {.matlab}
 size(patient_data)
@@ -346,12 +329,10 @@ ans =
 
 We want to access a single value from the matrix:
 
-<div>
-  <img src="img/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
-</div>
+<img src="img/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
 
 To do that, we must provide
-its [index](../../gloss.html#index) in brackets:
+its [index](gloss.html#index) in brackets:
 
 ~~~ {.matlab}
 M(5, 6)
@@ -365,12 +346,10 @@ Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
 
 An index like `(5, 6)` selects a single element of
-an array, but we can also access sections of the matrix, or [slices](../../gloss.html#slice).
+an array, but we can also access sections of the matrix, or [slices](gloss.html#slice).
 To access a row of values:
 
-<div>
-  <img src="img/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
-</div>
+<img src="img/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
 
 we can do:
 
@@ -392,9 +371,7 @@ the elements on row `5`, and *all* columns---effectively, the entire row.
 We can also
 select multiple rows,
 
-<div>
-  <img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
-</div>
+<img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
 
 ~~~ {.matlab}
 M(1:4, :)
@@ -411,9 +388,7 @@ ans =
 
 and columns:
 
-<div>
-  <img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
-</div>
+<img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
 
 ~~~ {.matlab}
 M(:, 6:end)
@@ -434,9 +409,7 @@ ans =
 
 To select a submatrix,
 
-<div>
-  <img src="img/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
-</div>
+<img src="img/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
 
 we have to take slices in both dimensions:
 
@@ -454,13 +427,10 @@ ans =
 ~~~
 
 We don't have to take all the values in the slice---if we provide
-a [stride](../../gloss.html#stride). Let's say we want to start with row `2`,
+a [stride](gloss.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
-<div>
-  <img src="img/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
-</div>
-
+<img src="img/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
 
 ~~~ {.matlab}
 M(2:3:end, :)
@@ -476,9 +446,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-<div>
-  <img src="img/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
-</div>
+<img src="img/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
 
 by taking appropriate strides in both dimensions:
 
@@ -623,9 +591,7 @@ average for each day?
 As the diagram below shows, we want to perform the operation across an
 axis:
 
-<div>
-  <img src="img/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
-</div>
+<img src="img/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
@@ -758,9 +724,7 @@ Let's display a heat map of our data:
 imagesc(patient_data)
 ~~~
 
-<div>
 <img src="img/01-intro_1.png" style="height:350px">
-</div>
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -774,9 +738,7 @@ ave_inflammation = mean(patient_data, 1);
 plot(ave_inflammation);
 ~~~
 
-<div>
 <img src="img/01-intro_2.png" style="height:350px">
-</div>
 
 Here, we have put the average per day across all patients in the
 variable `ave_inflammation`, then used the `plot` function to display
@@ -792,18 +754,14 @@ plot(max(patient_data, [], 1));
 title('Maximum inflammation per day');
 ~~~
 
-<div>
 <img src="img/01-intro_3.png" style="height:350px">
-</div>
 
 ~~~ {.matlab}
 plot(min(patient_data, [], 1));
 title('Minimum inflammation per day');
 ~~~
 
-<div>
 <img src="img/01-intro_4.png" style="height:350px">
-</div>
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
@@ -815,12 +773,12 @@ smoothly, while the minimum seems to be a step function. Neither result
 seems particularly likely, so either there 's a mistake in our
 calculations or something is wrong with our data.
 
-#### Challenges
-
-1. Why do our graphs stop just short of 0 at their left edge?
-Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
-
-1. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
+> ## Plots {.challenge}
+> 
+> 1. Why do our graphs stop just short of 0 at their left edge?
+> Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
+> 
+> 2. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
 
 It's common to put multiple figures "side-by-side" in a single
@@ -837,10 +795,7 @@ plot(min(patient_data, [], 1));
 ylabel('min')
 ~~~
 
-<div>
 <img src="img/01-intro_5.png" style="width:800px; height:300px">
-</div>
-
 
 <div class="keypoints" markdown="1">
 #### Key Points
@@ -869,7 +824,6 @@ be used to produce a line graph from a vector (1-D array).
 
 </div>
 
-#### Next Steps
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
 but typing in the same commands repeatedly is tedious and error-prone.
@@ -877,4 +831,3 @@ Since computers don't get bored (that we know of), we should create a
 way to do a complete analysis with a single command, and then figure out
 how to repeat that step once for each file. These operations are the
 subjects of the next two lessons.
-
