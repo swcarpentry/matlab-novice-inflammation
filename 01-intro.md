@@ -4,8 +4,6 @@ root: ../..
 title: Analyzing Patient Data
 ---
 
-
-
 We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets.
 The data sets are stored in
 [Comma Separated Values (CSV)](../../gloss.html#comma-separated-values) format:
@@ -42,8 +40,6 @@ To do all that, we'll have to learn a little bit about programming.
 * Display simple graphs.
 </div>
 
-### MATLAB GUI
-
 We have a dozen datasets that need analysis, stored as `.csv` files - but MATLAB doesn't know about these files yet. The first thing we need to do is set MATLAB's [working directory](../../gloss.html#current-working-directory) to the directory containing the files. To do this, we go to the `Home` tab, click on `Set Path`, and then on `Add with Subfolders...`. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files.
 
 Before we can start programming, we need to know a little about the MATLAB interface. 
@@ -52,9 +48,6 @@ Using the default setup, the MATLAB desktop contains several important sections:
 * In the **Command Window** or shell we can run and debug our code. Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once. The upside of this is that we can save our code and run it again in the same way at a later stage. 
 * **Search Documentation** on the top right of your screen lets you search for functions. Suggestions for functions that would do what you want to do will pop up. Clicking on them will open the documentation.
-
-
-### Loading Data
 
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
@@ -69,10 +62,9 @@ If we have a closer look at the documentation, MATLAB also tells us, which in- a
 To load the data from our CSV file into MATLAB, type following
 command into the MATLAB shell, and press `Enter`:
 
-~~~
+~~~{.matlab}
 csvread('inflammation-01.csv')
 ~~~
-{:class="in"}
 
 You should see a wall of numbers on the screen---these are the values
 from the CSV file.
@@ -81,10 +73,9 @@ be useful to see the output from MATLAB commands, but it is often not.
 To suppress the
 output, simply put a semicolon at the end of your command:
 
-~~~
+~~~{.matlab}
 csvread('inflammation-01.csv');
 ~~~
-{:class="in"}
 
 The expression `csvread(...)` is a
 [function call](../../gloss.html#function-call).
@@ -101,10 +92,9 @@ we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
 [variable](../../gloss.html#variable).
 
-~~~
+~~~{.matlab}
 patient_data = csvread('inflammation-01.csv');
 ~~~
-{:class="in"}
 
 A variable is just a name for a piece of data or *value*.
 Variable names must begin with a letter, and can contain
@@ -114,35 +104,30 @@ numbers or underscores. Examples of valid variable names are
 We can create a new variable simply by assigning a value to it using
 `=`:
 
-~~~
+~~~{.matlab}
 weight_kg = 55;
 ~~~
-{:class="in"}
 
 Once a variable has a value, we can print it using the `disp` function:
 
-~~~
+~~~{.matlab}
 disp(weight_kg);
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 55
 ~~~
-{:class="out"}
 
 and do arithmetic with it:
 
-~~~
+~~~{.matlab}
 weight_in_pounds = 2.2 * weight_kg;
 disp(['Weight in pounds: ', num2str(weight_in_pounds)]);
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Weight in pounds: 121.0
 ~~~
-{:class="out"}
 
 The `disp` function takes a single parameter -- the value to print. To
 print more than one value on a single line, we could print an *array*
@@ -150,8 +135,6 @@ of values. All values in this array need to be the same type. So, if
 we want to print a string and a numerical value together, we *have* to
 convert that numerical value to a string with the `num2str` function.
 
-
-### Understanding Assignment
 
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
@@ -167,18 +150,16 @@ Assigning a value to one variable does not change the values of other
 variables.
 For example,
 
-~~~
+~~~{.matlab}
 weight_kg = 57.5;
 weight_lb = 2.2 * weight_in__kg;
 disp(['Weight in kg: ', num2str(weight_kg); 'Weight in pounds: ', num2str(weight_lb)]);
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Weight in kg: 57.5
 Weight in pounds: 126.5
 ~~~
-{:class="out"}
 
 
 <div>
@@ -190,18 +171,16 @@ Weight in pounds: 126.5
 Let's update the value of one of our variable, and print the values
 of both:
 
-~~~
+~~~{.matlab}
 weight_kg = 100;
 disp(['Weight in kg: ', num2str(weight_kg); 'Weight in pounds: ',
 num2str(weight_lb)]);
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Weight in kg: 100
 Weight in pounds: 126.5
 ~~~
-{:class="out"}
 
 
 <div>
@@ -215,20 +194,18 @@ remember, and different from the way spreadsheets work.
 Now that we know how to assign things to variables, let's re-run
 `csvread` and save its result.
 
-~~~
+~~~{.matlab}
 patient_data = csvread('inflammation-01.csv');
 ~~~
-{:class="in"}
 
 MATLAB provides a command
 to list all variables that have been assigned data.
 
-~~~
+~~~{.matlab}
 who
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Variables in the current scope:
 
 patient_data
@@ -236,58 +213,49 @@ weight_kg
 weight_lb
 
 ~~~
-{:class="out"}
 
 To remove a variable from MATLAB, use the `clear` command:
 
-~~~
+~~~{.matlab}
 clear weight_lb
 who
 ~~~
-{:class="in"}
 
 
-~~~
+~~~{.output}
 Variables in the current scope:
 
 patient_data
 weight_kg
 
 ~~~
-{:class="out"}
 
 Alternatively, we can look at the **Workspace**. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available, which is why it's good to keep it clean to not accidentally overwriting a variable of function that you later use. It can be cleaned up typing `clear all`.
-
 
 #### Challenges
 
 1.  Draw diagrams showing what variables refer to what values after each statement in the following program:
 
-~~~
+~~~{.matlab}
 mass = 47.5
 age = 122
 mass = mass * 2.0
 age = age - 20
 ~~~
-{:class="in"}
 
-
-### MATLAB Arrays
 
 Now that our data is in memory, we can start doing things with it.
 First, let's find out its size or [shape](../../gloss.html#shape):
 
-~~~
+~~~{.matlab}
 size(patient_data)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
     60 40
 ~~~
-{:class="out"}
 
 The output tells us that the variable `patient_data`
 refers to a table of values
@@ -309,40 +277,33 @@ you have to use a [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.
 We can use the `class` function to find out what kind of data lives
 inside an array:
 
-~~~
+~~~{.matlab}
 class(patient_data)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans = double
 ~~~
-{:class="out"}
 
 This output tells us that `patient_data` refers to an array of
 double precision floating-point numbers. This is the default numeric
 data type in MATLAB. If you want to store other numeric data types,
 you need to tell MATLAB explicitly. For example, the command,
 
-~~~
+~~~{.matlab}
 x = int16(325);
 ~~~
-{:class="in"}
-
 
 assigns the value `325` to the name `x`, storing it as a 16-bit signed
 integer.
 
-### Accessing Array Elements
-
 Let's create an 8-by-8 "magic" Matrix:
 
-~~~
+~~~{.matlab}
 M = magic(8)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
    64    2    3   61   60    6    7   57
@@ -354,7 +315,6 @@ ans =
    49   15   14   52   53   11   10   56
     8   58   59    5    4   62   63    1
 ~~~
-{:class="out"}
 
 We want to access a single value from the matrix:
 
@@ -365,15 +325,13 @@ We want to access a single value from the matrix:
 To do that, we must provide
 its [index](../../gloss.html#index) in brackets:
 
-~~~
+~~~{.matlab}
 M(5, 6)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans = 38
 ~~~
-{:class="out"}
 
 Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
@@ -388,18 +346,16 @@ To access a row of values:
 
 we can do:
 
-~~~
+~~~{.matlab}
 M(5, :)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
    32   34   35   29   28   38   39   25
 
 ~~~
-{:class="out"}
 
 Providing `:` as the index for a dimension selects *all* elements
 along that dimension.
@@ -412,12 +368,11 @@ select multiple rows,
   <img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
 </div>
 
-~~~
+~~~{.matlab}
 M(1:4, :)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
    64    2    3   61   60    6    7   57
@@ -425,7 +380,6 @@ ans =
    17   47   46   20   21   43   42   24
    40   26   27   37   36   30   31   33
 ~~~
-{:class="out"}
 
 and columns:
 
@@ -433,12 +387,11 @@ and columns:
   <img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
 </div>
 
-~~~
+~~~{.matlab}
 M(:, 6:end)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
     6    7   57
@@ -450,7 +403,6 @@ ans =
    11   10   56
    62   63    1
 ~~~
-{:class="out"}
 
 To select a submatrix,
 
@@ -460,12 +412,11 @@ To select a submatrix,
 
 we have to take slices in both dimensions:
 
-~~~
+~~~{.matlab}
 M(4:6, 5:7)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
    36   30   31
@@ -473,7 +424,6 @@ ans =
    45   19   18
 
 ~~~
-{:class="out"}
 
 We don't have to take all the values in the slice---if we provide
 a [stride](../../gloss.html#stride). Let's say we want to start with row `2`,
@@ -484,19 +434,17 @@ and subsequently select every third row:
 </div>
 
 
-~~~
+~~~{.matlab}
 M(2:3:end, :)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
     9   55   54   12   13   51   50   16
    32   34   35   29   28   38   39   25
     8   58   59    5    4   62   63    1
 ~~~
-{:class="out"}
 
 And we can also select values in a "checkerboard",
 
@@ -506,42 +454,37 @@ And we can also select values in a "checkerboard",
 
 by taking appropriate strides in both dimensions:
 
-~~~
+~~~{.matlab}
 M(1:3:end, 2:2:end)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
     2   61    6   57
    26   37   30   33
    15   52   11   56
 ~~~
-{:class="out"}
 
 #### Challenges
 
 A subsection of an array is called a [slice](../../gloss.html#slice). We can take slices of character strings as well:
 
-~~~
+~~~{.matlab}
 element = 'oxygen';
 disp(['first three characters: ', element(1:3)])
 disp(['last three characters: ', element(4:6)])
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 first three characters: oxy
 last three characters: gen
 ~~~
-{:class="out"}
 
 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
 
 1. For any size array, Matlab allows us to index with a single colon operator (`:`). This can have surprising effects. For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`? Finally, try using the single colon on the matrix `M` above: `M(:)`. What seems to be happening when we use the single colon operator for slicing?
 
-### Computing With Arrays
 
 Now that we know how to access data we want to compute with, we're
 ready to analyze `patient_data`. MATLAB knows how to perform common mathematical
@@ -549,15 +492,13 @@ operations on arrays.
 If we want to find the average inflammation for all patients on all days,
 we can just ask for the mean of the array:
 
-~~~
+~~~{.matlab}
 mean(patient_data(:))
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans = 6.1487
 ~~~
-{:class="out"}
 
 We couldn't just do `mean(patient_data)` because, that
 would compute the mean of *each column* in our table, and return an array
@@ -567,12 +508,12 @@ one-dimensional array.
 To get details about what a function, like `mean`,
 does and how to use it, use MATLAB's `help` command.
 
-~~~
+~~~{.matlab}
 help mean
 ~~~
-{:class="in"}
 
-~~~
+
+~~~{.output}
  -- Function File: mean (X)
  -- Function File: mean (X, DIM)
  -- Function File: mean (X, OPT)
@@ -604,53 +545,46 @@ help mean
 
      See also: median, mode.
 ~~~
-{:class="out"}
 
 We can also compute other statistics, like the maximum, minimum and
 standard deviation.
 
-~~~
+~~~{.matlab}
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
 disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Maximum inflammation: 20
 Minimum inflammation: 0
 Standard deviation: 4.6148
 ~~~
-{:class="out"}
 
 When analyzing data, though, we often want to look at partial statistics,
 such as the maximum value per patient or the average value per day.
 One way to do this is to assign the data we want to a new temporary
 array, then ask it to do the calculation:
 
-~~~
+~~~{.matlab}
 patient_1 = patient_data(1, :)
 disp(['Maximum inflation for patient 1: ', max(patient_1));
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 Maximum inflation for patient 1: 18
 ~~~
-{:class="out"}
 
 We don't actually need to store the row in a variable of its own.
 Instead, we can combine the selection and the function call:
 
-~~~
+~~~{.matlab}
 max(patient_data(1, :))
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans = 18
 ~~~
-{:class="out"}
 
 
 What if we need the maximum inflammation for *all* patients, or the
@@ -666,12 +600,11 @@ To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
 we get:
 
-~~~
+~~~{.matlab}
 mean(patient_data, 1)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
  Columns 1 through 13:
@@ -691,33 +624,29 @@ ans =
     0.56667
 
 ~~~
-{:class="out"}
 
 
 As a quick check, we can check the shape of this array:
 
-~~~
+~~~{.matlab}
 size(mean(patient_data, 1))
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
     1    40
 ~~~
-{:class="out"}
 
 The shape tells us we have a 1-by-40 vector, so this is the average
 inflammation per day for all patients. If we average across axis 2, we
 get:
 
 
-~~~
+~~~{.matlab}
 mean(patient_data, 2)
 ~~~
-{:class="in"}
 
-~~~
+~~~{.output}
 ans =
 
    5.4500
@@ -781,13 +710,10 @@ ans =
    7.0500
    5.9000
 ~~~
-{:class="out"}
 
 which is the average inflammation per patient across
 all days.
 
-
-### Plotting
 
 The mathematician Richard Hamming once said,
 "The purpose of computing is insight, not numbers," and the best
@@ -797,10 +723,9 @@ explore a few features of MATLAB here.
 
 Let's display a heat map of our data:
 
-~~~
+~~~{.matlab}
 imagesc(patient_data)
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_1.png" style="height:350px">
@@ -813,11 +738,10 @@ As we can see,
 inflammation rises and falls over a 40 day period.
 Let's take a look at the average inflammation over time:
 
-~~~
+~~~{.matlab}
 ave_inflammation = mean(patient_data, 1);
 plot(ave_inflammation);
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_2.png" style="height:350px">
@@ -832,21 +756,19 @@ based on other studies, we expect a sharper rise and slower fall.
 Let's have a look at two other statistics: the maximum and minimum
 inflammation per day across all patients.
 
-~~~
+~~~{.matlab}
 plot(max(patient_data, [], 1));
 title('Maximum inflammation per day');
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_3.png" style="height:350px">
 </div>
 
-~~~
+~~~{.matlab}
 plot(min(patient_data, [], 1));
 title('Minimum inflammation per day');
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_4.png" style="height:350px">
@@ -868,13 +790,12 @@ calculations or something is wrong with our data.
 
 1. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
-### Wrapping up
 
 It's common to put multiple figures "side-by-side" in a single
 window for presentation and convenience. Here's how to use
 the `subplot` function to do this:
 
-~~~
+~~~{.matlab}
 subplot(1, 2, 1);
 plot(max(patient_data, [], 1));
 ylabel('max')
@@ -883,7 +804,6 @@ subplot(1, 2, 2);
 plot(min(patient_data, [], 1));
 ylabel('min')
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_5.png" style="width:800px; height:300px">
