@@ -793,35 +793,6 @@ plot(min(patient_data, [], 1));
 ylabel('min')
 ~~~
 
-<img src="img/01-intro_5.png" style="width:800px; height:300px">
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-* A value is a piece of data that a program works with. In MATLAB,
-values are always stored as arrays. Values can be numbers, vectors,
-matrices, characters, strings, or a number of other things, but they are
-*always* represented by an array.
-* The "size" of an array is the number of elements it has in each
-dimension.
-* Use `variable = value` to assign a value to a variable. The "value"
-is always an array in MATLAB, and can contain different kinds
-of data, like integers, floats or characters.
-* Use the `disp()` function to print things to screen. If you want
-to print many things on the same line, print an array of things.
-* Use `array(x, y)` to select a single element from an array.
-* Array indices in MATLAB start at 1, not 0 like in C or Python.
-* Use `low:high` to specify a slice that includes the indices
-from `low` to `high`.
-* `mean()`, `max()` and `min()` can be used to calculate simple
-statistics about an array, or along specified dimensions of that
-array.
-* The `imagesc()` function produces a heat map
-from a matrix (2-D array), and the `plot()` function can
-be used to produce a line graph from a vector (1-D array).
-
-</div>
-
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
 but typing in the same commands repeatedly is tedious and error-prone.
