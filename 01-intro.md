@@ -4,7 +4,8 @@ root: ../..
 title: Analyzing Patient Data
 ---
 
-We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets.
+We are studying inflammation in patients who have been given a new treatment for arthritis,
+and need to analyze the first dozen data sets.
 The data sets are stored in
 [Comma Separated Values (CSV)](../../gloss.html#comma-separated-values) format:
 each row holds information for a single patient,
@@ -40,24 +41,44 @@ To do all that, we'll have to learn a little bit about programming.
 * Display simple graphs.
 </div>
 
-We have a dozen datasets that need analysis, stored as `.csv` files - but MATLAB doesn't know about these files yet. The first thing we need to do is set MATLAB's [working directory](../../gloss.html#current-working-directory) to the directory containing the files. To do this, we go to the `Home` tab, click on `Set Path`, and then on `Add with Subfolders...`. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files.
+We have a dozen datasets that need analysis, stored as `.csv` files - 
+but MATLAB doesn't know about these files yet.
+The first thing we need to do is set MATLAB's
+[working directory](../../gloss.html#current-working-directory)
+to the directory containing the files.
+To do this,
+we go to the `Home` tab,
+click on `Set Path`,
+and then on `Add with Subfolders...`.
+We navigate to the directory containing our files and
+add it to the path to tell MATLAB where to look for our files.
 
 Before we can start programming, we need to know a little about the MATLAB interface. 
 Using the default setup, the MATLAB desktop contains several important sections:
 
-* In the **Command Window** or shell we can run and debug our code. Everything that's typed into the command window is executed immediately.
-* Alternatively, we can open the **Editor**, write our code and run it all at once. The upside of this is that we can save our code and run it again in the same way at a later stage. 
-* **Search Documentation** on the top right of your screen lets you search for functions. Suggestions for functions that would do what you want to do will pop up. Clicking on them will open the documentation.
+* In the **Command Window** or shell we can run and debug our code.
+Everything that's typed into the command window is executed immediately.
+* Alternatively, we can open the **Editor**, write our code and run it all at once.
+The upside of this is that
+we can save our code and run it again in the same way at a later stage. 
+* **Search Documentation** on the top right of your screen lets you search for functions.
+Suggestions for functions that would do what you want to do will pop up.
+Clicking on them will open the documentation.
 
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
-and admittedly, something that we'd rather not spend a lot of time
-thinking about. Fortunately, MATLAB comes with a number of high-level
-tools to do these things
-efficiently, sparing us the grisly detail.
+and admittedly,
+something that we'd rather not spend a lot of time thinking about.
+Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently,
+sparing us the grisly detail.
 
-If we know what our data looks like (in this case, we have comma-separated values) and we're unsure about what command we want to use, we can search the documentation. Type `read csv` into the documentation toolbar. MATLAB suggests using `csvread`.
-If we have a closer look at the documentation, MATLAB also tells us, which in- and output arguments this function has.
+If we know what our data looks like (in this case, we have comma-separated values)
+and we're unsure about what command we want to use,
+we can search the documentation.
+Type `read csv` into the documentation toolbar.
+MATLAB suggests using `csvread`.
+If we have a closer look at the documentation,
+MATLAB also tells us, which in- and output arguments this function has.
 
 To load the data from our CSV file into MATLAB, type following
 command into the MATLAB shell, and press `Enter`:
@@ -230,7 +251,12 @@ weight_kg
 
 ~~~
 
-Alternatively, we can look at the **Workspace**. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available, which is why it's good to keep it clean to not accidentally overwriting a variable of function that you later use. It can be cleaned up typing `clear all`.
+Alternatively, we can look at the **Workspace**.
+The workspace contains all variable names and assigned values that we currently work with.
+As long as they pop up in the workspace,
+they are universally available.
+It's generally a good idea to keep the workspace as clean as possible.
+To do that, simply type `clear all`.
 
 #### Challenges
 
@@ -483,12 +509,16 @@ last three characters: gen
 
 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
 
-1. For any size array, Matlab allows us to index with a single colon operator (`:`). This can have surprising effects. For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`? Finally, try using the single colon on the matrix `M` above: `M(:)`. What seems to be happening when we use the single colon operator for slicing?
+1. For any size array, Matlab allows us to index with a single colon operator (`:`).
+This can have surprising effects.
+For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?
+Finally,
+try using the single colon on the matrix `M` above: `M(:)`.
+What seems to be happening when we use the single colon operator for slicing?
 
-
-Now that we know how to access data we want to compute with, we're
-ready to analyze `patient_data`. MATLAB knows how to perform common mathematical
-operations on arrays.
+Now that we know how to access data we want to compute with,
+we're ready to analyze `patient_data`.
+MATLAB knows how to perform common mathematical operations on arrays.
 If we want to find the average inflammation for all patients on all days,
 we can just ask for the mean of the array:
 
@@ -786,7 +816,8 @@ calculations or something is wrong with our data.
 
 #### Challenges
 
-1. Why do our graphs stop just short of 0 at their left edge? Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
+1. Why do our graphs stop just short of 0 at their left edge?
+Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
 
 1. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
