@@ -37,7 +37,7 @@ To do all that, we'll have to learn a little bit about programming.
 > * Perform operations on arrays of data.
 > * Display simple graphs.
 
-We have a dozen datasets that need analysis, stored as `.csv` files - 
+We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
 [working directory](gloss.html#current-working-directory)
@@ -49,14 +49,14 @@ and then on `Add with Subfolders...`.
 We navigate to the directory containing our files and
 add it to the path to tell MATLAB where to look for our files.
 
-Before we can start programming, we need to know a little about the MATLAB interface. 
+Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
 * In the **Command Window** or shell we can run and debug our code.
 Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
-we can save our code and run it again in the same way at a later stage. 
+we can save our code and run it again in the same way at a later stage.
 
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
@@ -774,10 +774,10 @@ seems particularly likely, so either there 's a mistake in our
 calculations or something is wrong with our data.
 
 > ## Plots {.challenge}
-> 
+>
 > 1. Why do our graphs stop just short of 0 at their left edge?
-> Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical? 
-> 
+> Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical?
+>
 > 2. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
 
