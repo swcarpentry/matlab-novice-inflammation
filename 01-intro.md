@@ -4,8 +4,6 @@ root: ../..
 title: Analyzing Patient Data
 ---
 
-
-
 We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets.
 The data sets are stored in
 [Comma Separated Values (CSV)](../../gloss.html#comma-separated-values) format:
@@ -42,8 +40,6 @@ To do all that, we'll have to learn a little bit about programming.
 * Display simple graphs.
 </div>
 
-### MATLAB GUI
-
 We have a dozen datasets that need analysis, stored as `.csv` files - but MATLAB doesn't know about these files yet. The first thing we need to do is set MATLAB's [working directory](../../gloss.html#current-working-directory) to the directory containing the files. To do this, we go to the `Home` tab, click on `Set Path`, and then on `Add with Subfolders...`. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files.
 
 Before we can start programming, we need to know a little about the MATLAB interface. 
@@ -52,9 +48,6 @@ Using the default setup, the MATLAB desktop contains several important sections:
 * In the **Command Window** or shell we can run and debug our code. Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once. The upside of this is that we can save our code and run it again in the same way at a later stage. 
 * **Search Documentation** on the top right of your screen lets you search for functions. Suggestions for functions that would do what you want to do will pop up. Clicking on them will open the documentation.
-
-
-### Loading Data
 
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
@@ -142,8 +135,6 @@ of values. All values in this array need to be the same type. So, if
 we want to print a string and a numerical value together, we *have* to
 convert that numerical value to a string with the `num2str` function.
 
-
-### Understanding Assignment
 
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
@@ -241,7 +232,6 @@ weight_kg
 
 Alternatively, we can look at the **Workspace**. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available, which is why it's good to keep it clean to not accidentally overwriting a variable of function that you later use. It can be cleaned up typing `clear all`.
 
-
 #### Challenges
 
 1.  Draw diagrams showing what variables refer to what values after each statement in the following program:
@@ -254,7 +244,6 @@ age = age - 20
 ~~~
 
 
-### MATLAB Arrays
 
 Now that our data is in memory, we can start doing things with it.
 First, let's find out its size or [shape](../../gloss.html#shape):
@@ -309,8 +298,6 @@ x = int16(325);
 
 assigns the value `325` to the name `x`, storing it as a 16-bit signed
 integer.
-
-### Accessing Array Elements
 
 Let's create an 8-by-8 "magic" Matrix:
 
@@ -500,7 +487,6 @@ last three characters: gen
 
 1. For any size array, Matlab allows us to index with a single colon operator (`:`). This can have surprising effects. For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`? Finally, try using the single colon on the matrix `M` above: `M(:)`. What seems to be happening when we use the single colon operator for slicing?
 
-### Computing With Arrays
 
 Now that we know how to access data we want to compute with, we're
 ready to analyze `patient_data`. MATLAB knows how to perform common mathematical
@@ -730,8 +716,6 @@ which is the average inflammation per patient across
 all days.
 
 
-### Plotting
-
 The mathematician Richard Hamming once said,
 "The purpose of computing is insight, not numbers," and the best
 way to develop insight is often to visualize data. Visualization
@@ -807,7 +791,6 @@ calculations or something is wrong with our data.
 
 1. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
 
-### Wrapping up
 
 It's common to put multiple figures "side-by-side" in a single
 window for presentation and convenience. Here's how to use
