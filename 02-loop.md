@@ -47,10 +47,6 @@ To avoid writing all this duplicate code, we have to teach MATLAB to
 > * Trace changes to a loop variable as the loop runs.
 > * Use a for loop to process multiple file> 
 
-<!-- FIXME: The 0 lesson should talk about the colon operator -->
-<!-- FIXME: Need to mention that strings are arrays -->
-<!-- FIXME: Decide on consistent string---single or double quotes? -->
-
 ### Saving Our Work
 
 ### Writing Scripts
