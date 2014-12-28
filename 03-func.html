@@ -50,9 +50,12 @@ end</code></pre>
 <p>A Matlab function <em>must</em> be saved in a text file with a <code>.m</code> extension. The name of that file must be the same as the function defined inside it. So, you will need to save the above code in a file called <code>fahr_to_kelvin.m</code>.</p>
 <!-- FIXME: 00-basics lesson should talk about .m files, and
     the variable `ans` -->
+
 <!-- FIXME: Nothing about Comments? -->
+
 <!-- FIXME: this lesson should talk about multiple functions in a
     single file -->
+
 <p>The first line of our function:</p>
 <pre><code>function ktemp = fahr_to_kelvin(ftemp)</code></pre>
 <p>is called the <em>function definition</em>, and it declares that we're writing a function named <code>fahr_to_kelvin</code>, that accepts a single parameter, <code>ftemp</code>, and outputs a single value, <code>ktemp</code>. Anything following the function definition line is called the <em>body</em> of the function. The keyword <code>end</code> marks the end of the function body, and the function won't know about any code after <code>end</code>.</p>
@@ -65,6 +68,7 @@ end</code></pre>
 <p>When we pass a value, like <code>32</code>, to the function, the value is assigned to the variable <code>ftemp</code> so that it can be used inside the function. If we want to return a value from the function, we must assign that value to a variable named <code>ktemp</code>---in the first line of our function, we promised that the output of our function would be named <code>ktemp</code>.</p>
 <p>Outside of the function, the names <code>ftemp</code> and <code>ktemp</code> don't matter, they are only used by the function body to refer to the input and output values.</p>
 <!-- FIXME: make up a debugging scenario -->
+
 <h3 id="composing-functions">Composing Functions</h3>
 <p>Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn Kelvin to Celsius.</p>
 <pre><code>% file kelvin_to_celsius.m
@@ -110,6 +114,9 @@ final = fahr_to_celcius(original);</code></pre>
 <p>{:class=&quot;in&quot;}</p>
 <p>The diagram below shows what memory looks like after the first line has been executed:</p>
 <!-- FIXME: Writeup about Call Stacks -->
+
+
+
 <h3 id="testing-and-documentation">Testing and Documentation</h3>
 <p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let's write a function to center a dataset around a particular value:</p>
 <pre><code>function out = center(data, desired)
@@ -141,6 +148,7 @@ centered = center(data(:), 0)</code></pre>
 <pre><code>-6.1487e+00  -2.2962e-14   1.3851e+01</code></pre>
 <p>{:class=&quot;out&quot;}</p>
 <!-- FIXME: challenge -->
+
 <p>That seems almost right, the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn't quite zero--we'll explore why not in the challenges--but it's pretty close. We can even go further and check that the standard deviation hasn't changed:</p>
 <pre><code>std(data(:)) - std(centered)</code></pre>
 <p>{:class=&quot;in&quot;}</p>

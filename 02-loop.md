@@ -1,6 +1,5 @@
 ---
-layout: lesson
-root: ../..
+layout: page
 title: Reusing Code
 ---
 
@@ -38,24 +37,15 @@ To avoid writing all this duplicate code, we have to teach MATLAB to
 
 * Remember our commands
 
-* Repeat our commands
+* Repeat our command> 
 
-<div class="objectives" markdown="1">
-
-### Objectives
-
-    * Learn how to write and save MATLAB scripts.
-    * Learn how to save MATLAB plots to disk.
-    * Explain what a for loop does.
-    * Correctly write for loops that repeat simple commands.
-    * Trace changes to a loop variable as the loop runs.
-    * Use a for loop to process multiple files.
-
-</div>
-
-<!-- FIXME: The 0 lesson should talk about the colon operator -->
-<!-- FIXME: Need to mention that strings are arrays -->
-<!-- FIXME: Decide on consistent string---single or double quotes? -->
+> ## Learning Objectives
+> * Learn how to write and save MATLAB scripts.
+> * Learn how to save MATLAB plots to disk.
+> * Explain what a for loop does.
+> * Correctly write for loops that repeat simple commands.
+> * Trace changes to a loop variable as the loop runs.
+> * Use a for loop to process multiple file> 
 
 ### Saving Our Work
 
