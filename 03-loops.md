@@ -209,7 +209,7 @@ disp(vowel)
 u
 ~~~
 
-> ** Performing Exponentiation {.challenge}
+> ## Performing Exponentiation {.challenge}
 > 
 > MATLAB uses the caret (`^`) to perform exponentiation:
 > 
@@ -229,7 +229,7 @@ u
 > Write a loop to compute `b^x`.
 > Check your result for `b = 4` and `x = 5`.
 
-> ** Incrementing with Loops {.challenge}
+> ## Incrementing with Loops {.challenge}
 > 
 > Write a loop that spells the word "aluminum," adding one letter at a time:
 > 
@@ -244,7 +244,7 @@ u
 > aluminum
 > ~~~
 
-> ** Looping in Reverse
+> ## Looping in Reverse
 > 
 > In Matlab, the colon operator (`:`) accepts a
 > [stride](../../gloss.> html#stride)
