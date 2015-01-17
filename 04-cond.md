@@ -17,7 +17,7 @@ The tool that MATLAB gives us for doing this is called
 a [conditional statement](../../gloss.html#conditional-statement),
 and it looks like this:
 
-~~~
+~~~ {.matlab}
 num = 37;
 
 if num > 100
@@ -28,13 +28,11 @@ end
 
 disp('done');
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 not greater
 done
 ~~~
-{:class="out"}
 
 The second line of this code uses the keyword `if` to tell MATLAB
 that we want to make a choice. If the test that follows is true,
@@ -46,7 +44,7 @@ or the other is ever executed.
 Conditional statements don't have to have an `else` block. If there
 isn't one, MATLAB simply doesn't do anything if the test is false:
 
-~~~
+~~~ {.matlab}
 num = 53
 disp('before conditional...')
 
@@ -56,14 +54,12 @@ end
 
 disp('...after conditional')
 ~~~
-{:class="in"}
 
 
-~~~
+~~~ {.output}
 before conditional...
 ...after conditional
 ~~~
-{:class="out"}
 
 
 We can also chain several tests together using `elseif`. This makes it
@@ -95,34 +91,30 @@ from C, and it does take a bit of getting used to...
 We can also combine tests, using `&&` (and) and `||` (or). `&&`
 is true if both tests are true:
 
-~~~
+~~~ {.matlab}
 if ((1 > 0) && (-1 > 0))
     disp('both parts are true');
 else
     disp('one part is not true');
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 one part is not true
 ~~~
-{:class="out"}
 
 
 `||` is true if either test is true:
 
-~~~
+~~~ {.matlab}
 if (1 < 0) || (3 < 4)
     disp('at least one part is true');
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 at least one part is true
 ~~~
-{:class="out"}
 
 In this case, "either" means "either or both", not
 "either one or the other but not both".
@@ -200,7 +192,7 @@ combined with functions. For example, if we want
 to sum the positive numbers in a list, we can write
 this:
 
-~~~
+~~~ {.matlab}
 numbers = [-5, 3, 2, -1, 9, 6];
 total = 0;
 
@@ -212,18 +204,16 @@ end
 
 disp(['sum of positive values: ', num2str(total)])
 ~~~
-{:class="in"}
 
 
-~~~
+~~~ {.output}
 sum of positive values: 20
 ~~~
-{:class="out"}
 
 With a little extra effort, we can calculate the
 positive and negative sums in a loop:
 
-~~~
+~~~ {.matlab}
 pos_total = 0;
 neg_total = 0;
 
@@ -238,26 +228,23 @@ end
 disp(['sum of positive values: ', num2str(pos_total)]);
 disp(['sum of negative values: ', num2str(neg_total)]);
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 sum of positive values: 26
 sum of negative values: -6
 ~~~
-{:class="out"}
 
 We can even put one loop inside another:
 
-~~~
+~~~ {.matlab}
 for consonant = 'bcd'
     for vowel = 'ae'
         disp (strcat(consonant, vowel));
     end
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 ba
 be
 ca
@@ -265,7 +252,6 @@ ce
 da
 de
 ~~~
-{:class="out"}
 
 ### Challenges
 
@@ -294,18 +280,16 @@ The last step is to turn our data into something we can see
 and make sense of. As in previous lessons, we need to first
 get the data in memory:
 
-~~~
+~~~ {.matlab}
 patient_data = csvread('inflammation-01.csv');
 ~~~
-{:class="in"}
 
 The heatmap from lesson 1 is useful, but fairly hard to read:
 
-~~~
+~~~ {.matlab}
 imagesc(patient_data);
 colorbar();
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/01-intro_1.png" style="height:350px">
@@ -426,14 +410,13 @@ end
 To test this function, we can run it with the settings we just
 used:
 
-~~~
+~~~ {.matlab}
 heatmap = make_heatmap(patient_data, 0.9, 1.1);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/04-cond_2.png" style="height:350px">
@@ -441,27 +424,25 @@ axis equal
 
 That seems right, so let's try wider bands:
 
-~~~
+~~~ {.matlab}
 heatmap = make_heatmap(patient_data, 0.8, 1.2);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/04-cond_3.png" style="height:350px">
 </div>
 
-~~~
+~~~ {.matlab}
 heatmap = make_heatmap(patient_data, 0.6, 1.4);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal
 ~~~
-{:class="in"}
 
 <div>
 <img src="img/04-cond_4.png" style="height:350px">
