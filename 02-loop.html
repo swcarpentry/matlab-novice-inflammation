@@ -38,7 +38,7 @@
 <li><p>Repeat our commands</p></li>
 </ul>
 <div class="objectives" markdown="1">
-<h3>Objectives</h3>
+<h3 id="objectives">Objectives</h3>
 <pre><code>* Learn how to write and save MATLAB scripts.
 * Learn how to save MATLAB plots to disk.
 * Explain what a for loop does.
@@ -61,27 +61,22 @@ disp([&#39;Maximum inflammation: &#39;, num2str(max(patient_data(:)))]);
 disp([&#39;Minimum inflammation: &#39;, num2str(min(patient_data(:)))]);
 disp([&#39;Standard deviation: &#39;, num2str(std(patient_data(:)))]);</code></pre>
 <p>Before we can use it, we need to make sure that this file is visible to MATLAB. MATLAB doesn't know about all the files on your computer, but it keeps an eye on several directories. The most convenient of these directories is generally the &quot;working directory&quot;, or &quot;current directory&quot;. To find out the working directory, use the <code>pwd</code> command:</p>
-<pre><code>pwd</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">pwd</code></pre>
 <p>As you might have guessed, <code>pwd</code> stands for &quot;print working directory&quot;.</p>
 <p>Once you have a script saved in a location that MATLAB knows about, you can get MATLAB to run those commands by typing in the name of the script (without the <code>.m</code>) in the MATLAB command line:</p>
-<pre><code>analyze</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>Maximum inflammation: 20
+<pre class="sourceCode matlab"><code class="sourceCode matlab">analyze</code></pre>
+<pre class="output"><code>Maximum inflammation: 20
 Minimum inflammation: 0
 Standard deviation: 4.7219</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <h3 id="saving-images">Saving Images</h3>
 <p>We've also written commands to create plots:</p>
-<pre><code>ave_inflammation = mean(patient_data, 1);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">ave_inflammation = mean(patient_data, <span class="fl">1</span>);
 
 plot(ave_inflammation);
-ylabel(&#39;average&#39;)</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+ylabel(<span class="st">&#39;average&#39;</span>)</code></pre>
 <p>MATLAB let's us save those as images on disk:</p>
-<pre><code>% save plot to disk as png image:
-print -dpng &#39;average.png&#39;</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% save plot to disk as png image:</span>
+print -dpng <span class="st">&#39;average.png&#39;</span></code></pre>
 <p>You might have noticed that we described what we want our code to do using the <code>%</code>-sign. This is another plus of writing scripts: you can comment your code to make it easier to understand when you come back to it after a while.</p>
 <p>Let's extend our <code>analyze</code> script with commands to create and save plots:</p>
 <pre><code>% script analyze.m
@@ -111,14 +106,12 @@ print -dpng &quot;patient_data-01.png&quot;</code></pre>
 <h4 id="the-colon-operator">The Colon Operator</h4>
 <!-- FIXME: Maybe this should be in a box? -->
 <p>You can use the <code>:</code> (colon) operator to generate sequences in MATLAB:</p>
-<pre><code>4:10</code></pre>
-<p>{:class=&quot;in&quot;} <sub>~</sub> ans =</p>
-<pre><code>4    5    6    7    8    9   10</code></pre>
-<pre><code>{:class=&quot;out&quot;}
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="fl">4</span>:<span class="fl">10</span></code></pre>
+<pre class="output"><code>ans =
 
-</code></pre>
-<p>2.5:0.25:5 <sub>~</sub> {:class=&quot;in&quot;}</p>
-<pre><code>ans =
+    4    5    6    7    8    9   10</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="fl">2.5</span>:<span class="fl">0.25</span>:<span class="fl">5</span></code></pre>
+<pre class="output"><code>ans =
 
  Columns 1 through 8:
 
@@ -127,49 +120,42 @@ print -dpng &quot;patient_data-01.png&quot;</code></pre>
 
     4.5000    4.7500    5.0000
 </code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <h3 id="analyzing-multiple-datasets">Analyzing Multiple Datasets</h3>
 <p>We have a dozen data sets right now, and more on the way. We want to create plots for all our data sets without repeating the above commands each time. To do that we'll have to learn how to get the computer to repeat things.</p>
 <h3 id="for-loops">for loops</h3>
 <p>Suppose we want to print each character in the word &quot;lead&quot; on a line of its own. One way is to use four <code>disp</code> statements:</p>
-<pre><code>word = &#39;lead&#39;;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;lead&#39;</span>;
 
-disp(word(1));
-disp(word(2));
-disp(word(3));
-disp(word(4));</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>l
+disp(word(<span class="fl">1</span>));
+disp(word(<span class="fl">2</span>));
+disp(word(<span class="fl">3</span>));
+disp(word(<span class="fl">4</span>));</code></pre>
+<pre class="output"><code>l
 e
 a
 d</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>But that's a bad approach for two reasons:</p>
 <ol style="list-style-type: decimal">
 <li><p>It doesn't scale: if we want to print the characters in a string that's hundreds of letters long, we'd be better off typing them in.</p></li>
 <li><p>It's fragile: if we change <code>word</code> to a longer string, it only prints part of the data, and if we change it to a shorter one, it produces an error, because we're asking for characters that don't exist.</p></li>
 </ol>
-<pre><code>word = &#39;tin&#39;;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;tin&#39;</span>;
 
-disp(word(1));
-disp(word(2));
-disp(word(3));
-disp(word(4));</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>error: A(I): index out of bounds; value 4 out of bound 3</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+disp(word(<span class="fl">1</span>));
+disp(word(<span class="fl">2</span>));
+disp(word(<span class="fl">3</span>));
+disp(word(<span class="fl">4</span>));</code></pre>
+<pre class="output"><code>error: A(I): index out of bounds; value 4 out of bound 3</code></pre>
 <p>There's a better approach:</p>
-<pre><code>word = &#39;lead&#39;;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;lead&#39;</span>;
 
-for letter = 1:4
+for letter = <span class="fl">1</span>:<span class="fl">4</span>
     disp(word(letter))
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>l
+<pre class="output"><code>l
 e
 a
 d</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>This improved version uses a <a href="../../gloss.html#for-loop">for loop</a> to repeat an operation---in this case, printing to the screen---once for each element in an array.</p>
 <p>The general form of a for loop is:</p>
 <pre><code>for variable = collection
@@ -178,29 +164,26 @@ end</code></pre>
 <p>The for loop executes the commands in the <a href="../../gloss.html#loop-body">loop body</a> for every value in the array <code>collection</code>. This value is called the <a href="../../gloss.html#loop-variable">loop variable</a>, and we can call it whatever we like. In our example, we gave it the name <code>letter</code>.</p>
 <p>We have to terminate the loop body with the <code>end</code> keyword, and we can have as many commands as we like in the loop body. But we have to remember that they will all be repeated as many times as there are values in <code>collection</code>.</p>
 <p>Our for loop has made our code more scalable, and less fragile. There's still one little thing about it that should bother us. For our loop to deal appropriately with shorter or longer words, we have to change the first line of our loop by hand:</p>
-<pre><code>word = &#39;tin&#39;;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;tin&#39;</span>;
 
-for letter = 1:3
+for letter = <span class="fl">1</span>:<span class="fl">3</span>
     disp(word(letter));
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>t
+<pre class="output"><code>t
 i
 n</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>Although this works, it's not the best way to write our loop:</p>
 <ul>
 <li><p>We might update <code>word</code> and forget to modify the loop to reflect that change.</p></li>
 <li><p>We might make a mistake while counting the number of letters in <code>word</code>.</p></li>
 </ul>
 <p>Fortunately, MATLAB provides us with a convenient function to write a better loop:</p>
-<pre><code>word = &#39;aluminium&#39;;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;aluminium&#39;</span>;
 
-for letter = 1:length(word)
+for letter = <span class="fl">1</span>:length(word)
     disp(word(letter));
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>a
+<pre class="output"><code>a
 l
 u
 m
@@ -209,47 +192,42 @@ n
 i
 u
 m</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>This is much more robust code, as it can deal identically with words of arbitrary length. Here's another loop that repeatedly updates the variable <code>len</code>:</p>
-<pre><code>len = 0
-for vowel = &#39;aeiou&#39;
-    len = len + 1;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">len = <span class="fl">0</span>
+for vowel = <span class="st">&#39;aeiou&#39;</span>
+    len = len + <span class="fl">1</span>;
 end
 
-disp([&#39;Number of vowels: &#39;, num2str(len)])</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+disp([<span class="st">&#39;Number of vowels: &#39;</span>, num2str(len)])</code></pre>
 <p>It's worth tracing the execution of this little program step by step. Since there are five characters in &quot;aeiou&quot;, the loop body will be executed five times. When we enter the loop, <code>len</code> is zero - the value assigned to it beforehand. The first time through, the loop body adds 1 to the old value of <code>len</code>, producing 1, and updates <code>len</code> to refer to that new value. The next time around, <code>vowel</code> is <code>e</code>, and <code>len</code> is 1, so <code>len</code> is updated to 2. After three more updates, <code>len</code> is 5; since there's nothing left in <code>aeiou</code> for MATLAB to process, the loop finishes and the <code>disp</code> statement tells us our final answer.</p>
 <p>Note that a loop variable is just a variable that's being used to record progress in a loop. It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:</p>
-<pre><code>disp(vowel)</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>u</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(vowel)</code></pre>
+<pre class="output"><code>u</code></pre>
 <p>After the loop, <code>vowel</code> refers to the last value in <code>aeiou</code>, i.e., <code>u</code>.</p>
 <h4 id="challenges">Challenges</h4>
 <ol style="list-style-type: decimal">
 <li>Write a loop that spells the word &quot;aluminum,&quot; adding one letter at a time:</li>
 </ol>
-<p><sub>~</sub> a al alu alum alumi alumin aluminu aluminum <sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub> {.output} a al alu alum alumi alumin aluminu aluminum <sub>~</sub></p>
 <ol style="list-style-type: decimal">
 <li>Matlab uses the caret (<code>^</code>) to perform exponentiation:</li>
 </ol>
-<p><sub>~</sub> disp(5^3) <sub>~</sub> {:class=&quot;in&quot;} <sub>~</sub> 125 <sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub> {.matlab} disp(5^3) <sub>~</sub> <sub>~</sub> {.output} 125 <sub>~</sub></p>
 <p>Let <code>b</code> be the base of the number and <code>x</code> the exponent. Write a loop to compute <code>b^x</code>. Check your result for <code>b = 4</code> and <code>x = 5</code>.</p>
 <ol style="list-style-type: decimal">
 <li>In Matlab, the colon operator (<code>:</code>) accepts a <a href="../../gloss.html#stride">stride</a> or skip argument between the start and stop:</li>
 </ol>
-<p><sub>~</sub> disp(1:3:11) <sub>~</sub> {:class=&quot;in&quot;} <sub>~</sub> 1 4 7 10 <sub>~</sub> {:class=&quot;in&quot;} <sub>~</sub> disp(11:-3:1) <sub>~</sub> {:class=&quot;in&quot;} <sub>~</sub> 11 8 5 2 <sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub> {.matlab} disp(1:3:11) <sub>~</sub> <sub>~</sub> {.matlab} 1 4 7 10 <sub>~</sub> <sub>~</sub> {.matlab} disp(11:-3:1) <sub>~</sub> <sub>~</sub> {.output} 11 8 5 2 <sub>~</sub></p>
 <p>Using this, write a loop to print the letters of &quot;aluminum&quot; in reverse order, one letter per line.</p>
-<p><sub>~</sub> m u n i m u l a <sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub> {.output} m u n i m u l a <sub>~</sub></p>
 <p><strong>Extra Challenge</strong>: Reverse the string <code>abracadabra</code> without a loop, using only indexing and the colon operator.</p>
 <h3 id="processing-multiple-files">Processing Multiple Files</h3>
 <p>We now have almost everything we need to process multiple data files with our <code>analyze</code> script. You'll notice that our data files are named <code>inflammation-01.csv</code>, <code>inflammation-02.csv</code>, etc. Let's write a loop that tries to print the names of each one of our files:</p>
-<pre><code>for idx = 1:12
-    file_name = sprintf(&#39;inflammation-%d.csv&#39;, idx);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">for idx = <span class="fl">1</span>:<span class="fl">12</span>
+    file_name = sprintf(<span class="st">&#39;inflammation-%d.csv&#39;</span>, idx);
     disp(file_name);
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>inflammation-1.csv
+<pre class="output"><code>inflammation-1.csv
 inflammation-2.csv
 inflammation-3.csv
 inflammation-4.csv
@@ -261,18 +239,16 @@ inflammation-9.csv
 inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>This is close, but not quite right. The <code>sprintf</code> function is useful when we want to generate MATLAB strings based on a <em>template</em>. In our case, that template is the string <code>inflammation-%d.csv</code>. <code>sprintf</code> generates a new string from our template by replacing the <code>%d</code> with the data referred to by our second argument, <code>i</code>.</p>
 <p>Again, let's trace the execution of our loop: in the beginning of our loop, <code>i</code> starts by referring to the value 1. So, when MATLAB executes the command</p>
 <pre><code>file_name = sprintf(&#39;inflammation-%d.csv&#39;, idx);</code></pre>
 <p>it substitutes the <code>%d</code> in the template <code>inflammation-%d.csv</code>, with the value of <code>i</code>, i.e., 1. The resulting string is <code>inflammation-1.csv</code>, which is assigned to the variable <code>file_name</code>. The <code>disp</code> command prints that string to screen. The second time around, <code>sprintf</code> generates the string <code>inflammation-2.csv</code>, which is assigned to the variable <code>file_name</code>, and printed to screen. And so on, till <code>i</code> finally refers to the value 12.</p>
 <p>Remember that there's a mistake. Our files are actually named <code>inflammation-01.csv</code>, <code>inflammation-02.csv</code>, etc. To get it right, we have to modify our template:</p>
-<pre><code>for idx = 1:12
-    file_name = sprintf(&#39;inflammation-%02d.csv&#39;, idx);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">for idx = <span class="fl">1</span>:<span class="fl">12</span>
+    file_name = sprintf(<span class="st">&#39;inflammation-%02d.csv&#39;</span>, idx);
     disp(file_name);
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>inflammation-01.csv
+<pre class="output"><code>inflammation-01.csv
 inflammation-02.csv
 inflammation-03.csv
 inflammation-04.csv
@@ -284,7 +260,6 @@ inflammation-09.csv
 inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>We've replaced <code>%d</code> in our earlier template with <code>%02d</code>. With this, we're specifying that we want our data to be displayed with a minimum width of 2 characters, and that we want to <em>pad</em> with 0 for data that isn't at least 2 digits long.</p>
 <p>We're now ready to modify <code>analyze.m</code> to process multiple data files:</p>
 <pre><code>% script analyze.m
@@ -317,29 +292,28 @@ for idx = 1:3
 
 end</code></pre>
 <p>Remember that to run our script, we simply type in its name in the command line:</p>
-<pre><code>analyze</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">analyze</code></pre>
 <div>
-<img src="img/02-loop_1.png" style="width:500px; height:400px">
+<p><img src="img/02-loop_1.png" style="width:500px; height:400px"></p>
 </div>
 <div>
-<img src="img/02-loop_2.png" style="width:500px; height:400px">
+<p><img src="img/02-loop_2.png" style="width:500px; height:400px"></p>
 </div>
 <div>
-<img src="img/02-loop_3.png" style="width:500px; height:400px">
+<p><img src="img/02-loop_3.png" style="width:500px; height:400px"></p>
 </div>
 <p>Sure enough, the maxima of these data sets show exactly the same ramp as the first, and their minima show the same staircase structure.</p>
 <h4 id="challenges-1">Challenges</h4>
 <ol style="list-style-type: decimal">
 <li>In cases where our file names don't follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="../../gloss.html#wildcard">wildcard</a>:</li>
 </ol>
-<p><sub>~</sub> ls *.csv <sub>~</sub> {:class=&quot;in&quot;}</p>
+<p><sub>~</sub> {.matlab} ls *.csv <sub>~</sub></p>
 <p>Thankfully, Matlab also has <code>ls</code>, though it returns a single long string:</p>
-<p><sub>~</sub> filestr = ls('*.csv') <sub>~</sub> {:class=&quot;in&quot;}</p>
-<p><sub>~</sub> inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv <sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub> {.matlab} filestr = ls('*.csv') <sub>~</sub></p>
+<p><sub>~</sub> {.output} inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv <sub>~</sub></p>
 <p>To turn this string into an array we can loop over (actually, a <a href="http://www.mathworks.com/help/matlab/cell-arrays.html">Cell Array</a>), we need to &quot;split&quot; the string at each occurrence of whitespace:</p>
-<p><sub>~</sub> file_string = ls('*.csv'); file_list = strsplit(file_string) <sub>~</sub> {:class=&quot;in&quot;}</p>
-<p><sub>~</sub> file_list =</p>
+<p><sub>~</sub> {.matlab} file_string = ls('*.csv'); file_list = strsplit(file_string) <sub>~</sub></p>
+<p><sub>~</sub> {.output} file_list =</p>
 <pre><code> Columns 1 through 3
 
    &#39;inflammation-01.csv&#39;    &#39;inflammation-04.csv&#39;    &#39;inflammation-07.csv&#39;
@@ -355,7 +329,7 @@ end</code></pre>
  Columns 10 through 13
 
    &#39;inflammation-06.csv&#39;    &#39;inflammation-09.csv&#39;    &#39;inflammation-12.csv&#39;    &#39;&#39;</code></pre>
-<p><sub>~</sub> {:class=&quot;out&quot;}</p>
+<p><sub>~</sub></p>
 <p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
 <div class="keypoints" markdown="1">
 <h4 id="key-points">Key Points</h4>

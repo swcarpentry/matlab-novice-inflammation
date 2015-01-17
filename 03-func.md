@@ -28,14 +28,13 @@ so that we can repeat several operations with a single command.
 
 Let's start by defining a function `fahr_to_kelvin` that converts temperatures from Fahrenheit to Kelvin:
 
-~~~
+~~~ {.matlab}
 % file fahr_to_kelvin.m
 
 function ktemp = fahr_to_kelvin(ftemp)
     ktemp = ((ftemp - 32) * (5/9)) + 273.15;
 end
 ~~~
-{:class="in"}
 
 A Matlab function *must* be saved in a text file with a `.m` extension.
 The name of that file must be the same as the function defined
@@ -71,15 +70,13 @@ current working directory.
 We can call our function from the command line
 like any other MATLAB function:
 
-~~~
+~~~ {.matlab}
 fahr_to_kelvin(32)
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 ans = 273.15
 ~~~
-{:class="out"}
 
 When we pass a value, like `32`, to the function, the value is assigned
 to the variable `ftemp` so that it can be used inside the function. If we
@@ -99,33 +96,30 @@ output values.
 Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
 Kelvin to Celsius.
 
-~~~
+~~~ {.matlab}
 % file kelvin_to_celsius.m
 
 function ctemp = kelvin_to_celsius(ktemp)
     ctemp = ktemp - 273.15;
 end
 ~~~
-{:class="in"}
 
 Again, we can call this function like any other:
 
-~~~
+~~~ {.matlab}
 kelvin_to_celsius(0.0)
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 ans = -273.15
 ~~~
-{:class="out"}
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
 Instead, we can [compose](../../gloss.html#function-composition) the two
 functions we have already created:
 
-~~~
+~~~ {.matlab}
 % file fahr_to_celsius.m
 
 function ctemp = fahr_to_celsius(ftemp)
@@ -133,7 +127,6 @@ function ctemp = fahr_to_celsius(ftemp)
     ctemp = kelvin_to_celsius(ktemp);
 end
 ~~~
-{:class="in"}
 
 Calling this function,
 
@@ -160,48 +153,40 @@ or the next person who reads it won't be able to understand what's going on.
 1. In Matlab, we concatenate strings by putting them into an array or using the
    `strcat` function:
 
-   ~~~
+   ~~~ {.matlab}
    disp(['abra', 'cad', 'abra'])
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    abracadabra 
    ~~~
-   {:class="out"}
 
-   ~~~
+   ~~~ {.matlab}
    disp(strcat('a', 'b'))
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    ab
    ~~~
-   {:class="out"}
 
    Write a function called `fence` that takes two parameters, `original` and
    `wrapper` and appends `wrapper` before and after `original`:
 
-   ~~~
+   ~~~ {.matlab}
    disp(fence('name', '*'))
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    *name*
    ~~~
-   {:class="out"}
 
 1. If the variable `s` refers to a string, then `s(1)` is the string's first
    character and `s(end)` is its last. Write a function called `outer` that returns
    a string made up of just the first and last characters of its input: 
 
-   ~~~
+   ~~~ {.matlab}
    disp(outer('helium'))
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    hm
    ~~~
-   {:class="out"}
 
 ### The Call Stack
 
@@ -211,11 +196,10 @@ Let's take a closer look at what happens when we call
 To make things clearer, we'll start by putting the initial value 32.0
 in a variable and store the final result in one as well:
 
-~~~
+~~~ {.matlab}
 original = 32.0;
 final = fahr_to_celcius(original);
 ~~~
-{:class="in"}
 
 The diagram below shows what memory looks like after the
 first line has been executed:
@@ -232,12 +216,11 @@ working correctly.
 To see how to do this, let's write a function to center a
 dataset around a particular value:
 
-~~~
+~~~ {.matlab}
 function out = center(data, desired)
     out = (data - mean(data)) + desired
 end
 ~~~
-{:class="in"}
 
 We could test this on our actual data, but since we
 don't know what the values ought to be,
@@ -245,27 +228,24 @@ it will be hard to tell if the result was correct,
 Instead, let's create a matrix of 0's, and then center that
 around 3:
 
-~~~
+~~~ {.matlab}
 z = zeros(2,2);
 center(z, 3)
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 ans =
 
    3   3
    3   3
 ~~~
-{:class="out"}
 
 That looks right, so let's try out `center` function on our real data:
 
-~~~
+~~~ {.matlab}
 data = csvread('inflammation-01.csv');
 centered = center(data(:), 0)
 ~~~
-{:class="in"}
 
 It's hard to tell from the default output whether the
 result is correct--this is often the case when working with
@@ -274,28 +254,24 @@ will reassure us.
 
 Let's calculate some simple statistics:
 
-~~~
+~~~ {.matlab}
 disp([min(data(:)), mean(data(:)), max(data(:))])
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 0.00000    6.14875   20.00000
 ~~~
-{:class="out"}
 
 And let's do the same after applying our `center` function
 to the data:
 
-~~~
+~~~ {.matlab}
 disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 -6.1487e+00  -2.2962e-14   1.3851e+01
 ~~~
-{:class="out"}
 
 <!-- FIXME: challenge -->
 
@@ -307,15 +283,13 @@ go further and check that the standard
 deviation hasn't changed:
 
 
-~~~
+~~~ {.matlab}
 std(data(:)) - std(centered)
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 5.3291e-15
 ~~~
-{:class="out"}
 
 
 The difference is very small. It's still possible that our function
@@ -325,7 +299,7 @@ we should write some [documentation](../../gloss.html#documentation)
 for our function to remind ourselves later what it's for and
 how to use it.
 
-~~~
+~~~ {.matlab}
 function out = center(data, desired)
     %   Center data around a desired value.
     %
@@ -337,18 +311,16 @@ function out = center(data, desired)
     out = (data  - mean(data)) + desired;
 end
 ~~~
-{:class="in"}
 
 Comment lines immediately below the function definition line
 are called "help text". Typing `help function_name` brings
 up the help text for that function:
 
-~~~
+~~~ {.matlab}
 help center
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 Center data around a desired value.
 
     center(DATA, DESIRED)
@@ -356,7 +328,6 @@ Center data around a desired value.
 Returns a new array containing the values in
 DATA centered around the value.
 ~~~
-{:class="out"}
 
 #### Challenges
 

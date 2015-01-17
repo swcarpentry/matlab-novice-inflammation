@@ -47,16 +47,14 @@
 </ul>
 <h3 id="assertions">Assertions</h3>
 <p>The first step toward getting the right answers from our programs is to assume that mistakes <em>will</em> happen and to guard against them. This is called <a href="../../gloss.html#defensive-programming">defensive programming</a>, and the most common way to do it is to add <a href="../../gloss.html#assertion">assertions</a> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When MATLAB sees one, it checks the assertion's condition. If it's true, MATLAB does nothing, but if it's false, MATLAB halts the program immediately and prints an error message. For example, this piece of code halts as soon as the loop encounters a value that isn't positive:</p>
-<pre><code>numbers = [1.5, 2.3, 0.7, -0.001, 4.4];
-total = 0;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, -<span class="fl">0.001</span>, <span class="fl">4.4</span>];
+total = <span class="fl">0</span>;
 
 for n = numbers
-    assert(n &gt;= 0);
+    assert(n &gt;= <span class="fl">0</span>);
     total += n;
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>error: assert (n &gt;= 0) failed</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="output"><code>error: assert (n &gt;= 0) failed</code></pre>
 <p>Programs like the Firefox browser are full of assertions: 10-20% of the code they contain are there to check that the other 80-90% are working correctly. Broadly speaking, assertions fall into three categories:</p>
 <ul>
 <li><p>A <a href="../../gloss.html#precondition">precondition</a> is something that must be true at the start of a function in order for it to work correctly.</p></li>
@@ -98,21 +96,16 @@ end</code></pre>
     
 end</code></pre>
 <p>The first three preconditions catch invalid inputs.</p>
-<pre><code>normalize_rectangle([0, 0, 1])</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>])</code></pre>
 <pre><code>error: assert (1 == 2) failed</code></pre>
 <pre><code>normalize_rectangle([1, 0, 0, 2]);</code></pre>
 <pre><code>error: Invalid X coordinates</code></pre>
 <p>The post-conditions help us catch bugs by telling us when our calculations cannot have been correct. For example, if we normalize a rectangle that is taller than it is wide, everything seems OK:</p>
-<pre><code>normalize_rectangle([0, 0, 1.0, 5.0]);</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>0.00000   0.00000   0.20000   1.00000</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>]);</code></pre>
+<pre class="output"><code>0.00000   0.00000   0.20000   1.00000</code></pre>
 <p>but if we normalize one that's wider than it is tall, the assertion is triggered:</p>
-<pre><code>normalize_rectangle([0.0, 0.0, 5.0, 1.0])</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>error: Calculated upper X coordinate invalid</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>])</code></pre>
+<pre class="output"><code>error: Calculated upper X coordinate invalid</code></pre>
 <p>Re-reading our function, we realize that line 19 should should divide <code>dy</code> by <code>dx</code>. If we had left out the assertion at the end of the function, we would have created and returned something that had the right shape as a valid answer, but wasn't. Detecting and debugging <em>that</em> would almost certainly have taken more time in the long run than writing the assertion.</p>
 <p>But assertions aren't just about catching errors: they also help people understand programs. Each assertion gives the person reading the program a chance to check (consciously or otherwise) that their understanding matches what the code is doing.</p>
 <p>Most good programmers follow two rules when adding assertions to their code. The first is, &quot;<a href="../../rules.html#fail-early-fail-often">fail early, fail often</a>&quot;. The greater the distance between when and where an error occurs and when it's noticed, the harder the error will be to debug, so good code catches mistakes as early as possible.</p>
@@ -147,10 +140,8 @@ end</code></pre>
 assert(range_overlap([0, 1.0]) == (0, 1.0));
 assert(range_overlap([2.0, 3.0], [2.0, 4.0]) == [2.0, 3.0]);
 assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);</code></pre>
-<pre><code>test_range_overlap</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code></code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
+<pre class="output"><code></code></pre>
 <p>The error is actually reassuring: we haven't written <code>range_overlap</code> yet, so if the tests passed, it would be a sign that someone else had and that we were accidentally using their function.</p>
 <p>And as a bonus of writing these tests, we've implicitly defined what our input and output look like: we expect a list of pairs as input, and produce a single pair as output.</p>
 <p>Let's write <code>range_overlap</code>:</p>
@@ -212,7 +203,7 @@ end</code></pre>
 <p>Good scientists keep track of what they've done so that they can reproduce their work, and so that they don't waste time repeating the same experiments or running ones whose results won't be interesting. Similarly, debugging works best when we <a href="../../rules.html#keep-track-of-what-youve-done">keep track of what we've done</a> and how well it worked. If we find ourselves asking, &quot;Did left followed by right with an odd number of lines cause the crash? Or was it right followed by left? Or was I using an even number of lines?&quot; then it's time to step away from the computer, take a deep breath, and start working more systematically.</p>
 <p>Records are particularly useful when the time comes to ask for help. People are more likely to listen to us when we can explain clearly what we did, and we're better able to give them the information they need to be useful.</p>
 <blockquote>
-<h4>Version Control Revisited</h4>
+<h4 id="version-control-revisited">Version Control Revisited</h4>
 <p>Version control is often used to reset software to a known state during debugging, and to explore recent changes to code that might be responsible for bugs. In particular, most version control systems have a <code>blame</code> command that will show who last changed particular lines of code...</p>
 </blockquote>
 <h4 id="be-humble">Be Humble</h4>
@@ -221,7 +212,7 @@ end</code></pre>
 <p>Part of being humble is learning from our mistakes. Programmers tend to get the same things wrong over and over: either they don't understand the language and libraries they're working with, or their model of how things work is wrong. In either case, taking note of why the error occurred and checking for it next time quickly turns into not making the mistake at all.</p>
 <p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="../../rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
 <div class="keypoints" markdown="1">
-<h4>Key Points</h4>
+<h4 id="key-points">Key Points</h4>
 <ul>
 <li>Program defensively, i.e., assume that errors are going to arise, and write code to detect them when they do.</li>
 <li>Put assertions in programs to check their state as they run, and to help readers understand how those programs are supposed to work.</li>
