@@ -30,33 +30,29 @@
 <p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they're given. We want programs to make choices based on the values they are manipulating.</p>
 <h3 id="conditionals">Conditionals</h3>
 <p>The tool that MATLAB gives us for doing this is called a <a href="../../gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
-<pre><code>num = 37;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">37</span>;
 
-if num &gt; 100
-    disp(&#39;greater&#39;);
+if num &gt; <span class="fl">100</span>
+    disp(<span class="st">&#39;greater&#39;</span>);
 else
-    disp(&#39;not greater&#39;);
+    disp(<span class="st">&#39;not greater&#39;</span>);
 end
 
-disp(&#39;done&#39;);</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>not greater
+disp(<span class="st">&#39;done&#39;</span>);</code></pre>
+<pre class="output"><code>not greater
 done</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>The second line of this code uses the keyword <code>if</code> to tell MATLAB that we want to make a choice. If the test that follows is true, the body of the <code>if</code> (i.e., the lines between <code>if</code> and <code>else</code>) are executed. If the test is false, the body of the <code>else</code> (i.e., the lines between <code>else</code> and <code>end</code>) are executed instead. Only one or the other is ever executed.</p>
 <p>Conditional statements don't have to have an <code>else</code> block. If there isn't one, MATLAB simply doesn't do anything if the test is false:</p>
-<pre><code>num = 53
-disp(&#39;before conditional...&#39;)
+<pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">53</span>
+disp(<span class="st">&#39;before conditional...&#39;</span>)
 
-if num &gt; 100:
-    print &#39;53 is greater than 100&#39;
+if num &gt; <span class="fl">100</span>:
+    print <span class="st">&#39;53 is greater than 100&#39;</span>
 end
 
-disp(&#39;...after conditional&#39;)</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>before conditional...
+disp(<span class="st">&#39;...after conditional&#39;</span>)</code></pre>
+<pre class="output"><code>before conditional...
 ...after conditional</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>We can also chain several tests together using <code>elseif</code>. This makes it simple to write a function that returns the sign of a number:</p>
 <pre><code>% function sign_of.m
 
@@ -73,21 +69,17 @@ function out = sign_of(num)
 end</code></pre>
 <p>One important thing to notice in the code above is that we use a double equals sign <code>==</code> to test for equality rather than a single equals sign. This is because the latter is used to mean assignment. In our test, we want to check for the equality of <code>num</code> and <code>0</code>, not <em>assign</em> 0 to <code>num</code>. This convention was inherited from C, and it does take a bit of getting used to...</p>
 <p>We can also combine tests, using <code>&amp;&amp;</code> (and) and <code>||</code> (or). <code>&amp;&amp;</code> is true if both tests are true:</p>
-<pre><code>if ((1 &gt; 0) &amp;&amp; (-1 &gt; 0))
-    disp(&#39;both parts are true&#39;);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">if ((<span class="fl">1</span> &gt; <span class="fl">0</span>) &amp;&amp; (-<span class="fl">1</span> &gt; <span class="fl">0</span>))
+    disp(<span class="st">&#39;both parts are true&#39;</span>);
 else
-    disp(&#39;one part is not true&#39;);
+    disp(<span class="st">&#39;one part is not true&#39;</span>);
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>one part is not true</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="output"><code>one part is not true</code></pre>
 <p><code>||</code> is true if either test is true:</p>
-<pre><code>if (1 &lt; 0) || (3 &lt; 4)
-    disp(&#39;at least one part is true&#39;);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">if (<span class="fl">1</span> &lt; <span class="fl">0</span>) || (<span class="fl">3</span> &lt; <span class="fl">4</span>)
+    disp(<span class="st">&#39;at least one part is true&#39;</span>);
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>at least one part is true</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+<pre class="output"><code>at least one part is true</code></pre>
 <p>In this case, &quot;either&quot; means &quot;either or both&quot;, not &quot;either one or the other but not both&quot;.</p>
 <h3 id="challenges">Challenges</h3>
 <ol style="list-style-type: decimal">
@@ -120,51 +112,45 @@ end</code></pre>
 </ol>
 <h3 id="nesting">Nesting</h3>
 <p>Another thing to realize is that <code>if</code> statements can be combined with loops just as easily as they can be combined with functions. For example, if we want to sum the positive numbers in a list, we can write this:</p>
-<pre><code>numbers = [-5, 3, 2, -1, 9, 6];
-total = 0;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [-<span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">2</span>, -<span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">6</span>];
+total = <span class="fl">0</span>;
 
 for n = numbers
-    if n &gt;= 0
+    if n &gt;= <span class="fl">0</span>
         total = total + n;
     end
 end
 
-disp([&#39;sum of positive values: &#39;, num2str(total)])</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>sum of positive values: 20</code></pre>
-<p>{:class=&quot;out&quot;}</p>
+disp([<span class="st">&#39;sum of positive values: &#39;</span>, num2str(total)])</code></pre>
+<pre class="output"><code>sum of positive values: 20</code></pre>
 <p>With a little extra effort, we can calculate the positive and negative sums in a loop:</p>
-<pre><code>pos_total = 0;
-neg_total = 0;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">pos_total = <span class="fl">0</span>;
+neg_total = <span class="fl">0</span>;
 
 for n = numbers
-    if n &gt;= 0
+    if n &gt;= <span class="fl">0</span>
         pos_total = total + n;
     else
         neg_total = neg_total + n;
     end
 end
 
-disp([&#39;sum of positive values: &#39;, num2str(pos_total)]);
-disp([&#39;sum of negative values: &#39;, num2str(neg_total)]);</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>sum of positive values: 26
+disp([<span class="st">&#39;sum of positive values: &#39;</span>, num2str(pos_total)]);
+disp([<span class="st">&#39;sum of negative values: &#39;</span>, num2str(neg_total)]);</code></pre>
+<pre class="output"><code>sum of positive values: 26
 sum of negative values: -6</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <p>We can even put one loop inside another:</p>
-<pre><code>for consonant = &#39;bcd&#39;
-    for vowel = &#39;ae&#39;
+<pre class="sourceCode matlab"><code class="sourceCode matlab">for consonant = <span class="st">&#39;bcd&#39;</span>
+    for vowel = <span class="st">&#39;ae&#39;</span>
         disp (strcat(consonant, vowel));
     end
 end</code></pre>
-<p>{:class=&quot;in&quot;}</p>
-<pre><code>ba
+<pre class="output"><code>ba
 be
 ca
 ce
 da
 de</code></pre>
-<p>{:class=&quot;out&quot;}</p>
 <h3 id="challenges-1">Challenges</h3>
 <ol style="list-style-type: decimal">
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
@@ -176,14 +162,12 @@ x *= 3;</code></pre>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
 <h3 id="creating-a-heat-map">Creating a Heat Map</h3>
 <p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
-<pre><code>patient_data = csvread(&#39;inflammation-01.csv&#39;);</code></pre>
-<p>{:class=&quot;in&quot;}</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>The heatmap from lesson 1 is useful, but fairly hard to read:</p>
-<pre><code>imagesc(patient_data);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data);
 colorbar();</code></pre>
-<p>{:class=&quot;in&quot;}</p>
 <div>
-<img src="img/01-intro_1.png" style="height:350px">
+<p><img src="img/01-intro_1.png" style="height:350px"></p>
 </div>
 <p>Let's write some code to give us a plot that's a little more useful:</p>
 <pre><code>[height, width] = size(patient_data);
@@ -204,7 +188,7 @@ end
 imagesc(heatmap);
 colorbar();</code></pre>
 <div>
-<img src="img/04-cond_1.png" style="height:350px">
+<p><img src="img/04-cond_1.png" style="height:350px"></p>
 </div>
 <p>This is slightly better, but there are still a few things wrong with it:</p>
 <ol style="list-style-type: decimal">
@@ -241,7 +225,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<img src="img/04-cond_2.png" style="height:350px">
+<p><img src="img/04-cond_2.png" style="height:350px"></p>
 </div>
 <p>This is better, but we might want to widen the band around the mean that gets that color.</p>
 <p>But to do that, we'll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let's write a function to make things easier:</p>
@@ -267,33 +251,30 @@ function heatmap = make_heatmap(data, low_band, high_band)
     end
 end</code></pre>
 <p>To test this function, we can run it with the settings we just used:</p>
-<pre><code>heatmap = make_heatmap(patient_data, 0.9, 1.1);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.9</span>, <span class="fl">1.1</span>);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal</code></pre>
-<p>{:class=&quot;in&quot;}</p>
 <div>
-<img src="img/04-cond_2.png" style="height:350px">
+<p><img src="img/04-cond_2.png" style="height:350px"></p>
 </div>
 <p>That seems right, so let's try wider bands:</p>
-<pre><code>heatmap = make_heatmap(patient_data, 0.8, 1.2);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal</code></pre>
-<p>{:class=&quot;in&quot;}</p>
 <div>
-<img src="img/04-cond_3.png" style="height:350px">
+<p><img src="img/04-cond_3.png" style="height:350px"></p>
 </div>
-<pre><code>heatmap = make_heatmap(patient_data, 0.6, 1.4);
+<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.6</span>, <span class="fl">1.4</span>);
 imagesc(heatmap);
 colorbar();
 colormap winter
 axis equal</code></pre>
-<p>{:class=&quot;in&quot;}</p>
 <div>
-<img src="img/04-cond_4.png" style="height:350px">
+<p><img src="img/04-cond_4.png" style="height:350px"></p>
 </div>
 <h4 id="challenges-2">Challenges</h4>
 <ol style="list-style-type: decimal">
