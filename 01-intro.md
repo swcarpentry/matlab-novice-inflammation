@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Analyzing Patient Data
+title: Programming with MATLAB
+subtitle: Analyzing Patient Data
 ---
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
