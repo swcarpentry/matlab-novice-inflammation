@@ -242,7 +242,6 @@ It's generally a good idea to keep the workspace as clean as possible.
 To do that, simply type `clear all`.
 
 > ## Predicting Variable Values {.challenge}
-> ~~~
 > 1.  Predict what variables refer to what values after each statement in the following program:
 > 
 > ~~~ {.matlab}
