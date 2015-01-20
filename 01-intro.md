@@ -241,18 +241,16 @@ they are universally available.
 It's generally a good idea to keep the workspace as clean as possible.
 To do that, simply type `clear all`.
 
-#### Challenges
-
-1.  Draw diagrams showing what variables refer to what values after each statement in the following program:
-
-~~~ {.matlab}
-mass = 47.5
-age = 122
-mass = mass * 2.0
-age = age - 20
-~~~
-
-
+> ## Predicting Variable Values {.challenge}
+> ~~~
+> 1.  Predict what variables refer to what values after each statement in the following program:
+> 
+> ~~~ {.matlab}
+> mass = 47.5
+> age = 122
+> mass = mass * 2.0
+> age = age - 20
+> ~~~
 
 Now that our data is in memory, we can start doing things with it.
 First, let's find out its size or [shape](gloss.html#shape):
@@ -462,29 +460,29 @@ ans =
    15   52   11   56
 ~~~
 
-#### Challenges
-
-A subsection of an array is called a [slice](../../gloss.html#slice). We can take slices of character strings as well:
-
-~~~ {.matlab}
-element = 'oxygen';
-disp(['first three characters: ', element(1:3)])
-disp(['last three characters: ', element(4:6)])
-~~~
-
-~~~ {.output}
-first three characters: oxy
-last three characters: gen
-~~~
-
-1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
-
-1. For any size array, Matlab allows us to index with a single colon operator (`:`).
-This can have surprising effects.
-For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?
-Finally,
-try using the single colon on the matrix `M` above: `M(:)`.
-What seems to be happening when we use the single colon operator for slicing?
+> ## Slicing {.challenge}
+> 
+> A subsection of an array is called a [slice](../../gloss.html#slice). We can take slices of character strings as well:
+> 
+> ~~~ {.matlab}
+> element = 'oxygen';
+> disp(['first three characters: ', element(1:3)])
+> disp(['last three characters: ', element(4:6)])
+> ~~~
+> 
+> ~~~ {.output}
+> first three characters: oxy
+> last three characters: gen
+> ~~~
+> 
+> 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
+> 
+> 1. For any size array, Matlab allows us to index with a single colon operator (`:`).
+> This can have surprising effects.
+> For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?
+> Finally,
+> try using the single colon on the matrix `M` above: `M(:)`.
+> What seems to be happening when we use the single colon operator for slicing?
 
 Now that we know how to access data we want to compute with,
 we're ready to analyze `patient_data`.
