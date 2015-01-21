@@ -1,7 +1,8 @@
+README.html
+LAYOUT.html
+FAQ.html
+DESIGN.html
 *~
-<<<<<<< HEAD
-.DS_Store
-=======
 *.pyc
 _site
->>>>>>> e2292e5442084beb48f16d075c23ae60adfb757f
+.DS_Store
