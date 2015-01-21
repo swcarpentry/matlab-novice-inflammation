@@ -87,10 +87,9 @@ The most convenient of these directories is generally the
 "working directory", or "current directory". To find out the
 working directory, use the `pwd` command:
 
-~~~
+~~~ {.matlab}
 pwd
 ~~~
-{:class="in"}
 
 As you might have guessed, `pwd` stands for "print working directory".
 
@@ -98,39 +97,35 @@ Once you have a script saved in a location that MATLAB knows about,
 you can get MATLAB to run those commands by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
 
-~~~
+~~~ {.matlab}
 analyze
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 Maximum inflammation: 20
 Minimum inflammation: 0
 Standard deviation: 4.7219
 ~~~
-{:class="out"}
 
 ### Saving Images
 
 We've also written commands to create plots:
 
-~~~
+~~~ {.matlab}
 ave_inflammation = mean(patient_data, 1);
 
 plot(ave_inflammation);
 ylabel('average')
 ~~~
-{:class="in"}
 
 
 MATLAB let's us save those as
 images on disk:
 
-~~~
+~~~ {.matlab}
 % save plot to disk as png image:
 print -dpng 'average.png'
 ~~~
-{:class="in"}
 
 You might have noticed that we described what we want 
 our code to do using the `%`-sign.
@@ -175,24 +170,21 @@ print -dpng "patient_data-01.png"
 You can use the `:` (colon) operator to generate
 sequences in MATLAB:
 
-~~~
+~~~ {.matlab}
 4:10
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ans =
 
     4    5    6    7    8    9   10
 ~~~
-{:class="out"}
 
 
-~~~
+~~~ {.matlab}
 2.5:0.25:5
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 ans =
 
  Columns 1 through 8:
@@ -203,7 +195,6 @@ ans =
     4.5000    4.7500    5.0000
 
 ~~~
-{:class="out"}
 
 ### Analyzing Multiple Datasets
 
@@ -218,7 +209,7 @@ get the computer to repeat things.
 Suppose we want to print each character in the word "lead" on
 a line of its own. One way is to use four `disp` statements:
 
-~~~
+~~~ {.matlab}
 word = 'lead';
 
 disp(word(1));
@@ -226,15 +217,13 @@ disp(word(2));
 disp(word(3));
 disp(word(4));
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 l
 e
 a
 d
 ~~~
-{:class="out"}
 
 But that's a bad approach for two reasons:
 
@@ -249,7 +238,7 @@ a shorter one,
 it produces an error, because we're asking for characters
 that don't exist.
 
-~~~
+~~~ {.matlab}
 word = 'tin';
 
 disp(word(1));
@@ -257,32 +246,28 @@ disp(word(2));
 disp(word(3));
 disp(word(4));
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 error: A(I): index out of bounds; value 4 out of bound 3
 ~~~
-{:class="out"}
 
 
 There's a better approach:
 
-~~~
+~~~ {.matlab}
 word = 'lead';
 
 for letter = 1:4
     disp(word(letter))
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 l
 e
 a
 d
 ~~~
-{:class="out"}
 
 This improved version uses a [for loop](../../gloss.html#for-loop) to
 repeat an operation---in this case, printing to the screen---once for 
@@ -314,21 +299,19 @@ There's still one little thing about it that should bother us.
 For our loop to deal appropriately with shorter or longer words,
 we have to change the first line of our loop by hand:
 
-~~~
+~~~ {.matlab}
 word = 'tin';
 
 for letter = 1:3
     disp(word(letter));
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 t
 i
 n
 ~~~
-{:class="out"}
 
 
 Although this works, it's not the best way to write our loop:
@@ -342,16 +325,15 @@ Although this works, it's not the best way to write our loop:
 Fortunately, MATLAB provides us with a convenient function to
 write a better loop:
 
-~~~
+~~~ {.matlab}
 word = 'aluminium';
 
 for letter = 1:length(word)
     disp(word(letter));
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 a
 l
 u
@@ -362,13 +344,12 @@ i
 u
 m
 ~~~
-{:class="out"}
 
 This is much more robust code, as it can deal identically with
 words of arbitrary length. Here's another loop that repeatedly
 updates the variable `len`:
 
-~~~
+~~~ {.matlab}
 len = 0
 for vowel = 'aeiou'
     len = len + 1;
@@ -376,7 +357,6 @@ end
 
 disp(['Number of vowels: ', num2str(len)])
 ~~~
-{:class="in"}
 
 
 It's worth tracing the execution of this little program step by step.
@@ -395,15 +375,13 @@ Note that a loop variable is just a variable that's being used to record
 progress in a loop. It still exists after the loop is over, and we can re-use
 variables previously defined as loop variables as well:
 
-~~~
+~~~ {.matlab}
 disp(vowel)
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 u
 ~~~
-{:class="out"}
 
 After the loop, `vowel` refers to the last value in `aeiou`, i.e., `u`.
 
@@ -411,7 +389,7 @@ After the loop, `vowel` refers to the last value in `aeiou`, i.e., `u`.
 
 1. Write a loop that spells the word "aluminum," adding one letter at a time:
 
-   ~~~
+   ~~~ {.output}
    a
    al
    alu
@@ -421,43 +399,36 @@ After the loop, `vowel` refers to the last value in `aeiou`, i.e., `u`.
    aluminu
    aluminum
    ~~~
-   {:class="out"}
 
 1. Matlab uses the caret (`^`) to perform exponentiation:
 
-   ~~~
+   ~~~ {.matlab}
    disp(5^3)
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    125
    ~~~
-   {:class="out"}
 
    Let `b` be the base of the number and `x` the exponent. Write a loop to compute `b^x`. Check your result for `b = 4` and `x = 5`.
 
 1. In Matlab, the colon operator (`:`) accepts a [stride](../../gloss.html#stride) or skip argument between the start and stop:
 
-   ~~~
+   ~~~ {.matlab}
    disp(1:3:11)
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.matlab}
    1 4 7 10
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.matlab}
    disp(11:-3:1)
    ~~~
-   {:class="in"}
-   ~~~
+   ~~~ {.output}
    11 8 5 2
    ~~~
-   {:class="out"}
 
    Using this, write a loop to print the letters of "aluminum" in reverse order, one letter per line.
 
-   ~~~
+   ~~~ {.output}
    m
    u
    n
@@ -467,7 +438,6 @@ After the loop, `vowel` refers to the last value in `aeiou`, i.e., `u`.
    l
    a
    ~~~
-   {:class="out"}
 
 **Extra Challenge**: Reverse the string `abracadabra` without a loop, using only indexing and the colon operator.
 
@@ -479,15 +449,14 @@ data files are named `inflammation-01.csv`, `inflammation-02.csv`, etc.
 Let's write a loop that tries to print the names of each one of
 our files:
 
-~~~
+~~~ {.matlab}
 for idx = 1:12
     file_name = sprintf('inflammation-%d.csv', idx);
     disp(file_name);
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 inflammation-1.csv
 inflammation-2.csv
 inflammation-3.csv
@@ -501,7 +470,6 @@ inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv
 ~~~
-{:class="out"}
 
 This is close, but not quite right.
 The `sprintf` function is useful when we want to
@@ -530,15 +498,14 @@ Remember that there's a mistake. Our files are actually
 named `inflammation-01.csv`, `inflammation-02.csv`, etc. To get it
 right, we have to modify our template:
 
-~~~
+~~~ {.matlab}
 for idx = 1:12
     file_name = sprintf('inflammation-%02d.csv', idx);
     disp(file_name);
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 inflammation-01.csv
 inflammation-02.csv
 inflammation-03.csv
@@ -552,7 +519,6 @@ inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv
 ~~~
-{:class="out"}
 
 We've replaced `%d` in our earlier template with `%02d`. With this,
 we're specifying that we want our data to be displayed with a minimum
@@ -596,10 +562,9 @@ end
 Remember that to run our script, we simply type in its name in the
 command line:
 
-~~~
+~~~ {.matlab}
 analyze
 ~~~
-{:class="in"}
 
 
 <div>
@@ -625,36 +590,32 @@ as the first, and their minima show the same staircase structure.
    command line we could get this list of files by using a
    [wildcard](../../gloss.html#wildcard):
 
-   ~~~
+   ~~~ {.matlab}
    ls *.csv
    ~~~
-   {:class="in"}
 
    Thankfully, Matlab also has `ls`, though it returns a single long string:
 
-   ~~~
+   ~~~ {.matlab}
    filestr = ls('*.csv')
    ~~~
-   {:class="in"}
 
-   ~~~
+   ~~~ {.output}
    inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv
    inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv
    inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv
    ~~~
-   {:class="out"}
 
    To turn this string into an array we can loop over (actually, a
    [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html)),
    we need to "split" the string at each occurrence of whitespace:
 
-   ~~~
+   ~~~ {.matlab}
    file_string = ls('*.csv');
    file_list = strsplit(file_string)
    ~~~
-   {:class="in"}
 
-   ~~~
+   ~~~ {.output}
    file_list =
 
      Columns 1 through 3
@@ -673,7 +634,6 @@ as the first, and their minima show the same staircase structure.
 
        'inflammation-06.csv'    'inflammation-09.csv'    'inflammation-12.csv'    ''
    ~~~
-   {:class="out"}
 
    Using this trick, rewrite the `analyze` script to analyze all `csv` files in
    the current directory. Be careful of the empty string `''` at the end of

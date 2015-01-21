@@ -56,7 +56,7 @@ and prints an error message.
 For example,
 this piece of code halts as soon as the loop encounters a value that isn't positive:
 
-~~~
+~~~ {.matlab}
 numbers = [1.5, 2.3, 0.7, -0.001, 4.4];
 total = 0;
 
@@ -65,12 +65,10 @@ for n = numbers
     total += n;
 end
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 error: assert (n >= 0) failed
 ~~~
-{:class="out"}
 
 
 Programs like the Firefox browser are full of assertions: 10-20%
@@ -135,10 +133,9 @@ end
 
 The first three preconditions catch invalid inputs.
 
-~~~
+~~~ {.matlab}
 normalize_rectangle([0, 0, 1])
 ~~~
-{:class="in"}
 
 ~~~
 error: assert (1 == 2) failed
@@ -157,28 +154,24 @@ calculations cannot have been correct. For example,
 if we normalize a rectangle that is taller than it is
 wide, everything seems OK:
 
-~~~
+~~~ {.matlab}
 normalize_rectangle([0, 0, 1.0, 5.0]);
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 0.00000   0.00000   0.20000   1.00000
 ~~~
-{:class="out"}
 
 but if we normalize one that's wider than it is tall,
 the assertion is triggered:
 
-~~~
+~~~ {.matlab}
 normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 ~~~
-{:class="in"}
 
-~~~
+~~~ {.output}
 error: Calculated upper X coordinate invalid
 ~~~
-{:class="out"}
 
 Re-reading our function, we realize that line 19 should 
 should divide `dy` by `dx`. If we had left out the assertion
@@ -272,15 +265,13 @@ assert(range_overlap([2.0, 3.0], [2.0, 4.0]) == [2.0, 3.0]);
 assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);
 ~~~
 
-~~~
+~~~ {.matlab}
 test_range_overlap
 ~~~
-{:class="in"}
+
+~~~ {.output}
 
 ~~~
-
-~~~
-{:class="out"}
 
 The error is actually reassuring:
 we haven't written `range_overlap` yet,
