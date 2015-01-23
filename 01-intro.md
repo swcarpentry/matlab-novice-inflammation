@@ -722,7 +722,7 @@ Let's display a heat map of our data:
 imagesc(patient_data)
 ~~~
 
-<img src="img/01-intro_1.png" style="height:350px">
+<img src="fig/01-intro_1.png" style="height:350px">
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -736,7 +736,7 @@ ave_inflammation = mean(patient_data, 1);
 plot(ave_inflammation);
 ~~~
 
-<img src="img/01-intro_2.png" style="height:350px">
+<img src="fig/01-intro_2.png" style="height:350px">
 
 Here, we have put the average per day across all patients in the
 variable `ave_inflammation`, then used the `plot` function to display
@@ -752,14 +752,14 @@ plot(max(patient_data, [], 1));
 title('Maximum inflammation per day');
 ~~~
 
-<img src="img/01-intro_3.png" style="height:350px">
+<img src="fig/01-intro_3.png" style="height:350px">
 
 ~~~ {.matlab}
 plot(min(patient_data, [], 1));
 title('Minimum inflammation per day');
 ~~~
 
-<img src="img/01-intro_4.png" style="height:350px">
+<img src="fig/01-intro_4.png" style="height:350px">
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
