@@ -4,6 +4,15 @@ title: Programming with MATLAB
 subtitle: Analyzing Patient Data
 ---
 
+> ## Learning Objectives {.objectives}
+> * Get to know the MATLAB environment.
+> * Learn about MATLAB arrays.
+> * Read tabular data from a file into a program.
+> * Assign values to variables.
+> * Select individual values and subsections from data.
+> * Perform operations on arrays of data.
+> * Display simple graphs.
+
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
@@ -28,15 +37,6 @@ We want to:
 * plot the result.
 
 To do all that, we'll have to learn a little bit about programming.
-
-> ## Learning Objectives
-> * Get to know the MATLAB environment.
-> * Learn about MATLAB arrays.
-> * Read tabular data from a file into a program.
-> * Assign values to variables.
-> * Select individual values and subsections from data.
-> * Perform operations on arrays of data.
-> * Display simple graphs.
 
 We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
