@@ -2,6 +2,7 @@
 layout: page
 title: Defensive Programming
 subtitle: Testing Code
+minutes: 20
 ---
 
 > ## Learning Objectives {.objectives}
