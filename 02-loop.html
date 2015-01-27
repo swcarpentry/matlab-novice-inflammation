@@ -35,21 +35,19 @@
 <p>There's a common theme in the two problems presented above---duplicate code. In problem 1, we're rewriting code every time we want to perform the same analysis several times. In problem 2, we're rewriting code every time we want to perform several similar analyses. To avoid writing all this duplicate code, we have to teach MATLAB to</p>
 <ul>
 <li><p>Remember our commands</p></li>
-<li><p>Repeat our commands</p></li>
+<li><p>Repeat our command&gt;</p></li>
 </ul>
-<div class="objectives" markdown="1">
-<h3 id="objectives">Objectives</h3>
-<pre><code>* Learn how to write and save MATLAB scripts.
-* Learn how to save MATLAB plots to disk.
-* Explain what a for loop does.
-* Correctly write for loops that repeat simple commands.
-* Trace changes to a loop variable as the loop runs.
-* Use a for loop to process multiple files.</code></pre>
-</div>
-<!-- FIXME: The 0 lesson should talk about the colon operator -->
-<!-- FIXME: Need to mention that strings are arrays -->
-<!-- FIXME: Decide on consistent string---single or double quotes? -->
-
+<blockquote>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Learn how to write and save MATLAB scripts.</li>
+<li>Learn how to save MATLAB plots to disk.</li>
+<li>Explain what a for loop does.</li>
+<li>Correctly write for loops that repeat simple commands.</li>
+<li>Trace changes to a loop variable as the loop runs.</li>
+<li>Use a for loop to process multiple file&gt;</li>
+</ul>
+</blockquote>
 <h3 id="saving-our-work">Saving Our Work</h3>
 <h3 id="writing-scripts">Writing Scripts</h3>
 <p>In addition to running MATLAB commands one-by-one on the command line, we can also write several commands in a <em>script</em>. A MATLAB script is just a text file with a <code>.m</code> extension. We've written commands to load data from a <code>.csv</code> file and displays some statistics about that data. Let's put those commands in a script called <code>analyze.m</code>:</p>
@@ -296,13 +294,13 @@ end</code></pre>
 <p>Remember that to run our script, we simply type in its name in the command line:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">analyze</code></pre>
 <div>
-<p><img src="img/02-loop_1.png" style="width:500px; height:400px"></p>
+<img src="img/02-loop_1.png" style="width:500px; height:400px">
 </div>
 <div>
-<p><img src="img/02-loop_2.png" style="width:500px; height:400px"></p>
+<img src="img/02-loop_2.png" style="width:500px; height:400px">
 </div>
 <div>
-<p><img src="img/02-loop_3.png" style="width:500px; height:400px"></p>
+<img src="img/02-loop_3.png" style="width:500px; height:400px">
 </div>
 <p>Sure enough, the maxima of these data sets show exactly the same ramp as the first, and their minima show the same staircase structure.</p>
 <h4 id="challenges-1">Challenges</h4>
