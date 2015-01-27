@@ -157,7 +157,7 @@ x *= 3;</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data);
 colorbar();</code></pre>
 <div>
-<p><img src="img/01-intro_1.png" style="height:350px"></p>
+<img src="img/01-intro_1.png" style="height:350px">
 </div>
 <p>Let's write some code to give us a plot that's a little more useful:</p>
 <pre><code>[height, width] = size(patient_data);
@@ -178,7 +178,7 @@ end
 imagesc(heatmap);
 colorbar();</code></pre>
 <div>
-<p><img src="img/04-cond_1.png" style="height:350px"></p>
+<img src="img/04-cond_1.png" style="height:350px">
 </div>
 <p>This is slightly better, but there are still a few things wrong with it:</p>
 <ol style="list-style-type: decimal">
@@ -215,7 +215,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<p><img src="img/04-cond_2.png" style="height:350px"></p>
+<img src="img/04-cond_2.png" style="height:350px">
 </div>
 <p>This is better, but we might want to widen the band around the mean that gets that color.</p>
 <p>But to do that, we'll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let's write a function to make things easier:</p>
@@ -247,7 +247,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<p><img src="img/04-cond_2.png" style="height:350px"></p>
+<img src="img/04-cond_2.png" style="height:350px">
 </div>
 <p>That seems right, so let's try wider bands:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
@@ -256,7 +256,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<p><img src="img/04-cond_3.png" style="height:350px"></p>
+<img src="img/04-cond_3.png" style="height:350px">
 </div>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.6</span>, <span class="fl">1.4</span>);
 imagesc(heatmap);
@@ -264,7 +264,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<p><img src="img/04-cond_4.png" style="height:350px"></p>
+<img src="img/04-cond_4.png" style="height:350px">
 </div>
 <h4 id="challenges-2">Challenges</h4>
 <ol style="list-style-type: decimal">

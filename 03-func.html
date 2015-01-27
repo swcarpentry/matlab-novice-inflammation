@@ -29,7 +29,7 @@
           
 <p>If we only had one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics. But we have twelve files to check, and may have more in future. In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.</p>
 <div class="objectives" markdown="1">
-<h4 id="objectives">Objectives</h4>
+<h4>Objectives</h4>
 <ul>
 <li>Explain a Matlab function file.</li>
 <li>Define a function that takes parameters.</li>
@@ -132,6 +132,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp([min(centered(:)), mean(centered(:)), max(centered(:))])</code></pre>
 <pre class="output"><code>-6.1487e+00  -2.2962e-14   1.3851e+01</code></pre>
 <!-- FIXME: challenge -->
+
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn't quite zero--we'll explore why not in the challenges--but it's pretty close. We can even go further and check that the standard deviation hasn't changed:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered)</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
@@ -161,7 +162,7 @@ DATA centered around the value.</code></pre>
 <li><p>Write a function <code>run_analysis</code> that accepts a filename as parameter, and displays the three graphs produced in the previous lesson, i.e., <code>run_analysis('inflammation-01.csv')</code> should produce the corresponding graphs for the first data set. Be sure to give your function help text.</p></li>
 </ol>
 <div class="keypoints" markdown="1">
-<h4 id="key-points">Key Points</h4>
+<h4>Key Points</h4>
 <ul>
 <li>Define a function in a file called <code>function_name.m</code>.</li>
 <li>The first line of a function is the definition line and is most generally written as <code>function [out1, out2 ..] = function_name(in1, in2 ...)</code></li>

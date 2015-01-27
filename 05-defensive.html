@@ -203,7 +203,7 @@ end</code></pre>
 <p>Good scientists keep track of what they've done so that they can reproduce their work, and so that they don't waste time repeating the same experiments or running ones whose results won't be interesting. Similarly, debugging works best when we <a href="../../rules.html#keep-track-of-what-youve-done">keep track of what we've done</a> and how well it worked. If we find ourselves asking, &quot;Did left followed by right with an odd number of lines cause the crash? Or was it right followed by left? Or was I using an even number of lines?&quot; then it's time to step away from the computer, take a deep breath, and start working more systematically.</p>
 <p>Records are particularly useful when the time comes to ask for help. People are more likely to listen to us when we can explain clearly what we did, and we're better able to give them the information they need to be useful.</p>
 <blockquote>
-<h4 id="version-control-revisited">Version Control Revisited</h4>
+<h4>Version Control Revisited</h4>
 <p>Version control is often used to reset software to a known state during debugging, and to explore recent changes to code that might be responsible for bugs. In particular, most version control systems have a <code>blame</code> command that will show who last changed particular lines of code...</p>
 </blockquote>
 <h4 id="be-humble">Be Humble</h4>
@@ -212,7 +212,7 @@ end</code></pre>
 <p>Part of being humble is learning from our mistakes. Programmers tend to get the same things wrong over and over: either they don't understand the language and libraries they're working with, or their model of how things work is wrong. In either case, taking note of why the error occurred and checking for it next time quickly turns into not making the mistake at all.</p>
 <p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="../../rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
 <div class="keypoints" markdown="1">
-<h4 id="key-points">Key Points</h4>
+<h4>Key Points</h4>
 <ul>
 <li>Program defensively, i.e., assume that errors are going to arise, and write code to detect them when they do.</li>
 <li>Put assertions in programs to check their state as they run, and to help readers understand how those programs are supposed to work.</li>

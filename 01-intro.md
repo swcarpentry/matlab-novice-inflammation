@@ -793,6 +793,8 @@ plot(min(patient_data, [], 1));
 ylabel('min')
 ~~~
 
+<img src="fig/01-intro_5.png" style="height:350px">
+
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
 but typing in the same commands repeatedly is tedious and error-prone.
