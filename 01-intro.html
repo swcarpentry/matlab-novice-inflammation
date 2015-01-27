@@ -87,14 +87,14 @@ weight_lb = <span class="fl">2.2</span> * weight_in__kg;
 disp([<span class="st">&#39;Weight in kg: &#39;</span>, num2str(weight_kg); <span class="st">&#39;Weight in pounds: &#39;</span>, num2str(weight_lb)]);</code></pre>
 <pre class="output"><code>Weight in kg: 57.5
 Weight in pounds: 126.5</code></pre>
-<p><img src="img/matlab-sticky-note-variables-02.svg" alt="Creating another variable" /></p>
+<p><img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" /></p>
 <p>Let's update the value of one of our variable, and print the values of both:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">weight_kg = <span class="fl">100</span>;
 disp([<span class="st">&#39;Weight in kg: &#39;</span>, num2str(weight_kg); <span class="st">&#39;Weight in pounds: &#39;</span>,
 num2str(weight_lb)]);</code></pre>
 <pre class="output"><code>Weight in kg: 100
 Weight in pounds: 126.5</code></pre>
-<p><img src="img/matlab-sticky-note-variables-03.svg" alt="Updating one variable" /></p>
+<p><img src="fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" /></p>
 <p>Since <code>weight_lb</code> doesn't &quot;remember&quot; where its value came from, it isnt automatically updated when <code>weight_kg</code> changes. This is important to remember, and different from the way spreadsheets work.</p>
 <p>Now that we know how to assign things to variables, let's re-run <code>csvread</code> and save its result.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
@@ -158,13 +158,13 @@ age = age - <span class="fl">20</span></code></pre>
    49   15   14   52   53   11   10   56
     8   58   59    5    4   62   63    1</code></pre>
 <p>We want to access a single value from the matrix:</p>
-<p><img src="img/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/></p>
+<p><img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/></p>
 <p>To do that, we must provide its <a href="gloss.html#index">index</a> in brackets:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">5</span>, <span class="fl">6</span>)</code></pre>
 <pre class="output"><code>ans = 38</code></pre>
 <p>Indices are provided as (row, column). So the index <code>(5, 6)</code> selects the element on the fifth row and sixth column.</p>
 <p>An index like <code>(5, 6)</code> selects a single element of an array, but we can also access sections of the matrix, or <a href="gloss.html#slice">slices</a>. To access a row of values:</p>
-<p><img src="img/matrix-row.svg" style="height:350px" alt="Accessing a single value"/></p>
+<p><img src="fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/></p>
 <p>we can do:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">5</span>, :)</code></pre>
 <pre class="output"><code>ans =
@@ -172,7 +172,7 @@ age = age - <span class="fl">20</span></code></pre>
    32   34   35   29   28   38   39   25
 </code></pre>
 <p>Providing <code>:</code> as the index for a dimension selects <em>all</em> elements along that dimension. So, the index <code>(5, :)</code> selects the elements on row <code>5</code>, and <em>all</em> columns---effectively, the entire row. We can also select multiple rows,</p>
-<p><img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/></p>
+<p><img src="fig/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/></p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">1</span>:<span class="fl">4</span>, :)</code></pre>
 <pre class="output"><code>ans =
 
@@ -181,7 +181,7 @@ age = age - <span class="fl">20</span></code></pre>
    17   47   46   20   21   43   42   24
    40   26   27   37   36   30   31   33</code></pre>
 <p>and columns:</p>
-<p><img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/></p>
+<p><img src="fig/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/></p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(:, <span class="fl">6</span>:end)</code></pre>
 <pre class="output"><code>ans =
 
@@ -194,7 +194,7 @@ age = age - <span class="fl">20</span></code></pre>
    11   10   56
    62   63    1</code></pre>
 <p>To select a submatrix,</p>
-<p><img src="img/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/></p>
+<p><img src="fig/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/></p>
 <p>we have to take slices in both dimensions:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">4</span>:<span class="fl">6</span>, <span class="fl">5</span>:<span class="fl">7</span>)</code></pre>
 <pre class="output"><code>ans =
@@ -204,7 +204,7 @@ age = age - <span class="fl">20</span></code></pre>
    45   19   18
 </code></pre>
 <p>We don't have to take all the values in the slice---if we provide a <a href="gloss.html#stride">stride</a>. Let's say we want to start with row <code>2</code>, and subsequently select every third row:</p>
-<p><img src="img/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/></p>
+<p><img src="fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/></p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">2</span>:<span class="fl">3</span>:end, :)</code></pre>
 <pre class="output"><code>ans =
 
@@ -212,7 +212,7 @@ age = age - <span class="fl">20</span></code></pre>
    32   34   35   29   28   38   39   25
     8   58   59    5    4   62   63    1</code></pre>
 <p>And we can also select values in a &quot;checkerboard&quot;,</p>
-<p><img src="img/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/></p>
+<p><img src="fig/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/></p>
 <p>by taking appropriate strides in both dimensions:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">1</span>:<span class="fl">3</span>:end, <span class="fl">2</span>:<span class="fl">2</span>:end)</code></pre>
 <pre class="output"><code>ans =
@@ -284,7 +284,7 @@ disp([<span class="st">&#39;Maximum inflation for patient 1: &#39;</span>, max(p
 <pre class="sourceCode matlab"><code class="sourceCode matlab">max(patient_data(<span class="fl">1</span>, :))</code></pre>
 <pre class="output"><code>ans = 18</code></pre>
 <p>What if we need the maximum inflammation for <em>all</em> patients, or the average for each day? As the diagram below shows, we want to perform the operation across an axis:</p>
-<p><img src="img/matlab-operations-across-axes.svg" alt="Operations Across Axes" /></p>
+<p><img src="fig/matlab-operations-across-axes.svg" alt="Operations Across Axes" /></p>
 <p>To support this, MATLAB allows us to specify the <em>dimension</em> we want to work on. If we ask for the average across the dimension 1, we get:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">mean(patient_data, <span class="fl">1</span>)</code></pre>
 <pre class="output"><code>ans =
