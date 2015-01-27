@@ -174,7 +174,7 @@ Weight in kg: 57.5
 Weight in pounds: 126.5
 ~~~
 
-<img src="img/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
+<img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
 
 Let's update the value of one of our variable, and print the values
 of both:
@@ -190,7 +190,7 @@ Weight in kg: 100
 Weight in pounds: 126.5
 ~~~
 
-<img src="img/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
+<img src="fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
 
 Since `weight_lb` doesn't "remember" where its value came from, it isnt
 automatically updated when `weight_kg` changes. This is important to
@@ -327,7 +327,7 @@ ans =
 
 We want to access a single value from the matrix:
 
-<img src="img/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
+<img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
 
 To do that, we must provide
 its [index](gloss.html#index) in brackets:
@@ -347,7 +347,7 @@ An index like `(5, 6)` selects a single element of
 an array, but we can also access sections of the matrix, or [slices](gloss.html#slice).
 To access a row of values:
 
-<img src="img/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
+<img src="fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
 
 we can do:
 
@@ -369,7 +369,7 @@ the elements on row `5`, and *all* columns---effectively, the entire row.
 We can also
 select multiple rows,
 
-<img src="img/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
+<img src="fig/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
 
 ~~~ {.matlab}
 M(1:4, :)
@@ -386,7 +386,7 @@ ans =
 
 and columns:
 
-<img src="img/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
+<img src="fig/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
 
 ~~~ {.matlab}
 M(:, 6:end)
@@ -407,7 +407,7 @@ ans =
 
 To select a submatrix,
 
-<img src="img/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
+<img src="fig/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
 
 we have to take slices in both dimensions:
 
@@ -428,7 +428,7 @@ We don't have to take all the values in the slice---if we provide
 a [stride](gloss.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
-<img src="img/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
+<img src="fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
 
 ~~~ {.matlab}
 M(2:3:end, :)
@@ -444,7 +444,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-<img src="img/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
+<img src="fig/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
 
 by taking appropriate strides in both dimensions:
 
@@ -589,7 +589,7 @@ average for each day?
 As the diagram below shows, we want to perform the operation across an
 axis:
 
-<img src="img/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
+<img src="fig/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
