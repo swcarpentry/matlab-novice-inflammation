@@ -27,6 +27,18 @@
         <div class="span10 offset1">
           <h1 class="title">Programming with MATLAB</h1>
           <h2 class="subtitle">Analyzing Patient Data</h2>
+<div id="learning-objectives" class="objectives objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Get to know the MATLAB environment.</li>
+<li>Learn about MATLAB arrays.</li>
+<li>Read tabular data from a file into a program.</li>
+<li>Assign values to variables.</li>
+<li>Select individual values and subsections from data.</li>
+<li>Perform operations on arrays of data.</li>
+<li>Display simple graphs.</li>
+</ul>
+</div>
 <p>We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets. The data sets are stored in <a href="gloss.html#comma-separated-values">Comma Separated Values (CSV)</a> format: each row holds information for a single patient, and the columns represent successive days. The first few rows of our first file, <code>inflammation-01.csv</code>, look like this:</p>
 <pre><code>0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
 0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
@@ -40,18 +52,6 @@
 <li>plot the result.</li>
 </ul>
 <p>To do all that, we'll have to learn a little bit about programming.</p>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
-<ul>
-<li>Get to know the MATLAB environment.</li>
-<li>Learn about MATLAB arrays.</li>
-<li>Read tabular data from a file into a program.</li>
-<li>Assign values to variables.</li>
-<li>Select individual values and subsections from data.</li>
-<li>Perform operations on arrays of data.</li>
-<li>Display simple graphs.</li>
-</ul>
-</div>
 <p>We have a dozen datasets that need analysis, stored as <code>.csv</code> files - but MATLAB doesn't know about these files yet. The first thing we need to do is set MATLAB's <a href="gloss.html#current-working-directory">working directory</a> to the directory containing the files. To do this, we go to the <code>Home</code> tab, click on <code>Set Path</code>, and then on <code>Add with Subfolders...</code>. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files.</p>
 <p>Before we can start programming, we need to know a little about the MATLAB interface. Using the default setup, the MATLAB desktop contains several important sections:</p>
 <ul>
@@ -377,18 +377,18 @@ disp([<span class="st">&#39;Maximum inflation for patient 1: &#39;</span>, max(p
 <p>The mathematician Richard Hamming once said, &quot;The purpose of computing is insight, not numbers,&quot; and the best way to develop insight is often to visualize data. Visualization deserves an entire lecture (or course) of its own, but we can explore a few features of MATLAB here.</p>
 <p>Let's display a heat map of our data:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data)</code></pre>
-<p><img src="img/01-intro_1.png" style="height:350px"></p>
+<p><img src="fig/01-intro_1.png" style="height:350px"></p>
 <p>The <code>imagesc</code> function represents the matrix as a color image. Every value in the matrix is <em>mapped</em> to a color. Blue regions in this heat map are low values, while red shows high values. As we can see, inflammation rises and falls over a 40 day period. Let's take a look at the average inflammation over time:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">ave_inflammation = mean(patient_data, <span class="fl">1</span>);
 plot(ave_inflammation);</code></pre>
-<p><img src="img/01-intro_2.png" style="height:350px"></p>
+<p><img src="fig/01-intro_2.png" style="height:350px"></p>
 <p>Here, we have put the average per day across all patients in the variable <code>ave_inflammation</code>, then used the <code>plot</code> function to display a line graph of those values. The result is roughly a linear rise and fall, which is suspicious: based on other studies, we expect a sharper rise and slower fall. Let's have a look at two other statistics: the maximum and minimum inflammation per day across all patients.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">plot(max(patient_data, [], <span class="fl">1</span>));
 title(<span class="st">&#39;Maximum inflammation per day&#39;</span>);</code></pre>
-<p><img src="img/01-intro_3.png" style="height:350px"></p>
+<p><img src="fig/01-intro_3.png" style="height:350px"></p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">plot(min(patient_data, [], <span class="fl">1</span>));
 title(<span class="st">&#39;Minimum inflammation per day&#39;</span>);</code></pre>
-<p><img src="img/01-intro_4.png" style="height:350px"></p>
+<p><img src="fig/01-intro_4.png" style="height:350px"></p>
 <p>Like <code>mean()</code>, the functions <code>max()</code> and <code>min()</code> can also operate across a specified dimension of the matrix. However, the syntax is slightly different. To see why, run a <code>help</code> on each of these functions.</p>
 <p>From the figures, we see that the maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there 's a mistake in our calculations or something is wrong with our data.</p>
 <div id="plots" class="challenge">
