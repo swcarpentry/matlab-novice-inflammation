@@ -1,9 +1,17 @@
 ---
 layout: page
-title: Repeating With Loops
+title: Programming with MATLAB
+subtitle: Repeating With Loops
 ---
 
+> ## Learning Objectives
+> * Explain what a for loop does.
+> * Correctly write for loops that repeat simple commands.
+> * Trace changes to a loop variable as the loops runs.
+> * Use a for loop to process multiple files
+
 <!-- FIXME: this can be worded better: -->
+
 Recall that we have to do this analysis for every one of our dozen datasets.
 And we need a better way than
 typing out commands for each one,
@@ -16,12 +24,6 @@ To avoid all of this repetition, we have to teach MATLAB to
 repeat our commands,
 and to do *that*,
 we have to learn how to write *loops*.
-
-> ## Learning Objectives
-> * Explain what a for loop does.
-> * Correctly write for loops that repeat simple commands.
-> * Trace changes to a loop variable as the loops runs.
-> * Use a for loop to process multiple files
 
 Suppose we want to print each character in the word "lead" on
 a line of its own. One way is to use four `disp` statements:

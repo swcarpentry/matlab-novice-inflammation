@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Writing MATLAB Scripts
+title: Programming with MATLAB
+subtitle: Writing MATLAB Scripts
 ---
 
 > ## Learning Objectives
