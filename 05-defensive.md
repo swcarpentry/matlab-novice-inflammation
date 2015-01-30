@@ -84,10 +84,8 @@ Here is a function that does that, but checks that its input is
 correctly formatted and that its result makes
 sense:
 
-
-~~~
+~~~{.matlab}
 function normalized = normalize_rectangle(rect)
-    
     % Normalizes a rectangle so that it is at the origin
     % and 1.0 units long on its longest axis:
     
@@ -117,7 +115,6 @@ function normalized = normalize_rectangle(rect)
     assert ((0 < upper_y) && (upper_y <= 1.0), 'Calculated upper Y coordinate invalid');
     
     normalized = [0, 0, upper_x, upper_y];
-    
 end
 ~~~
 
@@ -127,15 +124,15 @@ The first three preconditions catch invalid inputs.
 normalize_rectangle([0, 0, 1])
 ~~~
 
-~~~
+~~~{.error}
 error: assert (1 == 2) failed
 ~~~
 
-~~~
+~~~{.matlab}
 normalize_rectangle([1, 0, 0, 2]);
 ~~~
 
-~~~
+~~~{.error}
 error: Invalid X coordinates
 ~~~
 
@@ -215,8 +212,6 @@ which are the time the interval started and ended.
 The output is the largest range that they all include:
 
 <img src="img/matlab-overlapping-ranges.svg" alt="Overlapping Ranges" />
-
-
 
 Most novice programmers would solve this problem like this:
 
