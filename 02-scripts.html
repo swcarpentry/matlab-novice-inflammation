@@ -27,14 +27,14 @@
         <div class="span10 offset1">
           <h1 class="title">Writing MATLAB Scripts</h1>
           
-<p>So far, we've typed in commands one-by-one on the command line to get MATLAB to do things for us. But what if we want to repeat our analysis? Sure, it's only a handful of commands, and typing them in shouldn't take us more than a few minutes. But if we forget a step or make a mistake, we'll waste time rewriting commands. Also, we'll quickly find ourselves doing more complex analyses, and we'll need our results to be more easily reproducible.</p>
-<div id="learning-objectives" class="objectives">
+<blockquote>
 <h2>Learning Objectives</h2>
 <ul>
 <li>Learn how to write and save MATLAB scripts.</li>
 <li>Learn how to save MATLBA plots to disk.</li>
 </ul>
-</div>
+</blockquote>
+<p>So far, we've typed in commands one-by-one on the command line to get MATLAB to do things for us. But what if we want to repeat our analysis? Sure, it's only a handful of commands, and typing them in shouldn't take us more than a few minutes. But if we forget a step or make a mistake, we'll waste time rewriting commands. Also, we'll quickly find ourselves doing more complex analyses, and we'll need our results to be more easily reproducible.</p>
 <p>In addition to running MATLAB commands one-by-one on the command line, we can also write several commands in a <em>script</em>. A MATLAB script is just a text file with a <code>.m</code> extension. We've written commands to load data from a <code>.csv</code> file and displays some statistics about that data. Let's put those commands in a script called <code>analyze.m</code>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
 
@@ -85,14 +85,14 @@ plot(min(patient_data, [], <span class="fl">1</span>));
 ylabel(<span class="st">&#39;min&#39;</span>)
 
 <span class="co">% save plot to disk as png image:</span>
-print -dpng &quot;patient_data-<span class="fl">01</span>.png&quot;</code></pre>
+print -dpng <span class="st">&#39;patient_data-01.png&#39;</span></code></pre>
         </div>
       </div>
       <div class="footer">
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
-        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/matlab-novice-inflammation">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
