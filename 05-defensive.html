@@ -145,17 +145,17 @@ assert(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>],
 <p>The error is actually reassuring: we haven't written <code>range_overlap</code> yet, so if the tests passed, it would be a sign that someone else had and that we were accidentally using their function.</p>
 <p>And as a bonus of writing these tests, we've implicitly defined what our input and output look like: we expect a list of pairs as input, and produce a single pair as output.</p>
 <p>Let's write <code>range_overlap</code>:</p>
-<pre><code>function output_range = range_overlap(varargin)
+<pre class="sourceCode matlab"><code class="sourceCode matlab">function output_range = range_overlap(varargin)
 
-    % Return common overlap among a set of [low, high] ranges. 
+    <span class="co">% Return common overlap among a set of [low, high] ranges. </span>
 
     lowest = -inf;
     highest = +inf;
 
-    for i = 1:nargin
+    for i = <span class="fl">1</span>:nargin
         range = varargin{i};
-        low = range(1);
-        high = range(2);
+        low = range(<span class="fl">1</span>);
+        high = range(<span class="fl">2</span>);
         lowest = max(lowest, low);
         highest = min(highest, high);
     end
@@ -164,7 +164,7 @@ assert(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>],
 
 end</code></pre>
 <p>And now when we run the tests:</p>
-<pre><code>test_range_overlap</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
 <p>we shouldn't see an error.</p>
 <p>Something important is missing, though. We don't have any tests for the case where the ranges don't overlap at all, or for the case where the ranges overlap at a point. We'll leave this as a final assignment.</p>
 <div id="fixing-code-through-testing" class="challenge">
