@@ -246,7 +246,7 @@ u
 > aluminum
 > ~~~
 
-> ## Looping in Reverse
+> ## Looping in Reverse .{challenge}
 > 
 > In Matlab, the colon operator (`:`) accepts a
 > [stride](../../gloss.> html#stride)
