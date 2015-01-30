@@ -26,17 +26,9 @@
       <div class="row-fluid">
         <div class="span10 offset1">
           <h1 class="title">Defensive Programming</h1>
-          
-<h2 id="defensive-programming">Defensive Programming</h2>
-<p>Our previous lessons have introduced the basic tools of programming: variables and lists, file I/O, loops, conditionals, and functions. What they <em>haven't</em> done is show us how to tell whether a program is getting the right answer, and how to tell if it's <em>still</em> getting the right answer as we make changes to it.</p>
-<p>To achieve that, we need to:</p>
-<ul>
-<li><p>write programs that check their own operation,</p></li>
-<li><p>write and run tests for widely-used functions, and</p></li>
-<li><p>make sure we know what &quot;correct&quot; actually means.</p></li>
-</ul>
-<p>The good news is, doing these things will speed up our programming, not slow it down.</p>
-<h3 id="objectives">Objectives</h3>
+          <h2 class="subtitle">Testing Code</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
 <ul>
 <li>Explain what an assertion is.</li>
 <li>Add assertions to programs that correctly check the program's state.</li>
@@ -45,8 +37,16 @@
 <li>Explain why variables should be initialized using actual data values rather than arbitrary constants.</li>
 <li>Debug code containing an error systematically.</li>
 </ul>
-<h3 id="assertions">Assertions</h3>
-<p>The first step toward getting the right answers from our programs is to assume that mistakes <em>will</em> happen and to guard against them. This is called <a href="../../gloss.html#defensive-programming">defensive programming</a>, and the most common way to do it is to add <a href="../../gloss.html#assertion">assertions</a> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When MATLAB sees one, it checks the assertion's condition. If it's true, MATLAB does nothing, but if it's false, MATLAB halts the program immediately and prints an error message. For example, this piece of code halts as soon as the loop encounters a value that isn't positive:</p>
+</div>
+<p>Our previous lessons have introduced the basic tools of programming: variables and lists, file I/O, loops, conditionals, and functions. What they <em>haven't</em> done is show us how to tell whether a program is getting the right answer, and how to tell if it's <em>still</em> getting the right answer as we make changes to it.</p>
+<p>To achieve that, we need to:</p>
+<ul>
+<li>write programs that check their own operation,</li>
+<li>write and run tests for widely-used functions, and</li>
+<li>make sure we know what &quot;correct&quot; actually means.</li>
+</ul>
+<p>The good news is, doing these things will speed up our programming, not slow it down.</p>
+<p>The first step toward getting the right answers from our programs is to assume that mistakes <em>will</em> happen and to guard against them. This is called <a href="gloss.html#defensive-programming">defensive programming</a>, and the most common way to do it is to add <a href="gloss.html#assertion">assertions</a> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When MATLAB sees one, it checks the assertion's condition. If it's true, MATLAB does nothing, but if it's false, MATLAB halts the program immediately and prints an error message. For example, this piece of code halts as soon as the loop encounters a value that isn't positive:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, -<span class="fl">0.001</span>, <span class="fl">4.4</span>];
 total = <span class="fl">0</span>;
 
@@ -57,9 +57,9 @@ end</code></pre>
 <pre class="output"><code>error: assert (n &gt;= 0) failed</code></pre>
 <p>Programs like the Firefox browser are full of assertions: 10-20% of the code they contain are there to check that the other 80-90% are working correctly. Broadly speaking, assertions fall into three categories:</p>
 <ul>
-<li><p>A <a href="../../gloss.html#precondition">precondition</a> is something that must be true at the start of a function in order for it to work correctly.</p></li>
-<li><p>A postcondition is something that the function guarantees is true when it finishes.</p></li>
-<li><p>An invariant is something that is always true at a particular point inside a piece of code.</p></li>
+<li>A <a href="gloss.html#precondition">precondition</a> is something that must be true at the start of a function in order for it to work correctly.</li>
+<li>A postcondition is something that the function guarantees is true when it finishes.</li>
+<li>An invariant is something that is always true at a particular point inside a piece of code.</li>
 </ul>
 <p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, x1)</code>. In order to do some calculations, we need to normalize the rectangle so that it is at the origin and 1.0 units on its longest axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
 <pre><code>function normalized = normalize_rectangle(rect)
@@ -108,13 +108,14 @@ end</code></pre>
 <pre class="output"><code>error: Calculated upper X coordinate invalid</code></pre>
 <p>Re-reading our function, we realize that line 19 should should divide <code>dy</code> by <code>dx</code>. If we had left out the assertion at the end of the function, we would have created and returned something that had the right shape as a valid answer, but wasn't. Detecting and debugging <em>that</em> would almost certainly have taken more time in the long run than writing the assertion.</p>
 <p>But assertions aren't just about catching errors: they also help people understand programs. Each assertion gives the person reading the program a chance to check (consciously or otherwise) that their understanding matches what the code is doing.</p>
-<p>Most good programmers follow two rules when adding assertions to their code. The first is, &quot;<a href="../../rules.html#fail-early-fail-often">fail early, fail often</a>&quot;. The greater the distance between when and where an error occurs and when it's noticed, the harder the error will be to debug, so good code catches mistakes as early as possible.</p>
-<p>The second rule is, &quot;<a href="../../rules.html#turn-bugs-into-assertions-or-tests">turn bugs into assertions or tests</a>&quot;. If you made a mistake in a piece of code, the odds are good that you have made other mistakes nearby, or will make the same mistake (or a related one) the next time you change it. Writing assertions to check that you haven't <a href="../../gloss.html#regression">regressed</a> (i.e., haven't re-introduced an old problem) can save a lot of time in the long run, and helps to warn people who are reading the code (including your future self) that this bit is tricky.</p>
-<h3 id="challenges">Challenges</h3>
+<p>Most good programmers follow two rules when adding assertions to their code. The first is, &quot;<a href="rules.html#fail-early-fail-often">fail early, fail often</a>&quot;. The greater the distance between when and where an error occurs and when it's noticed, the harder the error will be to debug, so good code catches mistakes as early as possible.</p>
+<p>The second rule is, &quot;<a href="rules.html#turn-bugs-into-assertions-or-tests">turn bugs into assertions or tests</a>&quot;. If you made a mistake in a piece of code, the odds are good that you have made other mistakes nearby, or will make the same mistake (or a related one) the next time you change it. Writing assertions to check that you haven't <a href="gloss.html#regression">regressed</a> (i.e., haven't re-introduced an old problem) can save a lot of time in the long run, and helps to warn people who are reading the code (including your future self) that this bit is tricky.</p>
+<blockquote>
+<h2>Finding conditions</h2>
 <ol style="list-style-type: decimal">
 <li>Suppose you are writing a function called <code>average</code> that calculates the average of the numbers in a list. What pre-conditions and post-conditions would you write for it? Compare your answer to your neighbor's: can you think of a function that will past your tests but not hers or vice versa?</li>
 </ol>
-<h3 id="test-driven-development">Test-Driven Development</h3>
+</blockquote>
 <p>An assertion checks that something is true at a particular point in the program. The next step is to check the overall behavior of a piece of code, i.e., to make sure that it produces the right output when it's given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:</p>
 <p><img src="img/matlab-overlapping-ranges.svg" alt="Overlapping Ranges" /></p>
 <p>Most novice programmers would solve this problem like this:</p>
@@ -129,7 +130,7 @@ end</code></pre>
 <li>Write a <code>range_overlap</code> function that should pass those tests.</li>
 <li>If <code>range_overlap</code> produces any wrong answers, fix it and re-run the test functions.</li>
 </ol>
-<p>Writing the tests <em>before</em> writing the function they exercise is called <a href="../../gloss.html#test-driven-development">test-driven development</a> (TDD). Its advocates believe it produces better code faster because:</p>
+<p>Writing the tests <em>before</em> writing the function they exercise is called <a href="gloss.html#test-driven-development">test-driven development</a> (TDD). Its advocates believe it produces better code faster because:</p>
 <ol style="list-style-type: decimal">
 <li><p>If people write tests after writing the thing to be tested, they are subject to confirmation bias, i.e., they subconsciously write tests to show that their code is correct, rather than to find errors.</p></li>
 <li><p>Writing tests helps programmers figure out what the function is actually supposed to do.</p></li>
@@ -167,49 +168,47 @@ end</code></pre>
 <pre><code>test_range_overlap</code></pre>
 <p>we shouldn't see an error.</p>
 <p>Something important is missing, though. We don't have any tests for the case where the ranges don't overlap at all, or for the case where the ranges overlap at a point. We'll leave this as a final assignment.</p>
-<h4 id="challenges-1">Challenges</h4>
+<div id="fixing-code-through-testing" class="challenge">
+<h2>Fixing Code through Testing</h2>
 <p>Fix <code>range_overlap</code>. Uncomment the two commented lines in <code>test_range_overlap</code>. You'll see that our objective is to return a special value: <code>NaN</code> (Not a Number), for the following cases:</p>
 <ul>
-<li><p>The ranges don't overlap.</p></li>
-<li><p>The ranges overlap at their endpoints.</p></li>
+<li>The ranges don't overlap.</li>
+<li>The ranges overlap at their endpoints.</li>
 </ul>
 <p>As you make change to the code, run <code>test_range_overlap</code> regularly to make sure you aren't breaking anything. Once you're done, running <code>test_range_overlap</code> shouldn't raise any errors.</p>
-<h3 id="debugging">Debugging</h3>
+</div>
 <p>Once testing has uncovered problems, the next step is to fix them. Many novices do this by making more-or-less random changes to their code until it seems to produce the right answer, but that's very inefficient (and the result is usually only correct for the one case they're testing). The more experienced a programmer is, the more systematically they debug, and most follow some variation on the rules explained below.</p>
-<h4 id="know-what-its-supposed-to-do">Know What It's Supposed to Do</h4>
-<p>The first step in debugging something is to <a href="../../rules.html#know-what-its-supposed-to-do">know what it's supposed to do</a>. &quot;My program doesn't work&quot; isn't good enough: in order to diagnose and fix problems, we need to be able to tell correct output from incorrect. If we can write a test case for the failing case—i.e., if we can assert that with <em>these</em> inputs, the function should produce <em>that</em> result— then we're ready to start debugging. If we can't, then we need to figure out how we're going to know when we've fixed things.</p>
+<p>The first step in debugging something is to <a href="rules.html#know-what-its-supposed-to-do">know what it's supposed to do</a>. &quot;My program doesn't work&quot; isn't good enough: in order to diagnose and fix problems, we need to be able to tell correct output from incorrect. If we can write a test case for the failing case—i.e., if we can assert that with <em>these</em> inputs, the function should produce <em>that</em> result— then we're ready to start debugging. If we can't, then we need to figure out how we're going to know when we've fixed things.</p>
 <p>But writing test cases for scientific software is frequently harder than writing test cases for commercial applications, because if we knew what the output of the scientific code was supposed to be, we wouldn't be running the software: we'd be writing up our results and moving on to the next program. In practice, scientists tend to do the following:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Test with simplified data.</em> Before doing statistics on a real data set, we should try calculating statistics for a single record, for two identical records, for two records whose values are one step apart, or for some other case where we can calculate the right answer by hand.</p></li>
 <li><p><em>Test a simplified case.</em> If our program is supposed to simulate magnetic eddies in rapidly-rotating blobs of supercooled helium, our first test should be a blob of helium that isn't rotating, and isn't being subjected to any external electromagnetic fields. Similarly, if we're looking at the effects of climate change on speciation, our first test should hold temperature, precipitation, and other factors constant.</p></li>
-<li><p><em>Compare to an oracle.</em> A <a href="../../gloss.html#test-oracle">test oracle</a> is something—experimental data, an older program whose results are trusted, or even a human expert—against which we can compare the results of our new program. If we have a test oracle, we should store its output for particular cases so that we can compare it with our new results as often as we like without re-running that program.</p></li>
+<li><p><em>Compare to an oracle.</em> A <a href="gloss.html#test-oracle">test oracle</a> is something—experimental data, an older program whose results are trusted, or even a human expert—against which we can compare the results of our new program. If we have a test oracle, we should store its output for particular cases so that we can compare it with our new results as often as we like without re-running that program.</p></li>
 <li><p><em>Check conservation laws.</em> Mass, energy, and other quantitites are conserved in physical systems, so they should be in programs as well. Similarly, if we are analyzing patient data, the number of records should either stay the same or decrease as we move from one analysis to the next (since we might throw away outliers or records with missing values). If &quot;new&quot; patients start appearing out of nowhere as we move through our pipeline, it's probably a sign that something is wrong.</p></li>
 <li><p><em>Visualize.</em> Data analysts frequently use simple visualizations to check both the science they're doing and the correctness of their code (just as we did in the <a href="01-intro.html">opening lesson</a> of this tutorial). This should only be used for debugging as a last resort, though, since it's very hard to compare two visualizations automatically.</p></li>
 </ol>
-<h4 id="make-it-fail-every-time">Make It Fail Every Time</h4>
-<p>We can only debug something when it fails, so the second step is always to find a test case that <a href="../../rules.html#make-it-fail-every-time">makes it fail every time</a>. The &quot;every time&quot; part is important because few things are more frustrating than debugging an intermittent problem: if we have to call a function a dozen times to get a single failure, the odds are good that we'll scroll past the failure when it actually occurs.</p>
+<p>We can only debug something when it fails, so the second step is always to find a test case that <a href="rules.html#make-it-fail-every-time">makes it fail every time</a>. The &quot;every time&quot; part is important because few things are more frustrating than debugging an intermittent problem: if we have to call a function a dozen times to get a single failure, the odds are good that we'll scroll past the failure when it actually occurs.</p>
 <p>As part of this, it's always important to check that our code is &quot;plugged in&quot;, i.e., that we're actually exercising the problem that we think we are. Every programmer has spent hours chasing a bug, only to realize that they were actually calling their code on the wrong data set or with the wrong configuration parameters, or are using the wrong version of the software entirely. Mistakes like these are particularly likely to happen when we're tired, frustrated, and up against a deadline, which is one of the reasons late-night (or overnight) coding sessions are almost never worthwhile.</p>
-<h4 id="make-it-fail-fast">Make It Fail Fast</h4>
-<p>If it takes 20 minutes for the bug to surface, we can only do three experiments an hour. That doesn't must mean we'll get less data in more time: we're also more likely to be distracted by other things as we wait for our program to fail, which means the time we <em>are</em> spending on the problem is less focused. It's therefore critical to <a href="../../rules.html#make-it-fail-fast">make it fail fast</a>.</p>
+<p>If it takes 20 minutes for the bug to surface, we can only do three experiments an hour. That doesn't must mean we'll get less data in more time: we're also more likely to be distracted by other things as we wait for our program to fail, which means the time we <em>are</em> spending on the problem is less focused. It's therefore critical to <a href="rules.html#make-it-fail-fast">make it fail fast</a>.</p>
 <p>As well as making the program fail fast in time, we want to make it fail fast in space, i.e., we want to localize the failure to the smallest possible region of code:</p>
 <ol style="list-style-type: decimal">
 <li><p>The smaller the gap between cause and effect, the easier the connection is to find. Many programmers therefore use a divide and conquer strategy to find bugs, i.e., if the output of a function is wrong, they check whether things are OK in the middle, then concentrate on either the first or second half, and so on.</p></li>
 <li><p>N things can interact in N<sup>2/2</sup> different ways, so every line of code that <em>isn't</em> run as part of a test means more than one thing we don't need to worry about.</p></li>
 </ol>
-<h4 id="change-one-thing-at-a-time-for-a-reason">Change One Thing at a Time, For a Reason</h4>
-<p>Replacing random chunks of code is unlikely to do much good. (After all, if you got it wrong the first time, you'll probably get it wrong the second and third as well.) Good programmers therefore <a href="../../rules.html#change-one-thing-at-a-time">change one thing at a time</a>, for a reason. They are either trying to gather more information (&quot;is the bug still there if we change the order of the loops?&quot;) or test a fix (&quot;can we make the bug go away by sorting our data before processing it?&quot;).</p>
-<p>Every time we make a change, however small, we should re-run our tests immediately, because the more things we change at once, the harder it is to know what's responsible for what (those N<sup>2</sup> interactions again). And we should re-run <em>all</em> of our tests: more than half of fixes made to code introduce (or re-introduce) bugs, so re-running all of our tests tells us whether we have <a href="../../gloss.html#regression">regressed</a>.</p>
-<h4 id="keep-track-of-what-youve-done">Keep Track of What You've Done</h4>
-<p>Good scientists keep track of what they've done so that they can reproduce their work, and so that they don't waste time repeating the same experiments or running ones whose results won't be interesting. Similarly, debugging works best when we <a href="../../rules.html#keep-track-of-what-youve-done">keep track of what we've done</a> and how well it worked. If we find ourselves asking, &quot;Did left followed by right with an odd number of lines cause the crash? Or was it right followed by left? Or was I using an even number of lines?&quot; then it's time to step away from the computer, take a deep breath, and start working more systematically.</p>
+<p>Replacing random chunks of code is unlikely to do much good. (After all, if you got it wrong the first time, you'll probably get it wrong the second and third as well.) Good programmers therefore <a href="rules.html#change-one-thing-at-a-time">change one thing at a time</a>, for a reason. They are either trying to gather more information (&quot;is the bug still there if we change the order of the loops?&quot;) or test a fix (&quot;can we make the bug go away by sorting our data before processing it?&quot;).</p>
+<p>Every time we make a change, however small, we should re-run our tests immediately, because the more things we change at once, the harder it is to know what's responsible for what (those N<sup>2</sup> interactions again). And we should re-run <em>all</em> of our tests: more than half of fixes made to code introduce (or re-introduce) bugs, so re-running all of our tests tells us whether we have <a href="gloss.html#regression">regressed</a>.</p>
+<p>Good scientists keep track of what they've done so that they can reproduce their work, and so that they don't waste time repeating the same experiments or running ones whose results won't be interesting. Similarly, debugging works best when we <a href="rules.html#keep-track-of-what-youve-done">keep track of what we've done</a> and how well it worked. If we find ourselves asking, &quot;Did left followed by right with an odd number of lines cause the crash? Or was it right followed by left? Or was I using an even number of lines?&quot; then it's time to step away from the computer, take a deep breath, and start working more systematically.</p>
 <p>Records are particularly useful when the time comes to ask for help. People are more likely to listen to us when we can explain clearly what we did, and we're better able to give them the information they need to be useful.</p>
+<<<<<<< HEAD
 <blockquote>
 <h4>Version Control Revisited</h4>
+=======
+>>>>>>> 910c80c8807518987900df6a574113a81b9411b1
 <p>Version control is often used to reset software to a known state during debugging, and to explore recent changes to code that might be responsible for bugs. In particular, most version control systems have a <code>blame</code> command that will show who last changed particular lines of code...</p>
-</blockquote>
-<h4 id="be-humble">Be Humble</h4>
-<p>And speaking of help: if we can't find a bug in 10 minutes, we should <a href="../../rules.html#be-humble">be humble</a> and ask for help. Just explaining the problem aloud is often useful, since hearing what we're thinking helps us spot inconsistencies and hidden assumptions.</p>
+<p>And speaking of help: if we can't find a bug in 10 minutes, we should <a href="rules.html#be-humble">be humble</a> and ask for help. Just explaining the problem aloud is often useful, since hearing what we're thinking helps us spot inconsistencies and hidden assumptions.</p>
 <p>Asking for help also helps alleviate confirmation bias. If we have just spent an hour writing a complicated program, we want it to work, so we're likely to keep telling ourselves why it should, rather than searching for the reason it doesn't. People who aren't emotionally invested in the code can be more objective, which is why they're often able to spot the simple mistakes we have overlooked.</p>
 <p>Part of being humble is learning from our mistakes. Programmers tend to get the same things wrong over and over: either they don't understand the language and libraries they're working with, or their model of how things work is wrong. In either case, taking note of why the error occurred and checking for it next time quickly turns into not making the mistake at all.</p>
+<<<<<<< HEAD
 <p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="../../rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
 <div class="keypoints" markdown="1">
 <h4>Key Points</h4>
@@ -227,6 +226,9 @@ end</code></pre>
 <li>Be humble.</li>
 </ul>
 </div>
+=======
+<p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
+>>>>>>> 910c80c8807518987900df6a574113a81b9411b1
         </div>
       </div>
       <div class="footer">
