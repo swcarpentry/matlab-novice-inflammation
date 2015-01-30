@@ -211,7 +211,7 @@ The range of each time series is represented as a pair of numbers,
 which are the time the interval started and ended.
 The output is the largest range that they all include:
 
-<img src="img/matlab-overlapping-ranges.svg" alt="Overlapping Ranges" />
+<img src="fig/matlab-overlapping-ranges.png" alt="Overlapping Ranges" />
 
 Most novice programmers would solve this problem like this:
 
@@ -240,7 +240,7 @@ Its advocates believe it produces better code faster because:
 
 Here are three test functions for `range_overlap`:
 
-~~~
+~~~{.matlab}
 %script test_range_overlap.m
 
 assert(range_overlap([0, 1.0]) == (0, 1.0));
@@ -252,6 +252,7 @@ assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);
 test_range_overlap
 ~~~
 
+#FIXME: add the error/output here:
 ~~~ {.output}
 
 ~~~
