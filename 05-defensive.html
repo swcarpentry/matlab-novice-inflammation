@@ -62,19 +62,18 @@ end</code></pre>
 <li>An invariant is something that is always true at a particular point inside a piece of code.</li>
 </ul>
 <p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, x1)</code>. In order to do some calculations, we need to normalize the rectangle so that it is at the origin and 1.0 units on its longest axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
-<pre><code>function normalized = normalize_rectangle(rect)
+<pre class="sourceCode matlab"><code class="sourceCode matlab">function normalized = normalize_rectangle(rect)
+    <span class="co">% Normalizes a rectangle so that it is at the origin</span>
+    <span class="co">% and 1.0 units long on its longest axis:</span>
     
-    % Normalizes a rectangle so that it is at the origin
-    % and 1.0 units long on its longest axis:
-    
-    x0 = rect(1);
-    y0 = rect(2);
-    x1 = rect(3);
-    y1 = rect(4);
+    x0 = rect(<span class="fl">1</span>);
+    y0 = rect(<span class="fl">2</span>);
+    x1 = rect(<span class="fl">3</span>);
+    y1 = rect(<span class="fl">4</span>);
 
-    assert(length(rect) == 4, &#39;Rectangle must contain 4 coordinates&#39;);
-    assert(x0 &lt; x1, &#39;Invalid X coordinates&#39;);
-    assert(y0 &lt; y1, &#39;Invalid Y coordinates&#39;);
+    assert(length(rect) == <span class="fl">4</span>, <span class="st">&#39;Rectangle must contain 4 coordinates&#39;</span>);
+    assert(x0 &lt; x1, <span class="st">&#39;Invalid X coordinates&#39;</span>);
+    assert(y0 &lt; y1, <span class="st">&#39;Invalid Y coordinates&#39;</span>);
 
     dx = x1 - x0;
     dy = y1 - y0;
@@ -82,24 +81,23 @@ end</code></pre>
     if dx &gt; dy
         scaled = dx/dy;
         upper_x = scaled;
-        upper_y = 1.0;
+        upper_y = <span class="fl">1.0</span>;
     else
         scaled = dx/dy;
         upper_x = scaled;
-        upper_y = 1.0;
+        upper_y = <span class="fl">1.0</span>;
     end
 
-    assert ((0 &lt; upper_x) &amp;&amp; (upper_x &lt;= 1.0), &#39;Calculated upper X coordinate invalid&#39;);
-    assert ((0 &lt; upper_y) &amp;&amp; (upper_y &lt;= 1.0), &#39;Calculated upper Y coordinate invalid&#39;);
+    assert ((<span class="fl">0</span> &lt; upper_x) &amp;&amp; (upper_x &lt;= <span class="fl">1.0</span>), <span class="st">&#39;Calculated upper X coordinate invalid&#39;</span>);
+    assert ((<span class="fl">0</span> &lt; upper_y) &amp;&amp; (upper_y &lt;= <span class="fl">1.0</span>), <span class="st">&#39;Calculated upper Y coordinate invalid&#39;</span>);
     
-    normalized = [0, 0, upper_x, upper_y];
-    
+    normalized = [<span class="fl">0</span>, <span class="fl">0</span>, upper_x, upper_y];
 end</code></pre>
 <p>The first three preconditions catch invalid inputs.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>])</code></pre>
-<pre><code>error: assert (1 == 2) failed</code></pre>
-<pre><code>normalize_rectangle([1, 0, 0, 2]);</code></pre>
-<pre><code>error: Invalid X coordinates</code></pre>
+<pre class="error"><code>error: assert (1 == 2) failed</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">2</span>]);</code></pre>
+<pre class="error"><code>error: Invalid X coordinates</code></pre>
 <p>The post-conditions help us catch bugs by telling us when our calculations cannot have been correct. For example, if we normalize a rectangle that is taller than it is wide, everything seems OK:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>]);</code></pre>
 <pre class="output"><code>0.00000   0.00000   0.20000   1.00000</code></pre>
@@ -117,7 +115,7 @@ end</code></pre>
 </ol>
 </blockquote>
 <p>An assertion checks that something is true at a particular point in the program. The next step is to check the overall behavior of a piece of code, i.e., to make sure that it produces the right output when it's given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:</p>
-<p><img src="img/matlab-overlapping-ranges.svg" alt="Overlapping Ranges" /></p>
+<p><img src="fig/matlab-overlapping-ranges.png" alt="Overlapping Ranges" /></p>
 <p>Most novice programmers would solve this problem like this:</p>
 <ol style="list-style-type: decimal">
 <li>Write a function <code>range_overlap</code>.</li>
@@ -136,12 +134,13 @@ end</code></pre>
 <li><p>Writing tests helps programmers figure out what the function is actually supposed to do.</p></li>
 </ol>
 <p>Here are three test functions for <code>range_overlap</code>:</p>
-<pre><code>%script test_range_overlap.m
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">%script test_range_overlap.m</span>
 
-assert(range_overlap([0, 1.0]) == (0, 1.0));
-assert(range_overlap([2.0, 3.0], [2.0, 4.0]) == [2.0, 3.0]);
-assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);</code></pre>
+assert(range_overlap([<span class="fl">0</span>, <span class="fl">1.0</span>]) == (<span class="fl">0</span>, <span class="fl">1.0</span>));
+assert(range_overlap([<span class="fl">2.0</span>, <span class="fl">3.0</span>], [<span class="fl">2.0</span>, <span class="fl">4.0</span>]) == [<span class="fl">2.0</span>, <span class="fl">3.0</span>]);
+assert(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>], [<span class="fl">0.0</span>, <span class="fl">2.0</span>], [-<span class="fl">1.0</span>, <span class="fl">1.0</span>]) == [<span class="fl">0.0</span>, <span class="fl">1.0</span>]);</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
+<h1 id="fixme-add-the-erroroutput-here">FIXME: add the error/output here:</h1>
 <pre class="output"><code></code></pre>
 <p>The error is actually reassuring: we haven't written <code>range_overlap</code> yet, so if the tests passed, it would be a sign that someone else had and that we were accidentally using their function.</p>
 <p>And as a bonus of writing these tests, we've implicitly defined what our input and output look like: we expect a list of pairs as input, and produce a single pair as output.</p>
@@ -199,36 +198,11 @@ end</code></pre>
 <p>Every time we make a change, however small, we should re-run our tests immediately, because the more things we change at once, the harder it is to know what's responsible for what (those N<sup>2</sup> interactions again). And we should re-run <em>all</em> of our tests: more than half of fixes made to code introduce (or re-introduce) bugs, so re-running all of our tests tells us whether we have <a href="gloss.html#regression">regressed</a>.</p>
 <p>Good scientists keep track of what they've done so that they can reproduce their work, and so that they don't waste time repeating the same experiments or running ones whose results won't be interesting. Similarly, debugging works best when we <a href="rules.html#keep-track-of-what-youve-done">keep track of what we've done</a> and how well it worked. If we find ourselves asking, &quot;Did left followed by right with an odd number of lines cause the crash? Or was it right followed by left? Or was I using an even number of lines?&quot; then it's time to step away from the computer, take a deep breath, and start working more systematically.</p>
 <p>Records are particularly useful when the time comes to ask for help. People are more likely to listen to us when we can explain clearly what we did, and we're better able to give them the information they need to be useful.</p>
-<<<<<<< HEAD
-<blockquote>
-<h4>Version Control Revisited</h4>
-=======
->>>>>>> 910c80c8807518987900df6a574113a81b9411b1
 <p>Version control is often used to reset software to a known state during debugging, and to explore recent changes to code that might be responsible for bugs. In particular, most version control systems have a <code>blame</code> command that will show who last changed particular lines of code...</p>
 <p>And speaking of help: if we can't find a bug in 10 minutes, we should <a href="rules.html#be-humble">be humble</a> and ask for help. Just explaining the problem aloud is often useful, since hearing what we're thinking helps us spot inconsistencies and hidden assumptions.</p>
 <p>Asking for help also helps alleviate confirmation bias. If we have just spent an hour writing a complicated program, we want it to work, so we're likely to keep telling ourselves why it should, rather than searching for the reason it doesn't. People who aren't emotionally invested in the code can be more objective, which is why they're often able to spot the simple mistakes we have overlooked.</p>
 <p>Part of being humble is learning from our mistakes. Programmers tend to get the same things wrong over and over: either they don't understand the language and libraries they're working with, or their model of how things work is wrong. In either case, taking note of why the error occurred and checking for it next time quickly turns into not making the mistake at all.</p>
-<<<<<<< HEAD
-<p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="../../rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
-<div class="keypoints" markdown="1">
-<h4>Key Points</h4>
-<ul>
-<li>Program defensively, i.e., assume that errors are going to arise, and write code to detect them when they do.</li>
-<li>Put assertions in programs to check their state as they run, and to help readers understand how those programs are supposed to work.</li>
-<li>Use preconditions to check that the inputs to a function are safe to use.</li>
-<li>Use postconditions to check that the output from a function is safe to use.</li>
-<li>Write tests before writing code in order to help determine exactly what that code is supposed to do.</li>
-<li>Know what code is supposed to do <em>before</em> trying to debug it.</li>
-<li>Make it fail every time.</li>
-<li>Make it fail fast.</li>
-<li>Change one thing at a time, and for a reason.</li>
-<li>Keep track of what you've done.</li>
-<li>Be humble.</li>
-</ul>
-</div>
-=======
 <p>And that is what makes us most productive in the long run. As the saying goes, &quot;<a href="rules.html#week-hard-work-hour-thought">A week of hard work can sometimes save you an hour of thought</a>.&quot; If we train ourselves to avoid making some kinds of mistakes, to break our code into modular, testable chunks, and to turn every assumption (or mistake) into an assertion, it will actually take us <em>less</em> time to produce working programs, not more.</p>
->>>>>>> 910c80c8807518987900df6a574113a81b9411b1
         </div>
       </div>
       <div class="footer">
