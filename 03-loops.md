@@ -420,7 +420,7 @@ Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
 and their minima show the same staircase structure.
 
-> ## Another Way to Analyze Multiple Files 
+> ## Another Way to Analyze Multiple Files .{challenge}
 > 
 > In cases where our file names don't follow such a regular pattern,
 > we might want to process all files that end with a given extension,
