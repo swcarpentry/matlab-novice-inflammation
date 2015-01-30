@@ -29,7 +29,7 @@
           
 <!-- FIXME: this can be worded better: -->
 <p>Recall that we have to do this analysis for every one of our dozen datasets. And we need a better way than typing out commands for each one, because we'll find ourselves writing a lot of duplicate code. Remember, code that is repeated in two or more places will eventually be wrong in at least one. Also, if we make changes in the way we analyze our datasets, we have to introduce that change in every copy of our code. To avoid all of this repetition, we have to teach MATLAB to repeat our commands, and to do <em>that</em>, we have to learn how to write <em>loops</em>.</p>
-<div id="learning-objectives" class="objectives">
+<blockquote>
 <h2>Learning Objectives</h2>
 <ul>
 <li>Explain what a for loop does.</li>
@@ -37,7 +37,7 @@
 <li>Trace changes to a loop variable as the loops runs.</li>
 <li>Use a for loop to process multiple files</li>
 </ul>
-</div>
+</blockquote>
 <p>Suppose we want to print each character in the word &quot;lead&quot; on a line of its own. One way is to use four <code>disp</code> statements:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;lead&#39;</span>;
 
@@ -118,14 +118,16 @@ disp([<span class="st">&#39;Number of vowels: &#39;</span>, num2str(len)])</code
 <p>Note that a loop variable is just a variable that's being used to record progress in a loop. It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(vowel)</code></pre>
 <pre class="output"><code>u</code></pre>
-<p>** Performing Exponentiation</p>
+<div id="performing-exponentiation" class="challenge">
+<h2>Performing Exponentiation</h2>
 <p>MATLAB uses the caret (<code>^</code>) to perform exponentiation:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(<span class="fl">5</span>^<span class="fl">3</span>)</code></pre>
 <pre class="output"><code>125</code></pre>
 <p>You can also use a loop to perform exponentiation. Remember that <code>b^x</code> is just <code>b*b*b*</code>... <code>x</code> times.</p>
 <p>Let a variable <code>b</code> be the base of the number and <code>x</code> the exponent. Write a loop to compute <code>b^x</code>. Check your result for <code>b = 4</code> and <code>x = 5</code>.</p>
-<blockquote>
-<p>** Incrementing with Loops {.challenge}</p>
+</div>
+<div id="incrementing-with-loops" class="challenge">
+<h2>Incrementing with Loops</h2>
 <p>Write a loop that spells the word &quot;aluminum,&quot; adding one letter at a time:</p>
 <pre class="output"><code>a
 al
@@ -135,9 +137,9 @@ alumi
 alumin
 aluminu
 aluminum</code></pre>
-</blockquote>
+</div>
 <blockquote>
-<p>** Looping in Reverse</p>
+<h2>Looping in Reverse</h2>
 <p>In Matlab, the colon operator (<code>:</code>) accepts a <a href="../../gloss.&gt;%20html#stride">stride</a> or skip argument between the start and stop:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(<span class="fl">1</span>:<span class="fl">3</span>:<span class="fl">11</span>)</code></pre>
 <pre class="output"><code>1 4 7 10</code></pre>
@@ -261,10 +263,10 @@ Columns 10 through 13
         </div>
       </div>
       <div class="footer">
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
-        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/matlab-novice-inflammation">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
-        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
       </div>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
