@@ -3,6 +3,10 @@ layout: page
 title: Writing MATLAB Scripts
 ---
 
+> ## Learning Objectives
+> * Learn how to write and save MATLAB scripts.
+> * Learn how to save MATLBA plots to disk.
+
 So far, we've typed in commands one-by-one on the command line
 to get MATLAB to do things for us. But what if we want to repeat
 our analysis? Sure, it's only a handful of commands,
@@ -11,10 +15,6 @@ us more than a few minutes. But if we forget a step or make a mistake,
 we'll waste time rewriting commands. Also, we'll quickly find ourselves
 doing more complex analyses, and we'll need our results to
 be more easily reproducible.
-
-> ## Learning Objectives
-> * Learn how to write and save MATLAB scripts.
-> * Learn how to save MATLBA plots to disk.
 
 In addition to running MATLAB commands one-by-one on the
 command line, we can
