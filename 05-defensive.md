@@ -270,7 +270,7 @@ and produce a single pair as output.
 
 Let's write `range_overlap`:
 
-~~~
+~~~{.matlab}
 function output_range = range_overlap(varargin)
 
     % Return common overlap among a set of [low, high] ranges. 
@@ -293,7 +293,7 @@ end
 
 And now when we run the tests:
 
-~~~
+~~~{.matlab}
 test_range_overlap
 ~~~
  
