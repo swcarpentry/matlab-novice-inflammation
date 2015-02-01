@@ -26,20 +26,19 @@
       <div class="row-fluid">
         <div class="span10 offset1">
           <h1 class="title">Creating Functions</h1>
-          
-<p>If we only had one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics. But we have twelve files to check, and may have more in future. In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.</p>
-<div class="objectives" markdown="1">
-<h4>Objectives</h4>
+          <h2 class="subtitle">Scripts with in- and output</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
 <ul>
 <li>Explain a Matlab function file.</li>
 <li>Define a function that takes parameters.</li>
-<li>Test and debug a function.</li>
+<li>Test a function.</li>
 <li>Explain what a call stack is, and trace changes to the call stack as functions are called.</li>
 <li>Set default values for function parameters.</li>
-<li>Explain why we should divide programs into small, single-purpose functions.</li>
+<li>Know why we should divide programs into small, single-purpose functions.</li>
 </ul>
 </div>
-<h3 id="defining-a-function">Defining a Function</h3>
+<p>If we only had one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics. But we have twelve files to check, and may have more in future. In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.</p>
 <p>Let's start by defining a function <code>fahr_to_kelvin</code> that converts temperatures from Fahrenheit to Kelvin:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% file fahr_to_kelvin.m</span>
 
@@ -66,7 +65,6 @@ end</code></pre>
 <p>Outside of the function, the names <code>ftemp</code> and <code>ktemp</code> don't matter, they are only used by the function body to refer to the input and output values.</p>
 <!-- FIXME: make up a debugging scenario -->
 
-<h3 id="composing-functions">Composing Functions</h3>
 <p>Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn Kelvin to Celsius.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% file kelvin_to_celsius.m</span>
 
@@ -76,7 +74,7 @@ end</code></pre>
 <p>Again, we can call this function like any other:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">kelvin_to_celsius(<span class="fl">0.0</span>)</code></pre>
 <pre class="output"><code>ans = -273.15</code></pre>
-<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don't need to. Instead, we can <a href="../../gloss.html#function-composition">compose</a> the two functions we have already created:</p>
+<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don't need to. Instead, we can <a href="gloss.html#function-composition">compose</a> the two functions we have already created:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% file fahr_to_celsius.m</span>
 
 function ctemp = fahr_to_celsius(ftemp)
@@ -88,7 +86,8 @@ end</code></pre>
 <p>we get, as expected:</p>
 <pre><code>ans = -273.15</code></pre>
 <p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-large chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here---typically half a dozen to a few dozen lines---but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.</p>
-<h4 id="challenges">Challenges</h4>
+<blockquote>
+<h2>Concatenating in a function</h2>
 <ol style="list-style-type: decimal">
 <li>In Matlab, we concatenate strings by putting them into an array or using the <code>strcat</code> function:</li>
 </ol>
@@ -100,16 +99,13 @@ end</code></pre>
 <li>If the variable <code>s</code> refers to a string, then <code>s(1)</code> is the string's first character and <code>s(end)</code> is its last. Write a function called <code>outer</code> that returns a string made up of just the first and last characters of its input:</li>
 </ol>
 <p><sub>~</sub> {.matlab} disp(outer('helium')) <sub>~</sub> <sub>~</sub> {.output} hm <sub>~</sub></p>
-<h3 id="the-call-stack">The Call Stack</h3>
+</blockquote>
 <p>Let's take a closer look at what happens when we call <code>fahr_to_celcius(32.0)</code>. To make things clearer, we'll start by putting the initial value 32.0 in a variable and store the final result in one as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">original = <span class="fl">32.0</span>;
 final = fahr_to_celcius(original);</code></pre>
 <p>The diagram below shows what memory looks like after the first line has been executed:</p>
 <!-- FIXME: Writeup about Call Stacks -->
 
-
-
-<h3 id="testing-and-documentation">Testing and Documentation</h3>
 <p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let's write a function to center a dataset around a particular value:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
     out = (data - mean(data)) + desired
@@ -136,7 +132,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn't quite zero--we'll explore why not in the challenges--but it's pretty close. We can even go further and check that the standard deviation hasn't changed:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered)</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
-<p>The difference is very small. It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="../../gloss.html#documentation">documentation</a> for our function to remind ourselves later what it's for and how to use it.</p>
+<p>The difference is very small. It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="gloss.html#documentation">documentation</a> for our function to remind ourselves later what it's for and how to use it.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
     <span class="co">%   Center data around a desired value.</span>
     <span class="co">%</span>
@@ -155,23 +151,14 @@ end</code></pre>
 
 Returns a new array containing the values in
 DATA centered around the value.</code></pre>
-<h4 id="challenges-1">Challenges</h4>
+<blockquote>
+<h2>Testing a function</h2>
 <ol style="list-style-type: decimal">
 <li><p>Write a function called <code>rescale</code> that takes an array as input and returns an array of the same shape with its values scaled to lie in the range 0.0 to 1.0. (If L and H are the lowest and highest values in the input array, respectively, then the function should map a value v to (v - L)/(H - L).) Be sure to give the function a comment block explaining its use.</p></li>
 <li><p>Run <code>help linspace</code> to see how to use this function to generate regularly-spaced values. Use arrays like this to test your <code>rescale</code> function.</p></li>
 <li><p>Write a function <code>run_analysis</code> that accepts a filename as parameter, and displays the three graphs produced in the previous lesson, i.e., <code>run_analysis('inflammation-01.csv')</code> should produce the corresponding graphs for the first data set. Be sure to give your function help text.</p></li>
 </ol>
-<div class="keypoints" markdown="1">
-<h4>Key Points</h4>
-<ul>
-<li>Define a function in a file called <code>function_name.m</code>.</li>
-<li>The first line of a function is the definition line and is most generally written as <code>function [out1, out2 ..] = function_name(in1, in2 ...)</code></li>
-<li>The body of a function must end with the keyword <code>end</code>.</li>
-<li>Use <code>help function_name</code> to get information on how to use a function.</li>
-<li>Unbroken comment lines below the function definition line are displayed as help text.</li>
-</ul>
-</div>
-<h3 id="next-steps">Next Steps</h3>
+</blockquote>
 <p>We have now solved our original problem: we can analyze any number of data files with a single command. More importantly, we have met two of the most important ideas in programming:</p>
 <ol style="list-style-type: decimal">
 <li><p>Use arrays to store related values, and loops to repeat operations on them.</p></li>
