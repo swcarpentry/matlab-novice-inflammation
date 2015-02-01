@@ -5,6 +5,15 @@ subtitle: Creating Functions
 minutes: 30
 ---
 
+> ## Learning Objectives {.objectives}
+> * Explain a Matlab function file.
+> * Define a function that takes parameters.
+> * Test a function.
+> * Explain what a call stack is, and trace changes to the call stack as functions are called.
+> * Set default values for function parameters.
+> * Know why we should divide programs into small, single-purpose functions.
+
+
 If we only had one data set to analyze,
 it would probably be faster to load the file into a spreadsheet
 and use that to plot some simple statistics.
@@ -13,19 +22,6 @@ and may have more in future.
 In this lesson,
 we'll learn how to write a function
 so that we can repeat several operations with a single command.
-
-<div class="objectives" markdown="1">
-#### Objectives
-* Explain a Matlab function file.
-* Define a function that takes parameters.
-* Test and debug a function.
-* Explain what a call stack is, and trace changes to the call stack as
-    functions are called.
-* Set default values for function parameters.
-* Explain why we should divide programs into small, single-purpose functions.
-</div>
-
-### Defining a Function
 
 Let's start by defining a function `fahr_to_kelvin` that converts temperatures from Fahrenheit to Kelvin:
 
@@ -92,8 +88,6 @@ output values.
 
 <!-- FIXME: make up a debugging scenario -->
 
-### Composing Functions
-
 Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
 Kelvin to Celsius.
 
@@ -117,7 +111,7 @@ ans = -273.15
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
-Instead, we can [compose](../../gloss.html#function-composition) the two
+Instead, we can [compose](gloss.html#function-composition) the two
 functions we have already created:
 
 ~~~ {.matlab}
@@ -149,48 +143,45 @@ here---typically half a dozen to a few dozen lines---but
 they shouldn't ever be much longer than that,
 or the next person who reads it won't be able to understand what's going on.
 
-#### Challenges 
-
-1. In Matlab, we concatenate strings by putting them into an array or using the
-   `strcat` function:
-
-   ~~~ {.matlab}
-   disp(['abra', 'cad', 'abra'])
-   ~~~
-   ~~~ {.output}
-   abracadabra 
-   ~~~
-
-   ~~~ {.matlab}
-   disp(strcat('a', 'b'))
-   ~~~
-   ~~~ {.output}
-   ab
-   ~~~
-
-   Write a function called `fence` that takes two parameters, `original` and
-   `wrapper` and appends `wrapper` before and after `original`:
-
-   ~~~ {.matlab}
-   disp(fence('name', '*'))
-   ~~~
-   ~~~ {.output}
-   *name*
-   ~~~
-
-1. If the variable `s` refers to a string, then `s(1)` is the string's first
-   character and `s(end)` is its last. Write a function called `outer` that returns
-   a string made up of just the first and last characters of its input: 
-
-   ~~~ {.matlab}
-   disp(outer('helium'))
-   ~~~
-   ~~~ {.output}
-   hm
-   ~~~
-
-### The Call Stack
-
+> ## Concatenating in a function {.challenges}
+> 
+> 1. In Matlab, we concatenate strings by putting them into an array or using the
+>    `strcat` function:
+> 
+>    ~~~ {.matlab}
+>    disp(['abra', 'cad', 'abra'])
+>    ~~~
+>    ~~~ {.output}
+>    abracadabra 
+>    ~~~
+> 
+>    ~~~ {.matlab}
+>    disp(strcat('a', 'b'))
+>    ~~~
+>    ~~~ {.output}
+>    ab
+>    ~~~
+> 
+>    Write a function called `fence` that takes two parameters, `original` and
+>    `wrapper` and appends `wrapper` before and after `original`:
+> 
+>    ~~~ {.matlab}
+>    disp(fence('name', '*'))
+>    ~~~
+>    ~~~ {.output}
+>    *name*
+>    ~~~
+> 
+> 1. If the variable `s` refers to a string, then `s(1)` is the string's first
+>    character and `s(end)` is its last. Write a function called `outer` that returns
+>    a string made up of just the first and last characters of its input: 
+> 
+>    ~~~ {.matlab}
+>    disp(outer('helium'))
+>    ~~~
+>    ~~~ {.output}
+>    hm
+>    ~~~
 
 Let's take a closer look at what happens when we call
 `fahr_to_celcius(32.0)`.
@@ -206,10 +197,6 @@ The diagram below shows what memory looks like after the
 first line has been executed:
 
 <!-- FIXME: Writeup about Call Stacks -->
-
-
-
-### Testing and Documentation
 
 Once we start putting things in functions so that we can
 re-use them, we need to start testing that those functions are
@@ -296,7 +283,7 @@ std(data(:)) - std(centered)
 The difference is very small. It's still possible that our function
 is wrong, but it seems unlikely enough that we should probably
 get back to doing our analysis. We have one more task first, though:
-we should write some [documentation](../../gloss.html#documentation)
+we should write some [documentation](gloss.html#documentation)
 for our function to remind ourselves later what it's for and
 how to use it.
 
@@ -330,38 +317,23 @@ Returns a new array containing the values in
 DATA centered around the value.
 ~~~
 
-#### Challenges
+> ## Testing a function {.challenges}
+> 
+> 1. Write a function called `rescale` that takes an array as input and returns an
+>    array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
+>    (If L and H are the lowest and highest values in the input array, respectively,
+>    then the function should map a value v to (v - L)/(H - L).) Be sure to give the
+>    function a comment block explaining its use.
+> 
+> 1. Run `help linspace` to see how to use this function to generate
+>    regularly-spaced values. Use arrays like this to test your `rescale` function.
+> 
+> 1. Write a function `run_analysis` that accepts a filename
+>    as parameter, and displays the three graphs produced in the
+>    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
+>    should produce the corresponding graphs for the first
+>    data set. Be sure to give your function help text.
 
-1. Write a function called `rescale` that takes an array as input and returns an
-   array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
-   (If L and H are the lowest and highest values in the input array, respectively,
-   then the function should map a value v to (v - L)/(H - L).) Be sure to give the
-   function a comment block explaining its use.
-
-1. Run `help linspace` to see how to use this function to generate
-   regularly-spaced values. Use arrays like this to test your `rescale` function.
-
-1. Write a function `run_analysis` that accepts a filename
-   as parameter, and displays the three graphs produced in the
-   previous lesson, i.e., `run_analysis('inflammation-01.csv')`
-   should produce the corresponding graphs for the first
-   data set. Be sure to give your function help text.
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-* Define a function in a file called `function_name.m`.
-* The first line of a function is the definition line and
-is most generally written as
-`function [out1, out2 ..] = function_name(in1, in2 ...)`
-* The body of a function must end with the keyword `end`.
-* Use `help function_name` to get information on how to use a function.
-* Unbroken comment lines below the function definition line are displayed
-as help text.
-
-</div>
-
-### Next Steps
 
 We have now solved our original problem: we can analyze 
 any number of data files with a single command.
