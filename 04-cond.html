@@ -26,10 +26,17 @@
       <div class="row-fluid">
         <div class="span10 offset1">
           <h1 class="title">Making Choices</h1>
-          
+          <h2 class="subtitle">Using Conditional Statements</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Learn about if, elseif, and else</li>
+<li>Learn to test equality, AND, and OR conditions</li>
+<li>Learn to nest loops</li>
+</ul>
+</div>
 <p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they're given. We want programs to make choices based on the values they are manipulating.</p>
-<h3 id="conditionals">Conditionals</h3>
-<p>The tool that MATLAB gives us for doing this is called a <a href="../../gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
+<p>The tool that MATLAB gives us for doing this is called a <a href="gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">37</span>;
 
 if num &gt; <span class="fl">100</span>
@@ -81,13 +88,13 @@ end</code></pre>
 end</code></pre>
 <pre class="output"><code>at least one part is true</code></pre>
 <p>In this case, &quot;either&quot; means &quot;either or both&quot;, not &quot;either one or the other but not both&quot;.</p>
-<h3 id="challenges">Challenges</h3>
+<blockquote>
+<h2>True and false statements</h2>
 <ol style="list-style-type: decimal">
 <li><p><code>1</code> and <code>0</code> aren't the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
+<li><p><sub>~</sub> if disp('empty string is true') end <sub>~</sub></p></li>
 <li></li>
 </ol>
-<p><sub>~</sub> if disp('empty string is true') end <sub>~</sub></p>
-<p>2.</p>
 <p><sub>~</sub> if 'foo' disp('non empty string is true') end <sub>~</sub></p>
 <p>3.</p>
 <p><sub>~</sub> if [] disp ('empty array is true') end <sub>~</sub></p>
@@ -100,7 +107,7 @@ end</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner's: do you return the same answer for all possible pairs of numbers?</li>
 </ol>
-<h3 id="nesting">Nesting</h3>
+</blockquote>
 <p>Another thing to realize is that <code>if</code> statements can be combined with loops just as easily as they can be combined with functions. For example, if we want to sum the positive numbers in a list, we can write this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [-<span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">2</span>, -<span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">6</span>];
 total = <span class="fl">0</span>;
@@ -141,16 +148,17 @@ ca
 ce
 da
 de</code></pre>
-<h3 id="challenges-1">Challenges</h3>
+<blockquote>
+<h2>Nesting</h2>
 <ol style="list-style-type: decimal">
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
-<li><p>MATLAB (and most other languges in the C family) provides <a href="../../gloss.html#in-place-operator">in-place operators</a> that work like this:</p></li>
+<li><p>MATLAB (and most other languges in the C family) provides <a href="gloss.html#in-place-operator">in-place operators</a> that work like this:</p></li>
 </ol>
 <pre><code>x = 1;
 x += 1;
 x *= 3;</code></pre>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
-<h3 id="creating-a-heat-map">Creating a Heat Map</h3>
+</blockquote>
 <p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>The heatmap from lesson 1 is useful, but fairly hard to read:</p>
@@ -188,7 +196,7 @@ colorbar();</code></pre>
 </ol>
 <p>Here's how we can improve it:</p>
 <ol style="list-style-type: decimal">
-<li><p>We can pick better colors, and use a <a href="../../gloss.html#colormap">colormap</a></p></li>
+<li><p>We can pick better colors, and use a <a href="gloss.html#colormap">colormap</a></p></li>
 <li><p>Instead of checking if values are exactly equal to the mean, we can check if they are close to it.</p></li>
 <li><p>We can calculate the mean once, before the loop, and use that value over and over. The cost of computing the mean is much more than retrieving its value from memory.</p></li>
 </ol>
@@ -266,22 +274,12 @@ axis equal</code></pre>
 <div>
 <img src="img/04-cond_4.png" style="height:350px">
 </div>
-<h4 id="challenges-2">Challenges</h4>
+<blockquote>
+<h2>Design choice</h2>
 <ol style="list-style-type: decimal">
 <li>Why does the <code>make_heatmap</code> function return an array instead of displaying it immediately? Do you think this is a good design choice?</li>
 </ol>
-<div class="keypoints" markdown="1">
-<h4 id="key-points">Key Points</h4>
-<ul>
-<li><p>Use <code>if condition</code> to start a conditional statement, <code>elseif condition</code> to provide additional tests, and <code>else</code> to provide a default. As with loops, end the conditional statement with the <code>end</code> keyword.</p></li>
-<li><p>Use <code>==</code> to test for equality.</p></li>
-<li><p><code>X &amp;&amp; Y</code> is true only if both X and Y are true.</p></li>
-<li><p><code>X || Y</code> is true if either X or Y is true.</p></li>
-<li><p>Zero, the empty array, and the empty string are all considered false.</p></li>
-<li><p>Nest loops to operate on multidimensional data.</p></li>
-<li><p>Put code whose parameters change frequently in a function, then call it with different parameter values to customize its behaviour.</p></li>
-</ul>
-<h3 id="next-steps">Next Steps</h3>
+</blockquote>
 <p>Before we are ready to publish our <code>make_heatmap</code> function, we need to be sure of its correctness. To do that, we need to learn how to <em>test</em> our code, and that will be the subject of our next lesson.</p>
         </div>
       </div>
