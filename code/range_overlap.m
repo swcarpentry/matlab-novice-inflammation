@@ -1,6 +1,6 @@
 function output_range = range_overlap(varargin)
 
-    % Return common overlap among a set of [low, high] ranges. 
+    % Return common overlap among a set of [low, high] ranges.
 
     lowest = -inf;
     highest = +inf;
