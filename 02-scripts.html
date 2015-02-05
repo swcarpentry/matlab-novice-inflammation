@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Programming with MATLAB</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">Programming with MATLAB</h1>
+          <h2 class="subtitle">Writing MATLAB Scripts</h2>
+<blockquote>
+<h2>Learning Objectives</h2>
+<ul>
+<li>Learn how to write and save MATLAB scripts.</li>
+<li>Learn how to save MATLBA plots to disk.</li>
+</ul>
+</blockquote>
+<p>So far, we've typed in commands one-by-one on the command line to get MATLAB to do things for us. But what if we want to repeat our analysis? Sure, it's only a handful of commands, and typing them in shouldn't take us more than a few minutes. But if we forget a step or make a mistake, we'll waste time rewriting commands. Also, we'll quickly find ourselves doing more complex analyses, and we'll need our results to be more easily reproducible.</p>
+<p>In addition to running MATLAB commands one-by-one on the command line, we can also write several commands in a <em>script</em>. A MATLAB script is just a text file with a <code>.m</code> extension. We've written commands to load data from a <code>.csv</code> file and displays some statistics about that data. Let's put those commands in a script called <code>analyze.m</code>:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
+
+patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);
+
+disp([<span class="st">&#39;Analyzing &quot;inflammation-01.csv&quot;: &#39;</span>])
+disp([<span class="st">&#39;Maximum inflammation: &#39;</span>, num2str(max(patient_data(:)))]);
+disp([<span class="st">&#39;Minimum inflammation: &#39;</span>, num2str(min(patient_data(:)))]);
+disp([<span class="st">&#39;Standard deviation: &#39;</span>, num2str(std(patient_data(:)))]);</code></pre>
+<p>Before we can use it, we need to make sure that this file is visible to MATLAB. MATLAB doesn't know about all the files on your computer, but it keeps an eye on several directories. The most convenient of these directories is generally the &quot;working directory&quot;, or &quot;current directory&quot;. To find out the working directory, use the <code>pwd</code> command:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">pwd</code></pre>
+<p>As you might have guessed, <code>pwd</code> stands for &quot;print working directory&quot;.</p>
+<p>Once you have a script saved in a location that MATLAB knows about, you can get MATLAB to run those commands by typing in the name of the script (without the <code>.m</code>) in the MATLAB command line:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">analyze</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">Maximum inflammation: <span class="fl">20</span>
+Minimum inflammation: <span class="fl">0</span>
+Standard deviation: <span class="fl">4.7219</span></code></pre>
+<p>We've also written commands to create plots:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">ave_inflammation = mean(patient_data, <span class="fl">1</span>);
+
+plot(ave_inflammation);
+ylabel(<span class="st">&#39;average&#39;</span>)</code></pre>
+<p>MATLAB let's us save those as images on disk:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% save plot to disk as png image:</span>
+print -dpng <span class="st">&#39;average.png&#39;</span></code></pre>
+<p>You might have noticed that we described what we want our code to do using the <code>%</code>-sign. This is another plus of writing scripts: you can comment your code to make it easier to understand when you come back to it after a while.</p>
+<p>Let's extend our <code>analyze</code> script with commands to create and save plots:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
+
+patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);
+
+disp([<span class="st">&#39;Maximum inflammation: &#39;</span>, num2str(max(patient_data(:)))]);
+disp([<span class="st">&#39;Minimum inflammation: &#39;</span>, num2str(min(patient_data(:)))]);
+disp([<span class="st">&#39;Standard deviation: &#39;</span>, num2str(std(patient_data(:)))]);
+
+ave_inflammation = mean(patient_data, <span class="fl">1</span>);
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>);
+plot(ave_inflammation);
+ylabel(<span class="st">&#39;average&#39;</span>)
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>);
+plot(max(patient_data, [], <span class="fl">1</span>));
+ylabel(<span class="st">&#39;max&#39;</span>)
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">3</span>);
+plot(min(patient_data, [], <span class="fl">1</span>));
+ylabel(<span class="st">&#39;min&#39;</span>)
+
+<span class="co">% save plot to disk as png image:</span>
+print -dpng <span class="st">&#39;patient_data-01.png&#39;</span></code></pre>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/matlab-novice-inflammation">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>
