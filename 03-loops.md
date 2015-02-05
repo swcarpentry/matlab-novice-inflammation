@@ -2,6 +2,7 @@
 layout: page
 title: Programming with MATLAB
 subtitle: Repeating With Loops
+minutes: 30
 ---
 
 > ## Learning Objectives

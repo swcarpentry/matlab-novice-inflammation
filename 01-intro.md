@@ -2,6 +2,7 @@
 layout: page
 title: Programming with MATLAB
 subtitle: Analyzing Patient Data
+minutes: 30
 ---
 
 > ## Learning Objectives {.objectives}
