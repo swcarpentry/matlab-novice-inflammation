@@ -2,11 +2,12 @@
 layout: page
 title: Programming with MATLAB
 subtitle: Writing MATLAB Scripts
+minutes: 30
 ---
 
 > ## Learning Objectives
 > * Learn how to write and save MATLAB scripts.
-> * Learn how to save MATLBA plots to disk.
+> * Learn how to save MATLAB plots to disk.
 
 So far, we've typed in commands one-by-one on the command line
 to get MATLAB to do things for us. But what if we want to repeat
