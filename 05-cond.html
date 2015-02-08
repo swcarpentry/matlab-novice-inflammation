@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: Making Choices</title>
+    <title>Software Carpentry: Programming with MATLAB</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,8 +25,8 @@
       </div>
       <div class="row-fluid">
         <div class="span10 offset1">
-          <h1 class="title">Making Choices</h1>
-          
+          <h1 class="title">Programming with MATLAB</h1>
+          <h2 class="subtitle">Making Choices</h2>
 <p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they're given. We want programs to make choices based on the values they are manipulating.</p>
 <h3 id="conditionals">Conditionals</h3>
 <p>The tool that MATLAB gives us for doing this is called a <a href="../../gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
@@ -87,15 +87,25 @@ end</code></pre>
 <li></li>
 </ol>
 <p><sub>~</sub> if disp('empty string is true') end <sub>~</sub></p>
-<p>2.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if 'foo' disp('non empty string is true') end <sub>~</sub></p>
-<p>3.</p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [] disp ('empty array is true') end <sub>~</sub></p>
-<p>4.</p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [22.5, 1.0] disp ('non empty array is true') end <sub>~</sub></p>
-<p>5.</p>
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [0, 0] disp ('array of zeros is true') end <sub>~</sub></p>
-<p>6.</p>
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if true disp('true is true') end <sub>~</sub></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner's: do you return the same answer for all possible pairs of numbers?</li>
@@ -157,7 +167,7 @@ x *= 3;</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data);
 colorbar();</code></pre>
 <div>
-<img src="img/01-intro_1.png" style="height:350px">
+<p><img src="img/01-intro_1.png" style="height:350px"></p>
 </div>
 <p>Let's write some code to give us a plot that's a little more useful:</p>
 <pre><code>[height, width] = size(patient_data);
@@ -178,7 +188,7 @@ end
 imagesc(heatmap);
 colorbar();</code></pre>
 <div>
-<img src="img/04-cond_1.png" style="height:350px">
+<p><img src="img/04-cond_1.png" style="height:350px"></p>
 </div>
 <p>This is slightly better, but there are still a few things wrong with it:</p>
 <ol style="list-style-type: decimal">
@@ -215,7 +225,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<img src="img/04-cond_2.png" style="height:350px">
+<p><img src="img/04-cond_2.png" style="height:350px"></p>
 </div>
 <p>This is better, but we might want to widen the band around the mean that gets that color.</p>
 <p>But to do that, we'll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let's write a function to make things easier:</p>
@@ -247,7 +257,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<img src="img/04-cond_2.png" style="height:350px">
+<p><img src="img/04-cond_2.png" style="height:350px"></p>
 </div>
 <p>That seems right, so let's try wider bands:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
@@ -256,7 +266,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<img src="img/04-cond_3.png" style="height:350px">
+<p><img src="img/04-cond_3.png" style="height:350px"></p>
 </div>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.6</span>, <span class="fl">1.4</span>);
 imagesc(heatmap);
@@ -264,7 +274,7 @@ colorbar();
 colormap winter
 axis equal</code></pre>
 <div>
-<img src="img/04-cond_4.png" style="height:350px">
+<p><img src="img/04-cond_4.png" style="height:350px"></p>
 </div>
 <h4 id="challenges-2">Challenges</h4>
 <ol style="list-style-type: decimal">

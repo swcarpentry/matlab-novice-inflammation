@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: Defensive Programming</title>
+    <title>Software Carpentry: Programming with MATLAB</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,8 +25,8 @@
       </div>
       <div class="row-fluid">
         <div class="span10 offset1">
-          <h1 class="title">Defensive Programming</h1>
-          <h2 class="subtitle">Testing Code</h2>
+          <h1 class="title">Programming with MATLAB</h1>
+          <h2 class="subtitle">Defensive Programming</h2>
 <div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
@@ -109,7 +109,7 @@ end</code></pre>
 <p>Most good programmers follow two rules when adding assertions to their code. The first is, &quot;<a href="rules.html#fail-early-fail-often">fail early, fail often</a>&quot;. The greater the distance between when and where an error occurs and when it's noticed, the harder the error will be to debug, so good code catches mistakes as early as possible.</p>
 <p>The second rule is, &quot;<a href="rules.html#turn-bugs-into-assertions-or-tests">turn bugs into assertions or tests</a>&quot;. If you made a mistake in a piece of code, the odds are good that you have made other mistakes nearby, or will make the same mistake (or a related one) the next time you change it. Writing assertions to check that you haven't <a href="gloss.html#regression">regressed</a> (i.e., haven't re-introduced an old problem) can save a lot of time in the long run, and helps to warn people who are reading the code (including your future self) that this bit is tricky.</p>
 <blockquote>
-<h2>Finding conditions</h2>
+<h2 id="finding-conditions" class="challenges">Finding conditions</h2>
 <ol style="list-style-type: decimal">
 <li>Suppose you are writing a function called <code>average</code> that calculates the average of the numbers in a list. What pre-conditions and post-conditions would you write for it? Compare your answer to your neighbor's: can you think of a function that will past your tests but not hers or vice versa?</li>
 </ol>
