@@ -20,7 +20,7 @@ so that you can share you work with them easily, and to use that language *well*
 
 1.  [Analyzing Patient Data](01-intro.html)
 2.  [Reusing Code](02-scripts.html)
-3.  [Repeating With Loops](03-loop.html)
+3.  [Repeating With Loops](03-loops.html)
 4.  [Creating Functions](04-func.html)
 5.  [Making Choices](05-cond.html)
 6.  [Defensive Programming](06-defensive.html)
