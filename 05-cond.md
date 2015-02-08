@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Making Choices
+layout: page
+title: Programming with MATLAB
+subtitle: Making Choices
+minutes: 30
 ---
 
 Our previous lessons have shown us how to manipulate

@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Defensive Programming
-subtitle: Testing Code
-minutes: 20
+title: Programming with MATLAB
+subtitle: Defensive Programming
+minutes: 30
 ---
 
 > ## Learning Objectives {.objectives}

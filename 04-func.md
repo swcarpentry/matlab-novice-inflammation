@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Creating Functions
+layout: page
+title: Programming with MATLAB
+subtitle: Creating Functions
+minutes: 30
 ---
 
 If we only had one data set to analyze,
