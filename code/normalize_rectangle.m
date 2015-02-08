@@ -1,8 +1,8 @@
 function normalized = normalize_rectangle(rect)
-    
+
     % Normalizes a rectangle so that it is at the origin
     % and 1.0 units long on its longest axis:
-    
+
     x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
@@ -14,7 +14,7 @@ function normalized = normalize_rectangle(rect)
 
     dx = x1 - x0;
     dy = y1 - y0;
-    
+
     if dx > dy
         scaled = dx/dy;
         upper_x = scaled;
@@ -27,7 +27,7 @@ function normalized = normalize_rectangle(rect)
 
     assert ((0 < upper_x) && (upper_x <= 1.0), 'Calculated upper X coordinate invalid');
     assert ((0 < upper_y) && (upper_y <= 1.0), 'Calculated upper Y coordinate invalid');
-    
+
     normalized = [0, 0, upper_x, upper_y];
-    
+
 end
