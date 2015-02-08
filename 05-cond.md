@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Programming with MATLAB
-subtitle: Using Conditional Statements
-minutes: 40
+subtitle: Making Choices
+minutes: 30
 ---
 
 > ## Learning Objectives {.objectives}
