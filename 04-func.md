@@ -1,7 +1,12 @@
 ---
 layout: page
+<<<<<<< HEAD:03-func.md
 title: Creating Functions
 subtitle: Scripts with in- and output
+=======
+title: Programming with MATLAB
+subtitle: Creating Functions
+>>>>>>> FETCH_HEAD:04-func.md
 minutes: 30
 ---
 
