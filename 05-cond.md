@@ -1,8 +1,14 @@
 ---
 layout: page
+<<<<<<< HEAD:04-cond.md
 title: Making Choices
 subtitle: Using Conditional Statements
 minutes: 40
+=======
+title: Programming with MATLAB
+subtitle: Making Choices
+minutes: 30
+>>>>>>> FETCH_HEAD:05-cond.md
 ---
 
 > ## Learning Objectives {.objectives}
