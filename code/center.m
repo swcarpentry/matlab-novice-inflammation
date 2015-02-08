@@ -2,7 +2,7 @@
 function out = center(data, desired)
     %   Center data around a desired value.
     %
-    %       center(DATA, DESIRED) 
+    %       center(DATA, DESIRED)
     %
     %   Returns a new array containing the values in
     %   DATA centered around the value.
