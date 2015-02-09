@@ -5,6 +5,12 @@ subtitle: Making Choices
 minutes: 30
 ---
 
+> ## Learning Objectives {.objectives}
+> * Learn about if, elseif, and else
+> * Learn to test equality, AND, and OR conditions 
+> * Learn to nest loops
+
+
 Our previous lessons have shown us how to manipulate
 data, define our own functions, and repeat things.
 However, the programs we have written so far always do
@@ -12,10 +18,8 @@ the same things, regardless of what data they're given.
 We want programs to make choices based on the values
 they are manipulating.
 
-### Conditionals
-
 The tool that MATLAB gives us for doing this is called
-a [conditional statement](../../gloss.html#conditional-statement),
+a [conditional statement](gloss.html#conditional-statement),
 and it looks like this:
 
 ~~~ {.matlab}
@@ -120,72 +124,67 @@ at least one part is true
 In this case, "either" means "either or both", not
 "either one or the other but not both".
 
-### Challenges
-
-1. `1` and `0` aren't the only values
+> ## True and false statements {.challenges}
+> 1. `1` and `0` aren't the only values
    in MATLAB that are true or false. In fact, *any* value
    can be used in an `if` or `elseif`. After reading and
    running the code below, explain what the rule is for
    which values that are considered true and which are
    considered false.
-
-   1.
-
-   ~~~
-   if
-       disp('empty string is true')
-   end
-   ~~~
-
-   2.
-
-   ~~~
-   if 'foo'
-       disp('non empty string is true')
-   end
-   ~~~
-
-   3.
-
-   ~~~
-   if []
-       disp ('empty array is true')
-   end
-   ~~~
-
-   4.
-
-   ~~~
-   if [22.5, 1.0]
-       disp ('non empty array is true')
-   end
-   ~~~
-
-   5.
-
-   ~~~
-   if [0, 0]
-       disp ('array of zeros is true')
-   end
-   ~~~
-
-   6.
-
-   ~~~
-   if true
-       disp('true is true')
-   end
-   ~~~
-
-
-2. Write a function called `near` that returns `1`
+>
+>   1.
+>   ~~~
+>   if
+>       disp('empty string is true')
+>   end
+>   ~~~
+>
+>   2.
+>
+>   ~~~
+>   if 'foo'
+>       disp('non empty string is true')
+>   end
+>   ~~~
+>
+>   3.
+>
+>   ~~~
+>   if []
+>       disp ('empty array is true')
+>   end
+>   ~~~
+>
+>   4.
+>
+>   ~~~
+>   if [22.5, 1.0]
+>       disp ('non empty array is true')
+>   end
+>   ~~~
+>
+>   5.
+>
+>   ~~~
+>   if [0, 0]
+>       disp ('array of zeros is true')
+>   end
+>   ~~~
+>
+>   6.
+>
+>   ~~~
+>   if true
+>       disp('true is true')
+>   end
+>   ~~~
+>
+> 2. Write a function called `near` that returns `1`
    when its first parameter is within 10% of its second
    and `0` otherwise. Compare your implementation with
    your partner's: do you return the same answer for
    all possible pairs of numbers?
 
-
-### Nesting
 
 Another thing to realize is that `if` statements can
 be combined with loops just as easily as they can be
@@ -254,28 +253,26 @@ da
 de
 ~~~
 
-### Challenges
-
-1. Will changing the order of nesting in the above loop change
-the output? Why? Write down the output you might expect from
-changing the order of the loops, then rewrite the code to test
-your hypothesis.
-
-2. MATLAB (and most other languges in the C family) provides
-[in-place operators](../../gloss.html#in-place-operator) that
-work like this:
-
-~~~
-x = 1;
+> ## Nesting {.challenges}
+>
+> 1. Will changing the order of nesting in the above loop change
+> the output? Why? Write down the output you might expect from
+> changing the order of the loops, then rewrite the code to test
+> your hypothesis.
+>
+> 2. MATLAB (and most other languges in the C family) provides
+> [in-place operators](gloss.html#in-place-operator) that
+> work like this:
+>
+> ~~~
+> x = 1;
 x += 1;
 x *= 3;
-~~~
-
-Rewrite the code that sums the positive and negative values
-in an array using these in-place operators. Do you think that
-the result is more or less readable than the original?
-
-### Creating a Heat Map
+> ~~~
+>
+> Rewrite the code that sums the positive and negative values
+> in an array using these in-place operators. Do you think that
+> the result is more or less readable than the original?
 
 The last step is to turn our data into something we can see
 and make sense of. As in previous lessons, we need to first
@@ -337,7 +334,7 @@ wrong with it:
 Here's how we can improve it:
 
 1. We can pick better colors, and use a
-[colormap](../../gloss.html#colormap)
+[colormap](gloss.html#colormap)
 
 2. Instead of checking if values are exactly equal to the mean,
 we can check if they are close to it.
@@ -449,36 +446,11 @@ axis equal
 <img src="img/04-cond_4.png" style="height:350px">
 </div>
 
-#### Challenges
-
-1. Why does the `make_heatmap` function return an array instead
-of displaying it immediately? Do you think this is a good
-design choice?
-
-<div class="keypoints" markdown="1">
-#### Key Points
-
-* Use `if condition` to start a conditional statement,
-`elseif condition` to provide additional tests, and
-`else` to provide a default. As with loops, end the
-conditional statement with the `end` keyword.
-
-* Use `==` to test for equality.
-
-* `X && Y` is true only if both X and Y are true.
-
-* `X || Y` is true if either X or Y is true.
-
-* Zero, the empty array, and the empty string are all
-considered false.
-
-* Nest loops to operate on multidimensional data.
-
-* Put code whose parameters change frequently in a function,
-then call it with different parameter values to
-customize its behaviour.
-
-### Next Steps
+> ##  Design choice {.challenges}
+> 
+> 1. Why does the `make_heatmap` function return an array instead
+> of displaying it immediately? Do you think this is a good
+> design choice?
 
 Before we are ready to publish our `make_heatmap` function, we
 need to be sure of its correctness. To do that, we need to learn
