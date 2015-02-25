@@ -17,16 +17,10 @@ But the two most important things are to use whatever language your colleagues
 are using, so that you can share you work with them easily, and to use that
 language *well*.
 
-> ## Prerquisites
->
-> Learners should have completed introductory lessons on:
->
-> - the Unix shell (Files and Directories, Creating Things, Loops)
-
 ## Topics
 
 1.  [Analyzing Patient Data](01-intro.html)
-2.  [Reusing Code](02-scripts.html)
+2.  [Writing MATLAB Scripts](02-scripts.html)
 3.  [Repeating With Loops](03-loops.html)
 4.  [Creating Functions](04-func.html)
 5.  [Making Choices](05-cond.html)
