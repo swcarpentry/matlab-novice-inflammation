@@ -85,8 +85,8 @@ disp([<span class="st">&#39;Weight in pounds: &#39;</span>, num2str(weight_in_po
 <p><img src="img/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" /></p>
 <p>Assigning a value to one variable does not change the values of other variables. For example,</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">weight_kg = <span class="fl">57.5</span>;
-weight_lb = <span class="fl">2.2</span> * weight_in__kg;
-disp([<span class="st">&#39;Weight in kg: &#39;</span>, num2str(weight_kg); <span class="st">&#39;Weight in pounds: &#39;</span>, num2str(weight_lb)]);</code></pre>
+weight_lb = <span class="fl">2.2</span> * weight_kg;
+disp([<span class="st">&#39;Weight in kg: &#39;</span>, num2str(weight_kg)]); disp([<span class="st">&#39;Weight in pounds: &#39;</span>, num2str(weight_lb)]);</code></pre>
 <pre class="output"><code>Weight in kg: 57.5
 Weight in pounds: 126.5</code></pre>
 <p><img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" /></p>
