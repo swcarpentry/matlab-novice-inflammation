@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,18 +17,21 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Programming with MATLAB</h1>
           <h2 class="subtitle">Defensive Programming</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Explain what an assertion is.</li>
 <li>Add assertions to programs that correctly check the program's state.</li>
@@ -39,6 +40,7 @@
 <li>Explain why variables should be initialized using actual data values rather than arbitrary constants.</li>
 <li>Debug code containing an error systematically.</li>
 </ul>
+</div>
 </div>
 <p>Our previous lessons have introduced the basic tools of programming: variables and lists, file I/O, loops, conditionals, and functions. What they <em>haven't</em> done is show us how to tell whether a program is getting the right answer, and how to tell if it's <em>still</em> getting the right answer as we make changes to it.</p>
 <p>To achieve that, we need to:</p>
@@ -169,14 +171,18 @@ end</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
 <p>we shouldn't see an error.</p>
 <p>Something important is missing, though. We don't have any tests for the case where the ranges don't overlap at all, or for the case where the ranges overlap at a point. We'll leave this as a final assignment.</p>
-<div id="fixing-code-through-testing" class="challenge">
-<h2>Fixing Code through Testing</h2>
+<div id="fixing-code-through-testing" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Fixing Code through Testing</h2>
+</div>
+<div class="panel-body">
 <p>Fix <code>range_overlap</code>. Uncomment the two commented lines in <code>test_range_overlap</code>. You'll see that our objective is to return a special value: <code>NaN</code> (Not a Number), for the following cases:</p>
 <ul>
 <li>The ranges don't overlap.</li>
 <li>The ranges overlap at their endpoints.</li>
 </ul>
 <p>As you make change to the code, run <code>test_range_overlap</code> regularly to make sure you aren't breaking anything. Once you're done, running <code>test_range_overlap</code> shouldn't raise any errors.</p>
+</div>
 </div>
 <p>Once testing has uncovered problems, the next step is to fix them. Many novices do this by making more-or-less random changes to their code until it seems to produce the right answer, but that's very inefficient (and the result is usually only correct for the one case they're testing). The more experienced a programmer is, the more systematically they debug, and most follow some variation on the rules explained below.</p>
 <p>The first step in debugging something is to <a href="rules.html#know-what-its-supposed-to-do">know what it's supposed to do</a>. &quot;My program doesn't work&quot; isn't good enough: in order to diagnose and fix problems, we need to be able to tell correct output from incorrect. If we can write a test case for the failing case—i.e., if we can assert that with <em>these</em> inputs, the function should produce <em>that</em> result— then we're ready to start debugging. If we can't, then we need to figure out how we're going to know when we've fixed things.</p>
@@ -216,6 +222,6 @@ end</code></pre>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
