@@ -5,9 +5,9 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: Programming with MATLAB</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
@@ -16,24 +16,28 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Programming with MATLAB</h1>
           <h2 class="subtitle">Making Choices</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Learn about if, elseif, and else</li>
 <li>Learn to test equality, AND, and OR conditions</li>
 <li>Learn to nest loops</li>
 </ul>
+</div>
 </div>
 <p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they're given. We want programs to make choices based on the values they are manipulating.</p>
 <p>The tool that MATLAB gives us for doing this is called a <a href="gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
@@ -96,13 +100,21 @@ end</code></pre>
 <li></li>
 </ol>
 <p><sub>~</sub> if 'foo' disp('non empty string is true') end <sub>~</sub></p>
-<p>3.</p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [] disp ('empty array is true') end <sub>~</sub></p>
-<p>4.</p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [22.5, 1.0] disp ('non empty array is true') end <sub>~</sub></p>
-<p>5.</p>
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if [0, 0] disp ('array of zeros is true') end <sub>~</sub></p>
-<p>6.</p>
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
 <p><sub>~</sub> if true disp('true is true') end <sub>~</sub></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner's: do you return the same answer for all possible pairs of numbers?</li>
@@ -292,6 +304,6 @@ axis equal</code></pre>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
