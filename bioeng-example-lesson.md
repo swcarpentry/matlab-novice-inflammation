@@ -18,7 +18,7 @@ To do this, first we need to measure brain activity.
 This can be done using EEG (electroencephalogram). A test participant wears a cap with 
 embedded electrodes. The participant then repeatedly moves their left or right hand or no hand at all, 
 while we measure the electric field with the electrodes. Luckily this data has 
-already been recorded and can be downloaded [here](https://github.com/EwanNurse/A-Generalizable-BCI-using-Machine-Learning-for-Feature-Discovery/tree/master/data).
+already been recorded and can be downloaded [here](https://github.com/EwanNurse/A-Generalizable-BCI-using-Machine-Learning-for-Feature-Discovery/tree/master/data). We'll be using 'EEG_ParticipantB_30_09_2013.mat'.
 
 Once we have downloaded the first data file, we want to:
 
