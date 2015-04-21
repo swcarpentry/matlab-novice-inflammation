@@ -166,7 +166,7 @@ For example,
 
 ~~~ {.matlab}
 weight_kg = 57.5;
-weight_lb = 2.2 * weight_in__kg;
+weight_lb = 2.2 * weight_kg;
 disp(['Weight in kg: ', num2str(weight_kg); 'Weight in pounds: ', num2str(weight_lb)]);
 ~~~
 
