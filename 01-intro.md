@@ -42,15 +42,16 @@ To do all that, we'll have to learn a little bit about programming.
 We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
-[search path](gloss.html#search-path)
-to the directory containing the files.
+[path](gloss.html#matlab-path)
+to include the directory containing the files. The MATLAB path is a list of directories 
+on your computer that MATLAB knows about.
 To do this,
 we go to the `Home` tab,
 click on `Set Path`,
 and then on `Add with Subfolders...`.
 We navigate to the directory containing our files and
 add it to the path to tell MATLAB where to look for our files. When you refer 
-to a file (either code or data), MATLAB will search all the folders in the path 
+to a file (either code or data), MATLAB will search all the directories in the path 
 to find it. Alternatively, for data files, we can also provide the relative or 
 absolute file path.
 
