@@ -145,12 +145,12 @@ disp(weight_kg);
 and do arithmetic with it:
 
 ~~~ {.matlab}
-weight_in_pounds = 2.2 * weight_kg;
-disp(['Weight in pounds: ', num2str(weight_in_pounds)]);
+weight_lb = 2.2 * weight_kg;
+disp(['Weight in pounds: ', num2str(weight_lb)]);
 ~~~
 
 ~~~ {.output}
-Weight in pounds: 121.0
+Weight in pounds: 121
 ~~~
 
 The `disp` function takes a single parameter -- the value to print. To
@@ -171,7 +171,8 @@ For example,
 ~~~ {.matlab}
 weight_kg = 57.5;
 weight_lb = 2.2 * weight_kg;
-disp(['Weight in kg: ', num2str(weight_kg); 'Weight in pounds: ', num2str(weight_lb)]);
+disp(['Weight in kg: ', num2str(weight_kg)]);
+disp(['Weight in pounds: ', num2str(weight_lb)]);
 ~~~
 
 ~~~ {.output}
