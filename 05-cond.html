@@ -23,6 +23,7 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Programming with MATLAB</h1>
@@ -39,7 +40,7 @@
 </ul>
 </div>
 </div>
-<p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they're given. We want programs to make choices based on the values they are manipulating.</p>
+<p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they’re given. We want programs to make choices based on the values they are manipulating.</p>
 <p>The tool that MATLAB gives us for doing this is called a <a href="gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">37</span>;
 
@@ -53,7 +54,7 @@ disp(<span class="st">&#39;done&#39;</span>);</code></pre>
 <pre class="output"><code>not greater
 done</code></pre>
 <p>The second line of this code uses the keyword <code>if</code> to tell MATLAB that we want to make a choice. If the test that follows is true, the body of the <code>if</code> (i.e., the lines between <code>if</code> and <code>else</code>) are executed. If the test is false, the body of the <code>else</code> (i.e., the lines between <code>else</code> and <code>end</code>) are executed instead. Only one or the other is ever executed.</p>
-<p>Conditional statements don't have to have an <code>else</code> block. If there isn't one, MATLAB simply doesn't do anything if the test is false:</p>
+<p>Conditional statements don’t have to have an <code>else</code> block. If there isn’t one, MATLAB simply doesn’t do anything if the test is false:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">53</span>
 disp(<span class="st">&#39;before conditional...&#39;</span>)
 
@@ -78,7 +79,7 @@ function out = sign_of(num)
     else
         out = -1;
 end</code></pre>
-<p>One important thing to notice in the code above is that we use a double equals sign <code>==</code> to test for equality rather than a single equals sign. This is because the latter is used to mean assignment. In our test, we want to check for the equality of <code>num</code> and <code>0</code>, not <em>assign</em> 0 to <code>num</code>. This convention was inherited from C, and it does take a bit of getting used to...</p>
+<p>One important thing to notice in the code above is that we use a double equals sign <code>==</code> to test for equality rather than a single equals sign. This is because the latter is used to mean assignment. In our test, we want to check for the equality of <code>num</code> and <code>0</code>, not <em>assign</em> 0 to <code>num</code>. This convention was inherited from C, and it does take a bit of getting used to…</p>
 <p>We can also combine tests, using <code>&amp;&amp;</code> (and) and <code>||</code> (or). <code>&amp;&amp;</code> is true if both tests are true:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">if ((<span class="fl">1</span> &gt; <span class="fl">0</span>) &amp;&amp; (-<span class="fl">1</span> &gt; <span class="fl">0</span>))
     disp(<span class="st">&#39;both parts are true&#39;</span>);
@@ -91,33 +92,25 @@ end</code></pre>
     disp(<span class="st">&#39;at least one part is true&#39;</span>);
 end</code></pre>
 <pre class="output"><code>at least one part is true</code></pre>
-<p>In this case, &quot;either&quot; means &quot;either or both&quot;, not &quot;either one or the other but not both&quot;.</p>
+<p>In this case, “either” means “either or both”, not “either one or the other but not both”.</p>
 <blockquote>
 <h2>True and false statements</h2>
 <ol style="list-style-type: decimal">
-<li><p><code>1</code> and <code>0</code> aren't the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
-<li><p><sub>~</sub> if disp('empty string is true') end <sub>~</sub></p></li>
+<li><p><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
+<li><p><sub>~</sub> if disp(‘empty string is true’) end <sub>~</sub></p></li>
 <li></li>
 </ol>
-<p><sub>~</sub> if 'foo' disp('non empty string is true') end <sub>~</sub></p>
-<ol start="3" style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><sub>~</sub> if [] disp ('empty array is true') end <sub>~</sub></p>
-<ol start="4" style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><sub>~</sub> if [22.5, 1.0] disp ('non empty array is true') end <sub>~</sub></p>
-<ol start="5" style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><sub>~</sub> if [0, 0] disp ('array of zeros is true') end <sub>~</sub></p>
-<ol start="6" style="list-style-type: decimal">
-<li></li>
-</ol>
-<p><sub>~</sub> if true disp('true is true') end <sub>~</sub></p>
+<p><sub>~</sub> if ‘foo’ disp(‘non empty string is true’) end <sub>~</sub></p>
+<p>3.</p>
+<p><sub>~</sub> if [] disp (‘empty array is true’) end <sub>~</sub></p>
+<p>4.</p>
+<p><sub>~</sub> if [22.5, 1.0] disp (‘non empty array is true’) end <sub>~</sub></p>
+<p>5.</p>
+<p><sub>~</sub> if [0, 0] disp (‘array of zeros is true’) end <sub>~</sub></p>
+<p>6.</p>
+<p><sub>~</sub> if true disp(‘true is true’) end <sub>~</sub></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner's: do you return the same answer for all possible pairs of numbers?</li>
+<li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner’s: do you return the same answer for all possible pairs of numbers?</li>
 </ol>
 </blockquote>
 <p>Another thing to realize is that <code>if</code> statements can be combined with loops just as easily as they can be combined with functions. For example, if we want to sum the positive numbers in a list, we can write this:</p>
@@ -179,7 +172,7 @@ colorbar();</code></pre>
 <div>
 <img src="img/01-intro_1.png" style="height:350px">
 </div>
-<p>Let's write some code to give us a plot that's a little more useful:</p>
+<p>Let’s write some code to give us a plot that’s a little more useful:</p>
 <pre><code>[height, width] = size(patient_data);
 heatmap = zeros(height, width);
 
@@ -206,7 +199,7 @@ colorbar();</code></pre>
 <li><p>The heatmap shows only two colors because none of the (integer) measurements has the exact value as the mean.</p></li>
 <li><p>We are calculating the mean of the data each time we go through the loop. On our 40 × 60 dataset, this means we are performing the same calculation 2400 times.</p></li>
 </ol>
-<p>Here's how we can improve it:</p>
+<p>Here’s how we can improve it:</p>
 <ol style="list-style-type: decimal">
 <li><p>We can pick better colors, and use a <a href="gloss.html#colormap">colormap</a></p></li>
 <li><p>Instead of checking if values are exactly equal to the mean, we can check if they are close to it.</p></li>
@@ -238,7 +231,7 @@ axis equal</code></pre>
 <img src="img/04-cond_2.png" style="height:350px">
 </div>
 <p>This is better, but we might want to widen the band around the mean that gets that color.</p>
-<p>But to do that, we'll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let's write a function to make things easier:</p>
+<p>But to do that, we’ll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let’s write a function to make things easier:</p>
 <pre><code>% make_heatmap.m
 
 function heatmap = make_heatmap(data, low_band, high_band)
@@ -269,7 +262,7 @@ axis equal</code></pre>
 <div>
 <img src="img/04-cond_2.png" style="height:350px">
 </div>
-<p>That seems right, so let's try wider bands:</p>
+<p>That seems right, so let’s try wider bands:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
 imagesc(heatmap);
 colorbar();
@@ -295,6 +288,7 @@ axis equal</code></pre>
 <p>Before we are ready to publish our <code>make_heatmap</code> function, we need to be sure of its correctness. To do that, we need to learn how to <em>test</em> our code, and that will be the subject of our next lesson.</p>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/matlab-novice-inflammation">Source</a>
