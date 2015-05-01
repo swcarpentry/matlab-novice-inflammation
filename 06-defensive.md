@@ -252,9 +252,11 @@ assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);
 test_range_overlap
 ~~~
 
-#FIXME: add the error/output here:
-~~~ {.output}
+~~~ {.error}
+Undefined function 'range_overlap' for input arguments of type 'double'.
 
+Error in test_range_overlap (line 6)
+assert(range_overlap([0, 1.0]) == [0, 1.0]);
 ~~~
 
 The error is actually reassuring:
