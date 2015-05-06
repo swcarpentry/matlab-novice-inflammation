@@ -5,7 +5,7 @@ subtitle: Writing MATLAB Scripts
 minutes: 30
 ---
 
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 > * Learn how to write and save MATLAB scripts.
 > * Learn how to save MATLAB plots to disk.
 
