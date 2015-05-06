@@ -193,7 +193,7 @@ and helps to warn people who are reading the code
 that this bit is tricky.
 
 
-> ## Finding conditions {.challenges}
+> ## Finding conditions {.challenge}
 > 
 > 1. Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
 > What pre-conditions and post-conditions would you write for it?

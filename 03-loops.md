@@ -5,7 +5,7 @@ subtitle: Repeating With Loops
 minutes: 30
 ---
 
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 > * Explain what a for loop does.
 > * Correctly write for loops that repeat simple commands.
 > * Trace changes to a loop variable as the loops runs.
@@ -247,7 +247,7 @@ u
 > aluminum
 > ~~~
 
-> ## Looping in Reverse .{challenge}
+> ## Looping in Reverse {.challenge}
 > 
 > In Matlab, the colon operator (`:`) accepts a
 > [stride](../../gloss.> html#stride)
@@ -336,7 +336,7 @@ with the value of `i`, i.e., 1.
 The resulting string is `inflammation-1.csv`,
 which is assigned to the variable `file_name`.
 The `disp` command prints that string to screen.
-The second time around, `sprintf` generates the string `inflammation-2.csv, which is assigned to the variable `file_name`,
+The second time around, `sprintf` generates the string `inflammation-2.csv`, which is assigned to the variable `file_name`,
 and printed to screen. 
 And so on, till `i` finally refers to the value 12.
 
@@ -421,7 +421,7 @@ Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
 and their minima show the same staircase structure.
 
-> ## Another Way to Analyze Multiple Files .{challenge}
+> ## Another Way to Analyze Multiple Files {.challenge}
 > 
 > In cases where our file names don't follow such a regular pattern,
 > we might want to process all files that end with a given extension,

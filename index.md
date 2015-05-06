@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: ../..
 title: Programming with MATLAB
 ---
 The best way to learn how to program is to do something useful, so this

@@ -143,7 +143,7 @@ here---typically half a dozen to a few dozen lines---but
 they shouldn't ever be much longer than that,
 or the next person who reads it won't be able to understand what's going on.
 
-> ## Concatenating in a function {.challenges}
+> ## Concatenating in a function {.challenge}
 > 
 > 1. In Matlab, we concatenate strings by putting them into an array or using the
 >    `strcat` function:
@@ -317,7 +317,7 @@ Returns a new array containing the values in
 DATA centered around the value.
 ~~~
 
-> ## Testing a function {.challenges}
+> ## Testing a function {.challenge}
 > 
 > 1. Write a function called `rescale` that takes an array as input and returns an
 >    array of the same shape with its values scaled to lie in the range 0.0 to 1.0.

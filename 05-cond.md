@@ -124,7 +124,7 @@ at least one part is true
 In this case, "either" means "either or both", not
 "either one or the other but not both".
 
-> ## True and false statements {.challenges}
+> ## True and false statements {.challenge}
 > 1. `1` and `0` aren't the only values
    in MATLAB that are true or false. In fact, *any* value
    can be used in an `if` or `elseif`. After reading and
@@ -253,7 +253,7 @@ da
 de
 ~~~
 
-> ## Nesting {.challenges}
+> ## Nesting {.challenge}
 >
 > 1. Will changing the order of nesting in the above loop change
 > the output? Why? Write down the output you might expect from
@@ -446,7 +446,7 @@ axis equal
 <img src="img/04-cond_4.png" style="height:350px">
 </div>
 
-> ##  Design choice {.challenges}
+> ##  Design choice {.challenge}
 > 
 > 1. Why does the `make_heatmap` function return an array instead
 > of displaying it immediately? Do you think this is a good
