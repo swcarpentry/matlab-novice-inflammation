@@ -93,8 +93,11 @@ end</code></pre>
 end</code></pre>
 <pre class="output"><code>at least one part is true</code></pre>
 <p>In this case, “either” means “either or both”, not “either one or the other but not both”.</p>
-<blockquote>
-<h2>True and false statements</h2>
+<div id="true-and-false-statements" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>True and false statements</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
 <li><p><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
 <li><p><sub>~</sub> if disp(‘empty string is true’) end <sub>~</sub></p></li>
@@ -112,7 +115,8 @@ end</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner’s: do you return the same answer for all possible pairs of numbers?</li>
 </ol>
-</blockquote>
+</div>
+</div>
 <p>Another thing to realize is that <code>if</code> statements can be combined with loops just as easily as they can be combined with functions. For example, if we want to sum the positive numbers in a list, we can write this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [-<span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">2</span>, -<span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">6</span>];
 total = <span class="fl">0</span>;
@@ -153,8 +157,11 @@ ca
 ce
 da
 de</code></pre>
-<blockquote>
-<h2>Nesting</h2>
+<div id="nesting" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Nesting</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
 <li><p>MATLAB (and most other languges in the C family) provides <a href="gloss.html#in-place-operator">in-place operators</a> that work like this:</p></li>
@@ -163,7 +170,8 @@ de</code></pre>
 x += 1;
 x *= 3;</code></pre>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
-</blockquote>
+</div>
+</div>
 <p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>The heatmap from lesson 1 is useful, but fairly hard to read:</p>
@@ -279,12 +287,16 @@ axis equal</code></pre>
 <div>
 <img src="img/04-cond_4.png" style="height:350px">
 </div>
-<blockquote>
-<h2>Design choice</h2>
+<div id="design-choice" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Design choice</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
 <li>Why does the <code>make_heatmap</code> function return an array instead of displaying it immediately? Do you think this is a good design choice?</li>
 </ol>
-</blockquote>
+</div>
+</div>
 <p>Before we are ready to publish our <code>make_heatmap</code> function, we need to be sure of its correctness. To do that, we need to learn how to <em>test</em> our code, and that will be the subject of our next lesson.</p>
         </div>
       </div>

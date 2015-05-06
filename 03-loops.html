@@ -28,15 +28,19 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Programming with MATLAB</h1>
           <h2 class="subtitle">Repeating With Loops</h2>
-<blockquote>
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Explain what a for loop does.</li>
 <li>Correctly write for loops that repeat simple commands.</li>
 <li>Trace changes to a loop variable as the loops runs.</li>
 <li>Use a for loop to process multiple files</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <!-- FIXME: this can be worded better: -->
 
 <p>Recall that we have to do this analysis for every one of our dozen datasets. And we need a better way than typing out commands for each one, because we’ll find ourselves writing a lot of duplicate code. Remember, code that is repeated in two or more places will eventually be wrong in at least one. Also, if we make changes in the way we analyze our datasets, we have to introduce that change in every copy of our code. To avoid all of this repetition, we have to teach MATLAB to repeat our commands, and to do <em>that</em>, we have to learn how to write <em>loops</em>.</p>
@@ -148,8 +152,11 @@ aluminu
 aluminum</code></pre>
 </div>
 </div>
-<blockquote>
-<h2>Looping in Reverse .{challenge}</h2>
+<div id="looping-in-reverse" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Looping in Reverse</h2>
+</div>
+<div class="panel-body">
 <p>In Matlab, the colon operator (<code>:</code>) accepts a <a href="../../gloss.&gt;%20html#stride">stride</a> or skip argument between the start and stop:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(<span class="fl">1</span>:<span class="fl">3</span>:<span class="fl">11</span>)</code></pre>
 <pre class="output"><code>1 4 7 10</code></pre>
@@ -164,7 +171,8 @@ m
 u
 l
 a</code></pre>
-</blockquote>
+</div>
+</div>
 <p>We now have almost everything we need to process multiple data files with our <code>analyze</code> script. You’ll notice that our data files are named <code>inflammation-01.csv</code>, <code>inflammation-02.csv</code>, etc. Let’s write a loop that tries to print the names of each one of our files:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">for idx = <span class="fl">1</span>:<span class="fl">12</span>
     file_name = sprintf(<span class="st">&#39;inflammation-%d.csv&#39;</span>, idx);
@@ -185,7 +193,7 @@ inflammation-12.csv</code></pre>
 <p>This is close, but not quite right. The <code>sprintf</code> function is useful when we want to generate MATLAB strings based on a <em>template</em>. In our case, that template is the string <code>inflammation-%d.csv</code>. <code>sprintf</code> generates a new string from our template by replacing the <code>%d</code> with the data referred to by our second argument, <code>i</code>.</p>
 <p>Again, let’s trace the execution of our loop: in the beginning of our loop, <code>i</code> starts by referring to the value 1. So, when MATLAB executes the command</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">file_name = sprintf(<span class="st">&#39;inflammation-%d.csv&#39;</span>, idx);</code></pre>
-<p>it substitutes the <code>%d</code> in the template <code>inflammation-%d.csv</code>, with the value of <code>i</code>, i.e., 1. The resulting string is <code>inflammation-1.csv</code>, which is assigned to the variable <code>file_name</code>. The <code>disp</code> command prints that string to screen. The second time around, <code>sprintf</code> generates the string <code>inflammation-2.csv, which is assigned to the variable</code>file_name<code>, and printed to screen.  And so on, till</code>i` finally refers to the value 12.</p>
+<p>it substitutes the <code>%d</code> in the template <code>inflammation-%d.csv</code>, with the value of <code>i</code>, i.e., 1. The resulting string is <code>inflammation-1.csv</code>, which is assigned to the variable <code>file_name</code>. The <code>disp</code> command prints that string to screen. The second time around, <code>sprintf</code> generates the string <code>inflammation-2.csv</code>, which is assigned to the variable <code>file_name</code>, and printed to screen. And so on, till <code>i</code> finally refers to the value 12.</p>
 <p>Notice that there’s a mistake. Our files are actually named <code>inflammation-01.csv</code>, <code>inflammation-02.csv</code>, etc. To get it right, we have to modify our template:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">for idx = <span class="fl">1</span>:<span class="fl">12</span>
     file_name = sprintf(<span class="st">&#39;inflammation-%02d.csv&#39;</span>, idx);
@@ -239,8 +247,11 @@ end</code></pre>
 <p><img src="img/02-loop_2.png" style="width:500px; height:400px"></p>
 <p><img src="img/02-loop_3.png" style="width:500px; height:400px"></p>
 <p>Sure enough, the maxima of these data sets show exactly the same ramp as the first, and their minima show the same staircase structure.</p>
-<blockquote>
-<h2>Another Way to Analyze Multiple Files .{challenge}</h2>
+<div id="another-way-to-analyze-multiple-files" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Another Way to Analyze Multiple Files</h2>
+</div>
+<div class="panel-body">
 <p>In cases where our file names don’t follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="../../gloss.html#wildcard">wildcard</a>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> *.csv</code></pre>
 <p>Thankfully, Matlab also has <code>ls</code>, though it returns a single long string:</p>
@@ -269,7 +280,8 @@ Columns 10 through 13
 
 &#39;inflammation-06.csv&#39;    &#39;inflammation-09.csv&#39;    &#39;inflammation-12.&gt; csv&#39;    &#39;&#39;</code></pre>
 <p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
-</blockquote>
+</div>
+</div>
         </div>
       </div>
       </article>
