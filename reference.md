@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Programming with Python
+title: Programming with MATLAB
 subtitle: Reference
 ---
 
@@ -41,7 +41,7 @@ case-sensitive
 comment
 :   A remark in a program that is intended to help human readers understand what is going on,
     but is ignored by the computer.
-    Comments in Python, R, and the Unix shell start with a `#` character and run to the end of the line;
+    Comments in MATLAB start with a `%` character and run to the end of the line;
     comments in SQL start with `--`,
     and other languages have other conventions.
 
@@ -65,12 +65,6 @@ defensive programming
 delimiter
 :   A character or characters used to separate individual values,
     such as the commas between columns in a [CSV](#comma-separated-values) file.
-
-docstring
-:   Short for "documentation string",
-    this refers to textual documentation embedded in Python programs.
-    Unlike comments, docstrings are preserved in the running program
-    and can be examined in interactive sessions.
 
 documentation
 :   Human-language text written to explain what software does,
@@ -228,19 +222,12 @@ test oracle
 test-driven development
 :   The practice of writing unit tests *before* writing the code they test.
 
-traceback
-:   CHECKME In Python, a list of the sequence of function calls that led to an error.
-
 tuple
 :   An [immutable](#immutable) [sequence](#sequence) of values.
 
 type
 :   CHECKME The classification of something in a program (for example, the contents of a variable)
     as a kind of number (e.g. [floating-point](#float), [integer](#integer)), [string](#string), or something else.
-
-type of error
-:   CHECKME Indicates the nature of an error in a program, for example, `IOError` in Python refers to problems in input/output.
-    See also [syntax error](#syntax-error).
 
 while loop
 :   A loop that keeps executing as long as some condition is true.
