@@ -7,7 +7,7 @@ minutes: 30
 
 > ## Learning Objectives {.objectives}
 > * Learn about if, elseif, and else
-> * Learn to test equality, AND, and OR conditions 
+> * Learn to test equality, AND, and OR conditions
 > * Learn to nest loops
 
 
@@ -19,7 +19,7 @@ We want programs to make choices based on the values
 they are manipulating.
 
 The tool that MATLAB gives us for doing this is called
-a [conditional statement](gloss.html#conditional-statement),
+a [conditional statement](reference.html#conditional-statement),
 and it looks like this:
 
 ~~~ {.matlab}
@@ -261,7 +261,7 @@ de
 > your hypothesis.
 >
 > 2. MATLAB (and most other languges in the C family) provides
-> [in-place operators](gloss.html#in-place-operator) that
+> [in-place operators](reference.html#in-place-operator) that
 > work like this:
 >
 > ~~~
@@ -334,7 +334,7 @@ wrong with it:
 Here's how we can improve it:
 
 1. We can pick better colors, and use a
-[colormap](gloss.html#colormap)
+[colormap](reference.html#colormap)
 
 2. Instead of checking if values are exactly equal to the mean,
 we can check if they are close to it.
@@ -447,7 +447,7 @@ axis equal
 </div>
 
 > ##  Design choice {.challenge}
-> 
+>
 > 1. Why does the `make_heatmap` function return an array instead
 > of displaying it immediately? Do you think this is a good
 > design choice?

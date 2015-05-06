@@ -41,7 +41,7 @@
 </div>
 </div>
 <p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they’re given. We want programs to make choices based on the values they are manipulating.</p>
-<p>The tool that MATLAB gives us for doing this is called a <a href="gloss.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
+<p>The tool that MATLAB gives us for doing this is called a <a href="reference.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">37</span>;
 
 if num &gt; <span class="fl">100</span>
@@ -164,7 +164,7 @@ de</code></pre>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
-<li><p>MATLAB (and most other languges in the C family) provides <a href="gloss.html#in-place-operator">in-place operators</a> that work like this:</p></li>
+<li><p>MATLAB (and most other languges in the C family) provides <a href="reference.html#in-place-operator">in-place operators</a> that work like this:</p></li>
 </ol>
 <pre><code>x = 1;
 x += 1;
@@ -209,7 +209,7 @@ colorbar();</code></pre>
 </ol>
 <p>Here’s how we can improve it:</p>
 <ol style="list-style-type: decimal">
-<li><p>We can pick better colors, and use a <a href="gloss.html#colormap">colormap</a></p></li>
+<li><p>We can pick better colors, and use a <a href="reference.html#colormap">colormap</a></p></li>
 <li><p>Instead of checking if values are exactly equal to the mean, we can check if they are close to it.</p></li>
 <li><p>We can calculate the mean once, before the loop, and use that value over and over. The cost of computing the mean is much more than retrieving its value from memory.</p></li>
 </ol>

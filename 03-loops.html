@@ -77,12 +77,12 @@ end</code></pre>
 e
 a
 d</code></pre>
-<p>This improved version uses a <a href="../../gloss.html#for-loop">for loop</a> to repeat an operation—in this case, printing to the screen—once for each element in an array.</p>
+<p>This improved version uses a <a href="reference.html#for-loop">for loop</a> to repeat an operation—in this case, printing to the screen—once for each element in an array.</p>
 <p>The general form of a for loop is:</p>
 <pre><code>for variable = collection
     do things with variable
 end</code></pre>
-<p>The for loop executes the commands in the <a href="../../gloss.html#loop-body">loop body</a> for every value in the array <code>collection</code>. This value is called the <a href="../../gloss.html#loop-variable">loop variable</a>, and we can call it whatever we like. In our example, we gave it the name <code>letter</code>.</p>
+<p>The for loop executes the commands in the <a href="reference.html#loop-body">loop body</a> for every value in the array <code>collection</code>. This value is called the <a href="reference.html#loop-variable">loop variable</a>, and we can call it whatever we like. In our example, we gave it the name <code>letter</code>.</p>
 <p>We have to terminate the loop body with the <code>end</code> keyword, and we can have as many commands as we like in the loop body. But, we have to remember that they will all be repeated as many times as there are values in <code>collection</code>.</p>
 <p>Our for loop has made our code more scalable, and less fragile. There’s still one little thing about it that should bother us. For our loop to deal appropriately with shorter or longer words, we have to change the first line of our loop by hand:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;tin&#39;</span>;
@@ -157,7 +157,7 @@ aluminum</code></pre>
 <h2><span class="glyphicon glyphicon-pencil"></span>Looping in Reverse</h2>
 </div>
 <div class="panel-body">
-<p>In Matlab, the colon operator (<code>:</code>) accepts a <a href="../../gloss.&gt;%20html#stride">stride</a> or skip argument between the start and stop:</p>
+<p>In Matlab, the colon operator (<code>:</code>) accepts a <a href="reference.&gt;%20html#stride">stride</a> or skip argument between the start and stop:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(<span class="fl">1</span>:<span class="fl">3</span>:<span class="fl">11</span>)</code></pre>
 <pre class="output"><code>1 4 7 10</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(<span class="fl">11</span>:-<span class="fl">3</span>:<span class="fl">1</span>)</code></pre>
@@ -252,7 +252,7 @@ end</code></pre>
 <h2><span class="glyphicon glyphicon-pencil"></span>Another Way to Analyze Multiple Files</h2>
 </div>
 <div class="panel-body">
-<p>In cases where our file names don’t follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="../../gloss.html#wildcard">wildcard</a>:</p>
+<p>In cases where our file names don’t follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="reference.html#wildcard">wildcard</a>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> *.csv</code></pre>
 <p>Thankfully, Matlab also has <code>ls</code>, though it returns a single long string:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">filestr = ls(<span class="st">&#39;*.csv&#39;</span>)</code></pre>

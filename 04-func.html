@@ -79,7 +79,7 @@ end</code></pre>
 <p>Again, we can call this function like any other:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">kelvin_to_celsius(<span class="fl">0.0</span>)</code></pre>
 <pre class="output"><code>ans = -273.15</code></pre>
-<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="gloss.html#function-composition">compose</a> the two functions we have already created:</p>
+<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="reference.html#function-composition">compose</a> the two functions we have already created:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% file fahr_to_celsius.m</span>
 
 function ctemp = fahr_to_celsius(ftemp)
@@ -141,7 +141,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn’t quite zero–we’ll explore why not in the challenges–but it’s pretty close. We can even go further and check that the standard deviation hasn’t changed:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered)</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
-<p>The difference is very small. It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="gloss.html#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
+<p>The difference is very small. It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="reference.html#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
     <span class="co">%   Center data around a desired value.</span>
     <span class="co">%</span>

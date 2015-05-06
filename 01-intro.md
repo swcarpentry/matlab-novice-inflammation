@@ -17,7 +17,7 @@ minutes: 30
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)](gloss.html#comma-separated-values) format:
+[Comma Separated Values (CSV)](reference.html#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
@@ -42,17 +42,17 @@ To do all that, we'll have to learn a little bit about programming.
 We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
-[path](gloss.html#matlab-path)
-to include the directory containing the files. The MATLAB path is a list of directories 
+[path](reference.html#matlab-path)
+to include the directory containing the files. The MATLAB path is a list of directories
 on your computer that MATLAB knows about.
 To do this,
 we go to the `Home` tab,
 click on `Set Path`,
 and then on `Add with Subfolders...`.
 We navigate to the directory containing our files and
-add it to the path to tell MATLAB where to look for our files. When you refer 
-to a file (either code or data), MATLAB will search all the directories in the path 
-to find it. Alternatively, for data files, we can also provide the relative or 
+add it to the path to tell MATLAB where to look for our files. When you refer
+to a file (either code or data), MATLAB will search all the directories in the path
+to find it. Alternatively, for data files, we can also provide the relative or
 absolute file path.
 
 Before we can start programming, we need to know a little about the MATLAB interface.
@@ -102,19 +102,19 @@ csvread('inflammation-01.csv');
 ~~~
 
 The expression `csvread(...)` is a
-[function call](gloss.html#function-call).
-Functions generally need [parameters](gloss.html#parameter)
+[function call](reference.html#function-call).
+Functions generally need [parameters](reference.html#parameter)
 to run.
 In the case of the `csvread` function, we need to provide a single
 parameter: the name of the file we want to read data from. This
 parameter needs to be a character string or
-[string](gloss.html#string), so we put it in quotes.
+[string](reference.html#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
 to the screen. And adding a semicolon rendered it even less useful---
 we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
-[variable](gloss.html#variable).
+[variable](reference.html#variable).
 
 ~~~ {.matlab}
 patient_data = csvread('inflammation-01.csv');
@@ -250,7 +250,7 @@ To do that, simply type `clear all`.
 
 > ## Predicting Variable Values {.challenge}
 > 1.  Predict what variables refer to what values after each statement in the following program:
-> 
+>
 > ~~~ {.matlab}
 > mass = 47.5
 > age = 122
@@ -259,7 +259,7 @@ To do that, simply type `clear all`.
 > ~~~
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its size or [shape](gloss.html#shape):
+First, let's find out its size or [shape](reference.html#shape):
 
 ~~~ {.matlab}
 size(patient_data)
@@ -336,7 +336,7 @@ We want to access a single value from the matrix:
 <img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
 
 To do that, we must provide
-its [index](gloss.html#index) in brackets:
+its [index](reference.html#index) in brackets:
 
 ~~~ {.matlab}
 M(5, 6)
@@ -350,7 +350,7 @@ Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
 
 An index like `(5, 6)` selects a single element of
-an array, but we can also access sections of the matrix, or [slices](gloss.html#slice).
+an array, but we can also access sections of the matrix, or [slices](reference.html#slice).
 To access a row of values:
 
 <img src="fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
@@ -431,7 +431,7 @@ ans =
 ~~~
 
 We don't have to take all the values in the slice---if we provide
-a [stride](gloss.html#stride). Let's say we want to start with row `2`,
+a [stride](reference.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
 <img src="fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
@@ -467,22 +467,22 @@ ans =
 ~~~
 
 > ## Slicing {.challenge}
-> 
-> A subsection of an array is called a [slice](../../gloss.html#slice). We can take slices of character strings as well:
-> 
+>
+> A subsection of an array is called a [slice](reference.html#slice). We can take slices of character strings as well:
+>
 > ~~~ {.matlab}
 > element = 'oxygen';
 > disp(['first three characters: ', element(1:3)])
 > disp(['last three characters: ', element(4:6)])
 > ~~~
-> 
+>
 > ~~~ {.output}
 > first three characters: oxy
-> last three characters: gen
+> last three characters: gen   
 > ~~~
-> 
-> 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`? 
-> 
+>
+> 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`?
+>
 > 1. For any size array, Matlab allows us to index with a single colon operator (`:`).
 > This can have surprising effects.
 > For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?

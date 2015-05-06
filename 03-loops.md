@@ -88,8 +88,8 @@ a
 d
 ~~~
 
-This improved version uses a [for loop](../../gloss.html#for-loop) to
-repeat an operation---in this case, printing to the screen---once for 
+This improved version uses a [for loop](reference.html#for-loop) to
+repeat an operation---in this case, printing to the screen---once for
 each element in an array.
 
 The general form of a for loop is:
@@ -101,9 +101,9 @@ end
 ~~~
 
 The for loop executes the commands in the
-[loop body](../../gloss.html#loop-body)
+[loop body](reference.html#loop-body)
 for every value in the array `collection`.
-This value is called the [loop variable](../../gloss.html#loop-variable),
+This value is called the [loop variable](reference.html#loop-variable),
 and we can call it whatever we like.
 In our example, we gave it the name `letter`.
 
@@ -213,29 +213,29 @@ u
 ~~~
 
 > ## Performing Exponentiation {.challenge}
-> 
+>
 > MATLAB uses the caret (`^`) to perform exponentiation:
-> 
+>
 > ~~~{.matlab}
 > disp(5^3)
 > ~~~
-> 
+>
 > ~~~{.output}
 > 125
 > ~~~
-> 
+>
 > You can also use a loop to perform exponentiation.
 > Remember that `b^x` is just
 > `b*b*b*`... `x` times.
-> 
+>
 > Let a variable `b` be the base of the number and `x` the exponent.
 > Write a loop to compute `b^x`.
 > Check your result for `b = 4` and `x = 5`.
 
 > ## Incrementing with Loops {.challenge}
-> 
+>
 > Write a loop that spells the word "aluminum," adding one letter at a time:
-> 
+>
 > ~~~{.output}
 > a
 > al
@@ -248,31 +248,31 @@ u
 > ~~~
 
 > ## Looping in Reverse {.challenge}
-> 
+>
 > In Matlab, the colon operator (`:`) accepts a
-> [stride](../../gloss.> html#stride)
+> [stride](reference.> html#stride)
 > or skip argument between the start and stop:
-> 
+>
 > ~~~{.matlab}
 > disp(1:3:11)
 > ~~~
-> 
+>
 > ~~~{.output}
 > 1 4 7 10
 > ~~~
-> 
+>
 > ~~~{.matlab}
 > disp(11:-3:1)
 > ~~~
-> 
+>
 > ~~~{.output}
 > 11 8 5 2
 > ~~~
-> 
+>
 > Using this,
 > write a loop to print the letters of "aluminum"
 > in reverse order, one letter per line.
-> 
+>
 > ~~~{.output}
 > m
 > u
@@ -337,7 +337,7 @@ The resulting string is `inflammation-1.csv`,
 which is assigned to the variable `file_name`.
 The `disp` command prints that string to screen.
 The second time around, `sprintf` generates the string `inflammation-2.csv`, which is assigned to the variable `file_name`,
-and printed to screen. 
+and printed to screen.
 And so on, till `i` finally refers to the value 12.
 
 Notice that there's a mistake.
@@ -422,58 +422,58 @@ the same ramp as the first,
 and their minima show the same staircase structure.
 
 > ## Another Way to Analyze Multiple Files {.challenge}
-> 
+>
 > In cases where our file names don't follow such a regular pattern,
 > we might want to process all files that end with a given extension,
 > say `.csv`.
 > At the command line we could get this list of files by using a
-> [wildcard](../../gloss.html#wildcard):
-> 
+> [wildcard](reference.html#wildcard):
+>
 > ~~~{.bash}
 > ls *.csv
 > ~~~
-> 
+>
 > Thankfully, Matlab also has `ls`, though it returns a single long string:
-> 
+>
 > ~~~{.matlab}
 > filestr = ls('*.csv')
 > ~~~
-> 
+>
 > ~~~{.output}
 > inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv
 > inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv
 > inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv
 > ~~~
-> 
+>
 > To turn this string into an array we can loop over (actually, a
 > [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html)),
 > we need to "split" the string at each occurrence of whitespace:
-> 
+>
 > ~~~{.matlab}
 > file_string = ls('*.csv');
 > file_list = strsplit(file_string)
 > ~~~
-> 
+>
 > ~~~{.output}
 > file_list =
-> 
+>
 > Columns 1 through 3
 >
 > 'inflammation-01.csv'    'inflammation-04.csv'    'inflammation-07.csv'
-> 
+>
 > Columns 4 through 6
-> 
+>
 > 'inflammation-10.csv'    'inflammation-02.csv'    'inflammation-05.csv'
-> 
+>
 > Columns 7 through 9
-> 
+>
 > 'inflammation-08.csv'    'inflammation-11.csv'    'inflammation-03.csv'
-> 
+>
 > Columns 10 through 13
-> 
+>
 > 'inflammation-06.csv'    'inflammation-09.csv'    'inflammation-12.> csv'    ''
 > ~~~
-> 
+>
 > Using this trick,
 > rewrite the `analyze` script to analyze all `csv` files in
 > the current directory.
