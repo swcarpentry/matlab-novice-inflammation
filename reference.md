@@ -70,10 +70,6 @@ documentation
 :   Human-language text written to explain what software does,
     how it works, or how to use it.
 
-dotted notation
-:   A two-part notation used in many programming languages
-    in which `thing.component` refers to the `component` belonging to `thing`.
-
 empty string
 :   A character string containing no characters,
     often thought of as the "zero" of text.
@@ -93,14 +89,6 @@ for loop
 
 function call
 :   A use of a function in another piece of software.
-
-immutable
-:   Unchangeable.
-    The value of immutable data cannot be altered after it has been created.
-    See also: [mutable](#mutable).
-
-import
-:   To load a [library](#library) into a program.
 
 in-place operators
 :   An operator such as `+=` that provides a shorthand notation for
@@ -130,17 +118,6 @@ library
 loop variable
 :   The variable that keeps track of the progress of the loop.
 
-member
-:   A variable contained within an [object](#object).
-
-method
-:   A function which is tied to a particular [object](#object).
-    Each of an object's methods typically implements one of the things it can do,
-    or one of the questions it can answer.
-
-object
-:   FIXME
-
 outer loop
 :   A loop that contains another loop.
     See also: [inner loop](#inner-loop).
@@ -164,17 +141,11 @@ precondition
 regression
 :   To re-introduce a bug that was once fixed.
 
-return statement
-:   A statement that causes a function to stop executing and return a value to its caller immediately.
-
 RGB
 :   An [additive model](#additive-color-model)
     that represents colors as combinations of red, green, and blue.
     Each color's value is typically in the range 0..255
     (i.e., a one-byte integer).
-
-sequence
-:   FIXME
 
 shape
 :   An array's dimensions, represented as a vector.
@@ -221,9 +192,6 @@ test oracle
 
 test-driven development
 :   The practice of writing unit tests *before* writing the code they test.
-
-tuple
-:   An [immutable](#immutable) [sequence](#sequence) of values.
 
 type
 :   CHECKME The classification of something in a program (for example, the contents of a variable)
