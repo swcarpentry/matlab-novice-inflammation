@@ -79,7 +79,7 @@ end</code></pre>
 <p>Again, we can call this function like any other:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">kelvin_to_celsius(<span class="fl">0.0</span>)</code></pre>
 <pre class="output"><code>ans = -273.15</code></pre>
-<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="gloss.html#function-composition">compose</a> the two functions we have already created:</p>
+<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="reference.html#function-composition">compose</a> the two functions we have already created:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% file fahr_to_celsius.m</span>
 
 function ctemp = fahr_to_celsius(ftemp)
@@ -91,8 +91,11 @@ end</code></pre>
 <p>we get, as expected:</p>
 <pre><code>ans = -273.15</code></pre>
 <p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-large chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here—typically half a dozen to a few dozen lines—but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.</p>
-<blockquote>
-<h2>Concatenating in a function</h2>
+<div id="concatenating-in-a-function" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Concatenating in a function</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
 <li>In Matlab, we concatenate strings by putting them into an array or using the <code>strcat</code> function:</li>
 </ol>
@@ -104,7 +107,8 @@ end</code></pre>
 <li>If the variable <code>s</code> refers to a string, then <code>s(1)</code> is the string’s first character and <code>s(end)</code> is its last. Write a function called <code>outer</code> that returns a string made up of just the first and last characters of its input:</li>
 </ol>
 <p><sub>~</sub> {.matlab} disp(outer(‘helium’)) <sub>~</sub> <sub>~</sub> {.output} hm <sub>~</sub></p>
-</blockquote>
+</div>
+</div>
 <p>Let’s take a closer look at what happens when we call <code>fahr_to_celcius(32.0)</code>. To make things clearer, we’ll start by putting the initial value 32.0 in a variable and store the final result in one as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">original = <span class="fl">32.0</span>;
 final = fahr_to_celcius(original);</code></pre>
@@ -137,7 +141,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn’t quite zero–we’ll explore why not in the challenges–but it’s pretty close. We can even go further and check that the standard deviation hasn’t changed:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered)</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
-<p>The difference is very small. It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="gloss.html#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
+<p>The difference is very small. It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="reference.html#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
     <span class="co">%   Center data around a desired value.</span>
     <span class="co">%</span>
@@ -156,14 +160,18 @@ end</code></pre>
 
 Returns a new array containing the values in
 DATA centered around the value.</code></pre>
-<blockquote>
-<h2>Testing a function</h2>
+<div id="testing-a-function" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Testing a function</h2>
+</div>
+<div class="panel-body">
 <ol style="list-style-type: decimal">
 <li><p>Write a function called <code>rescale</code> that takes an array as input and returns an array of the same shape with its values scaled to lie in the range 0.0 to 1.0. (If L and H are the lowest and highest values in the input array, respectively, then the function should map a value v to (v - L)/(H - L).) Be sure to give the function a comment block explaining its use.</p></li>
 <li><p>Run <code>help linspace</code> to see how to use this function to generate regularly-spaced values. Use arrays like this to test your <code>rescale</code> function.</p></li>
 <li><p>Write a function <code>run_analysis</code> that accepts a filename as parameter, and displays the three graphs produced in the previous lesson, i.e., <code>run_analysis('inflammation-01.csv')</code> should produce the corresponding graphs for the first data set. Be sure to give your function help text.</p></li>
 </ol>
-</blockquote>
+</div>
+</div>
 <p>We have now solved our original problem: we can analyze any number of data files with a single command. More importantly, we have met two of the most important ideas in programming:</p>
 <ol style="list-style-type: decimal">
 <li><p>Use arrays to store related values, and loops to repeat operations on them.</p></li>

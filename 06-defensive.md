@@ -6,7 +6,7 @@ minutes: 30
 ---
 
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Explain what an assertion is.
 > *   Add assertions to programs that correctly check the program's state.
 > *   Correctly add precondition and postcondition assertions to functions.
@@ -30,13 +30,13 @@ To achieve that, we need to:
 * make sure we know what "correct" actually means.
 
 The good news is, doing these things will speed up our
-programming, not slow it down. 
+programming, not slow it down.
 
 The first step toward getting the right answers from our programs
 is to assume that mistakes *will* happen
 and to guard against them.
-This is called [defensive programming](gloss.html#defensive-programming),
-and the most common way to do it is to add [assertions](gloss.html#assertion) to our code
+This is called [defensive programming](reference.html#defensive-programming),
+and the most common way to do it is to add [assertions](reference.html#assertion) to our code
 so that it checks itself as it runs.
 An assertion is simply a statement that something must be true at a certain point in a program.
 When MATLAB sees one,
@@ -64,11 +64,11 @@ error: assert (n >= 0) failed
 ~~~
 
 Programs like the Firefox browser are full of assertions: 10-20%
-of the code they contain are there to check that the other 
+of the code they contain are there to check that the other
 80-90% are working correctly. Broadly speaking, assertions fall into
 three categories:
 
-- A [precondition](gloss.html#precondition) is something that must
+- A [precondition](reference.html#precondition) is something that must
 be true at the start of a function in order for it to work correctly.
 - A postcondition is something that the function guarantees is true when
 it finishes.
@@ -88,7 +88,7 @@ sense:
 function normalized = normalize_rectangle(rect)
     % Normalizes a rectangle so that it is at the origin
     % and 1.0 units long on its longest axis:
-    
+
     x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
@@ -100,7 +100,7 @@ function normalized = normalize_rectangle(rect)
 
     dx = x1 - x0;
     dy = y1 - y0;
-    
+
     if dx > dy
         scaled = dx/dy;
         upper_x = scaled;
@@ -113,7 +113,7 @@ function normalized = normalize_rectangle(rect)
 
     assert ((0 < upper_x) && (upper_x <= 1.0), 'Calculated upper X coordinate invalid');
     assert ((0 < upper_y) && (upper_y <= 1.0), 'Calculated upper Y coordinate invalid');
-    
+
     normalized = [0, 0, upper_x, upper_y];
 end
 ~~~
@@ -137,7 +137,7 @@ error: Invalid X coordinates
 ~~~
 
 The post-conditions help us catch bugs by telling us when our
-calculations cannot have been correct. For example, 
+calculations cannot have been correct. For example,
 if we normalize a rectangle that is taller than it is
 wide, everything seems OK:
 
@@ -160,9 +160,9 @@ normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 error: Calculated upper X coordinate invalid
 ~~~
 
-Re-reading our function, we realize that line 19 should 
+Re-reading our function, we realize that line 19 should
 should divide `dy` by `dx`. If we had left out the assertion
-at the end of the function, we would have created and 
+at the end of the function, we would have created and
 returned something that had the right shape as
 a valid answer, but wasn't. Detecting and debugging *that*
 would almost certainly have taken more time in
@@ -175,17 +175,17 @@ a chance to check (consciously or otherwise)
 that their understanding matches what the code is doing.
 
 Most good programmers follow two rules when adding assertions to their code.
-The first is, "[fail early, fail often](rules.html#fail-early-fail-often)".
+The first is, *fail early, fail often*.
 The greater the distance between when and where an error occurs and when it's noticed,
 the harder the error will be to debug,
 so good code catches mistakes as early as possible.
 
-The second rule is, "[turn bugs into assertions or tests](rules.html#turn-bugs-into-assertions-or-tests)".
+The second rule is, *turn bugs into assertions or tests*.
 If you made a mistake in a piece of code,
 the odds are good that you have made other mistakes nearby,
 or will make the same mistake (or a related one)
 the next time you change it.
-Writing assertions to check that you haven't [regressed](gloss.html#regression)
+Writing assertions to check that you haven't [regressed](reference.html#regression)
 (i.e., haven't re-introduced an old problem)
 can save a lot of time in the long run,
 and helps to warn people who are reading the code
@@ -193,8 +193,8 @@ and helps to warn people who are reading the code
 that this bit is tricky.
 
 
-> ## Finding conditions {.challenges}
-> 
+> ## Finding conditions {.challenge}
+>
 > 1. Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
 > What pre-conditions and post-conditions would you write for it?
 > Compare your answer to your neighbor's:
@@ -227,7 +227,7 @@ there's a better way:
 3. If `range_overlap` produces any wrong answers, fix it and re-run the test functions.
 
 Writing the tests *before* writing the function they exercise
-is called [test-driven development](gloss.html#test-driven-development) (TDD).
+is called [test-driven development](reference.html#test-driven-development) (TDD).
 Its advocates believe it produces better code faster because:
 
 1. If people write tests after writing the thing to be tested,
@@ -275,7 +275,7 @@ Let's write `range_overlap`:
 ~~~{.matlab}
 function output_range = range_overlap(varargin)
 
-    % Return common overlap among a set of [low, high] ranges. 
+    % Return common overlap among a set of [low, high] ranges.
 
     lowest = -inf;
     highest = +inf;
@@ -298,7 +298,7 @@ And now when we run the tests:
 ~~~{.matlab}
 test_range_overlap
 ~~~
- 
+
 we shouldn't see an error.
 
 Something important is missing, though.
@@ -307,7 +307,7 @@ or for the case where the ranges overlap at a point. We'll leave this
 as a final assignment.
 
 > ## Fixing Code through Testing {.challenge}
-> Fix `range_overlap`. Uncomment the two commented lines in 
+> Fix `range_overlap`. Uncomment the two commented lines in
 `test_range_overlap`. You'll see that our objective is to return
 a special value: `NaN` (Not a Number), for the following cases:
 >
@@ -329,7 +329,7 @@ the more systematically they debug,
 and most follow some variation on the rules explained below.
 
 The first step in debugging something is to
-[know what it's supposed to do](rules.html#know-what-its-supposed-to-do).
+*know what it's supposed to do*.
 "My program doesn't work" isn't good enough:
 in order to diagnose and fix problems,
 we need to be able to tell correct output from incorrect.
@@ -365,7 +365,7 @@ scientists tend to do the following:
  our first test should hold temperature, precipitation, and other factors constant.
 
 3. *Compare to an oracle.*
- A [test oracle](gloss.html#test-oracle) is something&mdash;experimental data,
+ A [test oracle](reference.html#test-oracle) is something&mdash;experimental data,
  an older program whose results are trusted,
  or even a human expert&mdash;against which we can compare the results of our new program.
  If we have a test oracle,
@@ -396,7 +396,7 @@ scientists tend to do the following:
 
 We can only debug something when it fails,
 so the second step is always to find a test case that
-[makes it fail every time](rules.html#make-it-fail-every-time).
+*make it fail every time*.
 The "every time" part is important because
 few things are more frustrating than debugging an intermittent problem:
 if we have to call a function a dozen times to get a single failure,
@@ -421,7 +421,7 @@ we can only do three experiments an hour.
 That doesn't must mean we'll get less data in more time:
 we're also more likely to be distracted by other things as we wait for our program to fail,
 which means the time we *are* spending on the problem is less focused.
-It's therefore critical to [make it fail fast](rules.html#make-it-fail-fast).
+It's therefore critical to *make it fail fast*.
 
 As well as making the program fail fast in time,
 we want to make it fail fast in space,
@@ -446,13 +446,13 @@ Replacing random chunks of code is unlikely to do much good.
 if you got it wrong the first time,
 you'll probably get it wrong the second and third as well.)
 Good programmers therefore
-[change one thing at a time](rules.html#change-one-thing-at-a-time),
+*change one thing at a time*,
 for a reason.
 They are either trying to gather more information
 ("is the bug still there if we change the order of the loops?")
 or test a fix
 ("can we make the bug go away by sorting our data before processing it?").
- 
+
 Every time we make a change,
 however small,
 we should re-run our tests immediately,
@@ -461,7 +461,7 @@ the harder it is to know what's responsible for what
 (those N<sup>2</sup> interactions again).
 And we should re-run *all* of our tests:
 more than half of fixes made to code introduce (or re-introduce) bugs,
-so re-running all of our tests tells us whether we have [regressed](gloss.html#regression).
+so re-running all of our tests tells us whether we have [regressed](reference.html#regression).
 
 Good scientists keep track of what they've done
 so that they can reproduce their work,
@@ -469,7 +469,7 @@ and so that they don't waste time repeating the same experiments
 or running ones whose results won't be interesting.
 Similarly,
 debugging works best when we
-[keep track of what we've done](rules.html#keep-track-of-what-youve-done)
+*keep track of what we've done*
 and how well it worked.
 If we find ourselves asking,
 "Did left followed by right with an odd number of lines cause the crash?
@@ -478,7 +478,7 @@ Or was I using an even number of lines?"
 then it's time to step away from the computer,
 take a deep breath,
 and start working more systematically.
- 
+
 Records are particularly useful when the time comes to ask for help.
 People are more likely to listen to us
 when we can explain clearly what we did,
@@ -492,7 +492,7 @@ that will show who last changed particular lines of code...
 
 And speaking of help:
 if we can't find a bug in 10 minutes,
-we should [be humble](rules.html#be-humble) and ask for help.
+we should *be humble* and ask for help.
 Just explaining the problem aloud is often useful,
 since hearing what we're thinking helps us spot inconsistencies and hidden assumptions.
 
@@ -515,7 +515,7 @@ quickly turns into not making the mistake at all.
 
 And that is what makes us most productive in the long run.
 As the saying goes,
-"[A week of hard work can sometimes save you an hour of thought](rules.html#week-hard-work-hour-thought)."
+*A week of hard work can sometimes save you an hour of thought*.
 If we train ourselves to avoid making some kinds of mistakes,
 to break our code into modular, testable chunks,
 and to turn every assumption (or mistake) into an assertion,
