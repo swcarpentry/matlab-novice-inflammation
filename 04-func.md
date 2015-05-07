@@ -111,7 +111,7 @@ ans = -273.15
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
-Instead, we can [compose](gloss.html#function-composition) the two
+Instead, we can [compose](reference.html#function-composition) the two
 functions we have already created:
 
 ~~~ {.matlab}
@@ -143,39 +143,39 @@ here---typically half a dozen to a few dozen lines---but
 they shouldn't ever be much longer than that,
 or the next person who reads it won't be able to understand what's going on.
 
-> ## Concatenating in a function {.challenges}
-> 
+> ## Concatenating in a function {.challenge}
+>
 > 1. In Matlab, we concatenate strings by putting them into an array or using the
 >    `strcat` function:
-> 
+>
 >    ~~~ {.matlab}
 >    disp(['abra', 'cad', 'abra'])
 >    ~~~
 >    ~~~ {.output}
->    abracadabra 
+>    abracadabra
 >    ~~~
-> 
+>
 >    ~~~ {.matlab}
 >    disp(strcat('a', 'b'))
 >    ~~~
 >    ~~~ {.output}
 >    ab
 >    ~~~
-> 
+>
 >    Write a function called `fence` that takes two parameters, `original` and
 >    `wrapper` and appends `wrapper` before and after `original`:
-> 
+>
 >    ~~~ {.matlab}
 >    disp(fence('name', '*'))
 >    ~~~
 >    ~~~ {.output}
 >    *name*
 >    ~~~
-> 
+>
 > 1. If the variable `s` refers to a string, then `s(1)` is the string's first
 >    character and `s(end)` is its last. Write a function called `outer` that returns
->    a string made up of just the first and last characters of its input: 
-> 
+>    a string made up of just the first and last characters of its input:
+>
 >    ~~~ {.matlab}
 >    disp(outer('helium'))
 >    ~~~
@@ -283,7 +283,7 @@ std(data(:)) - std(centered)
 The difference is very small. It's still possible that our function
 is wrong, but it seems unlikely enough that we should probably
 get back to doing our analysis. We have one more task first, though:
-we should write some [documentation](gloss.html#documentation)
+we should write some [documentation](reference.html#documentation)
 for our function to remind ourselves later what it's for and
 how to use it.
 
@@ -317,17 +317,17 @@ Returns a new array containing the values in
 DATA centered around the value.
 ~~~
 
-> ## Testing a function {.challenges}
-> 
+> ## Testing a function {.challenge}
+>
 > 1. Write a function called `rescale` that takes an array as input and returns an
 >    array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
 >    (If L and H are the lowest and highest values in the input array, respectively,
 >    then the function should map a value v to (v - L)/(H - L).) Be sure to give the
 >    function a comment block explaining its use.
-> 
+>
 > 1. Run `help linspace` to see how to use this function to generate
 >    regularly-spaced values. Use arrays like this to test your `rescale` function.
-> 
+>
 > 1. Write a function `run_analysis` that accepts a filename
 >    as parameter, and displays the three graphs produced in the
 >    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
@@ -335,7 +335,7 @@ DATA centered around the value.
 >    data set. Be sure to give your function help text.
 
 
-We have now solved our original problem: we can analyze 
+We have now solved our original problem: we can analyze
 any number of data files with a single command.
 More importantly, we have met two of the most important
 ideas in programming:
