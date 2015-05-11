@@ -24,3 +24,9 @@ language *well*.
 4.  [Creating Functions](04-func.html)
 5.  [Making Choices](05-cond.html)
 6.  [Defensive Programming](06-defensive.html)
+
+> ## Prerequisites {.prereq}
+>
+>
+
+## Other Resources
