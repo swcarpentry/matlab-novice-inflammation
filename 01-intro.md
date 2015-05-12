@@ -162,7 +162,7 @@ convert that numerical value to a string with the `num2str` function.
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
 
-<img src="img/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+<img src="fig/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
 
 Assigning a value to one variable does not change the values of other
 variables.
