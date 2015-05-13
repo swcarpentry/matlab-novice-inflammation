@@ -11,8 +11,6 @@ minutes: 30
 > * Trace changes to a loop variable as the loops runs.
 > * Use a for loop to process multiple files
 
-<!-- FIXME: this can be worded better: -->
-
 Recall that we have to do this analysis for every one of our dozen datasets.
 And we need a better way than
 typing out commands for each one,
