@@ -38,14 +38,6 @@ The name of that file must be the same as the function defined
 inside it. The name must start with a letter and cannot contain spaces. So, you will need to save the above code in a file called
 `fahr_to_kelvin.m`.
 
-<!-- FIXME: 00-basics lesson should talk about .m files, and
-    the variable `ans` -->
-
-<!-- FIXME: Nothing about Comments? -->
-
-<!-- FIXME: this lesson should talk about multiple functions in a
-    single file -->
-
 The first line of our function:
 
 ~~~
@@ -84,9 +76,6 @@ that the output of our function would be named `ktemp`.
 Outside of the function, the names `ftemp` and `ktemp` don't matter,
 they are only used by the function body to refer to the input and
 output values.
-
-
-<!-- FIXME: make up a debugging scenario -->
 
 Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
 Kelvin to Celsius.
@@ -196,8 +185,6 @@ final = fahr_to_celcius(original);
 The diagram below shows what memory looks like after the
 first line has been executed:
 
-<!-- FIXME: Writeup about Call Stacks -->
-
 Once we start putting things in functions so that we can
 re-use them, we need to start testing that those functions are
 working correctly.
@@ -260,8 +247,6 @@ disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~ {.output}
 -6.1487e+00  -2.2962e-14   1.3851e+01
 ~~~
-
-<!-- FIXME: challenge -->
 
 That seems almost right: the original mean
 was about 6.1, so the lower bound from zero is now about -6.1.
