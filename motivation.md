@@ -32,7 +32,7 @@ till their code does something more than produce zeros, or grind to a halt
 
 - The good news is that none of this is rocket science
 - Like callibrating an oscilloscope, or titrating a solution, they are
-skills that are easily picked up, and become easier with practice
+skills that are quickly picked up, and become easier with practice
 - ...and they will be the focus of today's lesson
 
 ## Why MATLAB?
