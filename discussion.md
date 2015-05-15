@@ -4,7 +4,7 @@ title: Programming with MATLAB
 subtitle: Discussion
 ---
 
-# Motivation
+## Motivation
 
 Here is a great article discussing the need for better practices in
 scientific computing:
