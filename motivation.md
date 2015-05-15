@@ -47,10 +47,10 @@ skills that are quickly picked up, and become easier with practice
 
 - In today's lesson, we'll learn how to
     - load, analyze and visualize data in MATLAB,
-    - learn how to get our program to *repeat* tasks by writing *loops*,
-    - learn how to get our programs to *make decisions* using *conditionals*,
-    - learn how to make our code *reusable* by writing *scripts* and *functions*,
-    - learn how to write programs that *check themselves* for bugs,
+    - get our program to *repeat* tasks by writing *loops*,
+    - get our programs to *make decisions* using *conditionals*,
+    - make our code *reusable* by writing *scripts* and *functions*,
+    - write programs that *check themselves* for bugs,
 
 ## Today's Lesson
 
