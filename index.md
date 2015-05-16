@@ -26,7 +26,11 @@ language *well*.
 6.  [Defensive Programming](06-defensive.html)
 
 > ## Prerequisites {.prereq}
+> To begin tackling this lesson, you will need to:
 >
->
+> * Understand the concepts of files and directories, and the concept of a "working directory".
+> * Know how to start up MATLAB, and access the *command window* (which generally has a `>>` prompt).
+> * Know how to create, edit and save text files.
+
 
 ## Other Resources
