@@ -6,7 +6,7 @@ minutes: 30
 ---
 
 > ## Learning Objectives {.objectives}
-> * Get to know the MATLAB environment.
+> * Get to know the [MATLAB](https://en.wikipedia.org/wiki/MATLAB) environment.
 > * Learn about MATLAB arrays.
 > * Read tabular data from a file into a program.
 > * Assign values to variables.
