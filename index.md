@@ -34,3 +34,8 @@ language *well*.
 
 
 ## Other Resources
+
+* [Motivation](motivation.html)
+* [Reference](reference.html)
+* [Instructor's Guide](instructors.html)
+* [Discussion](discussion.html)
