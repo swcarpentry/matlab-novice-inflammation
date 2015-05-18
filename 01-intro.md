@@ -336,7 +336,7 @@ We want to access a single value from the matrix:
 <img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
 
 To do that, we must provide
-its [index](reference.html#index) in brackets:
+its [index](reference.html#index) in parentheses:
 
 ~~~ {.matlab}
 M(5, 6)
