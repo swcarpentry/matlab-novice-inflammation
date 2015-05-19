@@ -571,7 +571,7 @@ array, then ask it to do the calculation:
 
 ~~~ {.matlab}
 patient_1 = patient_data(1, :)
-disp(['Maximum inflation for patient 1: ', max(patient_1));
+disp(['Maximum inflation for patient 1: ', num2str(max(patient_1))]);
 ~~~
 
 ~~~ {.output}
