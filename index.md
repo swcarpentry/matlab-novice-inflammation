@@ -16,6 +16,14 @@ But the two most important things are to use whatever language your colleagues
 are using, so that you can share you work with them easily, and to use that
 language *well*.
 
+> ## GNU Octave {.challenge}
+>
+> [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source [alternative
+> to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
+> The outputs and figures of these lessons were in fact obtained with GNU Octave.
+> Thus, you won't need any commercial license to learn the language albeit we will
+> be using the name of MATLAB.
+
 ## Topics
 
 1.  [Analyzing Patient Data](01-intro.html)
