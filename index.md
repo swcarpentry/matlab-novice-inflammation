@@ -18,7 +18,7 @@ language *well*.
 
 > ## GNU Octave {.challenge}
 >
-> [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source [alternative
+> [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
 > to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
 > The outputs and figures of these lessons were in fact obtained with GNU Octave.
 > Thus, you won't need any commercial license to learn the language albeit we will
