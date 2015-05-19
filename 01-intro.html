@@ -169,7 +169,7 @@ age = age - <span class="fl">20</span></code></pre>
     8   58   59    5    4   62   63    1</code></pre>
 <p>We want to access a single value from the matrix:</p>
 <p><img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/></p>
-<p>To do that, we must provide its <a href="reference.html#index">index</a> in brackets:</p>
+<p>To do that, we must provide its <a href="reference.html#index">index</a> in parentheses:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">M(<span class="fl">5</span>, <span class="fl">6</span>)</code></pre>
 <pre class="output"><code>ans = 38</code></pre>
 <p>Indices are provided as (row, column). So the index <code>(5, 6)</code> selects the element on the fifth row and sixth column.</p>
@@ -292,7 +292,7 @@ Minimum inflammation: 0
 Standard deviation: 4.6148</code></pre>
 <p>When analyzing data, though, we often want to look at partial statistics, such as the maximum value per patient or the average value per day. One way to do this is to assign the data we want to a new temporary array, then ask it to do the calculation:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_1 = patient_data(<span class="fl">1</span>, :)
-disp([<span class="st">&#39;Maximum inflation for patient 1: &#39;</span>, max(patient_1));</code></pre>
+disp([<span class="st">&#39;Maximum inflation for patient 1: &#39;</span>, num2str(max(patient_1))]);</code></pre>
 <pre class="output"><code>Maximum inflation for patient 1: 18</code></pre>
 <p>We don’t actually need to store the row in a variable of its own. Instead, we can combine the selection and the function call:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">max(patient_data(<span class="fl">1</span>, :))</code></pre>
