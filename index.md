@@ -20,8 +20,8 @@ language *well*.
 >
 > [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
 > to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
-> Thus, you won't need any commercial license to learn the language albeit we will
-> be using the name of MATLAB.
+> Thus, if you don't have access to MATLAB, you can easily set up Octave
+> on your computer and still work through the lesson.
 
 ## Topics
 
