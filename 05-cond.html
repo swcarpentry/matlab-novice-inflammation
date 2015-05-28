@@ -99,19 +99,26 @@ end</code></pre>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li><p><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
-<li><p><sub>~</sub> if disp(‘empty string is true’) end <sub>~</sub></p></li>
-<li></li>
+<li><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</li>
 </ol>
-<p><sub>~</sub> if ‘foo’ disp(‘non empty string is true’) end <sub>~</sub></p>
-<p>3.</p>
-<p><sub>~</sub> if [] disp (‘empty array is true’) end <sub>~</sub></p>
-<p>4.</p>
-<p><sub>~</sub> if [22.5, 1.0] disp (‘non empty array is true’) end <sub>~</sub></p>
-<p>5.</p>
-<p><sub>~</sub> if [0, 0] disp (‘array of zeros is true’) end <sub>~</sub></p>
-<p>6.</p>
-<p><sub>~</sub> if true disp(‘true is true’) end <sub>~</sub></p>
+<pre><code>if
+    disp(&#39;empty string is true&#39;)
+end</code></pre>
+<pre><code>if &#39;foo&#39;
+    disp(&#39;non empty string is true&#39;)
+end</code></pre>
+<pre><code>if []
+    disp (&#39;empty array is true&#39;)
+end</code></pre>
+<pre><code>if [22.5, 1.0]
+    disp (&#39;non empty array is true&#39;)
+end</code></pre>
+<pre><code>if [0, 0]
+    disp (&#39;array of zeros is true&#39;)
+end</code></pre>
+<pre><code>if true
+    disp(&#39;true is true&#39;)
+end</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner’s: do you return the same answer for all possible pairs of numbers?</li>
 </ol>
