@@ -26,9 +26,9 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Programming with MATLAB</h1>
+                    <a href="index.html"><h1 class="title">Programming with MATLAB</h1></a>
           <h2 class="subtitle">Analyzing Patient Data</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
@@ -43,7 +43,7 @@
 <li>Display simple graphs.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets. The data sets are stored in <a href="reference.html#comma-separated-values">Comma Separated Values (CSV)</a> format: each row holds information for a single patient, and the columns represent successive days. The first few rows of our first file, <a href="data/inflammation-01.csv"><code>inflammation-01.csv</code></a>, look like this:</p>
 <pre><code>0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
 0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
@@ -121,7 +121,7 @@ patient_data
 weight_kg
 </code></pre>
 <p>Alternatively, we can look at the <strong>Workspace</strong>. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available. It’s generally a good idea to keep the workspace as clean as possible. To do that, simply type <code>clear all</code>.</p>
-<div id="predicting-variable-values" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Predicting Variable Values</h2>
 </div>
@@ -134,7 +134,7 @@ age = <span class="fl">122</span>
 mass = mass * <span class="fl">2.0</span>
 age = age - <span class="fl">20</span></code></pre>
 </div>
-</div>
+</section>
 <p>Now that our data is in memory, we can start doing things with it. First, let’s find out its size or <a href="reference.html#shape">shape</a>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">size(patient_data)</code></pre>
 <pre class="output"><code>ans =
@@ -230,7 +230,7 @@ age = age - <span class="fl">20</span></code></pre>
     2   61    6   57
    26   37   30   33
    15   52   11   56</code></pre>
-<div id="slicing" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Slicing</h2>
 </div>
@@ -246,7 +246,7 @@ last three characters: gen   </code></pre>
 <li><p>For any size array, Matlab allows us to index with a single colon operator (<code>:</code>). This can have surprising effects. For instance, compare <code>element</code> with <code>element(:)</code>. What is <code>size(element)</code> versus <code>size(element(:))</code>? Finally, try using the single colon on the matrix <code>M</code> above: <code>M(:)</code>. What seems to be happening when we use the single colon operator for slicing?</p></li>
 </ol>
 </div>
-</div>
+</section>
 <p>Now that we know how to access data we want to compute with, we’re ready to analyze <code>patient_data</code>. MATLAB knows how to perform common mathematical operations on arrays. If we want to find the average inflammation for all patients on all days, we can just ask for the mean of the array:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">mean(patient_data(:))</code></pre>
 <pre class="output"><code>ans = 6.1487</code></pre>
@@ -405,7 +405,7 @@ title(<span class="st">&#39;Minimum inflammation per day&#39;</span>);</code></p
 <p><img src="fig/01-intro_4.png" style="height:350px"></p>
 <p>Like <code>mean()</code>, the functions <code>max()</code> and <code>min()</code> can also operate across a specified dimension of the matrix. However, the syntax is slightly different. To see why, run a <code>help</code> on each of these functions.</p>
 <p>From the figures, we see that the maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there ’s a mistake in our calculations or something is wrong with our data.</p>
-<div id="plots" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Plots</h2>
 </div>
@@ -415,7 +415,7 @@ title(<span class="st">&#39;Minimum inflammation per day&#39;</span>);</code></p
 <li><p>Create a plot showing the standard deviation of the inflammation data for each day across all patients.</p></li>
 </ol>
 </div>
-</div>
+</section>
 <p>It’s common to put multiple figures “side-by-side” in a single window for presentation and convenience. Here’s how to use the <code>subplot</code> function to do this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">subplot(<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>);
 plot(max(patient_data, [], <span class="fl">1</span>));

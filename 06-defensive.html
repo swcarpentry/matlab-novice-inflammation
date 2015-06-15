@@ -26,9 +26,9 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Programming with MATLAB</h1>
+                    <a href="index.html"><h1 class="title">Programming with MATLAB</h1></a>
           <h2 class="subtitle">Defensive Programming</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
@@ -42,7 +42,7 @@
 <li>Debug code containing an error systematically.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>Our previous lessons have introduced the basic tools of programming: variables and lists, file I/O, loops, conditionals, and functions. What they <em>haven’t</em> done is show us how to tell whether a program is getting the right answer, and how to tell if it’s <em>still</em> getting the right answer as we make changes to it.</p>
 <p>To achieve that, we need to:</p>
 <ul>
@@ -113,7 +113,7 @@ end</code></pre>
 <p>But assertions aren’t just about catching errors: they also help people understand programs. Each assertion gives the person reading the program a chance to check (consciously or otherwise) that their understanding matches what the code is doing.</p>
 <p>Most good programmers follow two rules when adding assertions to their code. The first is, <em>fail early, fail often</em>. The greater the distance between when and where an error occurs and when it’s noticed, the harder the error will be to debug, so good code catches mistakes as early as possible.</p>
 <p>The second rule is, <em>turn bugs into assertions or tests</em>. If you made a mistake in a piece of code, the odds are good that you have made other mistakes nearby, or will make the same mistake (or a related one) the next time you change it. Writing assertions to check that you haven’t <a href="reference.html#regression">regressed</a> (i.e., haven’t re-introduced an old problem) can save a lot of time in the long run, and helps to warn people who are reading the code (including your future self) that this bit is tricky.</p>
-<div id="finding-conditions" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Finding conditions</h2>
 </div>
@@ -122,7 +122,7 @@ end</code></pre>
 <li>Suppose you are writing a function called <code>average</code> that calculates the average of the numbers in a list. What pre-conditions and post-conditions would you write for it? Compare your answer to your neighbor’s: can you think of a function that will past your tests but not hers or vice versa?</li>
 </ol>
 </div>
-</div>
+</section>
 <p>An assertion checks that something is true at a particular point in the program. The next step is to check the overall behavior of a piece of code, i.e., to make sure that it produces the right output when it’s given a particular input. For example, suppose we need to find where two or more time series overlap. The range of each time series is represented as a pair of numbers, which are the time the interval started and ended. The output is the largest range that they all include:</p>
 <p><img src="fig/matlab-overlapping-ranges.png" alt="Overlapping Ranges" /></p>
 <p>Most novice programmers would solve this problem like this:</p>
@@ -178,7 +178,7 @@ end</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
 <p>we shouldn’t see an error.</p>
 <p>Something important is missing, though. We don’t have any tests for the case where the ranges don’t overlap at all, or for the case where the ranges overlap at a point. We’ll leave this as a final assignment.</p>
-<div id="fixing-code-through-testing" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Fixing Code through Testing</h2>
 </div>
@@ -190,7 +190,7 @@ end</code></pre>
 </ul>
 <p>As you make change to the code, run <code>test_range_overlap</code> regularly to make sure you aren’t breaking anything. Once you’re done, running <code>test_range_overlap</code> shouldn’t raise any errors.</p>
 </div>
-</div>
+</section>
 <p>Once testing has uncovered problems, the next step is to fix them. Many novices do this by making more-or-less random changes to their code until it seems to produce the right answer, but that’s very inefficient (and the result is usually only correct for the one case they’re testing). The more experienced a programmer is, the more systematically they debug, and most follow some variation on the rules explained below.</p>
 <p>The first step in debugging something is to <em>know what it’s supposed to do</em>. “My program doesn’t work” isn’t good enough: in order to diagnose and fix problems, we need to be able to tell correct output from incorrect. If we can write a test case for the failing case—i.e., if we can assert that with <em>these</em> inputs, the function should produce <em>that</em> result— then we’re ready to start debugging. If we can’t, then we need to figure out how we’re going to know when we’ve fixed things.</p>
 <p>But writing test cases for scientific software is frequently harder than writing test cases for commercial applications, because if we knew what the output of the scientific code was supposed to be, we wouldn’t be running the software: we’d be writing up our results and moving on to the next program. In practice, scientists tend to do the following:</p>

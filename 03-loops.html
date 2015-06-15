@@ -26,9 +26,9 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">Programming with MATLAB</h1>
+                    <a href="index.html"><h1 class="title">Programming with MATLAB</h1></a>
           <h2 class="subtitle">Repeating With Loops</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
@@ -40,7 +40,7 @@
 <li>Use a for loop to process multiple files</li>
 </ul>
 </div>
-</div>
+</section>
 <p>Recall that we have to do this analysis for every one of our dozen datasets. And we need a better way than typing out commands for each one, because we’ll find ourselves writing a lot of duplicate code. Remember, code that is repeated in two or more places will eventually be wrong in at least one. Also, if we make changes in the way we analyze our datasets, we have to introduce that change in every copy of our code. To avoid all of this repetition, we have to teach MATLAB to repeat our commands, and to do <em>that</em>, we have to learn how to write <em>loops</em>.</p>
 <p>Suppose we want to print each character in the word “lead” on a line of its own. One way is to use four <code>disp</code> statements:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">word = <span class="st">&#39;lead&#39;</span>;
@@ -122,7 +122,7 @@ disp([<span class="st">&#39;Number of vowels: &#39;</span>, num2str(len)])</code
 <p>Note that a loop variable is just a variable that’s being used to record progress in a loop. It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(vowel)</code></pre>
 <pre class="output"><code>u</code></pre>
-<div id="performing-exponentiation" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Performing Exponentiation</h2>
 </div>
@@ -133,8 +133,8 @@ disp([<span class="st">&#39;Number of vowels: &#39;</span>, num2str(len)])</code
 <p>You can also use a loop to perform exponentiation. Remember that <code>b^x</code> is just <code>b*b*b*</code>… <code>x</code> times.</p>
 <p>Let a variable <code>b</code> be the base of the number and <code>x</code> the exponent. Write a loop to compute <code>b^x</code>. Check your result for <code>b = 4</code> and <code>x = 5</code>.</p>
 </div>
-</div>
-<div id="incrementing-with-loops" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Incrementing with Loops</h2>
 </div>
@@ -149,8 +149,8 @@ alumin
 aluminu
 aluminum</code></pre>
 </div>
-</div>
-<div id="looping-in-reverse" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Looping in Reverse</h2>
 </div>
@@ -170,7 +170,7 @@ u
 l
 a</code></pre>
 </div>
-</div>
+</section>
 <p>We now have almost everything we need to process multiple data files with our <code>analyze</code> script. You’ll notice that our data files are named <code>inflammation-01.csv</code>, <code>inflammation-02.csv</code>, etc. Let’s write a loop that tries to print the names of each one of our files:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">for idx = <span class="fl">1</span>:<span class="fl">12</span>
     file_name = sprintf(<span class="st">&#39;inflammation-%d.csv&#39;</span>, idx);
@@ -245,7 +245,7 @@ end</code></pre>
 <p><img src="img/02-loop_2.png" style="width:500px; height:400px"></p>
 <p><img src="img/02-loop_3.png" style="width:500px; height:400px"></p>
 <p>Sure enough, the maxima of these data sets show exactly the same ramp as the first, and their minima show the same staircase structure.</p>
-<div id="another-way-to-analyze-multiple-files" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Another Way to Analyze Multiple Files</h2>
 </div>
@@ -279,7 +279,7 @@ Columns 10 through 13
 &#39;inflammation-06.csv&#39;    &#39;inflammation-09.csv&#39;    &#39;inflammation-12.&gt; csv&#39;    &#39;&#39;</code></pre>
 <p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>
