@@ -53,6 +53,14 @@ end</code></pre>
 <pre><code>function ktemp = fahr_to_kelvin(ftemp)</code></pre>
 <p>is called the <em>function definition</em>, and it declares that we’re writing a function named <code>fahr_to_kelvin</code>, that accepts a single parameter, <code>ftemp</code>, and outputs a single value, <code>ktemp</code>. Anything following the function definition line is called the <em>body</em> of the function. The keyword <code>end</code> marks the end of the function body, and the function won’t know about any code after <code>end</code>.</p>
 <p>Just as we saw with scripts, functions must be <em>visible</em> to MATLAB, i.e., a file containing a function has to be placed in a directory that MATLAB knows about. The most convenient of those directories is the current working directory.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
+</div>
+<div class="panel-body">
+<p>In common with MATLAB, Octave searches the current working directory and the path for functions called from the command line.</p>
+</div>
+</aside>
 <p>We can call our function from the command line like any other MATLAB function:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">fahr_to_kelvin(<span class="fl">32</span>)</code></pre>
 <pre class="output"><code>ans = 273.15</code></pre>
@@ -75,10 +83,10 @@ function ctemp = fahr_to_celsius(ftemp)
     ctemp = kelvin_to_celsius(ktemp);
 end</code></pre>
 <p>Calling this function,</p>
-<pre><code>kelvin_to_celsius(0.0)</code></pre>
+<pre><code>fahr_to_celsius(32.0)</code></pre>
 <p>we get, as expected:</p>
-<pre><code>ans = -273.15</code></pre>
-<p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-large chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here—typically half a dozen to a few dozen lines—but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.</p>
+<pre><code>ans = 0</code></pre>
+<p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-larger chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here—typically half a dozen to a few dozen lines—but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Concatenating in a function</h2>
@@ -87,23 +95,28 @@ end</code></pre>
 <ol style="list-style-type: decimal">
 <li>In Matlab, we concatenate strings by putting them into an array or using the <code>strcat</code> function:</li>
 </ol>
-<p><sub>~</sub> {.matlab} disp([‘abra’, ‘cad’, ‘abra’]) <sub>~</sub> <sub>~</sub> {.output} abracadabra <sub>~</sub></p>
-<p><sub>~</sub> {.matlab} disp(strcat(‘a’, ‘b’)) <sub>~</sub> <sub>~</sub> {.output} ab <sub>~</sub></p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp([<span class="st">&#39;abra&#39;</span>, <span class="st">&#39;cad&#39;</span>, <span class="st">&#39;abra&#39;</span>])</code></pre>
+<pre class="output"><code>abracadabra</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(strcat(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))</code></pre>
+<pre class="output"><code>ab</code></pre>
 <p>Write a function called <code>fence</code> that takes two parameters, <code>original</code> and <code>wrapper</code> and appends <code>wrapper</code> before and after <code>original</code>:</p>
-<p><sub>~</sub> {.matlab} disp(fence(‘name’, ’<em>’)) <sub>~</sub> <sub>~</sub> {.output} </em>name* <sub>~</sub></p>
-<ol style="list-style-type: decimal">
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre>
+<pre class="output"><code>*name*</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li>If the variable <code>s</code> refers to a string, then <code>s(1)</code> is the string’s first character and <code>s(end)</code> is its last. Write a function called <code>outer</code> that returns a string made up of just the first and last characters of its input:</li>
 </ol>
-<p><sub>~</sub> {.matlab} disp(outer(‘helium’)) <sub>~</sub> <sub>~</sub> {.output} hm <sub>~</sub></p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(outer(<span class="st">&#39;helium&#39;</span>))</code></pre>
+<pre class="output"><code>hm</code></pre>
 </div>
 </section>
 <p>Let’s take a closer look at what happens when we call <code>fahr_to_celcius(32.0)</code>. To make things clearer, we’ll start by putting the initial value 32.0 in a variable and store the final result in one as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">original = <span class="fl">32.0</span>;
 final = fahr_to_celcius(original);</code></pre>
 <p>The diagram below shows what memory looks like after the first line has been executed:</p>
+<p>FIXME - add diagram here.</p>
 <p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let’s write a function to center a dataset around a particular value:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
-    out = (data - mean(data)) + desired
+    out = (data - mean(data)) + desired;
 end</code></pre>
 <p>We could test this on our actual data, but since we don’t know what the values ought to be, it will be hard to tell if the result was correct, Instead, let’s create a matrix of 0’s, and then center that around 3:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">z = zeros(<span class="fl">2</span>,<span class="fl">2</span>);
@@ -123,7 +136,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp([min(centered(:)), mean(centered(:)), max(centered(:))])</code></pre>
 <pre class="output"><code>-6.1487e+00  -2.2962e-14   1.3851e+01</code></pre>
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn’t quite zero–we’ll explore why not in the challenges–but it’s pretty close. We can even go further and check that the standard deviation hasn’t changed:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered)</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered(:))</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
 <p>The difference is very small. It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="reference.html#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
