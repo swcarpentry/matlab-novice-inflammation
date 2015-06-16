@@ -77,7 +77,7 @@ inside a piece of code.
 
 For example,
 suppose we are representing rectangles using an array
-of four coordinates `(x0, y0, x1, x1)`. In order to
+of four coordinates `(x0, y0, x1, y1)`. In order to
 do some calculations, we need to normalize the rectangle
 so that it is at the origin and 1.0 units on its longest axis.
 Here is a function that does that, but checks that its input is
@@ -396,7 +396,7 @@ scientists tend to do the following:
 
 We can only debug something when it fails,
 so the second step is always to find a test case that
-*make it fail every time*.
+*makes it fail every time*.
 The "every time" part is important because
 few things are more frustrating than debugging an intermittent problem:
 if we have to call a function a dozen times to get a single failure,
@@ -418,7 +418,7 @@ are almost never worthwhile.
 
 If it takes 20 minutes for the bug to surface,
 we can only do three experiments an hour.
-That doesn't must mean we'll get less data in more time:
+That doesn't mean we'll get less data in more time:
 we're also more likely to be distracted by other things as we wait for our program to fail,
 which means the time we *are* spending on the problem is less focused.
 It's therefore critical to *make it fail fast*.
@@ -437,7 +437,7 @@ we want to localize the failure to the smallest possible region of code:
  then concentrate on either the first or second half,
  and so on.
 
-2. N things can interact in N<sup>2/2</sup> different ways,
+2. N things can interact in N<sup>2</sup> different ways,
  so every line of code that *isn't* run as part of a test
  means more than one thing we don't need to worry about.
 
