@@ -482,6 +482,6 @@ and their minima show the same staircase structure.
 >
 > Lastly, in the above trick using `ls` with the wildcard `*`,
 > another small Octave/MATLAB
-> difference shows up. In Octave, the object returned by
+> difference shows up. In Octave, the value returned by
 > `filestr = ls('path/to/data/*.csv')` is an array of strings, so we can loop
 > over filestr directly without the need to split it with `strsplit`.
