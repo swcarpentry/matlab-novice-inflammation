@@ -58,6 +58,14 @@
 </ul>
 <p>To do all that, we’ll have to learn a little bit about programming.</p>
 <p>We have a dozen datasets that need analysis, stored as <code>.csv</code> files - but MATLAB doesn’t know about these files yet. The first thing we need to do is set MATLAB’s <a href="reference.html#matlab-path">path</a> to include the directory containing the files. The MATLAB path is a list of directories on your computer that MATLAB knows about. To do this, we go to the <code>Home</code> tab, click on <code>Set Path</code>, and then on <code>Add with Subfolders...</code>. We navigate to the directory containing our files and add it to the path to tell MATLAB where to look for our files. When you refer to a file (either code or data), MATLAB will search all the directories in the path to find it. Alternatively, for data files, we can also provide the relative or absolute file path.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
+</div>
+<div class="panel-body">
+<p>Octave has only recently gained a MATLAB-like user interface. To change the path in Octave use: <sub>~</sub> {.matlab} addpath(‘path/to/directory’) <sub>~</sub></p>
+</div>
+</aside>
 <p>Before we can start programming, we need to know a little about the MATLAB interface. Using the default setup, the MATLAB desktop contains several important sections:</p>
 <ul>
 <li>In the <strong>Command Window</strong> or shell we can run and debug our code. Everything that’s typed into the command window is executed immediately.</li>
