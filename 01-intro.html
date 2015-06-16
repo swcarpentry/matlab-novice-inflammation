@@ -63,7 +63,7 @@
 <h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
 </div>
 <div class="panel-body">
-<p>Octave has only recently gained a MATLAB-like user interface. To change the path in Octave use: <sub>~</sub> {.matlab} addpath(‘path/to/directory’) <sub>~</sub></p>
+<p>Octave has only recently gained a MATLAB-like user interface. To change the path in any version of Octave, including command-line-only installations, use <code>addpath('path/to/directory')</code></p>
 </div>
 </aside>
 <p>Before we can start programming, we need to know a little about the MATLAB interface. Using the default setup, the MATLAB desktop contains several important sections:</p>
@@ -76,6 +76,14 @@
 <p>If we know what our data looks like (in this case, we have comma-separated values) and we’re unsure about what command we want to use, we can search the documentation. Type <code>read csv</code> into the documentation toolbar. MATLAB suggests using <code>csvread</code>. If we have a closer look at the documentation, MATLAB also tells us, which in- and output arguments this function has.</p>
 <p>To load the data from our CSV file into MATLAB, type following command into the MATLAB shell, and press <code>Enter</code>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>)</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
+</div>
+<div class="panel-body">
+<p>There are many small differences between Octave and MATLAB. One difference is that the path is <em>not</em> used by Octave to search for the file given in the the <code>csvread</code> command parameter. If you are using Octave you will need to specify an absolute or relative path to inflammation-01.csv.</p>
+</div>
+</aside>
 <p>You should see a wall of numbers on the screen—these are the values from the CSV file. It can sometimes be useful to see the output from MATLAB commands, but it is often not. To suppress the output, simply put a semicolon at the end of your command:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>The expression <code>csvread(...)</code> is a <a href="reference.html#function-call">function call</a>. Functions generally need <a href="reference.html#parameter">parameters</a> to run. In the case of the <code>csvread</code> function, we need to provide a single parameter: the name of the file we want to read data from. This parameter needs to be a character string or <a href="reference.html#string">string</a>, so we put it in quotes.</p>
@@ -102,14 +110,14 @@ disp([<span class="st">&#39;Weight in pounds: &#39;</span>, num2str(weight_lb)])
 <pre class="output"><code>Weight in kg: 57.5
 Weight in pounds: 126.5</code></pre>
 <p><img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" /></p>
-<p>Let’s update the value of one of our variable, and print the values of both:</p>
+<p>Let’s update the value of one of our variables, and print the values of both:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">weight_kg = <span class="fl">100</span>;
 disp([<span class="st">&#39;Weight in kg: &#39;</span>, num2str(weight_kg); <span class="st">&#39;Weight in pounds: &#39;</span>,
 num2str(weight_lb)]);</code></pre>
 <pre class="output"><code>Weight in kg: 100
 Weight in pounds: 126.5</code></pre>
 <p><img src="fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" /></p>
-<p>Since <code>weight_lb</code> doesn’t “remember” where its value came from, it isnt automatically updated when <code>weight_kg</code> changes. This is important to remember, and different from the way spreadsheets work.</p>
+<p>Since <code>weight_lb</code> doesn’t “remember” where its value came from, it isn’t automatically updated when <code>weight_kg</code> changes. This is important to remember, and different from the way spreadsheets work.</p>
 <p>Now that we know how to assign things to variables, let’s re-run <code>csvread</code> and save its result.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>MATLAB provides a command to list all variables that have been assigned data.</p>
@@ -412,7 +420,7 @@ title(<span class="st">&#39;Maximum inflammation per day&#39;</span>);</code></p
 title(<span class="st">&#39;Minimum inflammation per day&#39;</span>);</code></pre>
 <p><img src="fig/01-intro_4.png" style="height:350px"></p>
 <p>Like <code>mean()</code>, the functions <code>max()</code> and <code>min()</code> can also operate across a specified dimension of the matrix. However, the syntax is slightly different. To see why, run a <code>help</code> on each of these functions.</p>
-<p>From the figures, we see that the maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there ’s a mistake in our calculations or something is wrong with our data.</p>
+<p>From the figures, we see that the maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there’s a mistake in our calculations or something is wrong with our data.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Plots</h2>

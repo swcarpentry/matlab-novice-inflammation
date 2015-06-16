@@ -58,10 +58,8 @@ absolute file path.
 > ## GNU Octave {.callout}
 >
 > Octave has only recently gained a MATLAB-like user interface. To change the
-> path in Octave use:
-> ~~~ {.matlab}
-> addpath('path/to/directory')
-> ~~~
+> path in any version of Octave, including command-line-only installations, use
+> `addpath('path/to/directory')`
 
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
@@ -97,6 +95,14 @@ command into the MATLAB shell, and press `Enter`:
 ~~~ {.matlab}
 csvread('inflammation-01.csv')
 ~~~
+
+> ## GNU Octave {.callout}
+>
+> There are many small differences between Octave and MATLAB. One
+> difference is that
+> the path is *not* used by Octave to search for the file given in the
+> the `csvread` command parameter. If you are using Octave you will need
+> to specify an absolute or relative path to inflammation-01.csv.
 
 You should see a wall of numbers on the screen---these are the values
 from the CSV file.
@@ -190,7 +196,7 @@ Weight in pounds: 126.5
 
 <img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
 
-Let's update the value of one of our variable, and print the values
+Let's update the value of one of our variables, and print the values
 of both:
 
 ~~~ {.matlab}
@@ -206,7 +212,7 @@ Weight in pounds: 126.5
 
 <img src="fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
 
-Since `weight_lb` doesn't "remember" where its value came from, it isnt
+Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
 remember, and different from the way spreadsheets work.
 
@@ -782,7 +788,7 @@ run a `help` on each of these functions.
 
 From the figures, we see that the maximum value rises and falls perfectly
 smoothly, while the minimum seems to be a step function. Neither result
-seems particularly likely, so either there 's a mistake in our
+seems particularly likely, so either there's a mistake in our
 calculations or something is wrong with our data.
 
 > ## Plots {.challenge}
