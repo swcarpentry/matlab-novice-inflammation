@@ -279,7 +279,7 @@ colorbar();
 ~~~
 
 <div>
-<img src="fig/01-intro_1.png" style="height:350px">
+<img src="img/04-cond_0.png" style="height:350px">
 </div>
 
 Let's write some code to give us a plot that's a little more useful:
