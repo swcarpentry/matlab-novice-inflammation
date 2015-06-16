@@ -55,6 +55,14 @@ to a file (either code or data), MATLAB will search all the directories in the p
 to find it. Alternatively, for data files, we can also provide the relative or
 absolute file path.
 
+> ## GNU Octave {.callout}
+>
+> Octave has only recently gained a MATLAB-like user interface. To change the
+> path in Octave use:
+> ~~~ {.matlab}
+> addpath('path/to/directory')
+> ~~~
+
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
