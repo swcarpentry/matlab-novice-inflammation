@@ -280,6 +280,14 @@ Columns 10 through 13
 <p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
 </div>
 </section>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
+</div>
+<div class="panel-body">
+<p>Lastly, in the above trick using <code>ls</code> with the wildcard <code>*</code>, another small Octave/MATLAB difference shows up. In Octave, the value returned by <code>filestr = ls('path/to/data/*.csv')</code> is an array of strings, so we can loop over filestr directly without the need to split it with <code>strsplit</code>.</p>
+</div>
+</aside>
         </div>
       </div>
       </article>
