@@ -9,7 +9,7 @@ that all programming depends on. We use MATLAB in our lessons because:
 
 1. we have to use *something* for examples;
 2. it's well-documented;
-3. it has a large (and growing) user base among scientists in academia and the industry; and
+3. it has a large (and growing) user base among scientists in academia and industry; and
 4. it has a large library of packages available for performing diverse tasks.
 
 But the two most important things are to use whatever language your colleagues
