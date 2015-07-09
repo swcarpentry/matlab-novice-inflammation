@@ -32,7 +32,8 @@ end
 
 A Matlab function *must* be saved in a text file with a `.m` extension.
 The name of that file must be the same as the function defined
-inside it. The name must start with a letter and cannot contain spaces. So, you will need to save the above code in a file called
+inside it. The name must start with a letter and cannot contain spaces.
+So, you will need to save the above code in a file called
 `fahr_to_kelvin.m`.
 
 The first line of our function:
@@ -252,7 +253,6 @@ why not in the challenges--but it's pretty close. We can even
 go further and check that the standard
 deviation hasn't changed:
 
-
 ~~~ {.matlab}
 std(data(:)) - std(centered)
 ~~~
@@ -260,7 +260,6 @@ std(data(:)) - std(centered)
 ~~~ {.output}
 5.3291e-15
 ~~~
-
 
 The difference is very small. It's still possible that our function
 is wrong, but it seems unlikely enough that we should probably
