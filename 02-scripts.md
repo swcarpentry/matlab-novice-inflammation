@@ -29,7 +29,7 @@ put those commands in a script called `analyze.m`:
 ~~~{.matlab}
 % script analyze.m
 
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Analyzing "inflammation-01.csv": '])
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
@@ -42,13 +42,11 @@ visible to MATLAB. MATLAB doesn't know about all the files on your
 computer, but it keeps an eye on several directories.
 The most convenient of these directories is generally the
 "working directory", or "current directory". To find out the
-working directory, use the `pwd` command:
+working directory, use the `pwd` (print working directory) command:
 
 ~~~{.matlab}
 pwd
 ~~~
-
-As you might have guessed, `pwd` stands for "print working directory".
 
 Once you have a script saved in a location that MATLAB knows about,
 you can get MATLAB to run those commands by typing in the name
@@ -81,11 +79,11 @@ images on disk:
 print -dpng 'average.png'
 ~~~
 
-You might have noticed that we described what we want 
+You might have noticed that we described what we want
 our code to do using the `%`-sign.
 This is another plus of writing scripts: you can comment
 your code to make it easier to understand when you come
-back to it after a while. 
+back to it after a while.
 
 Let's extend our `analyze` script with commands to
 create and save plots:
@@ -115,4 +113,62 @@ ylabel('min')
 
 % save plot to disk as png image:
 print -dpng 'patient_data-01.png'
+~~~
+
+When saving plots to disk,
+it's a good idea to turn off their visibility as MATLAB plots them.
+Let's add a couple of lines of code to do this:
+
+~~~{.matlab}
+% script analyze.m
+
+patient_data = csvread('inflammation-01.csv');
+
+disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
+disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
+disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+
+ave_inflammation = mean(patient_data, 1);
+
+figure('visible', 'off')
+
+subplot(1, 3, 1);
+plot(ave_inflammation);
+ylabel('average')
+
+subplot(1, 3, 2);
+plot(max(patient_data, [], 1));
+ylabel('max')
+
+subplot(1, 3, 3);
+plot(min(patient_data, [], 1));
+ylabel('min')
+
+% save plot to disk as png image:
+print -dpng 'patient_data-01.png'
+
+close()
+~~~
+
+If we call the `figure` function without any options,
+MATLAB will open up an empty figure window.
+Try this on the command line:
+
+~~~{.matlab}
+figure()
+~~~
+
+We can ask MATLAB to create an empty figure window without
+displaying it by setting its `'visible'` property to `'off'`, like so:
+
+~~~{.matlab}
+figure('visible', 'off')
+~~~
+
+When we do this, we have to be careful to manually "close" the figure
+after we are doing plotting on it - the same as we would "close"
+an actual figure window if it were open:
+
+~~~{.matlab}
+close()
 ~~~
