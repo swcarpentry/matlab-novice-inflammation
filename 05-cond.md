@@ -60,7 +60,6 @@ end
 disp('...after conditional')
 ~~~
 
-
 ~~~ {.output}
 before conditional...
 ...after conditional
@@ -126,11 +125,11 @@ In this case, "either" means "either or both", not
 
 > ## True and false statements {.challenge}
 > 1. `1` and `0` aren't the only values
-   in MATLAB that are true or false. In fact, *any* value
-   can be used in an `if` or `elseif`. After reading and
-   running the code below, explain what the rule is for
-   which values that are considered true and which are
-   considered false.
+> in MATLAB that are true or false. In fact, *any* value
+> can be used in an `if` or `elseif`. After reading and
+> running the code below, explain what the rule is for
+> which values that are considered true and which are
+> considered false.
 >
 >   1.
 >   ~~~
@@ -180,10 +179,10 @@ In this case, "either" means "either or both", not
 >   ~~~
 >
 > 2. Write a function called `near` that returns `1`
-   when its first parameter is within 10% of its second
-   and `0` otherwise. Compare your implementation with
-   your partner's: do you return the same answer for
-   all possible pairs of numbers?
+>  when its first parameter is within 10% of its second
+>  and `0` otherwise. Compare your implementation with
+>  your partner's: do you return the same answer for
+>  all possible pairs of numbers?
 
 
 Another thing to realize is that `if` statements can
@@ -264,12 +263,13 @@ de
 > [in-place operators](reference.html#in-place-operator) that
 > work like this:
 >
-> ~~~
-> x = 1;
+
+~~~{.matlab}
+x = 1;
 x += 1;
 x *= 3;
-> ~~~
->
+~~~
+
 > Rewrite the code that sums the positive and negative values
 > in an array using these in-place operators. Do you think that
 > the result is more or less readable than the original?
@@ -278,181 +278,74 @@ The last step is to turn our data into something we can see
 and make sense of. As in previous lessons, we need to first
 get the data in memory:
 
-~~~ {.matlab}
-patient_data = csvread('inflammation-01.csv');
+
+Currently, our script `analyze.m` reads in data, analyzes it,
+and saves plots of the results.
+If we would rather display the plots interactively,
+we would have to remove (or *comment out*) the following code:
+
+~~~{.matlab}
+print('-dpng', img_name);
+close();
 ~~~
 
-The heatmap from lesson 1 is useful, but fairly hard to read:
+And, we'd also have to change this line of code, from:
 
-~~~ {.matlab}
-imagesc(patient_data);
-colorbar();
+~~~{.matlab}
+figure('visible', 'off')
 ~~~
 
-<div>
-<img src="fig/01-intro_1.png" style="height:350px">
-</div>
+to:
 
-Let's write some code to give us a plot that's a little more useful:
-
+~~~{.matlab}
+figure('visible', 'on')
+% or equivalently: figure()
 ~~~
-[height, width] = size(patient_data);
-heatmap = zeros(height, width);
 
-for y = 1:height
-    for x = 1:width
-        if patient_data(y, x) > mean(patient_data(:))
-            heatmap(y, x) = 1;
-        elseif patient_data(y, x) < mean(patient_data(:))
-            heatmap(y, x) = -1;
-        else
-            heatmap(y, x) = 0;
-        end
+This is not a lot of code to change every time,
+but it's still work that's easily avoided using conditionals.
+Here's our script re-written to use *conditionals*
+to switch between saving plots as images and plotting them interactively:
+
+~~~{.matlab}
+
+% plot_switch:
+%   0 - show plots interactively
+%   1 - save plots to disk
+
+plot_switch = 0;
+
+for idx = 1:3
+
+    % Generate strings for file and image names:
+    file_name = sprintf('data/inflammation-%02d.csv', idx);
+    img_name = sprintf ('patient_data-%02d.png', idx);
+
+    patient_data = csvread(file_name);
+    ave_inflammation = mean(patient_data, 1);
+
+    if plot_switch == 1
+        figure('visible', 'off')
+    else
+        figure('visible', 'on')
     end
-end
 
-imagesc(heatmap);
-colorbar();
-~~~
+    subplot(2, 2, 1);
+    plot(ave_inflammation);
+    ylabel('average')
 
-<div>
-<img src="img/04-cond_1.png" style="height:350px">
-</div>
+    subplot(2, 2, 2);
+    plot(max(patient_data, [], 1));
+    ylabel('max')
 
-This is slightly better, but there are still a few things
-wrong with it:
+    subplot(2, 2, 3);
+    plot(min(patient_data, [], 1));
+    ylabel('min')
 
-1. Red against blue is pretty hard on the eyes.
-
-2. The heatmap shows only two colors because none of the (integer)
-   measurements has the exact value as the mean.
-
-3. We are calculating the mean of the data each time we go through
-   the loop. On our 40 &times; 60 dataset, this means we are performing
-   the same calculation 2400 times.
-
-Here's how we can improve it:
-
-1. We can pick better colors, and use a
-[colormap](reference.html#colormap)
-
-2. Instead of checking if values are exactly equal to the mean,
-we can check if they are close to it.
-
-3. We can calculate the mean once, before the loop, and use
-that value over and over. The cost of computing the mean is much
-more than retrieving its value from memory.
-
-Our modified code looks like this:
-
-~~~
-[height, width] = size(patient_data);
-heatmap = zeros(height, width);
-center = mean(patient_data(:));
-
-for y = 1:height
-    for x = 1:width
-
-        if patient_data(y, x) > 1.9*center
-            heatmap(y, x) = 1;
-        elseif patient_data(y, x) < 0.9*center
-            heatmap(y, x) = -1;
-        else
-            heatmap(y, x) = 0;
-        end
+    if plot_switch == 1
+        print('-dpng', img_name);
+        close()
     end
-end
 
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal
-~~~
-
-<div>
-<img src="img/04-cond_2.png" style="height:350px">
-</div>
-
-This is better, but we might want to widen the band around the mean
-that gets that color.
-
-But to do that, we'll have to go back to our
-code and change some numerical values (`1.9` and `0.9` in the
-code above). This is almost certainly a bad idea. Let's write a
-function to make things easier:
-
-~~~
-% make_heatmap.m
-
-function heatmap = make_heatmap(data, low_band, high_band)
-    % Make a 3-colored heatmap from
-    % a 2D array of data.
-
-    heatmap = zeros(height, width);
-    center = mean(patient_data(:));
-
-    for y = 1:height
-        for x = 1:width
-            if patient_data(y, x) > high_band*center
-                heatmap(y, x) = 1;
-            elseif patient_data(y, x) < low_band*center
-                heatmap(y, x) = -1;
-            else
-                heatmap(y, x) = 0;
-            end
-        end
-    end
 end
 ~~~
-
-To test this function, we can run it with the settings we just
-used:
-
-~~~ {.matlab}
-heatmap = make_heatmap(patient_data, 0.9, 1.1);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal
-~~~
-
-<div>
-<img src="img/04-cond_2.png" style="height:350px">
-</div>
-
-That seems right, so let's try wider bands:
-
-~~~ {.matlab}
-heatmap = make_heatmap(patient_data, 0.8, 1.2);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal
-~~~
-
-<div>
-<img src="img/04-cond_3.png" style="height:350px">
-</div>
-
-~~~ {.matlab}
-heatmap = make_heatmap(patient_data, 0.6, 1.4);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal
-~~~
-
-<div>
-<img src="img/04-cond_4.png" style="height:350px">
-</div>
-
-> ##  Design choice {.challenge}
->
-> 1. Why does the `make_heatmap` function return an array instead
-> of displaying it immediately? Do you think this is a good
-> design choice?
-
-Before we are ready to publish our `make_heatmap` function, we
-need to be sure of its correctness. To do that, we need to learn
-how to *test* our code, and that will be the subject of our
-next lesson.
