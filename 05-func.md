@@ -133,42 +133,46 @@ or the next person who reads it won't be able to understand what's going on.
 > ## Concatenating in a function {.challenge}
 >
 > 1. In Matlab, we concatenate strings by putting them into an array or using the
->    `strcat` function:
+>  `strcat` function:
 >
->    ~~~ {.matlab}
->    disp(['abra', 'cad', 'abra'])
->    ~~~
->    ~~~ {.output}
->    abracadabra
->    ~~~
+> ~~~{.matlab}
+> disp(['abra', 'cad', 'abra'])
+> ~~~
 >
->    ~~~ {.matlab}
->    disp(strcat('a', 'b'))
->    ~~~
->    ~~~ {.output}
->    ab
->    ~~~
+> ~~~ {.output}
+> abracadabra
+> ~~~
 >
->    Write a function called `fence` that takes two parameters, `original` and
->    `wrapper` and appends `wrapper` before and after `original`:
+> ~~~ {.matlab}
+> disp(strcat('a', 'b'))
+> ~~~
 >
->    ~~~ {.matlab}
->    disp(fence('name', '*'))
->    ~~~
->    ~~~ {.output}
->    *name*
->    ~~~
+> ~~~ {.output}
+> ab
+> ~~~
 >
-> 1. If the variable `s` refers to a string, then `s(1)` is the string's first
->    character and `s(end)` is its last. Write a function called `outer` that returns
->    a string made up of just the first and last characters of its input:
+> Write a function called `fence` that takes two parameters, `original` and
+> `wrapper` and appends `wrapper` before and after `original`:
 >
->    ~~~ {.matlab}
->    disp(outer('helium'))
->    ~~~
->    ~~~ {.output}
->    hm
->    ~~~
+> ~~~ {.matlab}
+> disp(fence('name', '*'))
+> ~~~
+>
+> ~~~ {.output}
+> *name*
+> ~~~
+>
+> 2. If the variable `s` refers to a string, then `s(1)` is the string's first
+>   character and `s(end)` is its last. Write a function called `outer` that returns
+>   a string made up of just the first and last characters of its input:
+>
+> ~~~ {.matlab}
+> disp(outer('helium'))
+> ~~~
+>
+> ~~~ {.output}
+> hm
+> ~~~
 
 Let's take a closer look at what happens when we call
 `fahr_to_celcius(32.0)`.
@@ -179,9 +183,6 @@ in a variable and store the final result in one as well:
 original = 32.0;
 final = fahr_to_celcius(original);
 ~~~
-
-The diagram below shows what memory looks like after the
-first line has been executed:
 
 Once we start putting things in functions so that we can
 re-use them, we need to start testing that those functions are
