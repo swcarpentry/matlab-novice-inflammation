@@ -124,6 +124,7 @@ In this case, "either" means "either or both", not
 "either one or the other but not both".
 
 > ## True and false statements {.challenge}
+>
 > 1. `1` and `0` aren't the only values
 > in MATLAB that are true or false. In fact, *any* value
 > can be used in an `if` or `elseif`. After reading and
@@ -131,52 +132,53 @@ In this case, "either" means "either or both", not
 > which values that are considered true and which are
 > considered false.
 >
->   1.
->   ~~~
->   if
->       disp('empty string is true')
->   end
->   ~~~
+> a.
 >
->   2.
+> ~~~
+> if
+>     disp('empty string is true')
+> end
+> ~~~
 >
->   ~~~
->   if 'foo'
->       disp('non empty string is true')
->   end
->   ~~~
+> b.
 >
->   3.
+> ~~~
+> if 'foo'
+>     disp('non empty string is true')
+> end
+> ~~~
 >
->   ~~~
->   if []
->       disp ('empty array is true')
->   end
->   ~~~
+> c.
 >
->   4.
+> ~~~
+> if []
+>     disp ('empty array is true')
+> end
+> ~~~
 >
->   ~~~
->   if [22.5, 1.0]
->       disp ('non empty array is true')
->   end
->   ~~~
+> d.
 >
->   5.
+> ~~~
+> if [22.5, 1.0]
+>     disp ('non empty array is true')
+> end
+> ~~~
 >
->   ~~~
->   if [0, 0]
->       disp ('array of zeros is true')
->   end
->   ~~~
+> e.
 >
->   6.
+> ~~~
+> if [0, 0]
+>     disp ('array of zeros is true')
+> end
+> ~~~
 >
->   ~~~
->   if true
->       disp('true is true')
->   end
->   ~~~
+> f.
+>
+> ~~~
+> if true
+>     disp('true is true')
+> end
+> ~~~
 >
 > 2. Write a function called `near` that returns `1`
 >  when its first parameter is within 10% of its second
