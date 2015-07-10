@@ -276,11 +276,6 @@ x *= 3;
 > in an array using these in-place operators. Do you think that
 > the result is more or less readable than the original?
 
-The last step is to turn our data into something we can see
-and make sense of. As in previous lessons, we need to first
-get the data in memory:
-
-
 Currently, our script `analyze.m` reads in data, analyzes it,
 and saves plots of the results.
 If we would rather display the plots interactively,
