@@ -265,13 +265,13 @@ de
 > [in-place operators](reference.html#in-place-operator) that
 > work like this:
 >
-
-~~~{.matlab}
-x = 1;
-x += 1;
-x *= 3;
-~~~
-
+> 
+> ~~~{.matlab}
+> x = 1;
+> x += 1;
+> x *= 3;
+> ~~~
+>
 > Rewrite the code that sums the positive and negative values
 > in an array using these in-place operators. Do you think that
 > the result is more or less readable than the original?
