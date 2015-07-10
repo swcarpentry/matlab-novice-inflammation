@@ -99,19 +99,32 @@ end</code></pre>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li><p><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</p></li>
-<li><p><sub>~</sub> if disp(‘empty string is true’) end <sub>~</sub></p></li>
-<li></li>
+<li><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</li>
 </ol>
-<p><sub>~</sub> if ‘foo’ disp(‘non empty string is true’) end <sub>~</sub></p>
-<p>3.</p>
-<p><sub>~</sub> if [] disp (‘empty array is true’) end <sub>~</sub></p>
-<p>4.</p>
-<p><sub>~</sub> if [22.5, 1.0] disp (‘non empty array is true’) end <sub>~</sub></p>
-<p>5.</p>
-<p><sub>~</sub> if [0, 0] disp (‘array of zeros is true’) end <sub>~</sub></p>
-<p>6.</p>
-<p><sub>~</sub> if true disp(‘true is true’) end <sub>~</sub></p>
+<p>a.</p>
+<pre><code>if
+    disp(&#39;empty string is true&#39;)
+end</code></pre>
+<p>b.</p>
+<pre><code>if &#39;foo&#39;
+    disp(&#39;non empty string is true&#39;)
+end</code></pre>
+<p>c.</p>
+<pre><code>if []
+    disp (&#39;empty array is true&#39;)
+end</code></pre>
+<p>d.</p>
+<pre><code>if [22.5, 1.0]
+    disp (&#39;non empty array is true&#39;)
+end</code></pre>
+<p>e.</p>
+<pre><code>if [0, 0]
+    disp (&#39;array of zeros is true&#39;)
+end</code></pre>
+<p>f.</p>
+<pre><code>if true
+    disp(&#39;true is true&#39;)
+end</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner’s: do you return the same answer for all possible pairs of numbers?</li>
 </ol>
@@ -166,138 +179,64 @@ de</code></pre>
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
 <li><p>MATLAB (and most other languges in the C family) provides <a href="reference.html#in-place-operator">in-place operators</a> that work like this:</p></li>
 </ol>
-<pre><code>x = 1;
-x += 1;
-x *= 3;</code></pre>
+</div>
+</div>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">x = <span class="fl">1</span>;
+x += <span class="fl">1</span>;
+x *= <span class="fl">3</span>;</code></pre>
+<blockquote>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
-</div>
-</div>
+</blockquote>
 <p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
-<p>The heatmap from lesson 1 is useful, but fairly hard to read:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data);
-colorbar();</code></pre>
-<div>
-<img src="fig/01-intro_1.png" style="height:350px">
-</div>
-<p>Let’s write some code to give us a plot that’s a little more useful:</p>
-<pre><code>[height, width] = size(patient_data);
-heatmap = zeros(height, width);
+<p>Currently, our script <code>analyze.m</code> reads in data, analyzes it, and saves plots of the results. If we would rather display the plots interactively, we would have to remove (or <em>comment out</em>) the following code:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">print(<span class="st">&#39;-dpng&#39;</span>, img_name);
+close();</code></pre>
+<p>And, we’d also have to change this line of code, from:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;off&#39;</span>)</code></pre>
+<p>to:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;on&#39;</span>)
+<span class="co">% or equivalently: figure()</span></code></pre>
+<p>This is not a lot of code to change every time, but it’s still work that’s easily avoided using conditionals. Here’s our script re-written to use <em>conditionals</em> to switch between saving plots as images and plotting them interactively:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">
+<span class="co">% plot_switch:</span>
+<span class="co">%   0 - show plots interactively</span>
+<span class="co">%   1 - save plots to disk</span>
 
-for y = 1:height
-    for x = 1:width
-        if patient_data(y, x) &gt; mean(patient_data(:))
-            heatmap(y, x) = 1;
-        elseif patient_data(y, x) &lt; mean(patient_data(:))
-            heatmap(y, x) = -1;
-        else
-            heatmap(y, x) = 0;
-        end
+plot_switch = <span class="fl">0</span>;
+
+for idx = <span class="fl">1</span>:<span class="fl">3</span>
+
+    <span class="co">% Generate strings for file and image names:</span>
+    file_name = sprintf(<span class="st">&#39;data/inflammation-%02d.csv&#39;</span>, idx);
+    img_name = sprintf (<span class="st">&#39;patient_data-%02d.png&#39;</span>, idx);
+
+    patient_data = csvread(file_name);
+    ave_inflammation = mean(patient_data, <span class="fl">1</span>);
+
+    if plot_switch == <span class="fl">1</span>
+        figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;off&#39;</span>)
+    else
+        figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;on&#39;</span>)
     end
-end
 
-imagesc(heatmap);
-colorbar();</code></pre>
-<div>
-<img src="img/04-cond_1.png" style="height:350px">
-</div>
-<p>This is slightly better, but there are still a few things wrong with it:</p>
-<ol style="list-style-type: decimal">
-<li><p>Red against blue is pretty hard on the eyes.</p></li>
-<li><p>The heatmap shows only two colors because none of the (integer) measurements has the exact value as the mean.</p></li>
-<li><p>We are calculating the mean of the data each time we go through the loop. On our 40 × 60 dataset, this means we are performing the same calculation 2400 times.</p></li>
-</ol>
-<p>Here’s how we can improve it:</p>
-<ol style="list-style-type: decimal">
-<li><p>We can pick better colors, and use a <a href="reference.html#colormap">colormap</a></p></li>
-<li><p>Instead of checking if values are exactly equal to the mean, we can check if they are close to it.</p></li>
-<li><p>We can calculate the mean once, before the loop, and use that value over and over. The cost of computing the mean is much more than retrieving its value from memory.</p></li>
-</ol>
-<p>Our modified code looks like this:</p>
-<pre><code>[height, width] = size(patient_data);
-heatmap = zeros(height, width);
-center = mean(patient_data(:));
+    subplot(<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span>);
+    plot(ave_inflammation);
+    ylabel(<span class="st">&#39;average&#39;</span>)
 
-for y = 1:height
-    for x = 1:width
+    subplot(<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>);
+    plot(max(patient_data, [], <span class="fl">1</span>));
+    ylabel(<span class="st">&#39;max&#39;</span>)
 
-        if patient_data(y, x) &gt; 1.9*center
-            heatmap(y, x) = 1;
-        elseif patient_data(y, x) &lt; 0.9*center
-            heatmap(y, x) = -1;
-        else
-            heatmap(y, x) = 0;
-        end
+    subplot(<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>);
+    plot(min(patient_data, [], <span class="fl">1</span>));
+    ylabel(<span class="st">&#39;min&#39;</span>)
+
+    if plot_switch == <span class="fl">1</span>
+        print(<span class="st">&#39;-dpng&#39;</span>, img_name);
+        close()
     end
-end
 
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_2.png" style="height:350px">
-</div>
-<p>This is better, but we might want to widen the band around the mean that gets that color.</p>
-<p>But to do that, we’ll have to go back to our code and change some numerical values (<code>1.9</code> and <code>0.9</code> in the code above). This is almost certainly a bad idea. Let’s write a function to make things easier:</p>
-<pre><code>% make_heatmap.m
-
-function heatmap = make_heatmap(data, low_band, high_band)
-    % Make a 3-colored heatmap from
-    % a 2D array of data.
-
-    heatmap = zeros(height, width);
-    center = mean(patient_data(:));
-
-    for y = 1:height
-        for x = 1:width
-            if patient_data(y, x) &gt; high_band*center
-                heatmap(y, x) = 1;
-            elseif patient_data(y, x) &lt; low_band*center
-                heatmap(y, x) = -1;
-            else
-                heatmap(y, x) = 0;
-            end
-        end
-    end
 end</code></pre>
-<p>To test this function, we can run it with the settings we just used:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.9</span>, <span class="fl">1.1</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_2.png" style="height:350px">
-</div>
-<p>That seems right, so let’s try wider bands:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_3.png" style="height:350px">
-</div>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.6</span>, <span class="fl">1.4</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_4.png" style="height:350px">
-</div>
-<div id="design-choice" class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Design choice</h2>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>Why does the <code>make_heatmap</code> function return an array instead of displaying it immediately? Do you think this is a good design choice?</li>
-</ol>
-</div>
-</div>
-<p>Before we are ready to publish our <code>make_heatmap</code> function, we need to be sure of its correctness. To do that, we need to learn how to <em>test</em> our code, and that will be the subject of our next lesson.</p>
         </div>
       </div>
       </article>

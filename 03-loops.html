@@ -211,18 +211,23 @@ inflammation-11.csv
 inflammation-12.csv</code></pre>
 <p>We’ve replaced <code>%d</code> in our earlier template with <code>%02d</code>. With this, we’re specifying that we want our data to be displayed with a minimum width of 2 characters, and that we want to <em>pad</em> with 0 for data that isn’t at least 2 digits long.</p>
 <p>We’re now ready to modify <code>analyze.m</code> to process multiple data files:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze_loops.m</span>
 
 for idx = <span class="fl">1</span>:<span class="fl">3</span>
 
     <span class="co">% Generate strings for file and image names:</span>
-    file_name = sprintf(<span class="st">&#39;inflammation-%02d.csv&#39;</span>, idx);
+    file_name = sprintf(<span class="st">&#39;data/inflammation-%02d.csv&#39;</span>, idx);
     img_name = sprintf (<span class="st">&#39;patient_data-%02d.png&#39;</span>, idx);
 
     patient_data = csvread(file_name);
+
+    disp([<span class="st">&#39;Maximum inflammation: &#39;</span>, num2str(max(patient_data(:)))]);
+    disp([<span class="st">&#39;Minimum inflammation: &#39;</span>, num2str(min(patient_data(:)))]);
+    disp([<span class="st">&#39;Standard deviation: &#39;</span>, num2str(std(patient_data(:)))]);
+
     ave_inflammation = mean(patient_data, <span class="fl">1</span>);
 
-    figure()
+    figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;off&#39;</span>)
 
     subplot(<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span>);
     plot(ave_inflammation);
@@ -241,6 +246,7 @@ for idx = <span class="fl">1</span>:<span class="fl">3</span>
 
 end</code></pre>
 <p>Remember that to run our script, we simply type in its name in the command line:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">analyze_loops</code></pre>
 <p><img src="img/02-loop_1.png" style="width:500px; height:400px"></p>
 <p><img src="img/02-loop_2.png" style="width:500px; height:400px"></p>
 <p><img src="img/02-loop_3.png" style="width:500px; height:400px"></p>

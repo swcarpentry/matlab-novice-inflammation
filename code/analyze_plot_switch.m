@@ -33,7 +33,7 @@ for idx = 1:3
     ylabel('min')
 
     if plot_switch == 1
-        print('-dpng', img_name);
+        print('-dpng', img_name);   
         close()
     end
 

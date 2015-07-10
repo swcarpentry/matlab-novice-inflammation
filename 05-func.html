@@ -87,20 +87,23 @@ end</code></pre>
 <ol style="list-style-type: decimal">
 <li>In Matlab, we concatenate strings by putting them into an array or using the <code>strcat</code> function:</li>
 </ol>
-<p><sub>~</sub> {.matlab} disp([‘abra’, ‘cad’, ‘abra’]) <sub>~</sub> <sub>~</sub> {.output} abracadabra <sub>~</sub></p>
-<p><sub>~</sub> {.matlab} disp(strcat(‘a’, ‘b’)) <sub>~</sub> <sub>~</sub> {.output} ab <sub>~</sub></p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp([<span class="st">&#39;abra&#39;</span>, <span class="st">&#39;cad&#39;</span>, <span class="st">&#39;abra&#39;</span>])</code></pre>
+<pre class="output"><code>abracadabra</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(strcat(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))</code></pre>
+<pre class="output"><code>ab</code></pre>
 <p>Write a function called <code>fence</code> that takes two parameters, <code>original</code> and <code>wrapper</code> and appends <code>wrapper</code> before and after <code>original</code>:</p>
-<p><sub>~</sub> {.matlab} disp(fence(‘name’, ’<em>’)) <sub>~</sub> <sub>~</sub> {.output} </em>name* <sub>~</sub></p>
-<ol style="list-style-type: decimal">
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre>
+<pre class="output"><code>*name*</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li>If the variable <code>s</code> refers to a string, then <code>s(1)</code> is the string’s first character and <code>s(end)</code> is its last. Write a function called <code>outer</code> that returns a string made up of just the first and last characters of its input:</li>
 </ol>
-<p><sub>~</sub> {.matlab} disp(outer(‘helium’)) <sub>~</sub> <sub>~</sub> {.output} hm <sub>~</sub></p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(outer(<span class="st">&#39;helium&#39;</span>))</code></pre>
+<pre class="output"><code>hm</code></pre>
 </div>
 </div>
 <p>Let’s take a closer look at what happens when we call <code>fahr_to_celcius(32.0)</code>. To make things clearer, we’ll start by putting the initial value 32.0 in a variable and store the final result in one as well:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">original = <span class="fl">32.0</span>;
 final = fahr_to_celcius(original);</code></pre>
-<p>The diagram below shows what memory looks like after the first line has been executed:</p>
 <p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let’s write a function to center a dataset around a particular value:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
     out = (data - mean(data)) + desired
