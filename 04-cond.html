@@ -179,15 +179,12 @@ de</code></pre>
 <li><p>Will changing the order of nesting in the above loop change the output? Why? Write down the output you might expect from changing the order of the loops, then rewrite the code to test your hypothesis.</p></li>
 <li><p>MATLAB (and most other languges in the C family) provides <a href="reference.html#in-place-operator">in-place operators</a> that work like this:</p></li>
 </ol>
-</div>
-</div>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">x = <span class="fl">1</span>;
 x += <span class="fl">1</span>;
 x *= <span class="fl">3</span>;</code></pre>
-<blockquote>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
-</blockquote>
-<p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
+</div>
+</div>
 <p>Currently, our script <code>analyze.m</code> reads in data, analyzes it, and saves plots of the results. If we would rather display the plots interactively, we would have to remove (or <em>comment out</em>) the following code:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">print(<span class="st">&#39;-dpng&#39;</span>, img_name);
 close();</code></pre>
