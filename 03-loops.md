@@ -334,7 +334,8 @@ with the value of `i`, i.e., 1.
 The resulting string is `inflammation-1.csv`,
 which is assigned to the variable `file_name`.
 The `disp` command prints that string to screen.
-The second time around, `sprintf` generates the string `inflammation-2.csv`, which is assigned to the variable `file_name`,
+The second time around, `sprintf` generates the string `inflammation-2.csv`,
+which is assigned to the variable `file_name`,
 and printed to screen.
 And so on, till `i` finally refers to the value 12.
 
@@ -375,18 +376,23 @@ that isn't at least 2 digits long.
 We're now ready to modify `analyze.m` to process multiple data files:
 
 ~~~{.matlab}
-% script analyze.m
+% script analyze_loops.m
 
 for idx = 1:3
 
     % Generate strings for file and image names:
-    file_name = sprintf('inflammation-%02d.csv', idx);
+    file_name = sprintf('data/inflammation-%02d.csv', idx);
     img_name = sprintf ('patient_data-%02d.png', idx);
 
     patient_data = csvread(file_name);
+
+    disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
+    disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
+    disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+
     ave_inflammation = mean(patient_data, 1);
 
-    figure()
+    figure('visible', 'off')
 
     subplot(2, 2, 1);
     plot(ave_inflammation);
@@ -408,6 +414,10 @@ end
 
 Remember that to run our script, we simply type in its name in the
 command line:
+
+~~~{.matlab}
+analyze_loops
+~~~
 
 <img src="img/02-loop_1.png" style="width:500px; height:400px">
 
