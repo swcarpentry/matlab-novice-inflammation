@@ -43,15 +43,14 @@
 <p>In addition to running MATLAB commands one-by-one on the command line, we can also write several commands in a <em>script</em>. A MATLAB script is just a text file with a <code>.m</code> extension. We’ve written commands to load data from a <code>.csv</code> file and displays some statistics about that data. Let’s put those commands in a script called <code>analyze.m</code>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
 
-patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);
+patient_data = csvread(<span class="st">&#39;data/inflammation-01.csv&#39;</span>);
 
 disp([<span class="st">&#39;Analyzing &quot;inflammation-01.csv&quot;: &#39;</span>])
 disp([<span class="st">&#39;Maximum inflammation: &#39;</span>, num2str(max(patient_data(:)))]);
 disp([<span class="st">&#39;Minimum inflammation: &#39;</span>, num2str(min(patient_data(:)))]);
 disp([<span class="st">&#39;Standard deviation: &#39;</span>, num2str(std(patient_data(:)))]);</code></pre>
-<p>Before we can use it, we need to make sure that this file is visible to MATLAB. MATLAB doesn’t know about all the files on your computer, but it keeps an eye on several directories. The most convenient of these directories is generally the “working directory”, or “current directory”. To find out the working directory, use the <code>pwd</code> command:</p>
+<p>Before we can use it, we need to make sure that this file is visible to MATLAB. MATLAB doesn’t know about all the files on your computer, but it keeps an eye on several directories. The most convenient of these directories is generally the “working directory”, or “current directory”. To find out the working directory, use the <code>pwd</code> (print working directory) command:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">pwd</code></pre>
-<p>As you might have guessed, <code>pwd</code> stands for “print working directory”.</p>
 <p>Once you have a script saved in a location that MATLAB knows about, you can get MATLAB to run those commands by typing in the name of the script (without the <code>.m</code>) in the MATLAB command line:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">analyze</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">Maximum inflammation: <span class="fl">20</span>
@@ -91,6 +90,41 @@ ylabel(<span class="st">&#39;min&#39;</span>)
 
 <span class="co">% save plot to disk as png image:</span>
 print -dpng <span class="st">&#39;patient_data-01.png&#39;</span></code></pre>
+<p>When saving plots to disk, it’s a good idea to turn off their visibility as MATLAB plots them. Let’s add a couple of lines of code to do this:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
+
+patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);
+
+disp([<span class="st">&#39;Maximum inflammation: &#39;</span>, num2str(max(patient_data(:)))]);
+disp([<span class="st">&#39;Minimum inflammation: &#39;</span>, num2str(min(patient_data(:)))]);
+disp([<span class="st">&#39;Standard deviation: &#39;</span>, num2str(std(patient_data(:)))]);
+
+ave_inflammation = mean(patient_data, <span class="fl">1</span>);
+
+figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;off&#39;</span>)
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">1</span>);
+plot(ave_inflammation);
+ylabel(<span class="st">&#39;average&#39;</span>)
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>);
+plot(max(patient_data, [], <span class="fl">1</span>));
+ylabel(<span class="st">&#39;max&#39;</span>)
+
+subplot(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">3</span>);
+plot(min(patient_data, [], <span class="fl">1</span>));
+ylabel(<span class="st">&#39;min&#39;</span>)
+
+<span class="co">% save plot to disk as png image:</span>
+print -dpng <span class="st">&#39;patient_data-01.png&#39;</span>
+
+close()</code></pre>
+<p>If we call the <code>figure</code> function without any options, MATLAB will open up an empty figure window. Try this on the command line:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">figure()</code></pre>
+<p>We can ask MATLAB to create an empty figure window without displaying it by setting its <code>'visible'</code> property to <code>'off'</code>, like so:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">figure(<span class="st">&#39;visible&#39;</span>, <span class="st">&#39;off&#39;</span>)</code></pre>
+<p>When we do this, we have to be careful to manually “close” the figure after we are doing plotting on it - the same as we would “close” an actual figure window if it were open:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">close()</code></pre>
         </div>
       </div>
       </article>
