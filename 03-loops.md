@@ -487,3 +487,11 @@ and their minima show the same staircase structure.
 > the current directory.
 > Be careful of the empty string `''` at the end of
 > `file_list`!
+
+> ## GNU Octave {.callout}
+>
+> Lastly, in the above trick using `ls` with the wildcard `*`,
+> another small Octave/MATLAB
+> difference shows up. In Octave, the value returned by
+> `filestr = ls('path/to/data/*.csv')` is an array of strings, so we can loop
+> over filestr directly without the need to split it with `strsplit`.
