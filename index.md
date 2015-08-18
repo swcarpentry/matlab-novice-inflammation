@@ -9,12 +9,19 @@ that all programming depends on. We use MATLAB in our lessons because:
 
 1. we have to use *something* for examples;
 2. it's well-documented;
-3. it has a large (and growing) user base among scientists in academia and the industry; and
+3. it has a large (and growing) user base among scientists in academia and industry; and
 4. it has a large library of packages available for performing diverse tasks.
 
 But the two most important things are to use whatever language your colleagues
 are using, so that you can share you work with them easily, and to use that
 language *well*.
+
+> ## GNU Octave {.callout}
+>
+> [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
+> to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
+> Thus, if you don't have access to MATLAB, you can easily set up Octave
+> on your computer and still work through the lesson.
 
 ## Topics
 
@@ -35,7 +42,6 @@ language *well*.
 
 ## Other Resources
 
-* [Motivation](motivation.html)
 * [Reference](reference.html)
 * [Instructor's Guide](instructors.html)
 * [Discussion](discussion.html)

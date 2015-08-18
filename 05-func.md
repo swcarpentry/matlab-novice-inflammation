@@ -54,6 +54,11 @@ a file containing a function has to be placed in a directory that
 MATLAB knows  about. The most convenient of those directories is the
 current working directory.
 
+> ## GNU Octave {.callout}
+>
+> In common with MATLAB, Octave searches the current working directory and
+> the path for functions called from the command line.
+
 We can call our function from the command line
 like any other MATLAB function:
 
@@ -113,18 +118,18 @@ end
 Calling this function,
 
 ~~~
-kelvin_to_celsius(0.0)
+fahr_to_celsius(32.0)
 ~~~
 
 we get, as expected:
 
 ~~~
-ans = -273.15
+ans = 0
 ~~~
 
 This is our first taste of how larger programs are built:
 we define basic operations,
-then combine them in ever-large chunks to get the effect we want.
+then combine them in ever-larger chunks to get the effect we want.
 Real-life functions will usually be larger than the ones shown
 here---typically half a dozen to a few dozen lines---but
 they shouldn't ever be much longer than that,
@@ -135,7 +140,7 @@ or the next person who reads it won't be able to understand what's going on.
 > 1. In Matlab, we concatenate strings by putting them into an array or using the
 >  `strcat` function:
 >
-> ~~~{.matlab}
+> ~~~ {.matlab}
 > disp(['abra', 'cad', 'abra'])
 > ~~~
 >
@@ -147,6 +152,15 @@ or the next person who reads it won't be able to understand what's going on.
 > disp(strcat('a', 'b'))
 > ~~~
 >
+> ~~~ {.output}
+> ab
+> ~~~
+>
+> ~~~ {.matlab}
+> disp(strcat('a', 'b'))
+> ~~~
+>
+<<<<<<< HEAD:05-func.md
 > ~~~ {.output}
 > ab
 > ~~~
@@ -192,7 +206,7 @@ dataset around a particular value:
 
 ~~~ {.matlab}
 function out = center(data, desired)
-    out = (data - mean(data)) + desired
+    out = (data - mean(data)) + desired;
 end
 ~~~
 
@@ -255,7 +269,7 @@ go further and check that the standard
 deviation hasn't changed:
 
 ~~~ {.matlab}
-std(data(:)) - std(centered)
+std(data(:)) - std(centered(:))
 ~~~
 
 ~~~ {.output}
