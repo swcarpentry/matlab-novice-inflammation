@@ -441,52 +441,64 @@ and their minima show the same staircase structure.
 > ls *.csv
 > ~~~
 >
-> Thankfully, Matlab also has `ls`, though it returns a single long string:
+> We can also do something similar with MATLAB, using the `dir` command:
 >
 > ~~~{.matlab}
-> filestr = ls('*.csv')
+> files = dir('*.csv')
 > ~~~
 >
 > ~~~{.output}
-> inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv
-> inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv
-> inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv
+>
+> files =
+>
+> 12x1 struct array with fields:
+>
+>     name
+>     date
+>     bytes
+>     isdir
+>     datenum
 > ~~~
 >
-> To turn this string into an array we can loop over (actually, a
-> [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html)),
-> we need to "split" the string at each occurrence of whitespace:
+> The `dir` command returns a special MATLAB data type called
+> a "struct array". Each element in this array is
+> a "struct", containing information about a single file
+> in the form of "fields".
+>
+> To access the "name" field of, say, the first file,
+> we can do the following:
 >
 > ~~~{.matlab}
-> file_string = ls('*.csv');
-> file_list = strsplit(file_string)
+> name = files(1).name;
+> disp(name)
 > ~~~
 >
 > ~~~{.output}
-> file_list =
->
-> Columns 1 through 3
->
-> 'inflammation-01.csv'    'inflammation-04.csv'    'inflammation-07.csv'
->
-> Columns 4 through 6
->
-> 'inflammation-10.csv'    'inflammation-02.csv'    'inflammation-05.csv'
->
-> Columns 7 through 9
->
-> 'inflammation-08.csv'    'inflammation-11.csv'    'inflammation-03.csv'
->
-> Columns 10 through 13
->
-> 'inflammation-06.csv'    'inflammation-09.csv'    'inflammation-12.> csv'    ''
+> inflammation-01.csv
 > ~~~
 >
-> Using this trick,
+> To get the modification date of the third file, we can do:
+>
+> ~~~{.matlab}
+> mod_date = files(3).date;
+> disp(mod_date)
+> ~~~
+>
+> ~~~{.output}
+> 26-Jul-2015 22:24:31
+> ~~~
+>
+> Information about the other fields like `bytes` and `isdir`
+> is available in the documentation of the `dir` function:
+>
+> ~~~{.matlab}
+> help dir
+> ~~~
+>
+> Using `dir`,
 > rewrite the `analyze` script to analyze all `csv` files in
 > the current directory.
-> Be careful of the empty string `''` at the end of
-> `file_list`!
+
 
 > ## GNU Octave {.callout}
 >
