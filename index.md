@@ -13,7 +13,7 @@ that all programming depends on. We use MATLAB in our lessons because:
 4. it has a large library of packages available for performing diverse tasks.
 
 But the two most important things are to use whatever language your colleagues
-are using, so that you can share you work with them easily, and to use that
+are using, so that you can share your work with them easily, and to use that
 language *well*.
 
 > ## GNU Octave {.callout}
