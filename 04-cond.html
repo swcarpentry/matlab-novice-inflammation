@@ -101,7 +101,6 @@ end</code></pre>
 <ol style="list-style-type: decimal">
 <li><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</li>
 </ol>
-<<<<<<< HEAD:04-cond.html
 <p>a.</p>
 <pre><code>if
     disp(&#39;empty string is true&#39;)
@@ -123,23 +122,6 @@ end</code></pre>
     disp (&#39;array of zeros is true&#39;)
 end</code></pre>
 <p>f.</p>
-=======
-<pre><code>if
-    disp(&#39;empty string is true&#39;)
-end</code></pre>
-<pre><code>if &#39;foo&#39;
-    disp(&#39;non empty string is true&#39;)
-end</code></pre>
-<pre><code>if []
-    disp (&#39;empty array is true&#39;)
-end</code></pre>
-<pre><code>if [22.5, 1.0]
-    disp (&#39;non empty array is true&#39;)
-end</code></pre>
-<pre><code>if [0, 0]
-    disp (&#39;array of zeros is true&#39;)
-end</code></pre>
->>>>>>> 30afa8ec12c355926180efd3b44022bed2910cb0:05-cond.html
 <pre><code>if true
     disp(&#39;true is true&#39;)
 end</code></pre>
@@ -202,8 +184,7 @@ x += <span class="fl">1</span>;
 x *= <span class="fl">3</span>;</code></pre>
 <p>Rewrite the code that sums the positive and negative values in an array using these in-place operators. Do you think that the result is more or less readable than the original?</p>
 </div>
-<<<<<<< HEAD:04-cond.html
-</div>
+</section>
 <p>Currently, our script <code>analyze.m</code> reads in data, analyzes it, and saves plots of the results. If we would rather display the plots interactively, we would have to remove (or <em>comment out</em>) the following code:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">print(<span class="st">&#39;-dpng&#39;</span>, img_name);
 close();</code></pre>
@@ -217,20 +198,6 @@ close();</code></pre>
 <span class="co">% plot_switch:</span>
 <span class="co">%   0 - show plots interactively</span>
 <span class="co">%   1 - save plots to disk</span>
-=======
-</section>
-<p>The last step is to turn our data into something we can see and make sense of. As in previous lessons, we need to first get the data in memory:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
-<p>The heatmap from lesson 1 is useful, but fairly hard to read:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">imagesc(patient_data);
-colorbar();</code></pre>
-<div>
-<img src="img/04-cond_0.png" style="height:350px">
-</div>
-<p>Let’s write some code to give us a plot that’s a little more useful:</p>
-<pre><code>[height, width] = size(patient_data);
-heatmap = zeros(height, width);
->>>>>>> 30afa8ec12c355926180efd3b44022bed2910cb0:05-cond.html
 
 plot_switch = <span class="fl">0</span>;
 
@@ -267,46 +234,6 @@ for idx = <span class="fl">1</span>:<span class="fl">3</span>
     end
 
 end</code></pre>
-<<<<<<< HEAD:04-cond.html
-=======
-<p>To test this function, we can run it with the settings we just used:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.9</span>, <span class="fl">1.1</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_2.png" style="height:350px">
-</div>
-<p>That seems right, so let’s try wider bands:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.8</span>, <span class="fl">1.2</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_3.png" style="height:350px">
-</div>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">heatmap = make_heatmap(patient_data, <span class="fl">0.6</span>, <span class="fl">1.4</span>);
-imagesc(heatmap);
-colorbar();
-colormap winter
-axis equal</code></pre>
-<div>
-<img src="img/04-cond_4.png" style="height:350px">
-</div>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Design choice</h2>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>Why does the <code>make_heatmap</code> function return an array instead of displaying it immediately? Do you think this is a good design choice?</li>
-</ol>
-</div>
-</section>
-<p>Before we are ready to publish our <code>make_heatmap</code> function, we need to be sure of its correctness. To do that, we need to learn how to <em>test</em> our code, and that will be the subject of our next lesson.</p>
->>>>>>> 30afa8ec12c355926180efd3b44022bed2910cb0:05-cond.html
         </div>
       </div>
       </article>

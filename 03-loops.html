@@ -258,32 +258,30 @@ end</code></pre>
 <div class="panel-body">
 <p>In cases where our file names don’t follow such a regular pattern, we might want to process all files that end with a given extension, say <code>.csv</code>. At the command line we could get this list of files by using a <a href="reference.html#wildcard">wildcard</a>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ls</span> *.csv</code></pre>
-<p>Thankfully, Matlab also has <code>ls</code>, though it returns a single long string:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">filestr = ls(<span class="st">&#39;*.csv&#39;</span>)</code></pre>
-<pre class="output"><code>inflammation-01.csv inflammation-04.csv inflammation-07.csv inflammation-10.csv
-inflammation-02.csv inflammation-05.csv inflammation-08.csv inflammation-11.csv
-inflammation-03.csv inflammation-06.csv inflammation-09.csv inflammation-12.csv</code></pre>
-<p>To turn this string into an array we can loop over (actually, a <a href="http://www.mathworks.com/help/matlab/cell-arrays.html">Cell Array</a>), we need to “split” the string at each occurrence of whitespace:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">file_string = ls(<span class="st">&#39;*.csv&#39;</span>);
-file_list = strsplit(file_string)</code></pre>
-<pre class="output"><code>file_list =
+<p>We can also do something similar with MATLAB, using the <code>dir</code> command:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">files = dir(<span class="st">&#39;*.csv&#39;</span>)</code></pre>
+<pre class="output"><code>
+files =
 
-Columns 1 through 3
+12x1 struct array with fields:
 
-&#39;inflammation-01.csv&#39;    &#39;inflammation-04.csv&#39;    &#39;inflammation-07.csv&#39;
-
-Columns 4 through 6
-
-&#39;inflammation-10.csv&#39;    &#39;inflammation-02.csv&#39;    &#39;inflammation-05.csv&#39;
-
-Columns 7 through 9
-
-&#39;inflammation-08.csv&#39;    &#39;inflammation-11.csv&#39;    &#39;inflammation-03.csv&#39;
-
-Columns 10 through 13
-
-&#39;inflammation-06.csv&#39;    &#39;inflammation-09.csv&#39;    &#39;inflammation-12.&gt; csv&#39;    &#39;&#39;</code></pre>
-<p>Using this trick, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory. Be careful of the empty string <code>''</code> at the end of <code>file_list</code>!</p>
+    name
+    date
+    bytes
+    isdir
+    datenum</code></pre>
+<p>The <code>dir</code> command returns a special MATLAB data type called a “struct array”. Each element in this array is a “struct”, containing information about a single file in the form of “fields”.</p>
+<p>To access the “name” field of, say, the first file, we can do the following:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">name = files(<span class="fl">1</span>).name;
+disp(name)</code></pre>
+<pre class="output"><code>inflammation-01.csv</code></pre>
+<p>To get the modification date of the third file, we can do:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">mod_date = files(<span class="fl">3</span>).date;
+disp(mod_date)</code></pre>
+<pre class="output"><code>26-Jul-2015 22:24:31</code></pre>
+<p>Information about the other fields like <code>bytes</code> and <code>isdir</code> is available in the documentation of the <code>dir</code> function:</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">help dir</code></pre>
+<p>Using <code>dir</code>, rewrite the <code>analyze</code> script to analyze all <code>csv</code> files in the current directory.</p>
 </div>
 </section>
 <aside class="callout panel panel-info">
@@ -291,7 +289,7 @@ Columns 10 through 13
 <h2><span class="glyphicon glyphicon-pushpin"></span>GNU Octave</h2>
 </div>
 <div class="panel-body">
-<p>Lastly, in the above trick using <code>ls</code> with the wildcard <code>*</code>, another small Octave/MATLAB difference shows up. In Octave, the value returned by <code>filestr = ls('path/to/data/*.csv')</code> is an array of strings, so we can loop over filestr directly without the need to split it with <code>strsplit</code>.</p>
+<p>Lastly, in the above trick using <code>ls</code> with the wildcard <code>*</code>, another small Octave/MATLAB difference shows up. In Octave, the value returned by <code>filestr = ls('path/to/data/*.csv')</code> is an array of strings, so we can loop over <code>filestr</code> directly without the need to split it with <code>strsplit</code>.</p>
 </div>
 </aside>
         </div>
