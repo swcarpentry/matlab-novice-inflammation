@@ -160,7 +160,6 @@ or the next person who reads it won't be able to understand what's going on.
 > disp(strcat('a', 'b'))
 > ~~~
 >
-<<<<<<< HEAD:05-func.md
 > ~~~ {.output}
 > ab
 > ~~~
