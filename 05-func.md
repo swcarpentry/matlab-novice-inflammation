@@ -156,14 +156,6 @@ or the next person who reads it won't be able to understand what's going on.
 > ab
 > ~~~
 >
-> ~~~ {.matlab}
-> disp(strcat('a', 'b'))
-> ~~~
->
-> ~~~ {.output}
-> ab
-> ~~~
->
 > Write a function called `fence` that takes two parameters, `original` and
 > `wrapper` and appends `wrapper` before and after `original`:
 >
