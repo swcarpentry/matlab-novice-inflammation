@@ -135,7 +135,7 @@ In this case, "either" means "either or both", not
 > a.
 >
 > ~~~
-> if
+> if ''
 >     disp('empty string is true')
 > end
 > ~~~
