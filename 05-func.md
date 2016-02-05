@@ -283,7 +283,7 @@ function out = center(data, desired)
     %   Returns a new array containing the values in
     %   DATA centered around the value.
 
-    out = (data  - mean(data)) + desired;
+    out = (data  - mean(data(:))) + desired;
 end
 ~~~
 
