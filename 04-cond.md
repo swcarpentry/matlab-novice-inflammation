@@ -12,7 +12,7 @@ minutes: 30
 
 
 Our previous lessons have shown us how to manipulate
-data, define our own functions, and repeat things.
+data and repeat things.
 However, the programs we have written so far always do
 the same things, regardless of what data they're given.
 We want programs to make choices based on the values
@@ -67,22 +67,19 @@ before conditional...
 
 
 We can also chain several tests together using `elseif`. This makes it
-simple to write a function that returns the sign of a number:
+simple to write a script that gives the sign of a number:
 
 ~~~
-% function sign_of.m
+% Demo script to illustrate use of conditionals
+	if num > 0
+		sign_of_num = 1;
+	elseif num ==0
+		sign_of_num = 0;
+	else
+		sign_of_num = -1;
+	end
 
-function out = sign_of(num)
-
-    if num > 0
-        out = 1;
-
-    elseif num == 0
-        out = 0;
-
-    else
-        out = -1;
-end
+	disp(strcat('Sign of num = ',num2str(sign_of_num)))
 ~~~
 
 One important thing to notice in the code above is that we use
@@ -180,16 +177,15 @@ In this case, "either" means "either or both", not
 > end
 > ~~~
 >
-> 2. Write a function called `near` that returns `1`
->  when its first parameter is within 10% of its second
+> 2. Write a script called `near` that performs a test on two variables, and displays `1`
+>  when the first variable is within 10% of the other
 >  and `0` otherwise. Compare your implementation with
->  your partner's: do you return the same answer for
+>  your partner's: do you get the same answer for
 >  all possible pairs of numbers?
 
 
 Another thing to realize is that `if` statements can
-be combined with loops just as easily as they can be
-combined with functions. For example, if we want
+be also combined with loops. For example, if we want
 to sum the positive numbers in a list, we can write
 this:
 
