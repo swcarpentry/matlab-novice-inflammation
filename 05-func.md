@@ -249,12 +249,8 @@ disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~
 
 ~~~ {.output}
--6.1487e+00  -2.2962e-14   1.3851e+01
-~~~
-! I get this instead of the above:
-disp([min(centered(:)),mean(centered(:)),max(centered(:))])
    -6.1487   -0.0000   13.8513
-!
+~~~
 
 That seems almost right: the original mean
 was about 6.1, so the lower bound from zero is now about -6.1.
