@@ -332,7 +332,3 @@ repeat operations on them.
 
 2. Use functions to make code easier to re-use and
 easier to understand.
-
-We have one more big idea to introduce, and then we will
-be able to construct a better 'heat map', like the one
-we initially used to display our first data set.
