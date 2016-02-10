@@ -256,7 +256,7 @@ Below are three test functions for `range_overlap`, but first we need a brief as
 > For a more detailed explanation, search the MATLAB help files (or type `doc eq; doc assert` at the command prompt).
 
 ~~~{.matlab}
-%script test_range_overlap.m
+% script test_range_overlap.m
 
 % assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0]))==1);
 % assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0]))==1);
