@@ -249,7 +249,7 @@ Its advocates believe it produces better code faster because:
 Here are three test functions for `range_overlap`:
 
 ~~~{.matlab}
-%script test_range_overlap.m
+% script test_range_overlap.m
 
 % assert(range_overlap([0.0, 1.0], [5.0, 6.0]) == NaN);
 % assert(range_overlap([0.0, 1.0], [1.0, 2.0]) == NaN);
