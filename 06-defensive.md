@@ -246,16 +246,23 @@ Its advocates believe it produces better code faster because:
 
 2. Writing tests helps programmers figure out what the function is actually supposed to do.
 
-Here are three test functions for `range_overlap`:
+Below are three test functions for `range_overlap`, but first we need a brief aside to explain some MATLAB behaviour.
+1. Testing for equality between matrices
+	Using `matA == matB` returns a matrix of logical values
+2. Input format required for assert
+	`assert` requires a scalar logical input argument
+
+> ## Looking for help {.challenge}
+> For a more detailed explanation, search the MATLAB help files (or type `doc eq; doc assert` at the command prompt).
 
 ~~~{.matlab}
 %script test_range_overlap.m
 
-% assert(range_overlap([0.0, 1.0], [5.0, 6.0]) == NaN);
-% assert(range_overlap([0.0, 1.0], [1.0, 2.0]) == NaN);
-assert(range_overlap([0, 1.0]) == (0, 1.0));
-assert(range_overlap([2.0, 3.0], [2.0, 4.0]) == [2.0, 3.0]);
-assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);
+% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0]))==1);
+% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0]))==1);
+assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
+assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]));
+assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
 ~~~
 
 ~~~ {.matlab}
@@ -327,6 +334,8 @@ a special value: `NaN` (Not a Number), for the following cases:
 > As you make change to the code, run `test_range_overlap` regularly
 to make sure you aren't breaking anything. Once you're done,
 running `test_range_overlap` shouldn't raise any errors.
+>
+> Consider reading about the `isnan` function in the help files to make sure you understand what these first two lines are doing.
 
 Once testing has uncovered problems,
 the next step is to fix them.
