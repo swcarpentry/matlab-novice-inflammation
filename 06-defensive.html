@@ -143,8 +143,10 @@ end</code></pre>
 <li><p>Writing tests helps programmers figure out what the function is actually supposed to do.</p></li>
 </ol>
 <p>Here are three test functions for <code>range_overlap</code>:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">%script test_range_overlap.m</span>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script test_range_overlap.m</span>
 
+<span class="co">% assert(range_overlap([0.0, 1.0], [5.0, 6.0]) == NaN);</span>
+<span class="co">% assert(range_overlap([0.0, 1.0], [1.0, 2.0]) == NaN);</span>
 assert(range_overlap([<span class="fl">0</span>, <span class="fl">1.0</span>]) == (<span class="fl">0</span>, <span class="fl">1.0</span>));
 assert(range_overlap([<span class="fl">2.0</span>, <span class="fl">3.0</span>], [<span class="fl">2.0</span>, <span class="fl">4.0</span>]) == [<span class="fl">2.0</span>, <span class="fl">3.0</span>]);
 assert(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>], [<span class="fl">0.0</span>, <span class="fl">2.0</span>], [-<span class="fl">1.0</span>, <span class="fl">1.0</span>]) == [<span class="fl">0.0</span>, <span class="fl">1.0</span>]);</code></pre>
