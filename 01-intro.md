@@ -89,7 +89,7 @@ MATLAB suggests using `csvread`.
 If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
-To load the data from our CSV file into MATLAB, type following
+To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB shell, and press `Enter`:
 
 ~~~ {.matlab}
