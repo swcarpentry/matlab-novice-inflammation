@@ -40,7 +40,7 @@
 </ul>
 </div>
 </section>
-<p>Our previous lessons have shown us how to manipulate data, define our own functions, and repeat things. However, the programs we have written so far always do the same things, regardless of what data they’re given. We want programs to make choices based on the values they are manipulating.</p>
+<p>Our previous lessons have shown us how to manipulate data and repeat things. However, the programs we have written so far always do the same things, regardless of what data they’re given. We want programs to make choices based on the values they are manipulating.</p>
 <p>The tool that MATLAB gives us for doing this is called a <a href="reference.html#conditional-statement">conditional statement</a>, and it looks like this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">num = <span class="fl">37</span>;
 
@@ -65,20 +65,17 @@ end
 disp(<span class="st">&#39;...after conditional&#39;</span>)</code></pre>
 <pre class="output"><code>before conditional...
 ...after conditional</code></pre>
-<p>We can also chain several tests together using <code>elseif</code>. This makes it simple to write a function that returns the sign of a number:</p>
-<pre><code>% function sign_of.m
-
-function out = sign_of(num)
-
+<p>We can also chain several tests together using <code>elseif</code>. This makes it simple to write a script that gives the sign of a number:</p>
+<pre><code>% Demo script to illustrate use of conditionals
     if num &gt; 0
-        out = 1;
-
-    elseif num == 0
-        out = 0;
-
+        sign_of_num = 1;
+    elseif num ==0
+        sign_of_num = 0;
     else
-        out = -1;
-end</code></pre>
+        sign_of_num = -1;
+    end
+
+    disp(strcat(&#39;Sign of num = &#39;,num2str(sign_of_num)))</code></pre>
 <p>One important thing to notice in the code above is that we use a double equals sign <code>==</code> to test for equality rather than a single equals sign. This is because the latter is used to mean assignment. In our test, we want to check for the equality of <code>num</code> and <code>0</code>, not <em>assign</em> 0 to <code>num</code>. This convention was inherited from C, and it does take a bit of getting used to…</p>
 <p>We can also combine tests, using <code>&amp;&amp;</code> (and) and <code>||</code> (or). <code>&amp;&amp;</code> is true if both tests are true:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">if ((<span class="fl">1</span> &gt; <span class="fl">0</span>) &amp;&amp; (-<span class="fl">1</span> &gt; <span class="fl">0</span>))
@@ -102,7 +99,7 @@ end</code></pre>
 <li><code>1</code> and <code>0</code> aren’t the only values in MATLAB that are true or false. In fact, <em>any</em> value can be used in an <code>if</code> or <code>elseif</code>. After reading and running the code below, explain what the rule is for which values that are considered true and which are considered false.</li>
 </ol>
 <p>a.</p>
-<pre><code>if
+<pre><code>if &#39;&#39;
     disp(&#39;empty string is true&#39;)
 end</code></pre>
 <p>b.</p>
@@ -126,11 +123,11 @@ end</code></pre>
     disp(&#39;true is true&#39;)
 end</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Write a function called <code>near</code> that returns <code>1</code> when its first parameter is within 10% of its second and <code>0</code> otherwise. Compare your implementation with your partner’s: do you return the same answer for all possible pairs of numbers?</li>
+<li>Write a script called <code>near</code> that performs a test on two variables, and displays <code>1</code> when the first variable is within 10% of the other and <code>0</code> otherwise. Compare your implementation with your partner’s: do you get the same answer for all possible pairs of numbers?</li>
 </ol>
 </div>
 </section>
-<p>Another thing to realize is that <code>if</code> statements can be combined with loops just as easily as they can be combined with functions. For example, if we want to sum the positive numbers in a list, we can write this:</p>
+<p>Another thing to realize is that <code>if</code> statements can be also combined with loops. For example, if we want to sum the positive numbers in a list, we can write this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [-<span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">2</span>, -<span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">6</span>];
 total = <span class="fl">0</span>;
 
