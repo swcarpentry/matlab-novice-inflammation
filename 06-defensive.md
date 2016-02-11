@@ -247,10 +247,15 @@ Its advocates believe it produces better code faster because:
 2. Writing tests helps programmers figure out what the function is actually supposed to do.
 
 Below are three test functions for `range_overlap`, but first we need a brief aside to explain some MATLAB behaviour.
-1. Testing for equality between matrices
-	Using `matA == matB` returns a matrix of logical values
-2. Input format required for assert
-	`assert` requires a scalar logical input argument
+
+1. Argument format required for `assert`
+
+	`assert` requires a scalar logical input argument (i.e. `true` (1) or `false`(0)).
+
+2. Testing for equality between matrices
+
+	The syntax `matA == matB` returns a matrix of logical values. If we just want a `true` or `false` answer for the whole matrix (e.g. to use with `assert`), we need to use `isequal` instead.
+
 
 > ## Looking for help {.challenge}
 > For a more detailed explanation, search the MATLAB help files (or type `doc eq; doc assert` at the command prompt).
@@ -258,8 +263,8 @@ Below are three test functions for `range_overlap`, but first we need a brief as
 ~~~{.matlab}
 % script test_range_overlap.m
 
-% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0]))==1);
-% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0]))==1);
+% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));
+% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])));
 assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
 assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]));
 assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
