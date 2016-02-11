@@ -429,6 +429,8 @@ Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
 and their minima show the same staircase structure.
 
+We've now automated the analysis and have confirmed that all the data files show the same artifact. This is what we set out to test, and now we can just call one function to do it. With minor modifications, this function could be re-used to check all our future data files.
+
 > ## Another Way to Analyze Multiple Files {.challenge}
 >
 > In cases where our file names don't follow such a regular pattern,

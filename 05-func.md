@@ -156,14 +156,6 @@ or the next person who reads it won't be able to understand what's going on.
 > ab
 > ~~~
 >
-> ~~~ {.matlab}
-> disp(strcat('a', 'b'))
-> ~~~
->
-> ~~~ {.output}
-> ab
-> ~~~
->
 > Write a function called `fence` that takes two parameters, `original` and
 > `wrapper` and appends `wrapper` before and after `original`:
 >
@@ -205,7 +197,7 @@ dataset around a particular value:
 
 ~~~ {.matlab}
 function out = center(data, desired)
-    out = (data - mean(data)) + desired;
+    out = (data - mean(data(:))) + desired;
 end
 ~~~
 
@@ -257,7 +249,7 @@ disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~
 
 ~~~ {.output}
--6.1487e+00  -2.2962e-14   1.3851e+01
+   -6.1487   -0.0000   13.8513
 ~~~
 
 That seems almost right: the original mean
@@ -291,7 +283,7 @@ function out = center(data, desired)
     %   Returns a new array containing the values in
     %   DATA centered around the value.
 
-    out = (data  - mean(data)) + desired;
+    out = (data  - mean(data(:))) + desired;
 end
 ~~~
 
@@ -340,7 +332,3 @@ repeat operations on them.
 
 2. Use functions to make code easier to re-use and
 easier to understand.
-
-We have one more big idea to introduce, and then we will
-be able to construct a better 'heat map', like the one
-we initially used to display our first data set.

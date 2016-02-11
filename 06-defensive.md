@@ -55,7 +55,7 @@ total = 0;
 
 for n = numbers
     assert(n >= 0);
-    total += n;
+    total = total + n;
 end
 ~~~
 
@@ -123,9 +123,17 @@ The first three preconditions catch invalid inputs.
 ~~~ {.matlab}
 normalize_rectangle([0, 0, 1])
 ~~~
-
 ~~~{.error}
-error: assert (1 == 2) failed
+Attempted to access rect(4); index out of bounds because numel(rect)=3.
+
+Error in normalize_rectangle (line 9)
+    y1 = rect(4);
+~~~
+~~~{.matlab}
+normalize_rectangle([1,0,0,0,0])
+~~~
+~~~{.error}
+Error: Rectangle must contain 4 coordinates
 ~~~
 
 ~~~{.matlab}
@@ -156,7 +164,7 @@ the assertion is triggered:
 normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 ~~~
 
-~~~ {.output}
+~~~ {.error}
 error: Calculated upper X coordinate invalid
 ~~~
 
@@ -198,7 +206,7 @@ that this bit is tricky.
 > 1. Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
 > What pre-conditions and post-conditions would you write for it?
 > Compare your answer to your neighbor's:
-> can you think of a function that will past your tests but not hers or vice versa?
+> can you think of an input array that will past your tests but not hers or vice versa?
 
 
 An assertion checks that something is true at a particular point in the program.
@@ -238,16 +246,28 @@ Its advocates believe it produces better code faster because:
 
 2. Writing tests helps programmers figure out what the function is actually supposed to do.
 
-Here are three test functions for `range_overlap`:
+Below are three test functions for `range_overlap`, but first we need a brief aside to explain some MATLAB behaviour.
+
+1. Argument format required for `assert`
+
+	`assert` requires a scalar logical input argument (i.e. `true` (1) or `false`(0)).
+
+2. Testing for equality between matrices
+
+	The syntax `matA == matB` returns a matrix of logical values. If we just want a `true` or `false` answer for the whole matrix (e.g. to use with `assert`), we need to use `isequal` instead.
+
+
+> ## Looking for help {.challenge}
+> For a more detailed explanation, search the MATLAB help files (or type `doc eq; doc assert` at the command prompt).
 
 ~~~{.matlab}
 % script test_range_overlap.m
 
-% assert(range_overlap([0.0, 1.0], [5.0, 6.0]) == NaN);
-% assert(range_overlap([0.0, 1.0], [1.0, 2.0]) == NaN);
-assert(range_overlap([0, 1.0]) == (0, 1.0));
-assert(range_overlap([2.0, 3.0], [2.0, 4.0]) == [2.0, 3.0]);
-assert(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]) == [0.0, 1.0]);
+% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));
+% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])));
+assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
+assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]));
+assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
 ~~~
 
 ~~~ {.matlab}
@@ -255,10 +275,10 @@ test_range_overlap
 ~~~
 
 ~~~ {.error}
-Undefined function 'range_overlap' for input arguments of type 'double'.
+Undefined function or variable 'range_overlap'.
 
 Error in test_range_overlap (line 6)
-assert(range_overlap([0, 1.0]) == [0, 1.0]);
+assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
 ~~~
 
 The error is actually reassuring:
@@ -319,6 +339,8 @@ a special value: `NaN` (Not a Number), for the following cases:
 > As you make change to the code, run `test_range_overlap` regularly
 to make sure you aren't breaking anything. Once you're done,
 running `test_range_overlap` shouldn't raise any errors.
+>
+> Consider reading about the `isnan` function in the help files to make sure you understand what these first two lines are doing.
 
 Once testing has uncovered problems,
 the next step is to fix them.
