@@ -231,12 +231,9 @@ who
 ~~~
 
 ~~~ {.output}
-Variables in the current scope:
+Your variables are:
 
-patient_data
-weight_kg
-weight_lb
-
+patient_data  weight_kg  weight_lb
 ~~~
 
 To remove a variable from MATLAB, use the `clear` command:
@@ -248,11 +245,9 @@ who
 
 
 ~~~ {.output}
-Variables in the current scope:
+Your variables are:
 
-patient_data
-weight_kg
-
+patient_data  weight_kg
 ~~~
 
 Alternatively, we can look at the **Workspace**.
