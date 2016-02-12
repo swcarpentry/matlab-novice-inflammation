@@ -26,7 +26,7 @@ for idx = 1:3
     plot(min(patient_data, [], 1));
     ylabel('min')
 
-    print('-dpng', img_name);
+    print(img_name,'-dpng');
     close();
 
 end
