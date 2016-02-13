@@ -312,7 +312,7 @@ DATA centered around the value.
 >    then the function should map a value v to (v - L)/(H - L).) Be sure to give the
 >    function a comment block explaining its use.
 >
-> 1. Run `help linspace` to see how to use this function to generate
+> 1. Run `help linspace` to see how to use `linspace` to generate
 >    regularly-spaced values. Use arrays like this to test your `rescale` function.
 >
 > 1. Write a function `run_analysis` that accepts a filename

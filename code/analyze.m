@@ -21,6 +21,6 @@ plot(min(patient_data, [], 1));
 ylabel('min')
 
 % save plot to disk as png image:
-print -dpng 'patient_data-01.png'
+print ('patient_data-01','-dpng ')
 
 close()
