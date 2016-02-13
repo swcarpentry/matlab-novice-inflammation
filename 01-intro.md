@@ -89,7 +89,7 @@ MATLAB suggests using `csvread`.
 If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
-To load the data from our CSV file into MATLAB, type following
+To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB shell, and press `Enter`:
 
 ~~~ {.matlab}
@@ -231,12 +231,9 @@ who
 ~~~
 
 ~~~ {.output}
-Variables in the current scope:
+Your variables are:
 
-patient_data
-weight_kg
-weight_lb
-
+patient_data  weight_kg  weight_lb
 ~~~
 
 To remove a variable from MATLAB, use the `clear` command:
@@ -248,11 +245,9 @@ who
 
 
 ~~~ {.output}
-Variables in the current scope:
+Your variables are:
 
-patient_data
-weight_kg
-
+patient_data  weight_kg
 ~~~
 
 Alternatively, we can look at the **Workspace**.
