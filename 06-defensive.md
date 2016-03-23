@@ -79,7 +79,7 @@ For example,
 suppose we are representing rectangles using an array
 of four coordinates `(x0, y0, x1, y1)`. In order to
 do some calculations, we need to normalize the rectangle
-so that it is at the origin and 1.0 units on its longest axis.
+so that it is at the origin, measures 1.0 units on its longest axis, and is oriented so the longest axis is the y axis.
 Here is a function that does that, but checks that its input is
 correctly formatted and that its result makes
 sense:
@@ -87,7 +87,8 @@ sense:
 ~~~{.matlab}
 function normalized = normalize_rectangle(rect)
     % Normalizes a rectangle so that it is at the origin
-    % and 1.0 units long on its longest axis:
+    % measures 1.0 units on its longest axis
+	% and is oriented with the longest axis in the y direction:
 
     x0 = rect(1);
     y0 = rect(2);
