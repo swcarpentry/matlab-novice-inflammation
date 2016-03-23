@@ -35,3 +35,15 @@ function output_range = range_overlap(varargin)
 
 end
 ~~~
+
+~~~{.matlab}
+% exponential loop
+
+x=5;
+b=4;
+result=b;
+for i=2:x
+    result=result*b;
+end
+disp(result)
+~~~
