@@ -99,8 +99,6 @@ end</code></pre>
 <pre class="output"><code>abracadabra</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(strcat(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))</code></pre>
 <pre class="output"><code>ab</code></pre>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">disp(strcat(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))</code></pre>
-<pre class="output"><code>ab</code></pre>
 <p>Write a function called <code>fence</code> that takes two parameters, <code>original</code> and <code>wrapper</code> and appends <code>wrapper</code> before and after <code>original</code>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp(fence(<span class="st">&#39;name&#39;</span>, <span class="st">&#39;*&#39;</span>))</code></pre>
 <pre class="output"><code>*name*</code></pre>
@@ -116,7 +114,7 @@ end</code></pre>
 final = fahr_to_celcius(original);</code></pre>
 <p>Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly. To see how to do this, let’s write a function to center a dataset around a particular value:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function out = center(data, desired)
-    out = (data - mean(data)) + desired;
+    out = (data - mean(data(:))) + desired;
 end</code></pre>
 <p>We could test this on our actual data, but since we don’t know what the values ought to be, it will be hard to tell if the result was correct, Instead, let’s create a matrix of 0’s, and then center that around 3:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">z = zeros(<span class="fl">2</span>,<span class="fl">2</span>);
@@ -134,7 +132,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
 <pre class="output"><code>0.00000    6.14875   20.00000</code></pre>
 <p>And let’s do the same after applying our <code>center</code> function to the data:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">disp([min(centered(:)), mean(centered(:)), max(centered(:))])</code></pre>
-<pre class="output"><code>-6.1487e+00  -2.2962e-14   1.3851e+01</code></pre>
+<pre class="output"><code>   -6.1487   -0.0000   13.8513</code></pre>
 <p>That seems almost right: the original mean was about 6.1, so the lower bound from zero is now about -6.1. The mean of the centered data isn’t quite zero–we’ll explore why not in the challenges–but it’s pretty close. We can even go further and check that the standard deviation hasn’t changed:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">std(data(:)) - std(centered(:))</code></pre>
 <pre class="output"><code>5.3291e-15</code></pre>
@@ -147,7 +145,7 @@ centered = center(data(:), <span class="fl">0</span>)</code></pre>
     <span class="co">%   Returns a new array containing the values in</span>
     <span class="co">%   DATA centered around the value.</span>
 
-    out = (data  - mean(data)) + desired;
+    out = (data  - mean(data(:))) + desired;
 end</code></pre>
 <p>Comment lines immediately below the function definition line are called “help text”. Typing <code>help function_name</code> brings up the help text for that function:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">help center</code></pre>
@@ -174,7 +172,6 @@ DATA centered around the value.</code></pre>
 <li><p>Use arrays to store related values, and loops to repeat operations on them.</p></li>
 <li><p>Use functions to make code easier to re-use and easier to understand.</p></li>
 </ol>
-<p>We have one more big idea to introduce, and then we will be able to construct a better ‘heat map’, like the one we initially used to display our first data set.</p>
         </div>
       </div>
       </article>
