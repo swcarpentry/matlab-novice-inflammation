@@ -30,7 +30,7 @@
           <h2 class="subtitle">Defensive Programming</h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -52,13 +52,13 @@
 </ul>
 <p>The good news is, doing these things will speed up our programming, not slow it down.</p>
 <p>The first step toward getting the right answers from our programs is to assume that mistakes <em>will</em> happen and to guard against them. This is called <a href="reference.html#defensive-programming">defensive programming</a>, and the most common way to do it is to add <a href="reference.html#assertion">assertions</a> to our code so that it checks itself as it runs. An assertion is simply a statement that something must be true at a certain point in a program. When MATLAB sees one, it checks the assertion’s condition. If it’s true, MATLAB does nothing, but if it’s false, MATLAB halts the program immediately and prints an error message. For example, this piece of code halts as soon as the loop encounters a value that isn’t positive:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, -<span class="fl">0.001</span>, <span class="fl">4.4</span>];
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">numbers = [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">0.7</span>, -<span class="fl">0.001</span>, <span class="fl">4.4</span>];
 total = <span class="fl">0</span>;
 
 for n = numbers
     assert(n &gt;= <span class="fl">0</span>);
     total = total + n;
-end</code></pre>
+end</code></pre></div>
 <pre class="output"><code>error: assert (n &gt;= 0) failed</code></pre>
 <p>Programs like the Firefox browser are full of assertions: 10-20% of the code they contain are there to check that the other 80-90% are working correctly. Broadly speaking, assertions fall into three categories:</p>
 <ul>
@@ -66,10 +66,11 @@ end</code></pre>
 <li>A postcondition is something that the function guarantees is true when it finishes.</li>
 <li>An invariant is something that is always true at a particular point inside a piece of code.</li>
 </ul>
-<p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, y1)</code>. In order to do some calculations, we need to normalize the rectangle so that it is at the origin and 1.0 units on its longest axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">function normalized = normalize_rectangle(rect)
+<p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, y1)</code>. In order to do some calculations, we need to normalize the rectangle so that it is at the origin, measures 1.0 units on its longest axis, and is oriented so the longest axis is the y axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">function normalized = normalize_rectangle(rect)
     <span class="co">% Normalizes a rectangle so that it is at the origin</span>
-    <span class="co">% and 1.0 units long on its longest axis:</span>
+    <span class="co">% measures 1.0 units on its longest axis</span>
+    <span class="co">% and is oriented with the longest axis in the y direction:</span>
 
     x0 = rect(<span class="fl">1</span>);
     y0 = rect(<span class="fl">2</span>);
@@ -97,22 +98,22 @@ end</code></pre>
     assert ((<span class="fl">0</span> &lt; upper_y) &amp;&amp; (upper_y &lt;= <span class="fl">1.0</span>), <span class="st">&#39;Calculated upper Y coordinate invalid&#39;</span>);
 
     normalized = [<span class="fl">0</span>, <span class="fl">0</span>, upper_x, upper_y];
-end</code></pre>
+end</code></pre></div>
 <p>The first three preconditions catch invalid inputs.</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>])</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>])</code></pre></div>
 <pre class="error"><code>Attempted to access rect(4); index out of bounds because numel(rect)=3.
 
 Error in normalize_rectangle (line 9)
     y1 = rect(4);</code></pre>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>])</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>])</code></pre></div>
 <pre class="error"><code>Error: Rectangle must contain 4 coordinates</code></pre>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">2</span>]);</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">2</span>]);</code></pre></div>
 <pre class="error"><code>error: Invalid X coordinates</code></pre>
 <p>The post-conditions help us catch bugs by telling us when our calculations cannot have been correct. For example, if we normalize a rectangle that is taller than it is wide, everything seems OK:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>]);</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1.0</span>, <span class="fl">5.0</span>]);</code></pre></div>
 <pre class="output"><code>0.00000   0.00000   0.20000   1.00000</code></pre>
 <p>but if we normalize one that’s wider than it is tall, the assertion is triggered:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>])</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">normalize_rectangle([<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">1.0</span>])</code></pre></div>
 <pre class="error"><code>error: Calculated upper X coordinate invalid</code></pre>
 <p>Re-reading our function, we realize that line 19 should should divide <code>dy</code> by <code>dx</code>. If we had left out the assertion at the end of the function, we would have created and returned something that had the right shape as a valid answer, but wasn’t. Detecting and debugging <em>that</em> would almost certainly have taken more time in the long run than writing the assertion.</p>
 <p>But assertions aren’t just about catching errors: they also help people understand programs. Each assertion gives the person reading the program a chance to check (consciously or otherwise) that their understanding matches what the code is doing.</p>
@@ -120,7 +121,7 @@ Error in normalize_rectangle (line 9)
 <p>The second rule is, <em>turn bugs into assertions or tests</em>. If you made a mistake in a piece of code, the odds are good that you have made other mistakes nearby, or will make the same mistake (or a related one) the next time you change it. Writing assertions to check that you haven’t <a href="reference.html#regression">regressed</a> (i.e., haven’t re-introduced an old problem) can save a lot of time in the long run, and helps to warn people who are reading the code (including your future self) that this bit is tricky.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Finding conditions</h2>
+<h2 id="finding-conditions"><span class="glyphicon glyphicon-pencil"></span>Finding conditions</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
@@ -156,20 +157,20 @@ Error in normalize_rectangle (line 9)
 </ol>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Looking for help</h2>
+<h2 id="looking-for-help"><span class="glyphicon glyphicon-pencil"></span>Looking for help</h2>
 </div>
 <div class="panel-body">
 <p>For a more detailed explanation, search the MATLAB help files (or type <code>doc eq; doc assert</code> at the command prompt).</p>
 </div>
 </section>
-<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script test_range_overlap.m</span>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script test_range_overlap.m</span>
 
 <span class="co">% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));</span>
 <span class="co">% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])));</span>
 assert(isequal(range_overlap([<span class="fl">0</span>, <span class="fl">1.0</span>]),[<span class="fl">0</span>, <span class="fl">1.0</span>]));
 assert(isequal(range_overlap([<span class="fl">2.0</span>, <span class="fl">3.0</span>], [<span class="fl">2.0</span>, <span class="fl">4.0</span>]),[<span class="fl">2.0</span>, <span class="fl">3.0</span>]));
-assert(isequal(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>], [<span class="fl">0.0</span>, <span class="fl">2.0</span>], [-<span class="fl">1.0</span>, <span class="fl">1.0</span>]),[<span class="fl">0.0</span>, <span class="fl">1.0</span>]))</code></pre>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
+assert(isequal(range_overlap([<span class="fl">0.0</span>, <span class="fl">1.0</span>], [<span class="fl">0.0</span>, <span class="fl">2.0</span>], [-<span class="fl">1.0</span>, <span class="fl">1.0</span>]),[<span class="fl">0.0</span>, <span class="fl">1.0</span>]))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre></div>
 <pre class="error"><code>Undefined function or variable &#39;range_overlap&#39;.
 
 Error in test_range_overlap (line 6)
@@ -177,7 +178,7 @@ assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));</code></pre>
 <p>The error is actually reassuring: we haven’t written <code>range_overlap</code> yet, so if the tests passed, it would be a sign that someone else had and that we were accidentally using their function.</p>
 <p>And as a bonus of writing these tests, we’ve implicitly defined what our input and output look like: we expect a list of pairs as input, and produce a single pair as output.</p>
 <p>Let’s write <code>range_overlap</code>:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">function output_range = range_overlap(varargin)
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">function output_range = range_overlap(varargin)
 
     <span class="co">% Return common overlap among a set of [low, high] ranges.</span>
 
@@ -194,14 +195,14 @@ assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));</code></pre>
 
     output_range = [lowest, highest];
 
-end</code></pre>
+end</code></pre></div>
 <p>And now when we run the tests:</p>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">test_range_overlap</code></pre></div>
 <p>we shouldn’t see an error.</p>
 <p>Something important is missing, though. We don’t have any tests for the case where the ranges don’t overlap at all, or for the case where the ranges overlap at a point. We’ll leave this as a final assignment.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Fixing Code through Testing</h2>
+<h2 id="fixing-code-through-testing"><span class="glyphicon glyphicon-pencil"></span>Fixing Code through Testing</h2>
 </div>
 <div class="panel-body">
 <p>Fix <code>range_overlap</code>. Uncomment the two commented lines in <code>test_range_overlap</code>. You’ll see that our objective is to return a special value: <code>NaN</code> (Not a Number), for the following cases:</p>

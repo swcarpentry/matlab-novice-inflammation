@@ -31,7 +31,7 @@
           <h2 id="legend">Legend</h2>
 <h2 id="overall">Overall</h2>
 <h2 id="solutions-to-exercises"><a href="06-defensive.html">Solutions to exercises</a></h2>
-<pre class="sourceCode matlab"><code class="sourceCode matlab">function output_range = range_overlap(varargin)
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">function output_range = range_overlap(varargin)
 
     <span class="co">% Return common overlap among a set of [low, high] ranges.</span>
 
@@ -54,7 +54,16 @@
 
     output_range = [lowest, highest];
 
-end</code></pre>
+end</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% exponential loop</span>
+
+x=<span class="fl">5</span>;
+b=<span class="fl">4</span>;
+result=b;
+for i=<span class="fl">2</span>:x
+    result=result*b;
+end
+disp(result)</code></pre></div>
         </div>
       </div>
       </article>
