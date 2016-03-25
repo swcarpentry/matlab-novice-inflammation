@@ -77,7 +77,9 @@ inside a piece of code.
 
 For example,
 suppose we are representing rectangles using an array
-of four coordinates `(x0, y0, x1, y1)`, such that (x0,y0) are the bottom left coordinates, and (x1,y1) are the top right coordinates. In order to
+of four coordinates `(x0, y0, x1, y1)`, such that (x0,y0) 
+are the bottom left coordinates, and (x1,y1) are 
+the top right coordinates. In order to
 do some calculations, we need to normalize the rectangle
 so that it is at the origin, measures 1.0 units on its longest axis, and is oriented so the longest axis is the y axis.
 Here is a function that does that, but checks that its input is
