@@ -66,10 +66,11 @@ end</code></pre>
 <li>A postcondition is something that the function guarantees is true when it finishes.</li>
 <li>An invariant is something that is always true at a particular point inside a piece of code.</li>
 </ul>
-<p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, y1)</code>. In order to do some calculations, we need to normalize the rectangle so that it is at the origin and 1.0 units on its longest axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
+<p>For example, suppose we are representing rectangles using an array of four coordinates <code>(x0, y0, x1, y1)</code>, such that (x0,y0) are the bottom left coordinates, and (x1,y1) are the top right coordinates. In order to do some calculations, we need to normalize the rectangle so that it is at the origin, measures 1.0 units on its longest axis, and is oriented so the longest axis is the y axis. Here is a function that does that, but checks that its input is correctly formatted and that its result makes sense:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">function normalized = normalize_rectangle(rect)
     <span class="co">% Normalizes a rectangle so that it is at the origin</span>
-    <span class="co">% and 1.0 units long on its longest axis:</span>
+    <span class="co">% measures 1.0 units on its longest axis</span>
+    <span class="co">% and is oriented with the longest axis in the y direction:</span>
 
     x0 = rect(<span class="fl">1</span>);
     y0 = rect(<span class="fl">2</span>);
