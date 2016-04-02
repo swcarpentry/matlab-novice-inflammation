@@ -63,7 +63,7 @@ plot(ave_inflammation);
 ylabel(<span class="st">&#39;average&#39;</span>)</code></pre>
 <p>MATLAB let’s us save those as images on disk:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% save plot to disk as png image:</span>
-print (<span class="st">&#39;-dpng&#39;</span>, <span class="st">&#39;average.png&#39;</span>)</code></pre>
+print (<span class="st">&#39;average&#39;</span>,<span class="st">&#39;-dpng&#39;</span>)</code></pre>
 <p>You might have noticed that we described what we want our code to do using the <code>%</code>-sign. This is another plus of writing scripts: you can comment your code to make it easier to understand when you come back to it after a while.</p>
 <p>Let’s extend our <code>analyze</code> script with commands to create and save plots:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
@@ -89,7 +89,7 @@ plot(min(patient_data, [], <span class="fl">1</span>));
 ylabel(<span class="st">&#39;min&#39;</span>)
 
 <span class="co">% save plot to disk as png image:</span>
-print (<span class="st">&#39;-dpng&#39;</span>, <span class="st">&#39;patient_data-01.png&#39;</span>)</code></pre>
+print (<span class="st">&#39;patient_data-01&#39;</span>,<span class="st">&#39;-dpng&#39;</span>)</code></pre>
 <p>When saving plots to disk, it’s a good idea to turn off their visibility as MATLAB plots them. Let’s add a couple of lines of code to do this:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% script analyze.m</span>
 
@@ -116,7 +116,7 @@ plot(min(patient_data, [], <span class="fl">1</span>));
 ylabel(<span class="st">&#39;min&#39;</span>)
 
 <span class="co">% save plot to disk as png image:</span>
-print (<span class="st">&#39;-dpng&#39;</span>, <span class="st">&#39;patient_data-01.png&#39;</span>)
+print (<span class="st">&#39;patient_data-01&#39;</span>,<span class="st">&#39;-dpng&#39;</span>)
 
 close()</code></pre>
 <p>If we call the <code>figure</code> function without any options, MATLAB will open up an empty figure window. Try this on the command line:</p>
