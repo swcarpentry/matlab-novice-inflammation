@@ -74,7 +74,7 @@
 </ul>
 <p>Reading data from files and writing data to them are essential tasks in scientific computing, and admittedly, something that we’d rather not spend a lot of time thinking about. Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently, sparing us the grisly detail.</p>
 <p>If we know what our data looks like (in this case, we have comma-separated values) and we’re unsure about what command we want to use, we can search the documentation. Type <code>read csv</code> into the documentation toolbar. MATLAB suggests using <code>csvread</code>. If we have a closer look at the documentation, MATLAB also tells us, which in- and output arguments this function has.</p>
-<p>To load the data from our CSV file into MATLAB, type following command into the MATLAB shell, and press <code>Enter</code>:</p>
+<p>To load the data from our CSV file into MATLAB, type the following command into the MATLAB shell, and press <code>Enter</code>:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>)</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -122,20 +122,15 @@ Weight in pounds: 126.5</code></pre>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">patient_data = csvread(<span class="st">&#39;inflammation-01.csv&#39;</span>);</code></pre>
 <p>MATLAB provides a command to list all variables that have been assigned data.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">who</code></pre>
-<pre class="output"><code>Variables in the current scope:
+<pre class="output"><code>Your variables are:
 
-patient_data
-weight_kg
-weight_lb
-</code></pre>
+patient_data  weight_kg  weight_lb</code></pre>
 <p>To remove a variable from MATLAB, use the <code>clear</code> command:</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">clear weight_lb
 who</code></pre>
-<pre class="output"><code>Variables in the current scope:
+<pre class="output"><code>Your variables are:
 
-patient_data
-weight_kg
-</code></pre>
+patient_data  weight_kg</code></pre>
 <p>Alternatively, we can look at the <strong>Workspace</strong>. The workspace contains all variable names and assigned values that we currently work with. As long as they pop up in the workspace, they are universally available. It’s generally a good idea to keep the workspace as clean as possible. To do that, simply type <code>clear all</code>.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">

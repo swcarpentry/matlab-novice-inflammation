@@ -75,16 +75,14 @@ it finishes.
 - An invariant is something that is always true at a particular point
 inside a piece of code.
 
-For example,
-suppose we are representing rectangles using an array
-of four coordinates `(x0, y0, x1, y1)`, such that (x0,y0) 
-are the bottom left coordinates, and (x1,y1) are 
-the top right coordinates. In order to
-do some calculations, we need to normalize the rectangle
-so that it is at the origin, measures 1.0 units on its longest axis, and is oriented so the longest axis is the y axis.
-Here is a function that does that, but checks that its input is
-correctly formatted and that its result makes
-sense:
+For example, suppose we are representing rectangles using an array of four coordinates 
+`(x0, y0, x1, y1)`, such that (x0,y0) are the bottom left coordinates, 
+and (x1,y1) are the top right coordinates. In order to do some calculations, 
+we need to normalize the rectangle so that it is at the origin, measures 1.0 
+units on its longest axis, and is oriented so the longest axis is the y axis.
+Here is a function that does that, but checks that its input is correctly 
+formatted and that its result makes sense:
+
 
 ~~~{.matlab}
 function normalized = normalize_rectangle(rect)
@@ -92,20 +90,20 @@ function normalized = normalize_rectangle(rect)
     % measures 1.0 units on its longest axis
 	% and is oriented with the longest axis in the y direction:
 
-    x0 = rect(1);
-    y0 = rect(2);
-    x1 = rect(3);
-    y1 = rect(4);
-
     assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
     assert(x0 < x1, 'Invalid X coordinates');
     assert(y0 < y1, 'Invalid Y coordinates');
 
+    x0 = rect(1);
+    y0 = rect(2);
+    x1 = rect(3);
+    y1 = rect(4); 
+    
     dx = x1 - x0;
     dy = y1 - y0;
 
     if dx > dy
-        scaled = dx/dy;
+        scaled = dx/dy; 
         upper_x = scaled;
         upper_y = 1.0;
     else
@@ -121,16 +119,14 @@ function normalized = normalize_rectangle(rect)
 end
 ~~~
 
-The first three preconditions catch invalid inputs.
+The three preconditions catch invalid inputs:
 
 ~~~ {.matlab}
 normalize_rectangle([0, 0, 1])
 ~~~
 ~~~{.error}
-Attempted to access rect(4); index out of bounds because numel(rect)=3.
-
-Error in normalize_rectangle (line 9)
-    y1 = rect(4);
+Error using normalize_rectangle (line 6)
+Rectangle must contain 4 coordinates 
 ~~~
 ~~~{.matlab}
 normalize_rectangle([1,0,0,0,0])
@@ -401,7 +397,7 @@ scientists tend to do the following:
  without re-running that program.
 
 4. *Check conservation laws.*
- Mass, energy, and other quantitites are conserved in physical systems,
+ Mass, energy, and other quantities are conserved in physical systems,
  so they should be in programs as well.
  Similarly,
  if we are analyzing patient data,
