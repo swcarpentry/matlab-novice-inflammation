@@ -11,7 +11,7 @@ import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown, load_yaml, check_unwanted_files
+from util import Reporter, read_markdown, load_yaml, check_unwanted_files, require
 
 __version__ = '0.2'
 
@@ -146,6 +146,16 @@ def check_config(reporter, source_dir):
     config_file = os.path.join(source_dir, '_config.yml')
     config = load_yaml(config_file)
     reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
+    reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc'))
+    reporter.check_field(config_file, 'configuration', config, 'title')
+    reporter.check_field(config_file, 'configuration', config, 'email')
+    reporter.check_field(config_file, 'configuration', config, 'repo')
+    reporter.check_field(config_file, 'configuration', config, 'root')
+    if ('repo' in config) and ('root' in config):
+        reporter.check(config['repo'].endswith(config['root']),
+                       config_file,
+                       'Repository name "{0}" not consistent with root "{1}"',
+                       config['repo'], config['root'])
 
 
 def read_all_markdown(source_dir, parser):
@@ -240,14 +250,6 @@ def create_checker(args, filename, info):
     for (pat, cls) in CHECKERS:
         if pat.search(filename):
             return cls(args, filename, **info)
-
-
-def require(condition, message):
-    """Fail if condition not met."""
-
-    if not condition:
-        print(message, file=sys.stderr)
-        sys.exit(1)
 
 
 class CheckBase(object):
