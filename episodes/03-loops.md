@@ -1,15 +1,17 @@
 ---
-layout: page
-title: Programming with MATLAB
-subtitle: Repeating With Loops
-minutes: 30
+title: Repeating With Loops
+teaching: 30
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "Explain what a for loop does."
+- "Correctly write for loops that repeat simple commands."
+- "Trace changes to a loop variable as the loops runs."
+- "Use a for loop to process multiple files"
+keypoints:
+- "FIXME"
 ---
-
-> ## Learning Objectives {.objectives}
-> * Explain what a for loop does.
-> * Correctly write for loops that repeat simple commands.
-> * Trace changes to a loop variable as the loops runs.
-> * Use a for loop to process multiple files
 
 Recall that we have to do this analysis for every one of our dozen datasets.
 And we need a better way than
@@ -27,7 +29,7 @@ we have to learn how to write *loops*.
 Suppose we want to print each character in the word "lead" on
 a line of its own. One way is to use four `disp` statements:
 
-~~~{.matlab}
+~~~
 word = 'lead';
 
 disp(word(1));
@@ -35,13 +37,15 @@ disp(word(2));
 disp(word(3));
 disp(word(4));
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 l
 e
 a
 d
 ~~~
+{: .output}
 
 But this is a bad approach for two reasons:
 
@@ -56,7 +60,7 @@ a shorter one,
 it produces an error, because we're asking for characters
 that don't exist.
 
-~~~{.matlab}
+~~~
 word = 'tin';
 
 disp(word(1));
@@ -64,27 +68,31 @@ disp(word(2));
 disp(word(3));
 disp(word(4));
 ~~~
+{: .matlab}
 
-~~~{.error}
+~~~
 error: A(I): index out of bounds; value 4 out of bound 3
 ~~~
+{: .error}
 
 There's a better approach:
 
-~~~{.matlab}
+~~~
 word = 'lead';
 
 for letter = 1:4
     disp(word(letter))
 end
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 l
 e
 a
 d
 ~~~
+{: .output}
 
 This improved version uses a [for loop](reference.html#for-loop) to
 repeat an operation---in this case, printing to the screen---once for
@@ -117,19 +125,21 @@ There's still one little thing about it that should bother us.
 For our loop to deal appropriately with shorter or longer words,
 we have to change the first line of our loop by hand:
 
-~~~{.matlab}
+~~~
 word = 'tin';
 
 for letter = 1:3
     disp(word(letter));
 end
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 t
 i
 n
 ~~~
+{: .output}
 
 Although this works,
 it's not the best way to write our loop:
@@ -144,15 +154,16 @@ Fortunately,
 MATLAB provides us with a convenient function to
 write a better loop:
 
-~~~{.matlab}
+~~~
 word = 'aluminium';
 
 for letter = 1:length(word)
     disp(word(letter));
 end
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 a
 l
 u
@@ -163,6 +174,7 @@ i
 u
 m
 ~~~
+{: .output}
 
 This is much more robust code,
 as it can deal identically with
@@ -170,7 +182,7 @@ words of arbitrary length.
 Here's another loop that
 repeatedly updates the variable `len`:
 
-~~~{.matlab}
+~~~
 len = 0
 for vowel = 'aeiou'
     len = len + 1;
@@ -178,6 +190,7 @@ end
 
 disp(['Number of vowels: ', num2str(len)])
 ~~~
+{: .matlab}
 
 It's worth tracing the execution of this little program step by step.
 Since there are five characters in "aeiou",
@@ -202,25 +215,29 @@ that's being used to record progress in a loop.
 It still exists after the loop is over,
 and we can re-use variables previously defined as loop variables as well:
 
-~~~{.matlab}
+~~~
 disp(vowel)
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 u
 ~~~
+{: .output}
 
-> ## Performing Exponentiation {.challenge}
+> ## Performing Exponentiation
 >
 > MATLAB uses the caret (`^`) to perform exponentiation:
 >
-> ~~~{.matlab}
+> ~~~
 > disp(5^3)
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 > 125
 > ~~~
+> {: .output}
 >
 > You can also use a loop to perform exponentiation.
 > Remember that `b^x` is just
@@ -229,12 +246,13 @@ u
 > Let a variable `b` be the base of the number and `x` the exponent.
 > Write a loop to compute `b^x`.
 > Check your result for `b = 4` and `x = 5`.
+{: .challenge}
 
-> ## Incrementing with Loops {.challenge}
+> ## Incrementing with Loops
 >
 > Write a loop that spells the word "aluminum," adding one letter at a time:
 >
-> ~~~{.output}
+> ~~~
 > a
 > al
 > alu
@@ -244,34 +262,40 @@ u
 > aluminu
 > aluminum
 > ~~~
+> {: .output}
+{: .challenge}
 
-> ## Looping in Reverse {.challenge}
+> ## Looping in Reverse
 >
 > In Matlab, the colon operator (`:`) accepts a
 > [stride](reference.> html#stride)
 > or skip argument between the start and stop:
 >
-> ~~~{.matlab}
+> ~~~
 > disp(1:3:11)
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 > 1 4 7 10
 > ~~~
+> {: .output}
 >
-> ~~~{.matlab}
+> ~~~
 > disp(11:-3:1)
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 > 11 8 5 2
 > ~~~
+> {: .output}
 >
 > Using this,
 > write a loop to print the letters of "aluminum"
 > in reverse order, one letter per line.
 >
-> ~~~{.output}
+> ~~~
 > m
 > u
 > n
@@ -281,6 +305,8 @@ u
 > l
 > a
 > ~~~
+> {: .output}
+{: .challenge}
 
 We now have almost everything we need to process
 multiple data files with our `analyze` script.
@@ -288,14 +314,15 @@ You'll notice that our data files are named
 `inflammation-01.csv`, `inflammation-02.csv`, etc.
 Let's write a loop that tries to print the names of each one of our files:
 
-~~~{.matlab}
+~~~
 for idx = 1:12
     file_name = sprintf('inflammation-%d.csv', idx);
     disp(file_name);
 end
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 inflammation-1.csv
 inflammation-2.csv
 inflammation-3.csv
@@ -309,6 +336,7 @@ inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv
 ~~~
+{: .output}
 
 This is close, but not quite right.
 The `sprintf` function is useful when we want to
@@ -325,9 +353,10 @@ in the beginning of our loop,
 `i` starts by referring to the value 1.
 So, when MATLAB executes the command
 
-~~~{.matlab}
+~~~
 file_name = sprintf('inflammation-%d.csv', idx);
 ~~~
+{: .matlab}
 
 it substitutes the `%d` in the template `inflammation-%d.csv`,
 with the value of `i`, i.e., 1.
@@ -344,14 +373,15 @@ Our files are actually named
 `inflammation-01.csv`, `inflammation-02.csv`, etc.
 To get it right, we have to modify our template:
 
-~~~{.matlab}
+~~~
 for idx = 1:12
     file_name = sprintf('inflammation-%02d.csv', idx);
     disp(file_name);
 end
 ~~~
+{: .matlab}
 
-~~~{.output}
+~~~
 inflammation-01.csv
 inflammation-02.csv
 inflammation-03.csv
@@ -365,6 +395,7 @@ inflammation-10.csv
 inflammation-11.csv
 inflammation-12.csv
 ~~~
+{: .output}
 
 We've replaced `%d` in our earlier template with `%02d`.
 With this,
@@ -375,7 +406,7 @@ that isn't at least 2 digits long.
 
 We're now ready to modify `analyze.m` to process multiple data files:
 
-~~~{.matlab}
+~~~
 % script analyze_loops.m
 
 for idx = 1:3
@@ -411,13 +442,15 @@ for idx = 1:3
 
 end
 ~~~
+{: .matlab}
 
 Remember that to run our script, we simply type in its name in the
 command line:
 
-~~~{.matlab}
+~~~
 analyze_loops
 ~~~
+{: .matlab}
 
 <img src="img/02-loop_1.png" style="width:500px; height:400px">
 
@@ -431,7 +464,7 @@ and their minima show the same staircase structure.
 
 We've now automated the analysis and have confirmed that all the data files show the same artifact. This is what we set out to test, and now we can just call one function to do it. With minor modifications, this function could be re-used to check all our future data files.
 
-> ## Another Way to Analyze Multiple Files {.challenge}
+> ## Another Way to Analyze Multiple Files
 >
 > In cases where our file names don't follow such a regular pattern,
 > we might want to process all files that end with a given extension,
@@ -439,17 +472,19 @@ We've now automated the analysis and have confirmed that all the data files show
 > At the command line we could get this list of files by using a
 > [wildcard](reference.html#wildcard):
 >
-> ~~~{.bash}
+> ~~~
 > ls *.csv
 > ~~~
+> {: .bash}
 >
 > We can also do something similar with MATLAB, using the `dir` command:
 >
-> ~~~{.matlab}
+> ~~~
 > files = dir('*.csv')
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 >
 > files =
 >
@@ -461,6 +496,7 @@ We've now automated the analysis and have confirmed that all the data files show
 >     isdir
 >     datenum
 > ~~~
+> {: .output}
 >
 > The `dir` command returns a special MATLAB data type called
 > a "struct array". Each element in this array is
@@ -470,42 +506,48 @@ We've now automated the analysis and have confirmed that all the data files show
 > To access the "name" field of, say, the first file,
 > we can do the following:
 >
-> ~~~{.matlab}
+> ~~~
 > name = files(1).name;
 > disp(name)
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 > inflammation-01.csv
 > ~~~
+> {: .output}
 >
 > To get the modification date of the third file, we can do:
 >
-> ~~~{.matlab}
+> ~~~
 > mod_date = files(3).date;
 > disp(mod_date)
 > ~~~
+> {: .matlab}
 >
-> ~~~{.output}
+> ~~~
 > 26-Jul-2015 22:24:31
 > ~~~
+> {: .output}
 >
 > Information about the other fields like `bytes` and `isdir`
 > is available in the documentation of the `dir` function:
 >
-> ~~~{.matlab}
+> ~~~
 > help dir
 > ~~~
+> {: .matlab}
 >
 > Using `dir`,
 > rewrite the `analyze` script to analyze all `csv` files in
 > the current directory.
+{: .challenge}
 
-
-> ## GNU Octave {.callout}
+> ## GNU Octave
 >
 > Lastly, in the above trick using `ls` with the wildcard `*`,
 > another small Octave/MATLAB
 > difference shows up. In Octave, the value returned by
 > `filestr = ls('path/to/data/*.csv')` is an array of strings, so we can loop
 > over `filestr` directly without the need to split it with `strsplit`.
+{: .callout}
