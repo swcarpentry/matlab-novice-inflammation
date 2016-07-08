@@ -50,14 +50,14 @@ Conditional statements don't have to have an `else` block. If there
 isn't one, MATLAB simply doesn't do anything if the test is false:
 
 ~~~ {.matlab}
-num = 53
-disp('before conditional...')
+num = 53;
+disp('before conditional...');
 
-if num > 100:
-    print '53 is greater than 100'
+if num > 100
+    disp('53 is greater than 100');
 end
 
-disp('...after conditional')
+disp('...after conditional');
 ~~~
 
 ~~~ {.output}
