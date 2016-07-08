@@ -3,7 +3,7 @@ title: Defensive Programming
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can I make sure my programs are correct?"
 objectives:
 - "Explain what an assertion is."
 - "Add assertions to programs that correctly check the program's state."
@@ -12,7 +12,9 @@ objectives:
 - "Explain why variables should be initialized using actual data values rather than arbitrary constants."
 - "Debug code containing an error systematically."
 keypoints:
-- "FIXME"
+- "Use assertions to catch errors, and to document what behavior is expected."
+- "Initialize variables with actual values rather than arbitrary constants."
+- "Write tests *before* code."
 ---
 
 Our previous lessons have introduced the basic tools

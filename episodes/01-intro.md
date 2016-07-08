@@ -3,7 +3,7 @@ title: Analyzing Patient Data
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can I process and visualize my data?"
 objectives:
 - "Get to know the MATLAB environment."
 - "Learn about MATLAB arrays."
@@ -13,7 +13,9 @@ objectives:
 - "Perform operations on arrays of data."
 - "Display simple graphs."
 keypoints:
-- "FIXME"
+- "MATLAB stores data in arrays."
+- "Use `csvread` to read tabular CSV data into a program."
+- "Use `plot` to visualize data."
 ---
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
