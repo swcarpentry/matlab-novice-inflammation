@@ -90,14 +90,14 @@ function normalized = normalize_rectangle(rect)
     % measures 1.0 units on its longest axis
 	% and is oriented with the longest axis in the y direction:
 
-    assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
-    assert(x0 < x1, 'Invalid X coordinates');
-    assert(y0 < y1, 'Invalid Y coordinates');
-
     x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
     y1 = rect(4); 
+
+    assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
+    assert(x0 < x1, 'Invalid X coordinates');
+    assert(y0 < y1, 'Invalid Y coordinates');
     
     dx = x1 - x0;
     dy = y1 - y0;
