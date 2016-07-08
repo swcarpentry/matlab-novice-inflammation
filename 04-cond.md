@@ -218,7 +218,7 @@ neg_total = 0;
 
 for n = numbers
     if n >= 0
-        pos_total = total + n;
+        pos_total = pos_total + n;
     else
         neg_total = neg_total + n;
     end
@@ -229,7 +229,7 @@ disp(['sum of negative values: ', num2str(neg_total)]);
 ~~~
 
 ~~~ {.output}
-sum of positive values: 26
+sum of positive values: 20
 sum of negative values: -6
 ~~~
 
