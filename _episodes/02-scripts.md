@@ -3,12 +3,12 @@ title: Writing MATLAB Scripts
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can I save and re-use my programs?"
 objectives:
 - "Learn how to write and save MATLAB scripts."
 - "Learn how to save MATLAB plots to disk."
 keypoints:
-- "FIXME"
+- "Save MATLAB code in files with a `.m` suffix."
 ---
 
 So far, we've typed in commands one-by-one on the command line

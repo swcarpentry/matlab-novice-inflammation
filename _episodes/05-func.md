@@ -3,14 +3,15 @@ title: Creating Functions
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can I teach MATLAB how to do new things?"
 objectives:
 - "Explain a Matlab function file."
 - "Define a function that takes parameters."
 - "Test a function."
 - "Know why we should divide programs into small, single-purpose functions."
 keypoints:
-- "FIXME"
+- "Break programs up into short, single-purpose functions with meaningful names."
+- "Define functions using the `function` keyword."
 ---
 
 If we only had one data set to analyze,
@@ -367,7 +368,7 @@ More importantly, we have met two of the most important
 ideas in programming:
 
 1. Use arrays to store related values, and loops to
-repeat operations on them.
+   repeat operations on them.
 
 2. Use functions to make code easier to re-use and
-easier to understand.
+   easier to understand.

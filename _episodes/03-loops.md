@@ -3,14 +3,14 @@ title: Repeating With Loops
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can I repeat the same operations on multiple values?"
 objectives:
 - "Explain what a for loop does."
 - "Correctly write for loops that repeat simple commands."
 - "Trace changes to a loop variable as the loops runs."
 - "Use a for loop to process multiple files"
 keypoints:
-- "FIXME"
+- "Use `for` to create a loop that repeats one or more operations."
 ---
 
 Recall that we have to do this analysis for every one of our dozen datasets.
@@ -463,7 +463,10 @@ Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
 and their minima show the same staircase structure.
 
-We've now automated the analysis and have confirmed that all the data files show the same artifact. This is what we set out to test, and now we can just call one function to do it. With minor modifications, this function could be re-used to check all our future data files.
+We've now automated the analysis and have confirmed that all the data
+files show the same artifact. This is what we set out to test, and now
+we can just call one function to do it. With minor modifications, this
+function could be re-used to check all our future data files.
 
 > ## Another Way to Analyze Multiple Files
 >

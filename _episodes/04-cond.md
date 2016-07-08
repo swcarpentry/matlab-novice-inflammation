@@ -3,13 +3,13 @@ title: Making Choices
 teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "How can programs do different things for different data values?"
 objectives:
 - "Learn about if, elseif, and else"
 - "Learn to test equality, AND, and OR conditions"
 - "Learn to nest loops"
 keypoints:
-- "FIXME"
+- "Use `if` and `else` to make choices based on values in your program."
 ---
 
 Our previous lessons have shown us how to manipulate
