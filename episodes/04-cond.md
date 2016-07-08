@@ -85,6 +85,7 @@ simple to write a script that gives the sign of a number:
 
 	disp(strcat('Sign of num = ',num2str(sign_of_num)))
 ~~~
+{: .matlab}
 
 One important thing to notice in the code above is that we use
 a double equals sign `==` to test for equality rather than a
@@ -143,6 +144,7 @@ In this case, "either" means "either or both", not
 >     disp('empty string is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > b.
 >
@@ -151,6 +153,7 @@ In this case, "either" means "either or both", not
 >     disp('non empty string is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > c.
 >
@@ -159,6 +162,7 @@ In this case, "either" means "either or both", not
 >     disp ('empty array is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > d.
 >
@@ -167,6 +171,7 @@ In this case, "either" means "either or both", not
 >     disp ('non empty array is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > e.
 >
@@ -175,6 +180,7 @@ In this case, "either" means "either or both", not
 >     disp ('array of zeros is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > f.
 >
@@ -183,6 +189,7 @@ In this case, "either" means "either or both", not
 >     disp('true is true')
 > end
 > ~~~
+> {: .matlab}
 {: .challenge}
 
 > ## Close Enough

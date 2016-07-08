@@ -44,6 +44,7 @@ The first line of our function:
 ~~~
 function ktemp = fahr_to_kelvin(ftemp)
 ~~~
+{: .matlab}
 
 is called the *function definition*, and it declares that we're
 writing a function named `fahr_to_kelvin`, that accepts a single parameter,
@@ -130,12 +131,14 @@ Calling this function,
 ~~~
 fahr_to_celsius(32.0)
 ~~~
+{: .matlab}
 
 we get, as expected:
 
 ~~~
 ans = 0
 ~~~
+{: .output}
 
 This is our first taste of how larger programs are built:
 we define basic operations,

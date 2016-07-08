@@ -16,12 +16,13 @@ But the two most important things are to use whatever language your colleagues
 are using, so that you can share your work with them easily, and to use that
 language *well*.
 
-> ## GNU Octave {.callout}
+> ## GNU Octave
 >
 > [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
 > to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
 > Thus, if you don't have access to MATLAB, you can easily set up Octave
 > on your computer and still work through the lesson.
+{: .callout}
 
 > ## Prerequisites
 >
