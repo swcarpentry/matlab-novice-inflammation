@@ -69,17 +69,19 @@ before conditional...
 We can also chain several tests together using `elseif`. This makes it
 simple to write a script that gives the sign of a number:
 
-~~~
+~~~ {.matlab}
 % Demo script to illustrate use of conditionals
-	if num > 0
-		sign_of_num = 1;
-	elseif num ==0
-		sign_of_num = 0;
-	else
-		sign_of_num = -1;
-	end
 
-	disp(strcat('Sign of num = ',num2str(sign_of_num)))
+num = 53;
+if num > 0
+	sign_of_num = 1;
+elseif num == 0
+	sign_of_num = 0;
+else
+	sign_of_num = -1;
+end
+
+disp(['Sign of num = ', num2str(sign_of_num)]);
 ~~~
 
 One important thing to notice in the code above is that we use
