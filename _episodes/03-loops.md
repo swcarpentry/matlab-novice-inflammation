@@ -105,6 +105,7 @@ for variable = collection
     do things with variable
 end
 ~~~
+{: .source}
 
 The for loop executes the commands in the
 [loop body](reference.html#loop-body)
