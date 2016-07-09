@@ -1,19 +1,21 @@
 ---
-layout: page
-title: Programming with MATLAB
-subtitle: Defensive Programming
-minutes: 30
+title: Defensive Programming
+teaching: 30
+exercises: 0
+questions:
+- "How can I make sure my programs are correct?"
+objectives:
+- "Explain what an assertion is."
+- "Add assertions to programs that correctly check the program's state."
+- "Correctly add precondition and postcondition assertions to functions."
+- "Explain what test-driven development is, and use it when creating new functions."
+- "Explain why variables should be initialized using actual data values rather than arbitrary constants."
+- "Debug code containing an error systematically."
+keypoints:
+- "Use assertions to catch errors, and to document what behavior is expected."
+- "Initialize variables with actual values rather than arbitrary constants."
+- "Write tests *before* code."
 ---
-
-> ## Learning Objectives {.objectives}
->
-> *   Explain what an assertion is.
-> *   Add assertions to programs that correctly check the program's state.
-> *   Correctly add precondition and postcondition assertions to functions.
-> *   Explain what test-driven development is, and use it when creating new functions.
-> *   Explain why variables should be initialized using actual data values rather than arbitrary constants.
-> *   Debug code containing an error systematically.
-
 
 Our previous lessons have introduced the basic tools
 of programming: variables and lists, file I/O, loops,
@@ -49,7 +51,7 @@ and prints an error message.
 For example,
 this piece of code halts as soon as the loop encounters a value that isn't positive:
 
-~~~ {.matlab}
+~~~
 numbers = [1.5, 2.3, 0.7, -0.001, 4.4];
 total = 0;
 
@@ -58,10 +60,12 @@ for n = numbers
     total = total + n;
 end
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 error: assert (n >= 0) failed
 ~~~
+{: .output}
 
 Programs like the Firefox browser are full of assertions: 10-20%
 of the code they contain are there to check that the other
@@ -84,7 +88,7 @@ Here is a function that does that, but checks that its input is correctly
 formatted and that its result makes sense:
 
 
-~~~{.matlab}
+~~~
 function normalized = normalize_rectangle(rect)
     % Normalizes a rectangle so that it is at the origin
     % measures 1.0 units on its longest axis
@@ -118,54 +122,68 @@ function normalized = normalize_rectangle(rect)
     normalized = [0, 0, upper_x, upper_y];
 end
 ~~~
+{: .matlab}
 
 The three preconditions catch invalid inputs:
 
-~~~ {.matlab}
+~~~
 normalize_rectangle([0, 0, 1])
 ~~~
-~~~{.error}
+{: .matlab}
+
+~~~
 Error using normalize_rectangle (line 6)
 Rectangle must contain 4 coordinates 
 ~~~
-~~~{.matlab}
+{: .error}
+
+~~~
 normalize_rectangle([1,0,0,0,0])
 ~~~
-~~~{.error}
+{: .matlab}
+
+~~~
 Error: Rectangle must contain 4 coordinates
 ~~~
+{: .error}
 
-~~~{.matlab}
+~~~
 normalize_rectangle([1, 0, 0, 2]);
 ~~~
+{: .matlab}
 
-~~~{.error}
+~~~
 error: Invalid X coordinates
 ~~~
+{: .error}
 
 The post-conditions help us catch bugs by telling us when our
 calculations cannot have been correct. For example,
 if we normalize a rectangle that is taller than it is
 wide, everything seems OK:
 
-~~~ {.matlab}
+~~~
 normalize_rectangle([0, 0, 1.0, 5.0]);
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 0.00000   0.00000   0.20000   1.00000
 ~~~
+{: .output}
 
 but if we normalize one that's wider than it is tall,
 the assertion is triggered:
 
-~~~ {.matlab}
+~~~
 normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 ~~~
+{: .matlab}
 
-~~~ {.error}
+~~~
 error: Calculated upper X coordinate invalid
 ~~~
+{: .error}
 
 Re-reading our function, we realize that line 19 should
 should divide `dy` by `dx`. If we had left out the assertion
@@ -200,13 +218,13 @@ and helps to warn people who are reading the code
 that this bit is tricky.
 
 
-> ## Finding conditions {.challenge}
+> ## Finding Conditions
 >
-> 1. Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
+> Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
 > What pre-conditions and post-conditions would you write for it?
 > Compare your answer to your neighbor's:
 > can you think of an input array that will past your tests but not hers or vice versa?
-
+{: .challenge}
 
 An assertion checks that something is true at a particular point in the program.
 The next step is to check the overall behavior of a piece of code,
@@ -256,10 +274,12 @@ Below are three test functions for `range_overlap`, but first we need a brief as
 	The syntax `matA == matB` returns a matrix of logical values. If we just want a `true` or `false` answer for the whole matrix (e.g. to use with `assert`), we need to use `isequal` instead.
 
 
-> ## Looking for help {.challenge}
+> ## Looking For Help
+>
 > For a more detailed explanation, search the MATLAB help files (or type `doc eq; doc assert` at the command prompt).
+{: .callout}
 
-~~~{.matlab}
+~~~
 % script test_range_overlap.m
 
 % assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));
@@ -268,17 +288,20 @@ assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
 assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]));
 assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
 ~~~
+{: .matlab}
 
-~~~ {.matlab}
+~~~
 test_range_overlap
 ~~~
+{: .matlab}
 
-~~~ {.error}
+~~~
 Undefined function or variable 'range_overlap'.
 
 Error in test_range_overlap (line 6)
 assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
 ~~~
+{: .error}
 
 The error is actually reassuring:
 we haven't written `range_overlap` yet,
@@ -293,7 +316,7 @@ and produce a single pair as output.
 
 Let's write `range_overlap`:
 
-~~~{.matlab}
+~~~
 function output_range = range_overlap(varargin)
 
     % Return common overlap among a set of [low, high] ranges.
@@ -313,12 +336,14 @@ function output_range = range_overlap(varargin)
 
 end
 ~~~
+{: .matlab}
 
 And now when we run the tests:
 
-~~~{.matlab}
+~~~
 test_range_overlap
 ~~~
+{: .matlab}
 
 we shouldn't see an error.
 
@@ -327,19 +352,22 @@ We don't have any tests for the case where the ranges don't overlap at all,
 or for the case where the ranges overlap at a point. We'll leave this
 as a final assignment.
 
-> ## Fixing Code through Testing {.challenge}
+> ## Fixing Code Through Testing
+>
 > Fix `range_overlap`. Uncomment the two commented lines in
-`test_range_overlap`. You'll see that our objective is to return
-a special value: `NaN` (Not a Number), for the following cases:
+> `test_range_overlap`. You'll see that our objective is to return
+> a special value: `NaN` (Not a Number), for the following cases:
 >
 > * The ranges don't overlap.
 > * The ranges overlap at their endpoints.
 >
 > As you make change to the code, run `test_range_overlap` regularly
-to make sure you aren't breaking anything. Once you're done,
-running `test_range_overlap` shouldn't raise any errors.
+> to make sure you aren't breaking anything. Once you're done,
+> running `test_range_overlap` shouldn't raise any errors.
 >
-> Consider reading about the `isnan` function in the help files to make sure you understand what these first two lines are doing.
+> Hint: read about the `isnan` function in the help files
+> to make sure you understand what these first two lines are doing.
+{: .challenge}
 
 Once testing has uncovered problems,
 the next step is to fix them.

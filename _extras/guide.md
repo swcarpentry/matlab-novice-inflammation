@@ -3,13 +3,10 @@ layout: page
 title: Programming with MATLAB
 subtitle: Instructor's Guide
 ---
-
-## Legend
-
 ## Overall
 
 ## [Solutions to exercises](06-defensive.html)
-~~~{.matlab}
+~~~
 function output_range = range_overlap(varargin)
 
 	% Return common overlap among a set of [low, high] ranges.
@@ -35,8 +32,9 @@ function output_range = range_overlap(varargin)
 
 end
 ~~~
+{: .matlab}
 
-~~~{.matlab}
+~~~
 % exponential loop
 
 x=5;
@@ -47,3 +45,4 @@ for i=2:x
 end
 disp(result)
 ~~~
+{: .matlab}

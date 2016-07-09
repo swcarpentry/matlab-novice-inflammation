@@ -1,15 +1,16 @@
 ---
-layout: page
-title: Programming with MATLAB
-subtitle: Making Choices
-minutes: 30
+title: Making Choices
+teaching: 30
+exercises: 0
+questions:
+- "How can programs do different things for different data values?"
+objectives:
+- "Learn about if, elseif, and else"
+- "Learn to test equality, AND, and OR conditions"
+- "Learn to nest loops"
+keypoints:
+- "Use `if` and `else` to make choices based on values in your program."
 ---
-
-> ## Learning Objectives {.objectives}
-> * Learn about if, elseif, and else
-> * Learn to test equality, AND, and OR conditions
-> * Learn to nest loops
-
 
 Our previous lessons have shown us how to manipulate
 data and repeat things.
@@ -22,7 +23,7 @@ The tool that MATLAB gives us for doing this is called
 a [conditional statement](reference.html#conditional-statement),
 and it looks like this:
 
-~~~ {.matlab}
+~~~
 num = 37;
 
 if num > 100
@@ -33,11 +34,13 @@ end
 
 disp('done');
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 not greater
 done
 ~~~
+{: .output}
 
 The second line of this code uses the keyword `if` to tell MATLAB
 that we want to make a choice. If the test that follows is true,
@@ -49,7 +52,7 @@ or the other is ever executed.
 Conditional statements don't have to have an `else` block. If there
 isn't one, MATLAB simply doesn't do anything if the test is false:
 
-~~~ {.matlab}
+~~~
 num = 53
 disp('before conditional...')
 
@@ -59,12 +62,13 @@ end
 
 disp('...after conditional')
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 before conditional...
 ...after conditional
 ~~~
-
+{: .output}
 
 We can also chain several tests together using `elseif`. This makes it
 simple to write a script that gives the sign of a number:
@@ -81,6 +85,7 @@ simple to write a script that gives the sign of a number:
 
 	disp(strcat('Sign of num = ',num2str(sign_of_num)))
 ~~~
+{: .matlab}
 
 One important thing to notice in the code above is that we use
 a double equals sign `==` to test for equality rather than a
@@ -92,37 +97,40 @@ from C, and it does take a bit of getting used to...
 We can also combine tests, using `&&` (and) and `||` (or). `&&`
 is true if both tests are true:
 
-~~~ {.matlab}
+~~~
 if ((1 > 0) && (-1 > 0))
     disp('both parts are true');
 else
     disp('one part is not true');
 end
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 one part is not true
 ~~~
-
+{: .output}
 
 `||` is true if either test is true:
 
-~~~ {.matlab}
+~~~
 if (1 < 0) || (3 < 4)
     disp('at least one part is true');
 end
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 at least one part is true
 ~~~
+{: .output}
 
 In this case, "either" means "either or both", not
 "either one or the other but not both".
 
-> ## True and false statements {.challenge}
+> ## True and False Statements
 >
-> 1. `1` and `0` aren't the only values
+> `1` and `0` aren't the only values
 > in MATLAB that are true or false. In fact, *any* value
 > can be used in an `if` or `elseif`. After reading and
 > running the code below, explain what the rule is for
@@ -136,6 +144,7 @@ In this case, "either" means "either or both", not
 >     disp('empty string is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > b.
 >
@@ -144,6 +153,7 @@ In this case, "either" means "either or both", not
 >     disp('non empty string is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > c.
 >
@@ -152,6 +162,7 @@ In this case, "either" means "either or both", not
 >     disp ('empty array is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > d.
 >
@@ -160,6 +171,7 @@ In this case, "either" means "either or both", not
 >     disp ('non empty array is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > e.
 >
@@ -168,6 +180,7 @@ In this case, "either" means "either or both", not
 >     disp ('array of zeros is true')
 > end
 > ~~~
+> {: .matlab}
 >
 > f.
 >
@@ -176,20 +189,24 @@ In this case, "either" means "either or both", not
 >     disp('true is true')
 > end
 > ~~~
->
-> 2. Write a script called `near` that performs a test on two variables, and displays `1`
->  when the first variable is within 10% of the other
->  and `0` otherwise. Compare your implementation with
->  your partner's: do you get the same answer for
->  all possible pairs of numbers?
+> {: .matlab}
+{: .challenge}
 
+> ## Close Enough
+>
+> Write a script called `near` that performs a test on two variables, and displays `1`
+> when the first variable is within 10% of the other
+> and `0` otherwise. Compare your implementation with
+> your partner's: do you get the same answer for
+> all possible pairs of numbers?
+{: .challenge}
 
 Another thing to realize is that `if` statements can
 be also combined with loops. For example, if we want
 to sum the positive numbers in a list, we can write
 this:
 
-~~~ {.matlab}
+~~~
 numbers = [-5, 3, 2, -1, 9, 6];
 total = 0;
 
@@ -201,16 +218,17 @@ end
 
 disp(['sum of positive values: ', num2str(total)])
 ~~~
+{: .matlab}
 
-
-~~~ {.output}
+~~~
 sum of positive values: 20
 ~~~
+{: .output}
 
 With a little extra effort, we can calculate the
 positive and negative sums in a loop:
 
-~~~ {.matlab}
+~~~
 pos_total = 0;
 neg_total = 0;
 
@@ -225,23 +243,26 @@ end
 disp(['sum of positive values: ', num2str(pos_total)]);
 disp(['sum of negative values: ', num2str(neg_total)]);
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 sum of positive values: 26
 sum of negative values: -6
 ~~~
+{: .output}
 
 We can even put one loop inside another:
 
-~~~ {.matlab}
+~~~
 for consonant = 'bcd'
     for vowel = 'ae'
         disp (strcat(consonant, vowel));
     end
 end
 ~~~
+{: .matlab}
 
-~~~ {.output}
+~~~
 ba
 be
 ca
@@ -249,8 +270,9 @@ ce
 da
 de
 ~~~
+{: .output}
 
-> ## Nesting {.challenge}
+> ## Nesting
 >
 > 1. Will changing the order of nesting in the above loop change
 > the output? Why? Write down the output you might expect from
@@ -262,45 +284,50 @@ de
 > work like this:
 >
 > 
-> ~~~{.matlab}
+> ~~~
 > x = 1;
 > x += 1;
 > x *= 3;
 > ~~~
+> {: .matlab}
 >
 > Rewrite the code that sums the positive and negative values
 > in an array using these in-place operators. Do you think that
 > the result is more or less readable than the original?
+{: .challenge}
 
 Currently, our script `analyze.m` reads in data, analyzes it,
 and saves plots of the results.
 If we would rather display the plots interactively,
 we would have to remove (or *comment out*) the following code:
 
-~~~{.matlab}
+~~~
 print('-dpng', img_name);
 close();
 ~~~
+{: .matlab}
 
 And, we'd also have to change this line of code, from:
 
-~~~{.matlab}
+~~~
 figure('visible', 'off')
 ~~~
+{: .matlab}
 
 to:
 
-~~~{.matlab}
+~~~
 figure('visible', 'on')
 % or equivalently: figure()
 ~~~
+{: .matlab}
 
 This is not a lot of code to change every time,
 but it's still work that's easily avoided using conditionals.
 Here's our script re-written to use *conditionals*
 to switch between saving plots as images and plotting them interactively:
 
-~~~{.matlab}
+~~~
 
 % plot_switch:
 %   0 - show plots interactively
@@ -342,3 +369,4 @@ for idx = 1:3
 
 end
 ~~~
+{: .matlab}

@@ -1,7 +1,6 @@
 ---
-layout: page
-title: Programming with MATLAB
-subtitle: Reference
+layout: reference
+permalink: /reference/
 ---
 
 ## Glossary
