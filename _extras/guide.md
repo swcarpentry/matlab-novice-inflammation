@@ -20,7 +20,7 @@ function output_range = range_overlap(varargin)
 	    high = range(2);
 	    lowest = max(lowest, low);
 	    highest = min(highest, high);
-	    
+	   
 	    % catch non-overlapping ranges
 	    if low >= highest || high<=lowest
 		output_range=NaN;

@@ -536,7 +536,7 @@ ans =
 >
 > ~~~
 > first three characters: oxy
-> last three characters: gen   
+> last three characters: gen
 > ~~~
 > {: .output}
 >
