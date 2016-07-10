@@ -156,7 +156,7 @@ MATLAB provides us with a convenient function to
 write a better loop:
 
 ~~~
-word = 'aluminium';
+word = 'aluminum';
 
 for letter = 1:length(word)
     disp(word(letter));
@@ -171,7 +171,6 @@ u
 m
 i
 n
-i
 u
 m
 ~~~
