@@ -206,13 +206,13 @@ or the next person who reads it won't be able to understand what's going on.
 {: .challenge}
 
 Let's take a closer look at what happens when we call
-`fahr_to_celcius(32.0)`.
+`fahr_to_celsius(32.0)`.
 To make things clearer, we'll start by putting the initial value 32.0
 in a variable and store the final result in one as well:
 
 ~~~
 original = 32.0;
-final = fahr_to_celcius(original);
+final = fahr_to_celsius(original);
 ~~~
 {: .matlab}
 
