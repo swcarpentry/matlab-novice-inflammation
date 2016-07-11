@@ -384,10 +384,9 @@ The first step in debugging something is to
 "My program doesn't work" isn't good enough:
 in order to diagnose and fix problems,
 we need to be able to tell correct output from incorrect.
-If we can write a test case for the failing case&mdash;i.e.,
+If we can write a test case for the failing case—i.e.,
 if we can assert that with *these* inputs,
-the function should produce *that* result&mdash;
-then we're ready to start debugging.
+the function should produce *that* result—then we're ready to start debugging.
 If we can't,
 then we need to figure out how we're going to know when we've fixed things.
 
@@ -416,9 +415,9 @@ scientists tend to do the following:
  our first test should hold temperature, precipitation, and other factors constant.
 
 3. *Compare to an oracle.*
- A [test oracle](reference.html#test-oracle) is something&mdash;experimental data,
+ A [test oracle](reference.html#test-oracle) is something—experimental data,
  an older program whose results are trusted,
- or even a human expert&mdash;against which we can compare the results of our new program.
+ or even a human expert—against which we can compare the results of our new program.
  If we have a test oracle,
  we should store its output for particular cases
  so that we can compare it with our new results as often as we like
