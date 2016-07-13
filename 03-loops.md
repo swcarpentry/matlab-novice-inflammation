@@ -412,7 +412,11 @@ for idx = 1:3
 end
 ~~~
 
-Save the `analyze.m` script as a new script called `analyze_loops.m`. To do this, we go to the `Editor` tab, click on the arrow below `Save`, and then on `Save As...`. Remember that to run our script, we simply type in its name in the command line:
+Save the `analyze.m` script as a new script called `analyze_loops.m`.
+To do this, we go to the `Editor` tab, click on the arrow below `Save`,
+and then on `Save As...`.
+Remember that to run our script,
+we simply type in its name in the command line:
 
 ~~~{.matlab}
 analyze_loops
