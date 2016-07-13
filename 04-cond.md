@@ -72,7 +72,6 @@ simple to write a script that gives the sign of a number:
 ~~~ {.matlab}
 % Demo script to illustrate use of conditionals
 
-num = 53;
 if num > 0
 	sign_of_num = 1;
 elseif num == 0
