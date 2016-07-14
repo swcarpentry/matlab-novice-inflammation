@@ -246,13 +246,8 @@ disp(['sum of negative values: ', num2str(neg_total)]);
 ~~~
 {: .matlab}
 
-<<<<<<< HEAD:_episodes/04-cond.md
 ~~~
 sum of positive values: 26
-=======
-~~~ {.output}
-sum of positive values: 20
->>>>>>> 3a6b946945df9a35a2fec83f3e89c939e89e588b:04-cond.md
 sum of negative values: -6
 ~~~
 {: .output}
