@@ -53,14 +53,14 @@ Conditional statements don't have to have an `else` block. If there
 isn't one, MATLAB simply doesn't do anything if the test is false:
 
 ~~~
-num = 53
-disp('before conditional...')
+num = 53;
+disp('before conditional...');
 
-if num > 100:
-    print '53 is greater than 100'
+if num > 100
+    disp('53 is greater than 100');
 end
 
-disp('...after conditional')
+disp('...after conditional');
 ~~~
 {: .matlab}
 
@@ -73,17 +73,18 @@ before conditional...
 We can also chain several tests together using `elseif`. This makes it
 simple to write a script that gives the sign of a number:
 
-~~~
+~~~ {.matlab}
 % Demo script to illustrate use of conditionals
-	if num > 0
-		sign_of_num = 1;
-	elseif num ==0
-		sign_of_num = 0;
-	else
-		sign_of_num = -1;
-	end
 
-	disp(strcat('Sign of num = ',num2str(sign_of_num)))
+if num > 0
+	sign_of_num = 1;
+elseif num == 0
+	sign_of_num = 0;
+else
+	sign_of_num = -1;
+end
+
+disp(['Sign of num = ', num2str(sign_of_num)]);
 ~~~
 {: .matlab}
 
@@ -234,7 +235,7 @@ neg_total = 0;
 
 for n = numbers
     if n >= 0
-        pos_total = total + n;
+        pos_total = pos_total + n;
     else
         neg_total = neg_total + n;
     end
@@ -245,8 +246,13 @@ disp(['sum of negative values: ', num2str(neg_total)]);
 ~~~
 {: .matlab}
 
+<<<<<<< HEAD:_episodes/04-cond.md
 ~~~
 sum of positive values: 26
+=======
+~~~ {.output}
+sum of positive values: 20
+>>>>>>> 3a6b946945df9a35a2fec83f3e89c939e89e588b:04-cond.md
 sum of negative values: -6
 ~~~
 {: .output}
