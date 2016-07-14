@@ -64,7 +64,7 @@ analyze
 ~~~
 Maximum inflammation: 20
 Minimum inflammation: 0
-Standard deviation: 4.7219
+Standard deviation: 4.6148
 ~~~
 {: .matlab}
 
