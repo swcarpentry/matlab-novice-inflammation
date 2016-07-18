@@ -79,12 +79,12 @@ it finishes.
 - An invariant is something that is always true at a particular point
 inside a piece of code.
 
-For example, suppose we are representing rectangles using an array of four coordinates 
-`(x0, y0, x1, y1)`, such that (x0,y0) are the bottom left coordinates, 
-and (x1,y1) are the top right coordinates. In order to do some calculations, 
-we need to normalize the rectangle so that it is at the origin, measures 1.0 
+For example, suppose we are representing rectangles using an array of four coordinates
+`(x0, y0, x1, y1)`, such that (x0,y0) are the bottom left coordinates,
+and (x1,y1) are the top right coordinates. In order to do some calculations,
+we need to normalize the rectangle so that it is at the origin, measures 1.0
 units on its longest axis, and is oriented so the longest axis is the y axis.
-Here is a function that does that, but checks that its input is correctly 
+Here is a function that does that, but checks that its input is correctly
 formatted and that its result makes sense:
 
 
@@ -92,14 +92,14 @@ formatted and that its result makes sense:
 function normalized = normalize_rectangle(rect)
     % Normalizes a rectangle so that it is at the origin
     % measures 1.0 units on its longest axis
-	% and is oriented with the longest axis in the y direction:
+    % and is oriented with the longest axis in the y direction:
 
-	assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
+    assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
     
-	x0 = rect(1);
+    x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
-    y1 = rect(4); 
+    y1 = rect(4);
 
     assert(x0 < x1, 'Invalid X coordinates');
     assert(y0 < y1, 'Invalid Y coordinates');
@@ -108,7 +108,7 @@ function normalized = normalize_rectangle(rect)
     dy = y1 - y0;
 
     if dx > dy
-        scaled = dx/dy; 
+        scaled = dx/dy;
         upper_x = scaled;
         upper_y = 1.0;
     else
@@ -134,7 +134,7 @@ normalize_rectangle([0, 0, 1])
 
 ~~~
 Error using normalize_rectangle (line 6)
-Rectangle must contain 4 coordinates 
+Rectangle must contain 4 coordinates
 ~~~
 {: .error}
 
@@ -237,7 +237,7 @@ The range of each time series is represented as a pair of numbers,
 which are the time the interval started and ended.
 The output is the largest range that they all include:
 
-<img src="fig/matlab-overlapping-ranges.png" alt="Overlapping Ranges" />
+![Overlapping Ranges]({{ site.github.url }}/fig/matlab-overlapping-ranges.png)
 
 Most novice programmers would solve this problem like this:
 
@@ -385,10 +385,9 @@ The first step in debugging something is to
 "My program doesn't work" isn't good enough:
 in order to diagnose and fix problems,
 we need to be able to tell correct output from incorrect.
-If we can write a test case for the failing case&mdash;i.e.,
+If we can write a test case for the failing case—i.e.,
 if we can assert that with *these* inputs,
-the function should produce *that* result&mdash;
-then we're ready to start debugging.
+the function should produce *that* result—then we're ready to start debugging.
 If we can't,
 then we need to figure out how we're going to know when we've fixed things.
 
@@ -417,9 +416,9 @@ scientists tend to do the following:
  our first test should hold temperature, precipitation, and other factors constant.
 
 3. *Compare to an oracle.*
- A [test oracle](reference.html#test-oracle) is something&mdash;experimental data,
+ A [test oracle](reference.html#test-oracle) is something—experimental data,
  an older program whose results are trusted,
- or even a human expert&mdash;against which we can compare the results of our new program.
+ or even a human expert—against which we can compare the results of our new program.
  If we have a test oracle,
  we should store its output for particular cases
  so that we can compare it with our new results as often as we like

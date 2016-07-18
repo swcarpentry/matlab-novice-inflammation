@@ -284,7 +284,7 @@ de
 > [in-place operators](reference.html#in-place-operator) that
 > work like this:
 >
-> 
+>
 > ~~~
 > x = 1;
 > x += 1;
