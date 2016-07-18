@@ -218,8 +218,7 @@ of both:
 
 ~~~
 weight_kg = 100;
-disp(['Weight in kg: ', num2str(weight_kg); 'Weight in pounds: ',
-num2str(weight_lb)]);
+disp(['Weight in kg: ', num2str(weight_kg), char(10), 'Weight in pounds: ', num2str(weight_lb)]);
 ~~~
 {: .matlab}
 
