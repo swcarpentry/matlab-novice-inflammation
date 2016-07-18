@@ -156,7 +156,7 @@ MATLAB provides us with a convenient function to
 write a better loop:
 
 ~~~
-word = 'aluminium';
+word = 'aluminum';
 
 for letter = 1:length(word)
     disp(word(letter));
@@ -171,7 +171,6 @@ u
 m
 i
 n
-i
 u
 m
 ~~~
@@ -455,12 +454,6 @@ we simply type in its name in the command line:
 analyze_loops
 ~~~
 {: .matlab}
-
-<img src="img/02-loop_1.png" style="width:500px; height:400px">
-
-<img src="img/02-loop_2.png" style="width:500px; height:400px">
-
-<img src="img/02-loop_3.png" style="width:500px; height:400px">
 
 Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
