@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:34:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/matlab-novice-inflammation">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Programming with MATLAB: Creating Functions</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/matlab-novice-inflammation/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/matlab-novice-inflammation/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/matlab-novice-inflammation/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/01-intro/">Analyzing Patient Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/02-scripts/">Writing MATLAB Scripts</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/03-loops/">Repeating With Loops</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/04-cond/">Making Choices</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/05-func/">Creating Functions</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/06-defensive/">Defensive Programming</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/matlab-novice-inflammation/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/extras/discuss.html">Programming with MATLAB</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/extras/guide.html">Programming with MATLAB</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/matlab-novice-inflammation/04-cond/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/matlab-novice-inflammation/">Programming with MATLAB</a></h3>
+    <h1 class="maintitle">Creating Functions</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/matlab-novice-inflammation/06-defensive/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 30 min
+      </br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I teach MATLAB how to do new things?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain a Matlab function file.</p>
+</li>
+	
+	<li><p>Define a function that takes parameters.</p>
+</li>
+	
+	<li><p>Test a function.</p>
+</li>
+	
+	<li><p>Know why we should divide programs into small, single-purpose functions.</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>If we only had one data set to analyze,
+it would probably be faster to load the file into a spreadsheet
+and use that to plot some simple statistics.
+But we have twelve files to check,
+and may have more in future.
+In this lesson,
+we’ll learn how to write a function
+so that we can repeat several operations with a single command.</p>
+
+<p>Let’s start by defining a function <code class="highlighter-rouge">fahr_to_kelvin</code> that converts temperatures from Fahrenheit to Kelvin:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>% file fahr_to_kelvin.m
+
+function ktemp = fahr_to_kelvin(ftemp)
+    ktemp = ((ftemp - 32) * (5/9)) + 273.15;
+end
+</code></pre>
+</div>
+
+<p>A Matlab function <em>must</em> be saved in a text file with a <code class="highlighter-rouge">.m</code> extension.
+The name of that file must be the same as the function defined
+inside it. The name must start with a letter and cannot contain spaces.
+So, you will need to save the above code in a file called
+<code class="highlighter-rouge">fahr_to_kelvin.m</code>.</p>
+
+<p>The first line of our function:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>function ktemp = fahr_to_kelvin(ftemp)
+</code></pre>
+</div>
+
+<p>is called the <em>function definition</em>, and it declares that we’re
+writing a function named <code class="highlighter-rouge">fahr_to_kelvin</code>, that accepts a single parameter,
+<code class="highlighter-rouge">ftemp</code>, and outputs a  single value, <code class="highlighter-rouge">ktemp</code>.  Anything following the
+function definition line is called the <em>body</em> of the
+function. The keyword <code class="highlighter-rouge">end</code> marks the end of the function body, and the
+function won’t know about any code after <code class="highlighter-rouge">end</code>.</p>
+
+<p>Just as we saw with scripts, functions must be <em>visible</em> to MATLAB, i.e.,
+a file containing a function has to be placed in a directory that
+MATLAB knows  about. The most convenient of those directories is the
+current working directory.</p>
+
+<blockquote class="callout">
+  <h2 id="gnu-octave">GNU Octave</h2>
+
+  <p>In common with MATLAB, Octave searches the current working directory and
+the path for functions called from the command line.</p>
+</blockquote>
+
+<p>We can call our function from the command line
+like any other MATLAB function:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>fahr_to_kelvin(32)
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>ans = 273.15
+</code></pre>
+</div>
+
+<p>When we pass a value, like <code class="highlighter-rouge">32</code>, to the function, the value is assigned
+to the variable <code class="highlighter-rouge">ftemp</code> so that it can be used inside the function. If we
+want to return a value from the function, we must assign that value to a
+variable named <code class="highlighter-rouge">ktemp</code>—in the first line of our function, we promised
+that the output of our function would be named <code class="highlighter-rouge">ktemp</code>.</p>
+
+<p>Outside of the function, the names <code class="highlighter-rouge">ftemp</code> and <code class="highlighter-rouge">ktemp</code> don’t matter,
+they are only used by the function body to refer to the input and
+output values.</p>
+
+<p>Now that we’ve seen how to turn Fahrenheit to Kelvin, it’s easy to turn
+Kelvin to Celsius.</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>% file kelvin_to_celsius.m
+
+function ctemp = kelvin_to_celsius(ktemp)
+    ctemp = ktemp - 273.15;
+end
+</code></pre>
+</div>
+
+<p>Again, we can call this function like any other:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>kelvin_to_celsius(0.0)
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>ans = -273.15
+</code></pre>
+</div>
+
+<p>What about converting Fahrenheit to Celsius?
+We could write out the formula, but we don’t need to.
+Instead, we can <a href="reference.html#function-composition">compose</a> the two
+functions we have already created:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>% file fahr_to_celsius.m
+
+function ctemp = fahr_to_celsius(ftemp)
+    ktemp = fahr_to_kelvin(ftemp);
+    ctemp = kelvin_to_celsius(ktemp);
+end
+</code></pre>
+</div>
+
+<p>Calling this function,</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>fahr_to_celsius(32.0)
+</code></pre>
+</div>
+
+<p>we get, as expected:</p>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>ans = 0
+</code></pre>
+</div>
+
+<p>This is our first taste of how larger programs are built:
+we define basic operations,
+then combine them in ever-larger chunks to get the effect we want.
+Real-life functions will usually be larger than the ones shown
+here—typically half a dozen to a few dozen lines—but
+they shouldn’t ever be much longer than that,
+or the next person who reads it won’t be able to understand what’s going on.</p>
+
+<blockquote class="challenge">
+  <h2 id="concatenating-in-a-function">Concatenating in a Function</h2>
+
+  <p>In Matlab, we concatenate strings by putting them into an array or using the
+<code class="highlighter-rouge">strcat</code> function:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(['abra', 'cad', 'abra'])
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>abracadabra
+</code></pre>
+  </div>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(strcat('a', 'b'))
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>ab
+</code></pre>
+  </div>
+
+  <p>Write a function called <code class="highlighter-rouge">fence</code> that takes two parameters, <code class="highlighter-rouge">original</code> and
+<code class="highlighter-rouge">wrapper</code> and appends <code class="highlighter-rouge">wrapper</code> before and after <code class="highlighter-rouge">original</code>:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(fence('name', '*'))
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>*name*
+</code></pre>
+  </div>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="getting-the-outside">Getting the Outside</h2>
+
+  <p>If the variable <code class="highlighter-rouge">s</code> refers to a string, then <code class="highlighter-rouge">s(1)</code> is the string’s first
+character and <code class="highlighter-rouge">s(end)</code> is its last. Write a function called <code class="highlighter-rouge">outer</code> that returns
+a string made up of just the first and last characters of its input:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(outer('helium'))
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>hm
+</code></pre>
+  </div>
+</blockquote>
+
+<p>Let’s take a closer look at what happens when we call
+<code class="highlighter-rouge">fahr_to_celsius(32.0)</code>.
+To make things clearer, we’ll start by putting the initial value 32.0
+in a variable and store the final result in one as well:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>original = 32.0;
+final = fahr_to_celsius(original);
+</code></pre>
+</div>
+
+<p>Once we start putting things in functions so that we can
+re-use them, we need to start testing that those functions are
+working correctly.
+To see how to do this, let’s write a function to center a
+dataset around a particular value:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>function out = center(data, desired)
+    out = (data - mean(data(:))) + desired;
+end
+</code></pre>
+</div>
+
+<p>We could test this on our actual data, but since we
+don’t know what the values ought to be,
+it will be hard to tell if the result was correct,
+Instead, let’s create a matrix of 0’s, and then center that
+around 3:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>z = zeros(2,2);
+center(z, 3)
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>ans =
+
+   3   3
+   3   3
+</code></pre>
+</div>
+
+<p>That looks right, so let’s try out <code class="highlighter-rouge">center</code> function on our real data:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>data = csvread('inflammation-01.csv');
+centered = center(data(:), 0)
+</code></pre>
+</div>
+
+<p>It’s hard to tell from the default output whether the
+result is correct–this is often the case when working with
+fairly large arrays–but, there are a few simple tests that
+will reassure us.</p>
+
+<p>Let’s calculate some simple statistics:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>disp([min(data(:)), mean(data(:)), max(data(:))])
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>0.00000    6.14875   20.00000
+</code></pre>
+</div>
+
+<p>And let’s do the same after applying our <code class="highlighter-rouge">center</code> function
+to the data:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>disp([min(centered(:)), mean(centered(:)), max(centered(:))])
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>   -6.1487   -0.0000   13.8513
+</code></pre>
+</div>
+
+<p>That seems almost right: the original mean
+was about 6.1, so the lower bound from zero is now about -6.1.
+The mean of the centered data isn’t quite zero–we’ll explore
+why not in the challenges–but it’s pretty close. We can even
+go further and check that the standard
+deviation hasn’t changed:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>std(data(:)) - std(centered(:))
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>5.3291e-15
+</code></pre>
+</div>
+
+<p>The difference is very small. It’s still possible that our function
+is wrong, but it seems unlikely enough that we should probably
+get back to doing our analysis. We have one more task first, though:
+we should write some <a href="reference.html#documentation">documentation</a>
+for our function to remind ourselves later what it’s for and
+how to use it.</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>function out = center(data, desired)
+    %   Center data around a desired value.
+    %
+    %       center(DATA, DESIRED)
+    %
+    %   Returns a new array containing the values in
+    %   DATA centered around the value.
+
+    out = (data  - mean(data(:))) + desired;
+end
+</code></pre>
+</div>
+
+<p>Comment lines immediately below the function definition line
+are called “help text”. Typing <code class="highlighter-rouge">help function_name</code> brings
+up the help text for that function:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>help center
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>Center data around a desired value.
+
+    center(DATA, DESIRED)
+
+Returns a new array containing the values in
+DATA centered around the value.
+</code></pre>
+</div>
+
+<blockquote class="challenge">
+  <h2 id="testing-a-function">Testing a Function</h2>
+
+  <ol>
+    <li>
+      <p>Write a function called <code class="highlighter-rouge">rescale</code> that takes an array as input and returns an
+array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
+(If L and H are the lowest and highest values in the input array, respectively,
+then the function should map a value v to (v - L)/(H - L).) Be sure to give the
+function a comment block explaining its use.</p>
+    </li>
+    <li>
+      <p>Run <code class="highlighter-rouge">help linspace</code> to see how to use <code class="highlighter-rouge">linspace</code> to generate
+regularly-spaced values. Use arrays like this to test your <code class="highlighter-rouge">rescale</code> function.</p>
+    </li>
+    <li>
+      <p>Write a function <code class="highlighter-rouge">run_analysis</code> that accepts a filename
+as parameter, and displays the three graphs produced in the
+previous lesson, i.e., <code class="highlighter-rouge">run_analysis('inflammation-01.csv')</code>
+should produce the corresponding graphs for the first
+data set. Be sure to give your function help text.</p>
+    </li>
+  </ol>
+</blockquote>
+
+<p>We have now solved our original problem: we can analyze
+any number of data files with a single command.
+More importantly, we have met two of the most important
+ideas in programming:</p>
+
+<ol>
+  <li>
+    <p>Use arrays to store related values, and loops to
+repeat operations on them.</p>
+  </li>
+  <li>
+    <p>Use functions to make code easier to re-use and
+easier to understand.</p>
+  </li>
+</ol>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Break programs up into short, single-purpose functions with meaningful names.</p>
+</li>
+    
+    <li><p>Define functions using the <code class="highlighter-rouge">function</code> keyword.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/lesson.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2016-07-19 12:34:55 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="search-domain" value="/swc-releases/2016.06/matlab-novice-inflammation">
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/swc-releases/2016.06/matlab-novice-inflammation/assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Programming with MATLAB: Making Choices</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="/swc-releases/2016.06/matlab-novice-inflammation/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="/swc-releases/2016.06/matlab-novice-inflammation/">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/setup/">Setup</a></li>
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/matlab-novice-inflammation/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/01-intro/">Analyzing Patient Data</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/02-scripts/">Writing MATLAB Scripts</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/03-loops/">Repeating With Loops</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/04-cond/">Making Choices</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/05-func/">Creating Functions</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/06-defensive/">Defensive Programming</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="/swc-releases/2016.06/matlab-novice-inflammation/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/extras/discuss.html">Programming with MATLAB</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/figures/">Figures</a></li>
+            
+            <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/extras/guide.html">Programming with MATLAB</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="/swc-releases/2016.06/matlab-novice-inflammation/license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/matlab-novice-inflammation/03-loops/"><span class="glyphicon glyphicon-menu-left"></span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="/swc-releases/2016.06/matlab-novice-inflammation/">Programming with MATLAB</a></h3>
+    <h1 class="maintitle">Making Choices</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="/swc-releases/2016.06/matlab-novice-inflammation/05-func/"><span class="glyphicon glyphicon-menu-right"></span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 30 min
+      </br>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can programs do different things for different data values?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Learn about if, elseif, and else</p>
+</li>
+	
+	<li><p>Learn to test equality, AND, and OR conditions</p>
+</li>
+	
+	<li><p>Learn to nest loops</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+  
+</blockquote>
+
+<p>Our previous lessons have shown us how to manipulate
+data and repeat things.
+However, the programs we have written so far always do
+the same things, regardless of what data they’re given.
+We want programs to make choices based on the values
+they are manipulating.</p>
+
+<p>The tool that MATLAB gives us for doing this is called
+a <a href="reference.html#conditional-statement">conditional statement</a>,
+and it looks like this:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>num = 37;
+
+if num &gt; 100
+    disp('greater');
+else
+    disp('not greater');
+end
+
+disp('done');
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>not greater
+done
+</code></pre>
+</div>
+
+<p>The second line of this code uses the keyword <code class="highlighter-rouge">if</code> to tell MATLAB
+that we want to make a choice. If the test that follows is true,
+the body of the <code class="highlighter-rouge">if</code> (i.e., the lines between <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">else</code>) are
+executed. If the test is false, the body of the <code class="highlighter-rouge">else</code> (i.e.,
+the lines between <code class="highlighter-rouge">else</code> and <code class="highlighter-rouge">end</code>) are executed instead. Only one
+or the other is ever executed.</p>
+
+<p>Conditional statements don’t have to have an <code class="highlighter-rouge">else</code> block. If there
+isn’t one, MATLAB simply doesn’t do anything if the test is false:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>num = 53;
+disp('before conditional...');
+
+if num &gt; 100
+    disp('53 is greater than 100');
+end
+
+disp('...after conditional');
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>before conditional...
+...after conditional
+</code></pre>
+</div>
+
+<p>We can also chain several tests together using <code class="highlighter-rouge">elseif</code>. This makes it
+simple to write a script that gives the sign of a number:</p>
+
+<pre class="matlab"><code class="language-{.matlab}">% Demo script to illustrate use of conditionals
+
+if num &gt; 0
+	sign_of_num = 1;
+elseif num == 0
+	sign_of_num = 0;
+else
+	sign_of_num = -1;
+end
+
+disp(['Sign of num = ', num2str(sign_of_num)]);
+</code></pre>
+
+<p>One important thing to notice in the code above is that we use
+a double equals sign <code class="highlighter-rouge">==</code> to test for equality rather than a
+single equals sign. This is because the latter is used to mean
+assignment. In our test, we want to check for the equality of <code class="highlighter-rouge">num</code>
+and <code class="highlighter-rouge">0</code>, not <em>assign</em> 0 to <code class="highlighter-rouge">num</code>. This convention was inherited
+from C, and it does take a bit of getting used to…</p>
+
+<p>We can also combine tests, using <code class="highlighter-rouge">&amp;&amp;</code> (and) and <code class="highlighter-rouge">||</code> (or). <code class="highlighter-rouge">&amp;&amp;</code>
+is true if both tests are true:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>if ((1 &gt; 0) &amp;&amp; (-1 &gt; 0))
+    disp('both parts are true');
+else
+    disp('one part is not true');
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>one part is not true
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">||</code> is true if either test is true:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>if (1 &lt; 0) || (3 &lt; 4)
+    disp('at least one part is true');
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>at least one part is true
+</code></pre>
+</div>
+
+<p>In this case, “either” means “either or both”, not
+“either one or the other but not both”.</p>
+
+<blockquote class="challenge">
+  <h2 id="true-and-false-statements">True and False Statements</h2>
+
+  <p><code class="highlighter-rouge">1</code> and <code class="highlighter-rouge">0</code> aren’t the only values
+in MATLAB that are true or false. In fact, <em>any</em> value
+can be used in an <code class="highlighter-rouge">if</code> or <code class="highlighter-rouge">elseif</code>. After reading and
+running the code below, explain what the rule is for
+which values that are considered true and which are
+considered false.</p>
+
+  <p>a.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if ''
+    disp('empty string is true')
+end
+</code></pre>
+  </div>
+
+  <p>b.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if 'foo'
+    disp('non empty string is true')
+end
+</code></pre>
+  </div>
+
+  <p>c.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if []
+    disp ('empty array is true')
+end
+</code></pre>
+  </div>
+
+  <p>d.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if [22.5, 1.0]
+    disp ('non empty array is true')
+end
+</code></pre>
+  </div>
+
+  <p>e.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if [0, 0]
+    disp ('array of zeros is true')
+end
+</code></pre>
+  </div>
+
+  <p>f.</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>if true
+    disp('true is true')
+end
+</code></pre>
+  </div>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="close-enough">Close Enough</h2>
+
+  <p>Write a script called <code class="highlighter-rouge">near</code> that performs a test on two variables, and displays <code class="highlighter-rouge">1</code>
+when the first variable is within 10% of the other
+and <code class="highlighter-rouge">0</code> otherwise. Compare your implementation with
+your partner’s: do you get the same answer for
+all possible pairs of numbers?</p>
+</blockquote>
+
+<p>Another thing to realize is that <code class="highlighter-rouge">if</code> statements can
+be also combined with loops. For example, if we want
+to sum the positive numbers in a list, we can write
+this:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>numbers = [-5, 3, 2, -1, 9, 6];
+total = 0;
+
+for n = numbers
+    if n &gt;= 0
+        total = total + n;
+    end
+end
+
+disp(['sum of positive values: ', num2str(total)])
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>sum of positive values: 20
+</code></pre>
+</div>
+
+<p>With a little extra effort, we can calculate the
+positive and negative sums in a loop:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>pos_total = 0;
+neg_total = 0;
+
+for n = numbers
+    if n &gt;= 0
+        pos_total = pos_total + n;
+    else
+        neg_total = neg_total + n;
+    end
+end
+
+disp(['sum of positive values: ', num2str(pos_total)]);
+disp(['sum of negative values: ', num2str(neg_total)]);
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>sum of positive values: 26
+sum of negative values: -6
+</code></pre>
+</div>
+
+<p>We can even put one loop inside another:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>for consonant = 'bcd'
+    for vowel = 'ae'
+        disp (strcat(consonant, vowel));
+    end
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>ba
+be
+ca
+ce
+da
+de
+</code></pre>
+</div>
+
+<blockquote class="challenge">
+  <h2 id="nesting">Nesting</h2>
+
+  <ol>
+    <li>
+      <p>Will changing the order of nesting in the above loop change
+the output? Why? Write down the output you might expect from
+changing the order of the loops, then rewrite the code to test
+your hypothesis.</p>
+    </li>
+    <li>
+      <p>MATLAB (and most other languges in the C family) provides
+<a href="reference.html#in-place-operator">in-place operators</a> that
+work like this:</p>
+    </li>
+  </ol>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>x = 1;
+x += 1;
+x *= 3;
+</code></pre>
+  </div>
+
+  <p>Rewrite the code that sums the positive and negative values
+in an array using these in-place operators. Do you think that
+the result is more or less readable than the original?</p>
+</blockquote>
+
+<p>Currently, our script <code class="highlighter-rouge">analyze.m</code> reads in data, analyzes it,
+and saves plots of the results.
+If we would rather display the plots interactively,
+we would have to remove (or <em>comment out</em>) the following code:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>print('-dpng', img_name);
+close();
+</code></pre>
+</div>
+
+<p>And, we’d also have to change this line of code, from:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>figure('visible', 'off')
+</code></pre>
+</div>
+
+<p>to:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>figure('visible', 'on')
+% or equivalently: figure()
+</code></pre>
+</div>
+
+<p>This is not a lot of code to change every time,
+but it’s still work that’s easily avoided using conditionals.
+Here’s our script re-written to use <em>conditionals</em>
+to switch between saving plots as images and plotting them interactively:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>
+% plot_switch:
+%   0 - show plots interactively
+%   1 - save plots to disk
+
+plot_switch = 0;
+
+for idx = 1:3
+
+    % Generate strings for file and image names:
+    file_name = sprintf('data/inflammation-%02d.csv', idx);
+    img_name = sprintf ('patient_data-%02d.png', idx);
+
+    patient_data = csvread(file_name);
+    ave_inflammation = mean(patient_data, 1);
+
+    if plot_switch == 1
+        figure('visible', 'off')
+    else
+        figure('visible', 'on')
+    end
+
+    subplot(2, 2, 1);
+    plot(ave_inflammation);
+    ylabel('average')
+
+    subplot(2, 2, 2);
+    plot(max(patient_data, [], 1));
+    ylabel('max')
+
+    subplot(2, 2, 3);
+    plot(min(patient_data, [], 1));
+    ylabel('min')
+
+    if plot_switch == 1
+        print('-dpng', img_name);
+        close()
+    end
+
+end
+</code></pre>
+</div>
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">else</code> to make choices based on values in your program.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+      
+      <hr/>
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/jquery.min.js"></script>
+<script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/bootstrap.min.js"></script>
+<script src="/swc-releases/2016.06/matlab-novice-inflammation/assets/js/lesson.js"></script>
+
+  </body>
+</html>
