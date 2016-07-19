@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Programming with MATLAB
-subtitle: Instructor's Guide
+title: "Instructors' Guide"
 ---
 ## Overall
 
