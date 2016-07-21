@@ -237,7 +237,7 @@ The range of each time series is represented as a pair of numbers,
 which are the time the interval started and ended.
 The output is the largest range that they all include:
 
-![Overlapping Ranges]({{ site.github.url }}/fig/matlab-overlapping-ranges.png)
+![Overlapping Ranges](../fig/matlab-overlapping-ranges.png)
 
 Most novice programmers would solve this problem like this:
 

@@ -191,7 +191,7 @@ convert that numerical value to a string with the `num2str` function.
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
 
-![Variables as Sticky Notes]({{ site.github.url }}/fig/matlab-sticky-note-variables-01.svg)
+![Variables as Sticky Notes](../fig/matlab-sticky-note-variables-01.svg)
 
 Assigning a value to one variable does not change the values of other
 variables.
@@ -211,7 +211,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-![Creating another variable]({{ site.github.url }}/fig/matlab-sticky-note-variables-02.svg)
+![Creating another variable](../fig/matlab-sticky-note-variables-02.svg)
 
 Let's update the value of one of our variables, and print the values
 of both:
@@ -228,7 +228,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-![Updating one variable]({{ site.github.url }}/fig/matlab-sticky-note-variables-03.svg)
+![Updating one variable](../fig/matlab-sticky-note-variables-03.svg)
 
 Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
@@ -375,7 +375,7 @@ ans =
 
 We want to access a single value from the matrix:
 
-![Accessing a single value]({{ site.github.url }}/fig/matrix-single-element.svg)
+![Accessing a single value](../fig/matrix-single-element.svg)
 
 To do that, we must provide
 its [index](reference.html#index) in parentheses:
@@ -397,7 +397,7 @@ An index like `(5, 6)` selects a single element of
 an array, but we can also access sections of the matrix, or [slices](reference.html#slice).
 To access a row of values:
 
-![Accessing a single value]({{ site.github.url }}/fig/matrix-row.svg)
+![Accessing a single value](../fig/matrix-row.svg)
 
 we can do:
 
@@ -421,7 +421,7 @@ the elements on row `5`, and *all* columns---effectively, the entire row.
 We can also
 select multiple rows,
 
-![Accessing multiple rows]({{ site.github.url }}/fig/matrix-multi-rows.svg)
+![Accessing multiple rows](../fig/matrix-multi-rows.svg)
 
 ~~~
 M(1:4, :)
@@ -440,7 +440,7 @@ ans =
 
 and columns:
 
-![Accessing multiple columns]({{ site.github.url }}/fig/matrix-multi-cols.svg)
+![Accessing multiple columns](../fig/matrix-multi-cols.svg)
 
 ~~~
 M(:, 6:end)
@@ -463,7 +463,7 @@ ans =
 
 To select a submatrix,
 
-![Accessing a submatrix]({{ site.github.url }}/fig/matrix-submatrix.svg)
+![Accessing a submatrix](../fig/matrix-submatrix.svg)
 
 we have to take slices in both dimensions:
 
@@ -486,7 +486,7 @@ We don't have to take all the values in the slice---if we provide
 a [stride](reference.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
-![Accessing strided columns]({{ site.github.url }}/fig/matrix-strided-rows.svg)
+![Accessing strided columns](../fig/matrix-strided-rows.svg)
 
 ~~~
 M(2:3:end, :)
@@ -504,7 +504,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-![Accessing strided rows and columns]({{ site.github.url }}/fig/matrix-strided-rowncols.svg)
+![Accessing strided rows and columns](../fig/matrix-strided-rowncols.svg)
 
 by taking appropriate strides in both dimensions:
 
@@ -663,7 +663,7 @@ average for each day?
 As the diagram below shows, we want to perform the operation across an
 axis:
 
-![Operations Across Axes]({{ site.github.url }}/fig/matlab-operations-across-axes.svg)
+![Operations Across Axes](../fig/matlab-operations-across-axes.svg)
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
@@ -800,7 +800,7 @@ imagesc(patient_data)
 ~~~
 {: .matlab}
 
-![First heat map]({{ site.github.url }}/fig/01-intro_1.png)
+![First Heat Map](../fig/01-intro_1.png)
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -815,7 +815,7 @@ plot(ave_inflammation);
 ~~~
 {: .matlab}
 
-![Second heat map]({{ site.github.url }}/fig/01-intro_2.png)
+![Second Heat Map](../fig/01-intro_2.png)
 
 Here, we have put the average per day across all patients in the
 variable `ave_inflammation`, then used the `plot` function to display
@@ -832,7 +832,7 @@ title('Maximum inflammation per day');
 ~~~
 {: .matlab}
 
-![Third heat map]({{ site.github.url }}/fig/01-intro_3.png)
+![Third Heat Map](../fig/01-intro_3.png)
 
 ~~~
 plot(min(patient_data, [], 1));
@@ -840,7 +840,7 @@ title('Minimum inflammation per day');
 ~~~
 {: .matlab}
 
-![Fourth heat map]({{ site.github.url }}/fig/01-intro_4.png)
+![Fourth Heat Map](../fig/01-intro_4.png)
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
@@ -875,7 +875,7 @@ ylabel('min')
 ~~~
 {: .matlab}
 
-![Fifth heat map]({{ site.github.url }}/fig/01-intro_5.png)
+![Fifth Heat Map](../fig/01-intro_5.png)
 
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
