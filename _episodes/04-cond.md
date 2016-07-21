@@ -73,7 +73,7 @@ before conditional...
 We can also chain several tests together using `elseif`. This makes it
 simple to write a script that gives the sign of a number:
 
-~~~ {.matlab}
+~~~
 % Demo script to illustrate use of conditionals
 
 if num > 0
