@@ -1,9 +1,8 @@
 ---
 layout: page
 title: "Instructors' Guide"
+permalink: /guide/
 ---
-## Overall
-
 ## [Solutions to exercises](06-defensive.html)
 ~~~
 function output_range = range_overlap(varargin)
