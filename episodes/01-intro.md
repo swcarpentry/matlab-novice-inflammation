@@ -21,11 +21,11 @@ keypoints:
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)](reference.html#comma-separated-values) format:
+[Comma Separated Values (CSV)](../reference/index.html#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
-[`inflammation-01.csv`](data/inflammation-01.csv), look like this:
+[`inflammation-01.csv`](../data/inflammation-01.csv), look like this:
 
 ~~~
 0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
@@ -47,7 +47,7 @@ To do all that, we'll have to learn a little bit about programming.
 We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
-[path](reference.html#matlab-path)
+[path](../reference/index.html#matlab-path)
 to include the directory containing the files. The MATLAB path is a list of directories
 on your computer that MATLAB knows about.
 To do this,
@@ -125,19 +125,19 @@ csvread('inflammation-01.csv');
 {: .matlab}
 
 The expression `csvread(...)` is a
-[function call](reference.html#function-call).
-Functions generally need [parameters](reference.html#parameter)
+[function call](../reference/index.html#function-call).
+Functions generally need [parameters](../reference/index.html#parameter)
 to run.
 In the case of the `csvread` function, we need to provide a single
 parameter: the name of the file we want to read data from. This
 parameter needs to be a character string or
-[string](reference.html#string), so we put it in quotes.
+[string](../reference/index.html#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
 to the screen. And adding a semicolon rendered it even less useful---
 we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
-[variable](reference.html#variable).
+[variable](../reference/index.html#variable).
 
 ~~~
 patient_data = csvread('inflammation-01.csv');
@@ -191,7 +191,7 @@ convert that numerical value to a string with the `num2str` function.
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
 
-<img src="fig/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+<img src="../fig/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
 
 Assigning a value to one variable does not change the values of other
 variables.
@@ -211,7 +211,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-<img src="fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
+<img src="../fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
 
 Let's update the value of one of our variables, and print the values
 of both:
@@ -228,7 +228,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-<img src="fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
+<img src="../fig//matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
 
 Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
@@ -294,7 +294,7 @@ To do that, simply type `clear all`.
 {: .challenge}
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its size or [shape](reference.html#shape):
+First, let's find out its size or [shape](../reference/index.html#shape):
 
 ~~~
 size(patient_data)
@@ -375,10 +375,10 @@ ans =
 
 We want to access a single value from the matrix:
 
-<img src="fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
+<img src="../fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
 
 To do that, we must provide
-its [index](reference.html#index) in parentheses:
+its [index](../reference/index.html#index) in parentheses:
 
 ~~~
 M(5, 6)
@@ -394,10 +394,10 @@ Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
 
 An index like `(5, 6)` selects a single element of
-an array, but we can also access sections of the matrix, or [slices](reference.html#slice).
+an array, but we can also access sections of the matrix, or [slices](../reference/index.html#slice).
 To access a row of values:
 
-<img src="fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
+<img src="../fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
 
 we can do:
 
@@ -421,7 +421,7 @@ the elements on row `5`, and *all* columns---effectively, the entire row.
 We can also
 select multiple rows,
 
-<img src="fig/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
+<img src="../fig/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
 
 ~~~
 M(1:4, :)
@@ -440,7 +440,7 @@ ans =
 
 and columns:
 
-<img src="fig/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
+<img src="../fig/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
 
 ~~~
 M(:, 6:end)
@@ -463,7 +463,7 @@ ans =
 
 To select a submatrix,
 
-<img src="fig/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
+<img src="../fig/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
 
 we have to take slices in both dimensions:
 
@@ -483,10 +483,10 @@ ans =
 {: .output}
 
 We don't have to take all the values in the slice---if we provide
-a [stride](reference.html#stride). Let's say we want to start with row `2`,
+a [stride](../reference/index.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
-<img src="fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
+<img src="../fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
 
 ~~~
 M(2:3:end, :)
@@ -504,7 +504,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-<img src="fig/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
+<img src="../fig//matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
 
 by taking appropriate strides in both dimensions:
 
@@ -524,7 +524,7 @@ ans =
 
 > ## Slicing
 >
-> A subsection of an array is called a [slice](reference.html#slice). We can take slices of character strings as well:
+> A subsection of an array is called a [slice](../reference/index.html#slice). We can take slices of character strings as well:
 >
 > ~~~
 > element = 'oxygen';
@@ -663,7 +663,7 @@ average for each day?
 As the diagram below shows, we want to perform the operation across an
 axis:
 
-<img src="fig/matlab-operations-across-axes.svg" alt="Operations Across Axes" />
+<img src="../fig/matlab-operations-across-axes.svg" style="height:350px" alt="Operations Across Axes">
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
@@ -800,7 +800,7 @@ imagesc(patient_data)
 ~~~
 {: .matlab}
 
-<img src="fig/01-intro_1.png" style="height:350px">
+<img src="../fig/01-intro_1.png" style="height:350px">
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -815,7 +815,7 @@ plot(ave_inflammation);
 ~~~
 {: .matlab}
 
-<img src="fig/01-intro_2.png" style="height:350px">
+<img src="../fig/01-intro_2.png" style="height:350px">
 
 Here, we have put the average per day across all patients in the
 variable `ave_inflammation`, then used the `plot` function to display
@@ -832,7 +832,7 @@ title('Maximum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="fig/01-intro_3.png" style="height:350px">
+<img src="../fig//01-intro_3.png" style="height:350px">
 
 ~~~
 plot(min(patient_data, [], 1));
@@ -840,7 +840,7 @@ title('Minimum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="fig/01-intro_4.png" style="height:350px">
+<img src="../fig//01-intro_4.png" style="height:350px">
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
@@ -875,7 +875,7 @@ ylabel('min')
 ~~~
 {: .matlab}
 
-<img src="fig/01-intro_5.png" style="height:350px">
+<img src="../fig/01-intro_5.png" style="height:350px">
 
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,

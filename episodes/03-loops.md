@@ -94,7 +94,7 @@ d
 ~~~
 {: .output}
 
-This improved version uses a [for loop](reference.html#for-loop) to
+This improved version uses a [for loop](../reference/index.html#for-loop) to
 repeat an operation---in this case, printing to the screen---once for
 each element in an array.
 
@@ -108,9 +108,9 @@ end
 {: .source}
 
 The for loop executes the commands in the
-[loop body](reference.html#loop-body)
+[loop body](../reference/index.html#loop-body)
 for every value in the array `collection`.
-This value is called the [loop variable](reference.html#loop-variable),
+This value is called the [loop variable](../reference/index.html#loop-variable),
 and we can call it whatever we like.
 In our example, we gave it the name `letter`.
 
@@ -269,7 +269,7 @@ u
 > ## Looping in Reverse
 >
 > In Matlab, the colon operator (`:`) accepts a
-> [stride](reference.> html#stride)
+> [stride](../reference/index.html#stride)
 > or skip argument between the start and stop:
 >
 > ~~~
@@ -456,11 +456,11 @@ analyze_loops
 ~~~
 {: .matlab}
 
-<img src="img/02-loop_1.png" style="width:500px; height:400px">
+<img src="../img/02-loop_1.png" style="width:500px; height:400px">
 
-<img src="img/02-loop_2.png" style="width:500px; height:400px">
+<img src="../img/02-loop_2.png" style="width:500px; height:400px">
 
-<img src="img/02-loop_3.png" style="width:500px; height:400px">
+<img src="../img/02-loop_3.png" style="width:500px; height:400px">
 
 Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
@@ -477,7 +477,7 @@ function could be re-used to check all our future data files.
 > we might want to process all files that end with a given extension,
 > say `.csv`.
 > At the command line we could get this list of files by using a
-> [wildcard](reference.html#wildcard):
+> [wildcard](../reference/index.html#wildcard):
 >
 > ~~~
 > ls *.csv
