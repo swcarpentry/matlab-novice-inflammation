@@ -68,7 +68,8 @@ MARKDOWN_SRC = \
   $(wildcard _episodes/*.md) \
   reference.md \
   $(wildcard _extras/*.md) \
-  LICENSE.md
+  LICENSE.md \
+  reference.md
 
 # Generated lesson files in the order they appear in the navigation menu.
 HTML_DST = \
