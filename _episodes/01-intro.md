@@ -228,7 +228,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-<img src="../fig//matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
+<img src="../fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
 
 Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
@@ -504,7 +504,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-<img src="../fig//matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
+<img src="../fig/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
 
 by taking appropriate strides in both dimensions:
 
@@ -832,7 +832,7 @@ title('Maximum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="../fig//01-intro_3.png" style="height:350px">
+<img src="../fig/01-intro_3.png" style="height:350px">
 
 ~~~
 plot(min(patient_data, [], 1));
@@ -840,7 +840,7 @@ title('Minimum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="../fig//01-intro_4.png" style="height:350px">
+<img src="../fig/01-intro_4.png" style="height:350px">
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
