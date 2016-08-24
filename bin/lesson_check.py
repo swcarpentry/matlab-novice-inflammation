@@ -4,6 +4,7 @@
 Check lesson files and their contents.
 """
 
+from __future__ import print_function
 import sys
 import os
 import glob
@@ -45,6 +46,9 @@ P_TRAILING_WHITESPACE = re.compile(r'\s+$')
 
 # Pattern to match figure references in HTML.
 P_FIGURE_REFS = re.compile(r'<img[^>]+src="([^"]+)"[^>]*>')
+
+# Pattern to match internally-defined Markdown links.
+P_INTERNALLY_DEFINED_LINK = re.compile(r'\[[^\]]+\]\[[^\]]+\]')
 
 # What kinds of blockquotes are allowed?
 KNOWN_BLOCKQUOTES = {
@@ -150,13 +154,6 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc'))
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
-    reporter.check_field(config_file, 'configuration', config, 'repo')
-    reporter.check_field(config_file, 'configuration', config, 'root')
-    if ('repo' in config) and ('root' in config):
-        reporter.check(config['repo'].endswith(config['root']),
-                       config_file,
-                       'Repository name "{0}" not consistent with root "{1}"',
-                       config['repo'], config['root'])
 
 
 def read_all_markdown(source_dir, parser):
@@ -280,6 +277,7 @@ class CheckBase(object):
         self.check_trailing_whitespace()
         self.check_blockquote_classes()
         self.check_codeblock_classes()
+        self.check_defined_link_references()
 
 
     def check_metadata(self):
@@ -335,6 +333,26 @@ class CheckBase(object):
                                 (self.filename, self.get_loc(node)),
                                 'Unknown or missing code block type {0}',
                                 cls)
+
+
+    def check_defined_link_references(self):
+        """Check that defined links resolve in the file.
+
+        Internally-defined links match the pattern [text][label].  If
+        the label contains '{{...}}', it is hopefully a references to
+        a configuration value - we should check that, but don't right
+        now.
+        """
+
+        result = set()
+        for node in self.find_all(self.doc, {'type' : 'text'}):
+            for match in P_INTERNALLY_DEFINED_LINK.findall(node['value']):
+                if '{{' not in match:
+                    result.add(match)
+        self.reporter.check(not result,
+                            self.filename,
+                            'Internally-defined links may be missing definitions: {0}',
+                            ', '.join(sorted(result)))
 
 
     def find_all(self, node, pattern, accum=None):

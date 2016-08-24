@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Programming with MATLAB
-subtitle: Instructor's Guide
+title: "Instructors' Guide"
+permalink: /guide/
 ---
-## Overall
-
 ## [Solutions to exercises](06-defensive.html)
 ~~~
 function output_range = range_overlap(varargin)
@@ -20,7 +18,7 @@ function output_range = range_overlap(varargin)
 	    high = range(2);
 	    lowest = max(lowest, low);
 	    highest = min(highest, high);
-	    
+	   
 	    % catch non-overlapping ranges
 	    if low >= highest || high<=lowest
 		output_range=NaN;

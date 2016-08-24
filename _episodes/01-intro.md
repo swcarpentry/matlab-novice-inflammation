@@ -191,7 +191,7 @@ convert that numerical value to a string with the `num2str` function.
 If we imagine the variable as a sticky note with a name written on
 it, assignment is like putting the sticky note on a particular value:
 
-<img src="../fig/matlab-sticky-note-variables-01.svg" alt="Variables as Sticky Notes" />
+![Variables as Sticky Notes](../fig/matlab-sticky-note-variables-01.svg)
 
 Assigning a value to one variable does not change the values of other
 variables.
@@ -211,7 +211,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-<img src="../fig/matlab-sticky-note-variables-02.svg" alt="Creating another variable" />
+![Creating another variable](../fig/matlab-sticky-note-variables-02.svg)
 
 Let's update the value of one of our variables, and print the values
 of both:
@@ -228,7 +228,7 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-<img src="../fig/matlab-sticky-note-variables-03.svg" alt="Updating one variable" />
+![Updating one variable](../fig/matlab-sticky-note-variables-03.svg)
 
 Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
@@ -375,7 +375,7 @@ ans =
 
 We want to access a single value from the matrix:
 
-<img src="../fig/matrix-single-element.svg" style="height:350px" alt="Accessing a single value"/>
+![Accessing a single value](../fig/matrix-single-element.svg)
 
 To do that, we must provide
 its [index](../reference/index.html#index) in parentheses:
@@ -397,7 +397,7 @@ An index like `(5, 6)` selects a single element of
 an array, but we can also access sections of the matrix, or [slices](../reference/index.html#slice).
 To access a row of values:
 
-<img src="../fig/matrix-row.svg" style="height:350px" alt="Accessing a single value"/>
+![Accessing a single value](../fig/matrix-row.svg)
 
 we can do:
 
@@ -421,7 +421,7 @@ the elements on row `5`, and *all* columns---effectively, the entire row.
 We can also
 select multiple rows,
 
-<img src="../fig/matrix-multi-rows.svg" style="height:350px" alt="Accessing multiple rows"/>
+![Accessing multiple rows](../fig/matrix-multi-rows.svg)
 
 ~~~
 M(1:4, :)
@@ -440,7 +440,7 @@ ans =
 
 and columns:
 
-<img src="../fig/matrix-multi-cols.svg" style="height:350px" alt="Accessing multiple columns"/>
+![Accessing multiple columns](../fig/matrix-multi-cols.svg)
 
 ~~~
 M(:, 6:end)
@@ -463,7 +463,7 @@ ans =
 
 To select a submatrix,
 
-<img src="../fig/matrix-submatrix.svg" style="height:350px" alt="Accessing a submatrix"/>
+![Accessing a submatrix](../fig/matrix-submatrix.svg)
 
 we have to take slices in both dimensions:
 
@@ -486,7 +486,7 @@ We don't have to take all the values in the slice---if we provide
 a [stride](../reference/index.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
-<img src="../fig/matrix-strided-rows.svg" style="height:350px" alt="Accessing strided columns"/>
+![Accessing strided columns](../fig/matrix-strided-rows.svg)
 
 ~~~
 M(2:3:end, :)
@@ -504,7 +504,7 @@ ans =
 
 And we can also select values in a "checkerboard",
 
-<img src="../fig/matrix-strided-rowncols.svg" style="height:350px" alt="Accessing strided rows and columns"/>
+![Accessing strided rows and columns](../fig/matrix-strided-rowncols.svg)
 
 by taking appropriate strides in both dimensions:
 
@@ -535,7 +535,7 @@ ans =
 >
 > ~~~
 > first three characters: oxy
-> last three characters: gen   
+> last three characters: gen
 > ~~~
 > {: .output}
 >
@@ -663,7 +663,7 @@ average for each day?
 As the diagram below shows, we want to perform the operation across an
 axis:
 
-<img src="../fig/matlab-operations-across-axes.svg" style="height:350px" alt="Operations Across Axes">
+![Operations Across Axes](../fig/matlab-operations-across-axes.svg)
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
@@ -800,7 +800,7 @@ imagesc(patient_data)
 ~~~
 {: .matlab}
 
-<img src="../fig/01-intro_1.png" style="height:350px">
+![First Heat Map](../fig/01-intro_1.png)
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -815,7 +815,7 @@ plot(ave_inflammation);
 ~~~
 {: .matlab}
 
-<img src="../fig/01-intro_2.png" style="height:350px">
+![Second Heat Map](../fig/01-intro_2.png)
 
 Here, we have put the average per day across all patients in the
 variable `ave_inflammation`, then used the `plot` function to display
@@ -832,7 +832,7 @@ title('Maximum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="../fig/01-intro_3.png" style="height:350px">
+![Third Heat Map](../fig/01-intro_3.png)
 
 ~~~
 plot(min(patient_data, [], 1));
@@ -840,7 +840,7 @@ title('Minimum inflammation per day');
 ~~~
 {: .matlab}
 
-<img src="../fig/01-intro_4.png" style="height:350px">
+![Fourth Heat Map](../fig/01-intro_4.png)
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
@@ -875,7 +875,7 @@ ylabel('min')
 ~~~
 {: .matlab}
 
-<img src="../fig/01-intro_5.png" style="height:350px">
+![Fifth Heat Map](../fig/01-intro_5.png)
 
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
