@@ -3,7 +3,7 @@ layout: page
 title: "Instructors' Guide"
 permalink: /guide/
 ---
-## [Solutions to exercises](06-defensive.html)
+## [Solutions to exercises]({{ site.github.url }}/06-defensive/)
 ~~~
 function output_range = range_overlap(varargin)
 

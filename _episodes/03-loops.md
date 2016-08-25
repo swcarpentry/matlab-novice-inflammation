@@ -94,7 +94,7 @@ d
 ~~~
 {: .output}
 
-This improved version uses a [for loop](../reference/index.html#for-loop) to
+This improved version uses a [for loop]({{ site.github.url }}/reference/#for-loop) to
 repeat an operation---in this case, printing to the screen---once for
 each element in an array.
 
@@ -108,9 +108,9 @@ end
 {: .source}
 
 The for loop executes the commands in the
-[loop body](../reference/index.html#loop-body)
+[loop body]({{ site.github.url }}/reference/#loop-body)
 for every value in the array `collection`.
-This value is called the [loop variable](../reference/index.html#loop-variable),
+This value is called the [loop variable]({{ site.github.url }}/reference/#loop-variable),
 and we can call it whatever we like.
 In our example, we gave it the name `letter`.
 
@@ -268,7 +268,7 @@ u
 > ## Looping in Reverse
 >
 > In Matlab, the colon operator (`:`) accepts a
-> [stride](../reference/index.html#stride)
+> [stride]({{ site.github.url }}/reference/#stride)
 > or skip argument between the start and stop:
 >
 > ~~~
@@ -476,7 +476,7 @@ function could be re-used to check all our future data files.
 > we might want to process all files that end with a given extension,
 > say `.csv`.
 > At the command line we could get this list of files by using a
-> [wildcard](../reference/index.html#wildcard):
+> [wildcard]({{ site.github.url }}/reference/#wildcard):
 >
 > ~~~
 > ls *.csv

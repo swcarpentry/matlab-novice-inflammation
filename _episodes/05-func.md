@@ -114,7 +114,7 @@ ans = -273.15
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
-Instead, we can [compose](../reference/index.html#function-composition) the two
+Instead, we can [compose]({{ site.github.url }}/reference/#function-composition) the two
 functions we have already created:
 
 ~~~
@@ -307,7 +307,7 @@ std(data(:)) - std(centered(:))
 The difference is very small. It's still possible that our function
 is wrong, but it seems unlikely enough that we should probably
 get back to doing our analysis. We have one more task first, though:
-we should write some [documentation](../reference/index.html#documentation)
+we should write some [documentation]({{ site.github.url }}/reference/#documentation)
 for our function to remind ourselves later what it's for and
 how to use it.
 
