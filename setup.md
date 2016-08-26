@@ -15,4 +15,5 @@ You will need to install MATLAB or [GNU Octave][gnu-octave] to do this lesson.
 
 ~~~
 cd Desktop/python-novice-inflammation/data
-~~~{: .bash}
+~~~
+{: .bash}
