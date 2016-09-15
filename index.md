@@ -1,5 +1,6 @@
 ---
 layout: lesson
+root: .
 ---
 
 The best way to learn how to program is to do something useful, so this
