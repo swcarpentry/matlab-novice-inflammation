@@ -103,6 +103,8 @@ csvread('inflammation-01.csv')
 ~~~
 {: .matlab}
 
+You can also upload date directly through the MATLAB user interface. You can do this by within the home tab on MATLAB's top bar you can select import data. A new tab will open and you can select the file and data from the file that you are wanting to upload. 
+
 > ## GNU Octave
 >
 > There are many small differences between Octave and MATLAB. One
