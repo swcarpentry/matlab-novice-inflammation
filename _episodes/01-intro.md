@@ -312,12 +312,11 @@ The output tells us that the variable `patient_data`
 refers to a table of values
 that has 60 rows and 40 columns.
 
-MATLAB stores *all* data in the form of arrays. For example:
+MATLAB stores *all* data in the form of multi-dimensional arrays. For example:
 
-* Numbers, or *scalars* are arrays of zero dimensions, as are single
-characters,
-* Lists of numbers, or *vectors* are arrays of one dimension,
-* Tables of numbers, or *matrices* are arrays of two dimensions,
+* Numbers, or *scalars* are represented as two dimensional arrays with only one row and one column, as are single characters. 
+* Lists of numbers, or *vectors* are two dimensional as well, but with the value of dimension being equal to one. By default vectors are row vectors, meaning they have one row and as many columns as there are elements in the vector.
+* Tables of numbers, or *matrices* are arrays with more than one column and more than one row.
 * Even character strings, like sentences, are stored as an "array
 of characters".
 
