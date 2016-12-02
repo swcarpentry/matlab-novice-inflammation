@@ -5,10 +5,10 @@ exercises: 0
 questions:
 - "How can I teach MATLAB how to do new things?"
 objectives:
-- "Explain a Matlab function file."
+- "Compare and contrast MATLAB function files with MATLAB scripts."
 - "Define a function that takes parameters."
 - "Test a function."
-- "Know why we should divide programs into small, single-purpose functions."
+- "Recognize why we should divide programs into small, single-purpose functions."
 keypoints:
 - "Break programs up into short, single-purpose functions with meaningful names."
 - "Define functions using the `function` keyword."

@@ -5,8 +5,8 @@ exercises: 0
 questions:
 - "How can I process and visualize my data?"
 objectives:
-- "Get to know the MATLAB environment."
-- "Learn about MATLAB arrays."
+- "Navigate among important sections of the MATLAB environment."
+- "Identify what kind of data is stored in MATLAB arrays."
 - "Read tabular data from a file into a program."
 - "Assign values to variables."
 - "Select individual values and subsections from data."
