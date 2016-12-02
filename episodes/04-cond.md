@@ -5,9 +5,10 @@ exercises: 0
 questions:
 - "How can programs do different things for different data values?"
 objectives:
-- "Learn about if, elseif, and else"
-- "Learn to test equality, AND, and OR conditions"
-- "Learn to nest loops"
+- "Construct a conditional statement using if, elseif, and else"
+- "Test for equality within a conditional statement"
+- "Combine conditional tests using AND and OR"
+- "Build a nested loop"
 keypoints:
 - "Use `if` and `else` to make choices based on values in your program."
 ---

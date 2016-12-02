@@ -5,8 +5,8 @@ exercises: 0
 questions:
 - "How can I save and re-use my programs?"
 objectives:
-- "Learn how to write and save MATLAB scripts."
-- "Learn how to save MATLAB plots to disk."
+- "Write and save MATLAB scripts."
+- "Save MATLAB plots to disk."
 keypoints:
 - "Save MATLAB code in files with a `.m` suffix."
 ---
