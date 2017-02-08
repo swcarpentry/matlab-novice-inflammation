@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:51:30 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/matlab-novice-inflammation">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Programming with MATLAB</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="./assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="./">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="./conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="./setup/">Setup</a></li>
+        <li><a href="./reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="./" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="./01-intro/">Analyzing Patient Data</a></li>
+            
+            <li><a href="./02-scripts/">Writing MATLAB Scripts</a></li>
+            
+            <li><a href="./03-loops/">Repeating With Loops</a></li>
+            
+            <li><a href="./04-cond/">Making Choices</a></li>
+            
+            <li><a href="./05-func/">Creating Functions</a></li>
+            
+            <li><a href="./06-defensive/">Defensive Programming</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="./" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="./extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="./figures/">Figures</a></li>
+            
+            <li><a href="./guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="./license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<h1 class="maintitle"><a href="./">Programming with MATLAB</a></h1>
+
+<p>The best way to learn how to program is to do something useful, so this
+introduction to <a href="https://en.wikipedia.org/wiki/MATLAB">MATLAB</a> is built around a common scientific task: data analysis.
+Our real goal isn’t to teach you MATLAB, but to teach you the basic concepts
+that all programming depends on. We use MATLAB in our lessons because:</p>
+
+<ol>
+  <li>we have to use <em>something</em> for examples;</li>
+  <li>it’s well-documented;</li>
+  <li>it has a large (and growing) user base among scientists in academia and industry; and</li>
+  <li>it has a large library of packages available for performing diverse tasks.</li>
+</ol>
+
+<p>But the two most important things are to use whatever language your colleagues
+are using, so that you can share your work with them easily, and to use that
+language <em>well</em>.</p>
+
+<blockquote class="callout">
+  <h2 id="gnu-octave">GNU Octave</h2>
+
+  <p><a href="http://www.gnu.org/software/octave/">GNU Octave</a> is a free and open-source alternative
+to MATLAB which shares its syntax (<a href="http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility">see more about compatibility</a>).
+Thus, if you don’t have access to MATLAB, you can easily set up Octave
+on your computer and still work through the lesson.</p>
+</blockquote>
+
+<blockquote class="prereq">
+  <h2 id="prerequisites">Prerequisites</h2>
+
+  <p>To begin tackling this lesson, you will need to:</p>
+
+  <ul>
+    <li>Understand the concepts of files and directories, and the concept of a “working directory”.</li>
+    <li>Know how to start up MATLAB, and access the <em>command window</em> (which generally has a <code class="highlighter-rouge">&gt;&gt;</code> prompt).</li>
+    <li>Know how to create, edit and save text files.</li>
+  </ul>
+</blockquote>
+
+
+<div class="syllabus">
+  <h2 id="schedule">Schedule</h2>
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
+  <table class="table table-striped">
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">00:00</td>
+      <td class="col-md-3">
+        <a href="./01-intro/">Analyzing Patient Data</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can I process and visualize my data?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">00:30</td>
+      <td class="col-md-3">
+        <a href="./02-scripts/">Writing MATLAB Scripts</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can I save and re-use my programs?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">01:00</td>
+      <td class="col-md-3">
+        <a href="./03-loops/">Repeating With Loops</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can I repeat the same operations on multiple values?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">01:30</td>
+      <td class="col-md-3">
+        <a href="./04-cond/">Making Choices</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can programs do different things for different data values?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">02:00</td>
+      <td class="col-md-3">
+        <a href="./05-func/">Creating Functions</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can I teach MATLAB how to do new things?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+    
+    
+    
+    <tr>
+      
+      <td class="col-md-1">02:30</td>
+      <td class="col-md-3">
+        <a href="./06-defensive/">Defensive Programming</a>
+      </td>
+      <td class="col-md-7">
+        
+          
+            
+              How can I make sure my programs are correct?
+
+              
+            
+          
+        
+      </td>
+    </tr>
+    
+  
+  
+  
+  <tr>
+    
+    <td class="col-md-1">03:00</td>
+    <td class="col-md-3">Finish</td>
+    <td class="col-md-7"></td>
+  </tr>
+  </table>
+
+  <p>
+    The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
+  </p>
+
+</div>
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>

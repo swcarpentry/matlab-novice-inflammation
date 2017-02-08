@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-02-08 23:51:30 +0100">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.02/matlab-novice-inflammation">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Programming with MATLAB</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li><a href="../reference/">Reference</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-intro/">Analyzing Patient Data</a></li>
+            
+            <li><a href="../02-scripts/">Writing MATLAB Scripts</a></li>
+            
+            <li><a href="../03-loops/">Repeating With Loops</a></li>
+            
+            <li><a href="../04-cond/">Making Choices</a></li>
+            
+            <li><a href="../05-func/">Creating Functions</a></li>
+            
+            <li><a href="../06-defensive/">Defensive Programming</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<h1 class="maintitle"><a href="../">Programming with MATLAB</a></h1>
+
+
+<h2>Key Points</h2>
+<table class="table table-striped">
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../01-intro/">Analyzing Patient Data</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>MATLAB stores data in arrays.</p>
+</li>
+        
+        <li><p>Use <code class="highlighter-rouge">csvread</code> to read tabular CSV data into a program.</p>
+</li>
+        
+        <li><p>Use <code class="highlighter-rouge">plot</code> to visualize data.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../02-scripts/">Writing MATLAB Scripts</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Save MATLAB code in files with a <code class="highlighter-rouge">.m</code> suffix.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../03-loops/">Repeating With Loops</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use <code class="highlighter-rouge">for</code> to create a loop that repeats one or more operations.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../04-cond/">Making Choices</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use <code class="highlighter-rouge">if</code> and <code class="highlighter-rouge">else</code> to make choices based on values in your program.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../05-func/">Creating Functions</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Break programs up into short, single-purpose functions with meaningful names.</p>
+</li>
+        
+        <li><p>Define functions using the <code class="highlighter-rouge">function</code> keyword.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+  
+    <tr>
+      <td class="col-md-3">
+        <a href="../06-defensive/">Defensive Programming</a>
+      </td>
+      <td class="col-md-9">
+        <ul>
+        
+        <li><p>Use assertions to catch errors, and to document what behavior is expected.</p>
+</li>
+        
+        <li><p>Initialize variables with actual values rather than arbitrary constants.</p>
+</li>
+        
+        <li><p>Write tests <em>before</em> code.</p>
+</li>
+        
+        </ul>
+      </td>
+    </tr>
+  
+
+</table>
+
+<h2 id="glossary">Glossary</h2>
+
+<dl>
+  <dt id="additive-color-model">additive color model</dt>
+  <dd>A way to represent colors as the sum of contributions from primary colors
+such as <a href="#rgb">red, green, and blue</a>.</dd>
+  <dt id="argument">argument</dt>
+  <dd>A value given to a function or program when it runs.
+The term is often used interchangeably (and inconsistently) with <a href="#parameter">parameter</a>.</dd>
+  <dt id="assertion">assertion</dt>
+  <dd>An expression which is supposed to be true at a particular point in a program.
+Programmers typically put assertions in their code to check for errors;
+if the assertion fails (i.e., if the expression evaluates as false),
+the program halts and produces an error message.
+See also: <a href="#invariant">invariant</a>, <a href="#precondition">precondition</a>, <a href="#postcondition">postcondition</a>.</dd>
+  <dt id="assign">assign</dt>
+  <dd>To give a value a name by associating a variable with it.</dd>
+  <dt id="body">body</dt>
+  <dd>(of a function): the statements that are executed when a function runs.</dd>
+  <dt id="call-stack">call stack</dt>
+  <dd>A data structure inside a running program that keeps track of active function calls.</dd>
+  <dt id="case-insensitive">case-insensitive</dt>
+  <dd>Treating text as if upper and lower case characters of the same letter were the same.
+See also: <a href="#case-sensitive">case-sensitive</a>.</dd>
+  <dt id="case-sensitive">case-sensitive</dt>
+  <dd>Treating text as if upper and lower case characters of the same letter are different.
+See also: <a href="#case-insensitive">case-insensitive</a>.</dd>
+  <dt id="comment">comment</dt>
+  <dd>A remark in a program that is intended to help human readers understand what is going on,
+but is ignored by the computer.
+Comments in MATLAB start with a <code class="highlighter-rouge">%</code> character and run to the end of the line;</dd>
+  <dt id="compose">compose</dt>
+  <dd>To apply one function to the result of another, such as <code class="highlighter-rouge">f(g(x))</code>.</dd>
+  <dt id="conditional-statement">conditional statement</dt>
+  <dd>A statement in a program that might or might not be executed
+depending on whether a test is true or false.</dd>
+  <dt id="comma-separated-values">comma-separated values</dt>
+  <dd>(CSV) A common textual representation for tables
+in which the values in each row are separated by commas.</dd>
+  <dt id="default-value">default value</dt>
+  <dd>A value to use for a <a href="#parameter">parameter</a> if nothing is specified explicitly.</dd>
+  <dt id="defensive-programming">defensive programming</dt>
+  <dd>The practice of writing programs that check their own operation to catch errors as early as possible.</dd>
+  <dt id="delimiter">delimiter</dt>
+  <dd>A character or characters used to separate individual values,
+such as the commas between columns in a <a href="#comma-separated-values">CSV</a> file.</dd>
+  <dt id="documentation">documentation</dt>
+  <dd>Human-language text written to explain what software does,
+how it works, or how to use it.</dd>
+  <dt id="empty-string">empty string</dt>
+  <dd>A character string containing no characters,
+often thought of as the “zero” of text.</dd>
+  <dt id="encapsulation">encapsulation</dt>
+  <dd>The practice of hiding something’s implementation details
+so that the rest of a program can worry about <em>what</em> it does
+rather than <em>how</em> it does it.</dd>
+  <dt id="floating-point-number">floating-point number</dt>
+  <dd>A number containing a fractional part and an exponent.
+See also: <a href="#integer">integer</a>.</dd>
+  <dt id="for-loop">for loop</dt>
+  <dd>A loop that is executed once for each value in some kind of set, list, or range.
+See also: <a href="#while-loop">while loop</a>.</dd>
+  <dt id="function-call">function call</dt>
+  <dd>A use of a function in another piece of software.</dd>
+  <dt id="in-place-operators">in-place operators</dt>
+  <dd>An operator such as <code class="highlighter-rouge">+=</code> that provides a shorthand notation for
+the common case in which the variable being assigned to
+is also an operand on the right hand side of the assignment.
+For example, the statement <code class="highlighter-rouge">x += 3</code> means the same thing as <code class="highlighter-rouge">x = x + 3</code>.</dd>
+  <dt id="index">index</dt>
+  <dd>A subscript that specifies the location of a single value in a collection,
+such as a single pixel in an image.</dd>
+  <dt id="inner-loop">inner loop</dt>
+  <dd>A loop that is inside another loop. See also: <a href="#outer-loop">outer loop</a>.</dd>
+  <dt id="integer">integer</dt>
+  <dd>A whole number, such as -12343. See also: <a href="#floating-point-number">floating-point number</a>.</dd>
+  <dt id="invariant">invariant</dt>
+  <dd>An expression whose value doesn’t change during the execution of a program,
+typically used in an <a href="#assertion">assertion</a>.
+See also: <a href="#precondition">precondition</a>, <a href="#postcondition">postcondition</a>.</dd>
+  <dt id="library">library</dt>
+  <dd>A family of code units (functions, classes, variables) that implement a set of
+related tasks.</dd>
+  <dt id="loop-variable">loop variable</dt>
+  <dd>The variable that keeps track of the progress of the loop.</dd>
+  <dt id="outer-loop">outer loop</dt>
+  <dd>A loop that contains another loop.
+See also: <a href="#inner-loop">inner loop</a>.</dd>
+  <dt id="parameter">parameter</dt>
+  <dd>A variable named in the function’s declaration that is used to hold a value passed into the call.
+The term is often used interchangeably (and inconsistently) with <a href="#argument">argument</a>.</dd>
+  <dt id="pipe">pipe</dt>
+  <dd>A connection from the output of one program to the input of another.
+When two or more programs are connected in this way, they are called a “pipeline”.</dd>
+  <dt id="postcondition">postcondition</dt>
+  <dd>A condition that a function (or other block of code) guarantees is true
+once it has finished running.
+Postconditions are often represented using <a href="#assertion">assertions</a>.</dd>
+  <dt id="precondition">precondition</dt>
+  <dd>A condition that must be true in order for a function (or other block of code) to run correctly.</dd>
+  <dt id="regression">regression</dt>
+  <dd>To re-introduce a bug that was once fixed.</dd>
+  <dt id="rgb">RGB</dt>
+  <dd>An <a href="#additive-color-model">additive model</a>
+that represents colors as combinations of red, green, and blue.
+Each color’s value is typically in the range 0..255
+(i.e., a one-byte integer).</dd>
+  <dt id="shape">shape</dt>
+  <dd>An array’s dimensions, represented as a vector.
+For example, a 5×3 array’s shape is <code class="highlighter-rouge">(5,3)</code>.</dd>
+  <dt id="silent-failure">silent failure</dt>
+  <dd>Failing without producing any warning messages.
+Silent failures are hard to detect and debug.</dd>
+  <dt id="slice">slice</dt>
+  <dd>A regular subsequence of a larger sequence,
+such as the first five elements or every second element.</dd>
+  <dt id="stack-frame">stack frame</dt>
+  <dd>A data structure that provides storage for a function’s local variables.
+Each time a function is called, a new stack frame is created
+and put on the top of the <a href="#call-stack">call stack</a>. When the function returns,
+the stack frame is discarded.</dd>
+  <dt id="standard-input">standard input</dt>
+  <dd>A process’s default input stream.
+In interactive command-line applications,
+it is typically connected to the keyboard; in a <a href="#pipe">pipe</a>,
+it receives data from the <a href="#standard-output">standard output</a> of the preceding process.</dd>
+  <dt id="standard-output">standard output</dt>
+  <dd>A process’s default output stream.
+In interactive command-line applications,
+data sent to standard output is displayed on the screen;
+in a <a href="#pipe">pipe</a>,
+it is passed to the <a href="#standard-input">standard input</a> of the next process.</dd>
+  <dt id="string">string</dt>
+  <dd>Short for “character string”,
+a <a href="#sequence">sequence</a> of zero or more characters.</dd>
+  <dt id="syntax-error">syntax error</dt>
+  <dd>CHECKME: a programming error that occurs when statements are in an order or contain characters
+not expected by the programming language</dd>
+  <dt id="test-oracle">test oracle</dt>
+  <dd>A program, device, data set, or human being
+against which the results of a test can be compared.</dd>
+  <dt id="test-driven-development">test-driven development</dt>
+  <dd>The practice of writing unit tests <em>before</em> writing the code they test.</dd>
+  <dt id="type">type</dt>
+  <dd>CHECKME The classification of something in a program (for example, the contents of a variable)
+as a kind of number (e.g. <a href="#float">floating-point</a>, <a href="#integer">integer</a>), <a href="#string">string</a>, or something else.</dd>
+  <dt id="while-loop">while loop</dt>
+  <dd>A loop that keeps executing as long as some condition is true.
+See also: <a href="#for-loop">for loop</a>.</dd>
+</dl>
+
+
+
+      
+      <footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="mailto:lessons@software-carpentry.org">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
