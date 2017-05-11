@@ -13,8 +13,7 @@ keypoints:
 - "Use `for` to create a loop that repeats one or more operations."
 ---
 
-Recall that we have to do this analysis for every one of our dozen datasets.
-And we need a better way than
+Recall that we have to do this analysis for every one of our dozen datasets, and we need a better way than
 typing out commands for each one,
 because we'll find ourselves writing a lot of duplicate code.
 Remember, code that is repeated in two or more places
