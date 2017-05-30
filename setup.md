@@ -14,7 +14,7 @@ You will also need to download some data, which we will analyze using MATLAB:
 4.	You can access this folder from the Unix shell with:
 
 ~~~
-cd Desktop/python-novice-inflammation/data
+cd Desktop/matlab-novice-inflammation/data
 ~~~
 {: .bash}
 
