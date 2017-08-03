@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="last-modified" content="2017-08-04 00:20:21 +0200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- meta "search-domain" used for google site search function google_search() -->
+    <meta name="search-domain" value="/swc-releases/2017.08/matlab-novice-inflammation">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <title>Programming with MATLAB: Repeating With Loops</title>
+  </head>
+  <body>
+    <div class="container">
+      
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      
+      
+      <a href="https://software-carpentry.org" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+      </a>
+      
+
+      
+      <a class="navbar-brand" href="../">Home</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+	
+        <li><a href="../conduct/">Code of Conduct</a></li>
+
+	
+        
+        <li><a href="../setup/">Setup</a></li>
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><a href="../01-intro/">Analyzing Patient Data</a></li>
+            
+            <li><a href="../02-scripts/">Writing MATLAB Scripts</a></li>
+            
+            <li><a href="../03-loops/">Repeating With Loops</a></li>
+            
+            <li><a href="../04-cond/">Making Choices</a></li>
+            
+            <li><a href="../05-func/">Creating Functions</a></li>
+            
+            <li><a href="../06-defensive/">Defensive Programming</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+	
+        <li class="dropdown">
+          <a href="../" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../reference/">Reference</a></li>
+            
+            <li><a href="../extras/discuss.html">Discussion</a></li>
+            
+            <li><a href="../figures/">Figures</a></li>
+            
+            <li><a href="../guide/">Instructor Notes</a></li>
+            
+          </ul>
+        </li>
+	
+
+	
+        <li><a href="../license/">License</a></li>
+	
+	<li><a href="/edit/gh-pages/_episodes/03-loops.md">Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	
+      </ul>
+      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+        <div class="form-group">
+          <input type="text" id="google-search" placeholder="Search..." aria-label="Google site search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../02-scripts/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+    <h3 class="maintitle"><a href="../">Programming with MATLAB</a></h3>
+    <h1 class="maintitle">Repeating With Loops</h1>
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-cond/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+<blockquote class="objectives">
+  <h2>Overview</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Teaching:</strong> 30 min
+      <br/>
+      <strong>Exercises:</strong> 0 min
+    </div>
+    <div class="col-md-9">
+      <strong>Questions</strong>
+      <ul>
+	
+	<li><p>How can I repeat the same operations on multiple values?</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <strong>Objectives</strong>
+      <ul>
+	
+	<li><p>Explain what a for loop does.</p>
+</li>
+	
+	<li><p>Correctly write for loops that repeat simple commands.</p>
+</li>
+	
+	<li><p>Trace changes to a loop variable as the loops runs.</p>
+</li>
+	
+	<li><p>Use a for loop to process multiple files</p>
+</li>
+	
+      </ul>
+    </div>
+  </div>
+
+</blockquote>
+
+<p>Recall that we have to do this analysis for every one of our dozen datasets, and we need a better way than
+typing out commands for each one,
+because we’ll find ourselves writing a lot of duplicate code.
+Remember, code that is repeated in two or more places
+will eventually be wrong in at least one.
+Also, if we  make changes in the way we analyze our datasets,
+we have to introduce that change in every copy of our code.
+To avoid all of this repetition, we have to teach MATLAB to
+repeat our commands,
+and to do <em>that</em>,
+we have to learn how to write <em>loops</em>.</p>
+
+<p>Suppose we want to print each character in the word “lead” on
+a line of its own. One way is to use four <code class="highlighter-rouge">disp</code> statements:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>word = 'lead';
+
+disp(word(1));
+disp(word(2));
+disp(word(3));
+disp(word(4));
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>l
+e
+a
+d
+</code></pre>
+</div>
+
+<p>But this is a bad approach for two reasons:</p>
+
+<ol>
+  <li>
+    <p>It doesn’t scale: if we want to print the characters
+in a string that’s hundreds of letters long, we’d be better
+off typing them in.</p>
+  </li>
+  <li>
+    <p>It’s fragile: if we change <code class="highlighter-rouge">word</code> to a longer string,
+it only
+prints part of the data, and if we change it to
+a shorter one,
+it produces an error, because we’re asking for characters
+that don’t exist.</p>
+  </li>
+</ol>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>word = 'tin';
+
+disp(word(1));
+disp(word(2));
+disp(word(3));
+disp(word(4));
+</code></pre>
+</div>
+
+<div class="error highlighter-rouge"><pre class="highlight"><code>error: A(I): index out of bounds; value 4 out of bound 3
+</code></pre>
+</div>
+
+<p>There’s a better approach:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>word = 'lead';
+
+for letter = 1:4
+    disp(word(letter))
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>l
+e
+a
+d
+</code></pre>
+</div>
+
+<p>This improved version uses a <a href="../reference/index.html#for-loop">for loop</a> to
+repeat an operation—in this case, printing to the screen—once for
+each element in an array.</p>
+
+<p>The general form of a for loop is:</p>
+
+<div class="source highlighter-rouge"><pre class="highlight"><code>for variable = collection
+    do things with variable
+end
+</code></pre>
+</div>
+
+<p>The for loop executes the commands in the
+<a href="../reference/index.html#loop-body">loop body</a>
+for every value in the array <code class="highlighter-rouge">collection</code>.
+This value is called the <a href="../reference/index.html#loop-variable">loop variable</a>,
+and we can call it whatever we like.
+In our example, we gave it the name <code class="highlighter-rouge">letter</code>.</p>
+
+<p>We have to terminate the loop body with the <code class="highlighter-rouge">end</code> keyword,
+and we can have as many commands as we like in the loop body.
+But, we have to remember
+that they will all be repeated as many times as
+there are values in <code class="highlighter-rouge">collection</code>.</p>
+
+<p>Our for loop has made our code more scalable,
+and less fragile.
+There’s still one little thing about it that should bother us.
+For our loop to deal appropriately with shorter or longer words,
+we have to change the first line of our loop by hand:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>word = 'tin';
+
+for letter = 1:3
+    disp(word(letter));
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>t
+i
+n
+</code></pre>
+</div>
+
+<p>Although this works,
+it’s not the best way to write our loop:</p>
+
+<ul>
+  <li>
+    <p>We might update <code class="highlighter-rouge">word</code> and forget to modify the loop to reflect that
+change.</p>
+  </li>
+  <li>
+    <p>We might make a mistake while counting the number of letters in
+<code class="highlighter-rouge">word</code>.</p>
+  </li>
+</ul>
+
+<p>Fortunately,
+MATLAB provides us with a convenient function to
+write a better loop:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>word = 'aluminum';
+
+for letter = 1:length(word)
+    disp(word(letter));
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>a
+l
+u
+m
+i
+n
+u
+m
+</code></pre>
+</div>
+
+<p>This is much more robust code,
+as it can deal identically with
+words of arbitrary length.
+Here’s another loop that
+repeatedly updates the variable <code class="highlighter-rouge">len</code>:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>len = 0
+for vowel = 'aeiou'
+    len = len + 1;
+end
+
+disp(['Number of vowels: ', num2str(len)])
+</code></pre>
+</div>
+
+<p>It’s worth tracing the execution of this little program step by step.
+Since there are five characters in “aeiou”,
+the loop body will be executed five times.
+When we enter the loop, <code class="highlighter-rouge">len</code> is zero -
+the value assigned to it beforehand.
+The first time through,
+the loop body adds 1 to the old value of <code class="highlighter-rouge">len</code>,
+producing 1,
+and updates <code class="highlighter-rouge">len</code> to refer to that new value.
+The next time around,
+<code class="highlighter-rouge">vowel</code> is <code class="highlighter-rouge">e</code>,
+and <code class="highlighter-rouge">len</code> is 1,
+so <code class="highlighter-rouge">len</code> is updated to 2.
+After three more updates,
+<code class="highlighter-rouge">len</code> is 5;
+since there’s nothing left in <code class="highlighter-rouge">aeiou</code> for MATLAB to process,
+the loop finishes and the <code class="highlighter-rouge">disp</code> statement tells us our final answer.</p>
+
+<p>Note that a loop variable is just a variable
+that’s being used to record progress in a loop.
+It still exists after the loop is over,
+and we can re-use variables previously defined as loop variables as well:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(vowel)
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>u
+</code></pre>
+</div>
+
+<blockquote class="challenge">
+  <h2 id="performing-exponentiation">Performing Exponentiation</h2>
+
+  <p>MATLAB uses the caret (<code class="highlighter-rouge">^</code>) to perform exponentiation:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(5^3)
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>125
+</code></pre>
+  </div>
+
+  <p>You can also use a loop to perform exponentiation.
+Remember that <code class="highlighter-rouge">b^x</code> is just
+<code class="highlighter-rouge">b*b*b*</code>… <code class="highlighter-rouge">x</code> times.</p>
+
+  <p>Let a variable <code class="highlighter-rouge">b</code> be the base of the number and <code class="highlighter-rouge">x</code> the exponent.
+Write a loop to compute <code class="highlighter-rouge">b^x</code>.
+Check your result for <code class="highlighter-rouge">b = 4</code> and <code class="highlighter-rouge">x = 5</code>.</p>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="incrementing-with-loops">Incrementing with Loops</h2>
+
+  <p>Write a loop that spells the word “aluminum,” adding one letter at a time:</p>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>a
+al
+alu
+alum
+alumi
+alumin
+aluminu
+aluminum
+</code></pre>
+  </div>
+</blockquote>
+
+<blockquote class="challenge">
+  <h2 id="looping-in-reverse">Looping in Reverse</h2>
+
+  <p>In Matlab, the colon operator (<code class="highlighter-rouge">:</code>) accepts a
+<a href="../reference/index.html#stride">stride</a>
+or skip argument between the start and stop:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(1:3:11)
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>1 4 7 10
+</code></pre>
+  </div>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>disp(11:-3:1)
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>11 8 5 2
+</code></pre>
+  </div>
+
+  <p>Using this,
+write a loop to print the letters of “aluminum”
+in reverse order, one letter per line.</p>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>m
+u
+n
+i
+m
+u
+l
+a
+</code></pre>
+  </div>
+</blockquote>
+
+<p>We now have almost everything we need to process
+multiple data files with our <code class="highlighter-rouge">analyze</code> script.
+You’ll notice that our data files are named
+<code class="highlighter-rouge">inflammation-01.csv</code>, <code class="highlighter-rouge">inflammation-02.csv</code>, etc.
+Let’s write a loop that tries to print the names of each one of our files:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>for idx = 1:12
+    file_name = sprintf('inflammation-%d.csv', idx);
+    disp(file_name);
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>inflammation-1.csv
+inflammation-2.csv
+inflammation-3.csv
+inflammation-4.csv
+inflammation-5.csv
+inflammation-6.csv
+inflammation-7.csv
+inflammation-8.csv
+inflammation-9.csv
+inflammation-10.csv
+inflammation-11.csv
+inflammation-12.csv
+</code></pre>
+</div>
+
+<p>This is close, but not quite right.
+The <code class="highlighter-rouge">sprintf</code> function is useful when we want to
+generate MATLAB strings based on a <em>template</em>.
+In our case,
+that template is the string <code class="highlighter-rouge">inflammation-%d.csv</code>.
+<code class="highlighter-rouge">sprintf</code>
+generates a new string from our template by
+replacing the <code class="highlighter-rouge">%d</code> with
+the data referred to by our second argument, <code class="highlighter-rouge">i</code>.</p>
+
+<p>Again, let’s trace the execution of our loop:
+in the beginning of our loop,
+<code class="highlighter-rouge">i</code> starts by referring to the value 1.
+So, when MATLAB executes the command</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>file_name = sprintf('inflammation-%d.csv', idx);
+</code></pre>
+</div>
+
+<p>it substitutes the <code class="highlighter-rouge">%d</code> in the template <code class="highlighter-rouge">inflammation-%d.csv</code>,
+with the value of <code class="highlighter-rouge">i</code>, i.e., 1.
+The resulting string is <code class="highlighter-rouge">inflammation-1.csv</code>,
+which is assigned to the variable <code class="highlighter-rouge">file_name</code>.
+The <code class="highlighter-rouge">disp</code> command prints that string to screen.
+The second time around, <code class="highlighter-rouge">sprintf</code> generates the string <code class="highlighter-rouge">inflammation-2.csv</code>,
+which is assigned to the variable <code class="highlighter-rouge">file_name</code>,
+and printed to screen.
+And so on, till <code class="highlighter-rouge">i</code> finally refers to the value 12.</p>
+
+<p>Notice that there’s a mistake.
+Our files are actually named
+<code class="highlighter-rouge">inflammation-01.csv</code>, <code class="highlighter-rouge">inflammation-02.csv</code>, etc.
+To get it right, we have to modify our template:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>for idx = 1:12
+    file_name = sprintf('inflammation-%02d.csv', idx);
+    disp(file_name);
+end
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>inflammation-01.csv
+inflammation-02.csv
+inflammation-03.csv
+inflammation-04.csv
+inflammation-05.csv
+inflammation-06.csv
+inflammation-07.csv
+inflammation-08.csv
+inflammation-09.csv
+inflammation-10.csv
+inflammation-11.csv
+inflammation-12.csv
+</code></pre>
+</div>
+
+<p>We’ve replaced <code class="highlighter-rouge">%d</code> in our earlier template with <code class="highlighter-rouge">%02d</code>.
+With this,
+we’re specifying that we want our data to be displayed
+with a minimum width of 2 characters,
+and that we want to <em>pad</em> with 0 for data
+that isn’t at least 2 digits long.</p>
+
+<p>We’re now ready to modify <code class="highlighter-rouge">analyze.m</code> to process multiple data files:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>% script analyze_loops.m
+
+for idx = 1:3
+
+    % Generate strings for file and image names:
+    file_name = sprintf('data/inflammation-%02d.csv', idx);
+    img_name = sprintf ('patient_data-%02d.png', idx);
+
+    patient_data = csvread(file_name);
+
+    disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
+    disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
+    disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+
+    ave_inflammation = mean(patient_data, 1);
+
+    figure('visible', 'off')
+
+    subplot(2, 2, 1);
+    plot(ave_inflammation);
+    ylabel('average')
+
+    subplot(2, 2, 2);
+    plot(max(patient_data, [], 1));
+    ylabel('max')
+
+    subplot(2, 2, 3);
+    plot(min(patient_data, [], 1));
+    ylabel('min')
+
+    print('-dpng', img_name);
+    close();
+
+end
+</code></pre>
+</div>
+
+<p>Save the <code class="highlighter-rouge">analyze.m</code> script as a new script called <code class="highlighter-rouge">analyze_loops.m</code>.
+To do this, we go to the <code class="highlighter-rouge">Editor</code> tab, click on the arrow below <code class="highlighter-rouge">Save</code>,
+and then on <code class="highlighter-rouge">Save As...</code>.
+Remember that to run our script,
+we simply type in its name in the command line:</p>
+
+<div class="matlab highlighter-rouge"><pre class="highlight"><code>analyze_loops
+</code></pre>
+</div>
+
+<p><img src="../img/02-loop_1.png" style="width:500px; height:400px" /></p>
+
+<p><img src="../img/02-loop_2.png" style="width:500px; height:400px" /></p>
+
+<p><img src="../img/02-loop_3.png" style="width:500px; height:400px" /></p>
+
+<p>Sure enough, the maxima of these data sets show exactly
+the same ramp as the first,
+and their minima show the same staircase structure.</p>
+
+<p>We’ve now automated the analysis and have confirmed that all the data
+files show the same artifact. This is what we set out to test, and now
+we can just call one function to do it. With minor modifications, this
+function could be re-used to check all our future data files.</p>
+
+<blockquote class="challenge">
+  <h2 id="another-way-to-analyze-multiple-files">Another Way to Analyze Multiple Files</h2>
+
+  <p>In cases where our file names don’t follow such a regular pattern,
+we might want to process all files that end with a given extension,
+say <code class="highlighter-rouge">.csv</code>.
+At the command line we could get this list of files by using a
+<a href="../reference/index.html#wildcard">wildcard</a>:</p>
+
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>ls *.csv
+</code></pre>
+  </div>
+
+  <p>We can also do something similar with MATLAB, using the <code class="highlighter-rouge">dir</code> command:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>files = dir('*.csv')
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>
+files =
+
+12x1 struct array with fields:
+
+    name
+    date
+    bytes
+    isdir
+    datenum
+</code></pre>
+  </div>
+
+  <p>The <code class="highlighter-rouge">dir</code> command returns a special MATLAB data type called
+a “struct array”. Each element in this array is
+a “struct”, containing information about a single file
+in the form of “fields”.</p>
+
+  <p>To access the “name” field of, say, the first file,
+we can do the following:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>name = files(1).name;
+disp(name)
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>inflammation-01.csv
+</code></pre>
+  </div>
+
+  <p>To get the modification date of the third file, we can do:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>mod_date = files(3).date;
+disp(mod_date)
+</code></pre>
+  </div>
+
+  <div class="output highlighter-rouge"><pre class="highlight"><code>26-Jul-2015 22:24:31
+</code></pre>
+  </div>
+
+  <p>Information about the other fields like <code class="highlighter-rouge">bytes</code> and <code class="highlighter-rouge">isdir</code>
+is available in the documentation of the <code class="highlighter-rouge">dir</code> function:</p>
+
+  <div class="matlab highlighter-rouge"><pre class="highlight"><code>help dir
+</code></pre>
+  </div>
+
+  <p>Using <code class="highlighter-rouge">dir</code>,
+rewrite the <code class="highlighter-rouge">analyze</code> script to analyze all <code class="highlighter-rouge">csv</code> files in
+the current directory.</p>
+</blockquote>
+
+<blockquote class="callout">
+  <h2 id="gnu-octave">GNU Octave</h2>
+
+  <p>Lastly, in the above trick using <code class="highlighter-rouge">ls</code> with the wildcard <code class="highlighter-rouge">*</code>,
+another small Octave/MATLAB
+difference shows up. In Octave, the value returned by
+<code class="highlighter-rouge">filestr = ls('path/to/data/*.csv')</code> is an array of strings, so we can loop
+over <code class="highlighter-rouge">filestr</code> directly without the need to split it with <code class="highlighter-rouge">strsplit</code>.</p>
+</blockquote>
+
+
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    
+    <li><p>Use <code class="highlighter-rouge">for</code> to create a loop that repeats one or more operations.</p>
+</li>
+    
+  </ul>
+</blockquote>
+
+
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../02-scripts/"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      
+    </h3>
+  </div>
+  <div class="col-md-10">
+    
+  </div>
+  <div class="col-md-1">
+    <h3>
+      
+      <a href="../04-cond/"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      
+    </h3>
+  </div>
+</div>
+
+
+      
+      
+<footer>
+  <div class="row">
+    <div class="col-md-6" align="left">
+      <h4>
+	Copyright &copy; 2016–2017
+	
+	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
+	
+      </h4>
+    </div>
+    <div class="col-md-6" align="right">
+      <h4>
+	
+	<a href="/edit/gh-pages/_episodes/03-loops.md">Edit on GitHub</a>
+	
+	/
+	<a href="/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	/
+	<a href="/">Source</a>
+	/
+	<a href="/blob/gh-pages/CITATION">Cite</a>
+	/
+	<a href="">Contact</a>
+      </h4>
+    </div>
+  </div>
+</footer>
+
+      
+    </div>
+    
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/lesson.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37305346-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
