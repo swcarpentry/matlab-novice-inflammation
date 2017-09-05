@@ -21,7 +21,7 @@ We want programs to make choices based on the values
 they are manipulating.
 
 The tool that MATLAB gives us for doing this is called
-a [conditional statement](../reference/index.html#conditional-statement),
+a [conditional statement]({{ site.github.url }}/reference/#conditional-statement),
 and it looks like this:
 
 ~~~
@@ -282,7 +282,7 @@ de
 > your hypothesis.
 >
 > 2. MATLAB (and most other languges in the C family) provides
-> [in-place operators](../reference/index.html#in-place-operator) that
+> [in-place operators]({{ site.github.url }}/reference/#in-place-operator) that
 > work like this:
 >
 >

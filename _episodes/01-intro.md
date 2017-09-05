@@ -21,7 +21,7 @@ keypoints:
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)](../reference/index.html#comma-separated-values) format:
+[Comma Separated Values (CSV)]({{ site.github.url }}/reference/#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
@@ -47,7 +47,7 @@ To do all that, we'll have to learn a little bit about programming.
 We have a dozen datasets that need analysis, stored as `.csv` files -
 but MATLAB doesn't know about these files yet.
 The first thing we need to do is set MATLAB's
-[path](../reference/index.html#matlab-path)
+[path]({{ site.github.url }}/reference/#matlab-path)
 to include the directory containing the files. The MATLAB path is a list of directories
 on your computer that MATLAB knows about.
 To do this,
@@ -125,19 +125,19 @@ csvread('inflammation-01.csv');
 {: .matlab}
 
 The expression `csvread(...)` is a
-[function call](../reference/index.html#function-call).
-Functions generally need [parameters](../reference/index.html#parameter)
+[function call]({{ site.github.url }}/reference/#function-call).
+Functions generally need [parameters]({{ site.github.url }}/reference/#parameter)
 to run.
 In the case of the `csvread` function, we need to provide a single
 parameter: the name of the file we want to read data from. This
 parameter needs to be a character string or
-[string](../reference/index.html#string), so we put it in quotes.
+[string]({{ site.github.url }}/reference/#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
 to the screen. And adding a semicolon rendered it even less useful---
 we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
-[variable](../reference/index.html#variable).
+[variable]({{ site.github.url }}/reference/#variable).
 
 ~~~
 patient_data = csvread('inflammation-01.csv');
@@ -294,7 +294,7 @@ To do that, simply type `clear all`.
 {: .challenge}
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its size or [shape](../reference/index.html#shape):
+First, let's find out its size or [shape]({{ site.github.url }}/reference/#shape):
 
 ~~~
 size(patient_data)
@@ -377,7 +377,7 @@ We want to access a single value from the matrix:
 ![Accessing a single value](../fig/matrix-single-element.svg)
 
 To do that, we must provide
-its [index](../reference/index.html#index) in parentheses:
+its [index]({{ site.github.url }}/reference/#index) in parentheses:
 
 ~~~
 M(5, 6)
@@ -393,7 +393,7 @@ Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
 
 An index like `(5, 6)` selects a single element of
-an array, but we can also access sections of the matrix, or [slices](../reference/index.html#slice).
+an array, but we can also access sections of the matrix, or [slices]({{ site.github.url }}/reference/#slice).
 To access a row of values:
 
 ![Accessing a single value](../fig/matrix-row.svg)
@@ -482,7 +482,7 @@ ans =
 {: .output}
 
 We don't have to take all the values in the slice---if we provide
-a [stride](../reference/index.html#stride). Let's say we want to start with row `2`,
+a [stride]({{ site.github.url }}/reference/#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
 ![Accessing strided columns](../fig/matrix-strided-rows.svg)
@@ -523,7 +523,7 @@ ans =
 
 > ## Slicing
 >
-> A subsection of an array is called a [slice](../reference/index.html#slice). We can take slices of character strings as well:
+> A subsection of an array is called a [slice]({{ site.github.url }}/reference/#slice). We can take slices of character strings as well:
 >
 > ~~~
 > element = 'oxygen';
