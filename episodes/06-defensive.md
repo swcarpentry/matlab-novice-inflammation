@@ -95,7 +95,7 @@ function normalized = normalize_rectangle(rect)
     % and is oriented with the longest axis in the y direction:
 
     assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
-    
+
     x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
@@ -103,7 +103,7 @@ function normalized = normalize_rectangle(rect)
 
     assert(x0 < x1, 'Invalid X coordinates');
     assert(y0 < y1, 'Invalid Y coordinates');
-    
+
     dx = x1 - x0;
     dy = y1 - y0;
 
@@ -187,7 +187,7 @@ error: Calculated upper X coordinate invalid
 {: .error}
 
 Re-reading our function, we realize that line 19 should
-should divide `dy` by `dx`. If we had left out the assertion
+divide `dy` by `dx`. If we had left out the assertion
 at the end of the function, we would have created and
 returned something that had the right shape as
 a valid answer, but wasn't. Detecting and debugging *that*
@@ -224,7 +224,7 @@ that this bit is tricky.
 > Suppose you are writing a function called `average` that calculates the average of the numbers in a list.
 > What pre-conditions and post-conditions would you write for it?
 > Compare your answer to your neighbor's:
-> can you think of an input array that will past your tests but not hers or vice versa?
+> can you think of an input array that will pass your tests but not hers or vice versa?
 {: .challenge}
 
 An assertion checks that something is true at a particular point in the program.
