@@ -234,16 +234,8 @@ Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
 remember, and different from the way spreadsheets work.
 
-Now that we know how to assign things to variables, let's re-run
-`csvread` and save its result.
-
-~~~
-patient_data = csvread('inflammation-01.csv');
-~~~
-{: .matlab}
-
-MATLAB provides a command
-to list all variables that have been assigned data.
+Now that we know how to assign values to variables, let's
+view a list of all the variables in our workspace:
 
 ~~~
 who
