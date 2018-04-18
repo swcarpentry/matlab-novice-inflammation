@@ -113,6 +113,10 @@ library
 :   A family of code units (functions, classes, variables) that implement a set of
     related tasks.
 
+loop body
+:   The set of instructions appearing between the line with the `for` keyword and
+    the line with the `end` keyword.
+
 loop variable
 :   The variable that keeps track of the progress of the loop.
 
@@ -175,6 +179,10 @@ standard output
     data sent to standard output is displayed on the screen;
     in a [pipe](#pipe),
     it is passed to the [standard input](#standard-input) of the next process.
+
+stride
+:   The inter-element increment of a regularly-spaced list of integers, as generated
+    by MATLAB's colon operator.
 
 string
 :   Short for "character string",
