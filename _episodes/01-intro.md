@@ -70,7 +70,7 @@ absolute file path.
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
-* In the **Command Window** or shell we can run and debug our code.
+* In the **Command Window** we can run and debug our code.
 Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
@@ -96,7 +96,7 @@ If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
 To load the data from our CSV file into MATLAB, type the following
-command into the MATLAB shell, and press `Enter`:
+command into the MATLAB command window, and press `Enter`:
 
 ~~~
 csvread('inflammation-01.csv')
