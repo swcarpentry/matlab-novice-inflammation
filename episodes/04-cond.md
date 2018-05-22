@@ -204,7 +204,7 @@ In this case, "either" means "either or both", not
 {: .challenge}
 
 Another thing to realize is that `if` statements can
-be also combined with loops. For example, if we want
+also be combined with loops. For example, if we want
 to sum the positive numbers in a list, we can write
 this:
 
