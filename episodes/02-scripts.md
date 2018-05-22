@@ -78,7 +78,7 @@ ylabel('average')
 ~~~
 {: .matlab}
 
-MATLAB let's us save those as
+MATLAB lets us save those as
 images on disk:
 
 ~~~
@@ -88,7 +88,7 @@ print ('average','-dpng')
 {: .matlab}
 
 You might have noticed that we described what we want
-our code to do using the `%`-sign.
+our code to do using the percent sign: `%`.
 This is another plus of writing scripts: you can comment
 your code to make it easier to understand when you come
 back to it after a while.
