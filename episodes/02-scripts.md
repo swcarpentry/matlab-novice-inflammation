@@ -125,7 +125,10 @@ print ('patient_data-01','-dpng')
 {: .matlab}
 
 When saving plots to disk,
-it's a good idea to turn off their visibility as MATLAB plots them.
+it's sometimes useful to turn off their visibility as MATLAB plots them.
+For example, we might not want to view the figures in MATLAB, and
+not displaying the figures could make the script run faster.
+
 Let's add a couple of lines of code to do this:
 
 ~~~
