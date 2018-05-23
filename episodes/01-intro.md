@@ -565,7 +565,7 @@ of mean values. The expression `patient_data(:)` *flattens* the table into a
 one-dimensional array.
 
 To get details about what a function, like `mean`,
-does and how to use it, use MATLAB's `help` command.
+does and how to use it, we can search the documentation, or use MATLAB's `help` command.
 
 ~~~
 help mean
