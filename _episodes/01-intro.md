@@ -572,36 +572,43 @@ help mean
 {: .matlab}
 
 ~~~
- -- Function File: mean (X)
- -- Function File: mean (X, DIM)
- -- Function File: mean (X, OPT)
- -- Function File: mean (X, DIM, OPT)
-     Compute the mean of the elements of the vector X.
-
-          mean (x) = SUM_i x(i) / N
-
-     If X is a matrix, compute the mean for each column and return them
-     in a row vector.
-
-     The optional argument OPT selects the type of mean to compute.  The
-     following options are recognized:
-
-     "a"
-          Compute the (ordinary) arithmetic mean.  [default]
-
-     "g"
-          Compute the geometric mean.
-
-     "h"
-          Compute the harmonic mean.
-
-     If the optional argument DIM is given, operate along this
-     dimension.
-
-     Both DIM and OPT are optional.  If both are supplied, either may
-     appear first.
-
-     See also: median, mode.
+mean   Average or mean value.
+    S = mean(X) is the mean value of the elements in X if X is a vector. 
+    For matrices, S is a row vector containing the mean value of each 
+    column. 
+    For N-D arrays, S is the mean value of the elements along the first 
+    array dimension whose size does not equal 1.
+ 
+    mean(X,DIM) takes the mean along the dimension DIM of X.
+ 
+    S = mean(...,TYPE) specifies the type in which the mean is performed, 
+    and the type of S. Available options are:
+ 
+    'double'    -  S has class double for any input X
+    'native'    -  S has the same class as X
+    'default'   -  If X is floating point, that is double or single,
+                   S has the same class as X. If X is not floating point, 
+                   S has class double.
+ 
+    S = mean(...,NANFLAG) specifies how NaN (Not-A-Number) values are 
+    treated. The default is 'includenan':
+ 
+    'includenan' - the mean of a vector containing NaN values is also NaN.
+    'omitnan'    - the mean of a vector containing NaN values is the mean 
+                   of all its non-NaN elements. If all elements are NaN,
+                   the result is NaN.
+ 
+    Example:
+        X = [1 2 3; 3 3 6; 4 6 8; 4 7 7]
+        mean(X,1)
+        mean(X,2)
+ 
+    Class support for input X:
+       float: double, single
+       integer: uint8, int8, uint16, int16, uint32,
+                int32, uint64, int64
+ 
+    See also median, std, min, max, var, cov, mode.
 ~~~
 {: .output}
 
