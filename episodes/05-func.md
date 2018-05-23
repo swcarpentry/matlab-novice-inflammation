@@ -366,14 +366,39 @@ DATA centered around the value.
 
 > ## Testing a Function
 >
-> 1. Write a function called `rescale` that takes an array as input and returns an
+> 1. Write a function called `normalise` that takes an array as input and returns an
 >    array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
 >    (If L and H are the lowest and highest values in the input array, respectively,
 >    then the function should map a value v to (v - L)/(H - L).) Be sure to give the
 >    function a comment block explaining its use.
 >
 > 1. Run `help linspace` to see how to use `linspace` to generate
->    regularly-spaced values. Use arrays like this to test your `rescale` function.
+>    regularly-spaced values. Use arrays like this to test your `normalise` function.
+>
+> > ## Solution
+> >
+> > 1. 
+> >
+> >     ```
+> >     % Normalise    Return original array, normalised so that the
+> >     %              new values lie in the range 0 to 1.
+> >     function out = normalise(in)
+> >         H = max(max(in));
+> >         L = min(min(in));
+> >         out = (in-L)/(H-L);
+> >     end
+> >     ```
+> >     {: .matlab}
+> >
+> > 2. 
+> >
+> >     ```
+> >     a = linspace(1, 10);   % Create evenly-spaced vector
+> >     norm_a = normalise(a); % Normalise vector
+> >     plot(a, norm_a)        % Visually check normalisation
+> >     ```
+> >     {: .matlab}
+> {: .solution}
 {: .challenge}
 
 > ## Automate our analysis
@@ -384,6 +409,8 @@ DATA centered around the value.
 >    should produce the corresponding graphs for the first
 >    data set. Be sure to give your function help text.
 >
+> > ## Solution
+> >
 {: .challenge}
 
 We have now solved our original problem: we can analyze
