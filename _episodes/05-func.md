@@ -6,7 +6,7 @@ questions:
 - "How can I teach MATLAB how to do new things?"
 objectives:
 - "Compare and contrast MATLAB function files with MATLAB scripts."
-- "Define a function that takes parameters."
+- "Define a function that takes arguments."
 - "Test a function."
 - "Recognize why we should divide programs into small, single-purpose functions."
 keypoints:
@@ -48,8 +48,8 @@ function ktemp = fahr_to_kelvin(ftemp)
 {: .matlab}
 
 is called the *function definition*, and it declares that we're
-writing a function named `fahr_to_kelvin`, that accepts a single parameter,
-`ftemp`, and outputs a  single value, `ktemp`.  Anything following the
+writing a function named `fahr_to_kelvin`, that has a single parameter,
+`ftemp`, and outputs a single value, `ktemp`.  Anything following the
 function definition line is called the *body* of the
 function. The keyword `end` marks the end of the function body, and the
 function won't know about any code after `end`.
@@ -174,7 +174,7 @@ or the next person who reads it won't be able to understand what's going on.
 > ~~~
 > {: .output}
 >
-> Write a function called `fence` that takes two parameters, `original` and
+> Write a function called `fence` that has two parameters, `original` and
 > `wrapper` and adds `wrapper` before and after `original`:
 >
 > ~~~
@@ -375,6 +375,7 @@ DATA centered around the value.
 > 1. Run `help linspace` to see how to use `linspace` to generate
 >    regularly-spaced values. Use arrays like this to test your `normalise` function.
 >
+<<<<<<< 0c30490a538043327950a07887624f5f76cbb5b3
 > > ## Solution
 > >
 > > 1. 
@@ -457,6 +458,13 @@ DATA centered around the value.
 > >  ```
 > > {: .matlab}
 > {: .solution}
+=======
+> 1. Write a function `run_analysis` that accepts a filename
+>    as the input argument, and displays the three graphs produced in the
+>    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
+>    should produce the corresponding graphs for the first
+>    data set. Be sure to give your function help text.
+>>>>>>> Avoid usage of parameters in place of arguments
 {: .challenge}
 
 We have now solved our original problem: we can analyze

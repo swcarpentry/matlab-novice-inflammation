@@ -107,8 +107,8 @@ csvread('inflammation-01.csv')
 >
 > There are many small differences between Octave and MATLAB. One
 > difference is that
-> the path is *not* used by Octave to search for the file given in the
-> the `csvread` command parameter. If you are using Octave you will need
+> the path is *not* used by Octave to search for the file given as the
+> the argument to the `csvread` command. If you are using Octave you will need
 > to specify an absolute or relative path to inflammation-01.csv.
 {: .callout}
 
@@ -126,11 +126,11 @@ csvread('inflammation-01.csv');
 
 The expression `csvread(...)` is a
 [function call](../reference/index.html#function-call).
-Functions generally need [parameters](../reference/index.html#parameter)
+Functions generally need [arguments](../reference/index.html#arguments)
 to run.
 In the case of the `csvread` function, we need to provide a single
-parameter: the name of the file we want to read data from. This
-parameter needs to be a character string or
+argument: the name of the file we want to read data from. This
+argument needs to be a character string or
 [string](../reference/index.html#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
@@ -182,7 +182,7 @@ Weight in pounds: 121
 ~~~
 {: .output}
 
-The `disp` function takes a single parameter -- the value to print. To
+The `disp` function takes a single argument -- the value to print. To
 print more than one value on a single line, we could print an *array*
 of values. All values in this array need to be the same type. So, if
 we want to print a string and a numerical value together, we *have* to
