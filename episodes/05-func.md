@@ -175,7 +175,7 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .output}
 >
 > Write a function called `fence` that takes two parameters, `original` and
-> `wrapper` and appends `wrapper` before and after `original`:
+> `wrapper` and adds `wrapper` before and after `original`:
 >
 > ~~~
 > disp(fence('name', '*'))
@@ -186,6 +186,16 @@ or the next person who reads it won't be able to understand what's going on.
 > *name*
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > % fence Return original string, with wrapper prepended and appended
+> >
+> > function wrapped = fence(original ,wrapper)
+> >     wrapped = strcat(wrapper, original, wrapper);
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 > ## Getting the Outside
@@ -203,6 +213,16 @@ or the next person who reads it won't be able to understand what's going on.
 > hm
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > % outer    Return first and last characters from a string
+> > 
+> > function ends = outer(s)
+> >     ends = strcat(s(1), s(end));
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 Let's take a closer look at what happens when we call
@@ -354,12 +374,6 @@ DATA centered around the value.
 >
 > 1. Run `help linspace` to see how to use `linspace` to generate
 >    regularly-spaced values. Use arrays like this to test your `rescale` function.
->
-> 1. Write a function `run_analysis` that accepts a filename
->    as parameter, and displays the three graphs produced in the
->    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
->    should produce the corresponding graphs for the first
->    data set. Be sure to give your function help text.
 {: .challenge}
 
 We have now solved our original problem: we can analyze
