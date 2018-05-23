@@ -169,6 +169,19 @@ disp(weight_kg);
 ~~~
 {: .output}
 
+or simply typing its name, followed by <kbd>Enter</kbd>
+
+```
+weight_kg
+```
+{: .matlab}
+
+```
+w =
+    55
+```
+{: .output}
+
 and do arithmetic with it:
 
 ~~~
