@@ -292,26 +292,11 @@ de
 
 > ## Nesting
 >
-> 1. Will changing the order of nesting in the above loop change
+> Will changing the order of nesting in the above loop change
 > the output? Why? Write down the output you might expect from
 > changing the order of the loops, then rewrite the code to test
 > your hypothesis.
 >
-> 2. MATLAB (and most other languges in the C family) provides
-> [in-place operators](../reference/index.html#in-place-operator) that
-> work like this:
->
->
-> ~~~
-> x = 1;
-> x += 1;
-> x *= 3;
-> ~~~
-> {: .matlab}
->
-> Rewrite the code that sums the positive and negative values
-> in an array using these in-place operators. Do you think that
-> the result is more or less readable than the original?
 {: .challenge}
 
 Currently, our script `analyze.m` reads in data, analyzes it,
