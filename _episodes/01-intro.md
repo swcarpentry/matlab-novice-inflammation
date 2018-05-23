@@ -79,6 +79,7 @@ we can save our code and run it again in the same way at a later stage.
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
+Another way to access the documentation is via the `help` command --- we will return to this later.
 
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
