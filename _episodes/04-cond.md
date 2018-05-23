@@ -297,6 +297,19 @@ de
 > changing the order of the loops, then rewrite the code to test
 > your hypothesis.
 >
+> > ## Solution
+> > ~~~
+> > for vowel = 'ae'
+> >     for consonant = 'bcd'
+> >         disp (strcat(consonant, vowel));
+> >     end
+> > end
+> > ~~~
+> > {: .matlab}
+> > Reordering the nested loops changes the output. In the new code,
+> > the consonants loop happens within the vowel loop, so while vowel
+> > = a, consonant takes the values b, c, and d in turn.
+> {: .solution}
 {: .challenge}
 
 Currently, our script `analyze.m` reads in data, analyzes it,
