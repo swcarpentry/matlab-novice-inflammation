@@ -201,6 +201,22 @@ In this case, "either" means "either or both", not
 > and `0` otherwise. Compare your implementation with
 > your partner's: do you get the same answer for
 > all possible pairs of numbers?
+>
+> > ## Solution
+> > ```
+> > % near Display 1 if variable a is within 10% of variable b
+> > %      and display 0 otherwise
+> > a = 1.1;
+> > b = 1.2;
+> >
+> > if a/b >= 0.9 && a/b <= 1.1
+> >     disp(1)
+> > else
+> >     disp(0)
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 Another thing to realize is that `if` statements can
