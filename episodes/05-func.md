@@ -376,6 +376,16 @@ DATA centered around the value.
 >    regularly-spaced values. Use arrays like this to test your `rescale` function.
 {: .challenge}
 
+> ## Automate our analysis
+>
+> 1. Write a function `run_analysis` that accepts a filename
+>    as parameter, and displays the three graphs produced in the
+>    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
+>    should produce the corresponding graphs for the first
+>    data set. Be sure to give your function help text.
+>
+{: .challenge}
+
 We have now solved our original problem: we can analyze
 any number of data files with a single command.
 More importantly, we have met two of the most important
