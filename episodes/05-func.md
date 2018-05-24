@@ -175,7 +175,7 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .output}
 >
 > Write a function called `fence` that takes two parameters, `original` and
-> `wrapper` and appends `wrapper` before and after `original`:
+> `wrapper` and adds `wrapper` before and after `original`:
 >
 > ~~~
 > disp(fence('name', '*'))
@@ -186,6 +186,16 @@ or the next person who reads it won't be able to understand what's going on.
 > *name*
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > % fence Return original string, with wrapper prepended and appended
+> >
+> > function wrapped = fence(original ,wrapper)
+> >     wrapped = strcat(wrapper, original, wrapper);
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 > ## Getting the Outside
@@ -203,6 +213,16 @@ or the next person who reads it won't be able to understand what's going on.
 > hm
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > % outer    Return first and last characters from a string
+> > 
+> > function ends = outer(s)
+> >     ends = strcat(s(1), s(end));
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 Let's take a closer look at what happens when we call
@@ -346,20 +366,97 @@ DATA centered around the value.
 
 > ## Testing a Function
 >
-> 1. Write a function called `rescale` that takes an array as input and returns an
+> 1. Write a function called `normalise` that takes an array as input and returns an
 >    array of the same shape with its values scaled to lie in the range 0.0 to 1.0.
 >    (If L and H are the lowest and highest values in the input array, respectively,
 >    then the function should map a value v to (v - L)/(H - L).) Be sure to give the
 >    function a comment block explaining its use.
 >
 > 1. Run `help linspace` to see how to use `linspace` to generate
->    regularly-spaced values. Use arrays like this to test your `rescale` function.
+>    regularly-spaced values. Use arrays like this to test your `normalise` function.
 >
-> 1. Write a function `run_analysis` that accepts a filename
->    as parameter, and displays the three graphs produced in the
->    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
->    should produce the corresponding graphs for the first
->    data set. Be sure to give your function help text.
+> > ## Solution
+> >
+> > 1. 
+> >
+> >     ```
+> >     % Normalise    Return original array, normalised so that the
+> >     %              new values lie in the range 0 to 1.
+> >     function out = normalise(in)
+> >         H = max(max(in));
+> >         L = min(min(in));
+> >         out = (in-L)/(H-L);
+> >     end
+> >     ```
+> >     {: .matlab}
+> >
+> > 2. 
+> >
+> >     ```
+> >     a = linspace(1, 10);   % Create evenly-spaced vector
+> >     norm_a = normalise(a); % Normalise vector
+> >     plot(a, norm_a)        % Visually check normalisation
+> >     ```
+> >     {: .matlab}
+> {: .solution}
+{: .challenge}
+
+> ## Automate our analysis
+>
+> 1. Convert the script from the previous episode into a function called `run_analysis`.
+>    The function should operate on a single data file,
+>    and should have two parameters: `file_name` and `plot_switch`.
+>    When called, the function should create the three graphs produced in the
+>    previous lesson. Whether they are displayed or saved to disk should be controlled
+>    by the value of `plot_switch`
+>    i.e. `run_analysis('inflammation-01.csv', 0)`
+>    should display the corresponding graphs for the first data set.
+>
+>    Be sure to give your function help text.
+>
+> > ## Solution
+> > ```
+> > function run_analysis(file_name, plot_switch)
+> > 	% RUN_ANALYSIS    Perform analysis for named data file.
+> > 	%   Create figures to show average, max and min inflammation.
+> > 	%   Display plots in GUI using plot_switch = 0,
+> > 	%   or save to disk using plot_switch = 1.
+> > 	%
+> > 	%   Example:
+> > 	%       run_analysis('data/inflammation-01.csv', 0)
+> > 	
+> > 	% Generate string for image name:
+> > 	img_name = replace(file_name, 'inflammation', 'patient_data');
+> > 	img_name = replace(img_name, '.csv', '.png');
+> > 	
+> > 	patient_data = csvread(file_name);
+> > 	ave_inflammation = mean(patient_data, 1);
+> > 	
+> > 	if plot_switch == 1
+> > 		figure('visible', 'off')
+> > 	else
+> > 		figure('visible', 'on')
+> > 	end
+> > 	
+> > 	subplot(2, 2, 1);
+> > 	plot(ave_inflammation);
+> > 	ylabel('average')
+> > 	
+> > 	subplot(2, 2, 2);
+> > 	plot(max(patient_data, [], 1));
+> > 	ylabel('max')
+> > 	
+> > 	subplot(2, 2, 3);
+> > 	plot(min(patient_data, [], 1));
+> > 	ylabel('min')
+> > 	
+> > 	if plot_switch == 1
+> > 		print('-dpng', img_name);
+> > 		close()
+> > 	end
+> >  ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 We have now solved our original problem: we can analyze
