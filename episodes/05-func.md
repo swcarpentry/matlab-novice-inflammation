@@ -403,14 +403,60 @@ DATA centered around the value.
 
 > ## Automate our analysis
 >
-> 1. Write a function `run_analysis` that accepts a filename
->    as parameter, and displays the three graphs produced in the
->    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
->    should produce the corresponding graphs for the first
->    data set. Be sure to give your function help text.
+> 1. Convert the script from the previous episode into a function called `run_analysis`.
+>    The function should operate on a single data file,
+>    and should have two parameters: `file_name` and `plot_switch`.
+>    When called, the function should create the three graphs produced in the
+>    previous lesson. Whether they are displayed or saved to disk should be controlled
+>    by the value of `plot_switch`
+>    i.e. `run_analysis('inflammation-01.csv', 0)`
+>    should display the corresponding graphs for the first data set.
+>
+>    Be sure to give your function help text.
 >
 > > ## Solution
-> >
+> > ```
+> > function run_analysis(file_name, plot_switch)
+> > 	% RUN_ANALYSIS    Perform analysis for named data file.
+> > 	%   Create figures to show average, max and min inflammation.
+> > 	%   Display plots in GUI using plot_switch = 0,
+> > 	%   or save to disk using plot_switch = 1.
+> > 	%
+> > 	%   Example:
+> > 	%       run_analysis('data/inflammation-01.csv', 0)
+> > 	
+> > 	% Generate string for image name:
+> > 	img_name = replace(file_name, 'inflammation', 'patient_data');
+> > 	img_name = replace(img_name, '.csv', '.png');
+> > 	
+> > 	patient_data = csvread(file_name);
+> > 	ave_inflammation = mean(patient_data, 1);
+> > 	
+> > 	if plot_switch == 1
+> > 		figure('visible', 'off')
+> > 	else
+> > 		figure('visible', 'on')
+> > 	end
+> > 	
+> > 	subplot(2, 2, 1);
+> > 	plot(ave_inflammation);
+> > 	ylabel('average')
+> > 	
+> > 	subplot(2, 2, 2);
+> > 	plot(max(patient_data, [], 1));
+> > 	ylabel('max')
+> > 	
+> > 	subplot(2, 2, 3);
+> > 	plot(min(patient_data, [], 1));
+> > 	ylabel('min')
+> > 	
+> > 	if plot_switch == 1
+> > 		print('-dpng', img_name);
+> > 		close()
+> > 	end
+> >  ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 We have now solved our original problem: we can analyze
