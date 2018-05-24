@@ -534,7 +534,7 @@ ans =
 >
 > 1. What is the value of `element(4:end)`? What about `element(1:2:end)`? Or `element(2:end - 1)`?
 >
-> 2. For any size array, Matlab allows us to index with a single colon operator (`:`).
+> 2. For any size array, MATLAB allows us to index with a single colon operator (`:`).
 >    This can have surprising effects.
 >    For instance, compare `element` with `element(:)`. What is `size(element)` versus `size(element(:))`?
 >    Finally,

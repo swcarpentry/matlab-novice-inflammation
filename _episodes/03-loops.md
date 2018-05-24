@@ -294,7 +294,7 @@ u
  
 > ## Looping in Reverse
 >
-> In Matlab, the colon operator (`:`) accepts a
+> In MATLAB, the colon operator (`:`) accepts a
 > [stride](../reference/index.html#stride)
 > or skip argument between the start and stop:
 >
