@@ -245,6 +245,22 @@ u
 > Let a variable `b` be the base of the number and `x` the exponent.
 > Write a loop to compute `b^x`.
 > Check your result for `b = 4` and `x = 5`.
+>
+> > ## Solution
+> > ```
+> > % Loop to perform exponentiation
+> > b = 4;    % base
+> > x = 5;    % exponent
+> > 
+> > result=1;
+> > for i = 1:x
+> >     result = result * b;
+> > end
+> > 
+> > disp([num2str(b), '^', num2str(x), ' = ', num2str(result)])
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 > ## Incrementing with Loops
@@ -262,8 +278,20 @@ u
 > aluminum
 > ~~~
 > {: .output}
-{: .challenge}
-
+> > ## Solution
+> > ```
+> > % spell a string adding one letter at a time using a loop
+> >
+> > word = 'aluminium';
+> > 
+> > for letter = 1:length(word)
+> >     disp(word(1:letter))
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
+ {: .challenge}
+ 
 > ## Looping in Reverse
 >
 > In Matlab, the colon operator (`:`) accepts a
@@ -305,6 +333,18 @@ u
 > a
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > % Spell a string in reverse using a loop
+> > 
+> > word = 'aluminium';
+> > 
+> > for letter = length(word):-1:1
+> >     disp(word(letter))
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 We now have almost everything we need to process

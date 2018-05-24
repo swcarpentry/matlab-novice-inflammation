@@ -201,6 +201,22 @@ In this case, "either" means "either or both", not
 > and `0` otherwise. Compare your implementation with
 > your partner's: do you get the same answer for
 > all possible pairs of numbers?
+>
+> > ## Solution
+> > ```
+> > % near Display 1 if variable a is within 10% of variable b
+> > %      and display 0 otherwise
+> > a = 1.1;
+> > b = 1.2;
+> >
+> > if a/b >= 0.9 && a/b <= 1.1
+> >     disp(1)
+> > else
+> >     disp(0)
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 Another thing to realize is that `if` statements can
@@ -276,26 +292,24 @@ de
 
 > ## Nesting
 >
-> 1. Will changing the order of nesting in the above loop change
+> Will changing the order of nesting in the above loop change
 > the output? Why? Write down the output you might expect from
 > changing the order of the loops, then rewrite the code to test
 > your hypothesis.
 >
-> 2. MATLAB (and most other languges in the C family) provides
-> [in-place operators](../reference/index.html#in-place-operator) that
-> work like this:
->
->
-> ~~~
-> x = 1;
-> x += 1;
-> x *= 3;
-> ~~~
-> {: .matlab}
->
-> Rewrite the code that sums the positive and negative values
-> in an array using these in-place operators. Do you think that
-> the result is more or less readable than the original?
+> > ## Solution
+> > ~~~
+> > for vowel = 'ae'
+> >     for consonant = 'bcd'
+> >         disp (strcat(consonant, vowel));
+> >     end
+> > end
+> > ~~~
+> > {: .matlab}
+> > Reordering the nested loops changes the output. In the new code,
+> > the consonants loop happens within the vowel loop, so while vowel
+> > = a, consonant takes the values b, c, and d in turn.
+> {: .solution}
 {: .challenge}
 
 Currently, our script `analyze.m` reads in data, analyzes it,
