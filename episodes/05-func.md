@@ -34,7 +34,7 @@ end
 ~~~
 {: .matlab}
 
-A Matlab function *must* be saved in a text file with a `.m` extension.
+A MATLAB function *must* be saved in a text file with a `.m` extension.
 The name of that file must be the same as the function defined
 inside it. The name must start with a letter and cannot contain spaces.
 So, you will need to save the above code in a file called
@@ -151,7 +151,7 @@ or the next person who reads it won't be able to understand what's going on.
 
 > ## Concatenating in a Function
 >
-> In Matlab, we concatenate strings by putting them into an array or using the
+> In MATLAB, we concatenate strings by putting them into an array or using the
 > `strcat` function:
 >
 > ~~~
