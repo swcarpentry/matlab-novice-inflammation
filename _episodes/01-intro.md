@@ -44,29 +44,7 @@ We want to:
 
 To do all that, we'll have to learn a little bit about programming.
 
-We have a dozen datasets that need analysis, stored as `.csv` files -
-but MATLAB doesn't know about these files yet.
-The first thing we need to do is set MATLAB's
-[path](../reference/index.html#matlab-path)
-to include the directory containing the files. The MATLAB path is a list of directories
-on your computer that MATLAB knows about.
-To do this,
-we go to the `Home` tab,
-click on `Set Path`,
-and then on `Add with Subfolders...`.
-We navigate to the directory containing our files and
-add it to the path to tell MATLAB where to look for our files. When you refer
-to a file (either code or data), MATLAB will search all the directories in the path
-to find it. Alternatively, for data files, we can also provide the relative or
-absolute file path.
-
-> ## GNU Octave
->
-> Octave has only recently gained a MATLAB-like user interface. To change the
-> path in any version of Octave, including command-line-only installations, use
-> `addpath('path/to/directory')`
-{: .callout}
-
+## Introduction to the MATLAB GUI
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
@@ -75,7 +53,9 @@ Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
 we can save our code and run it again in the same way at a later stage.
-
+* The **Workspace** contains all the variables which we have loaded into memory.
+* The **Current Folder** window shows files in the current directory,
+  and we can change the current folder using this window.
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
