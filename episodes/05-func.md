@@ -462,6 +462,35 @@ DATA centered around the value.
 > {: .solution}
 {: .challenge}
 
+> ## Automate the analysis for all files
+>
+> Write a script called `process_all` which loops over all of the
+> data files, and calls the function `analyze_dataset` for each file
+> in turn.
+> Your script should save the image files to the 'results' directory
+> rather than displaying the figures in the MATLAB GUI.
+>
+> > ## Solution
+> >
+> > ```
+> > %PROCESS_ALL    Analyse all inflammation datasets
+> > %   Create figures to show average, max and min inflammation.
+> > %   Save figures to 'results' directory.
+> >
+> > files = dir('data/*.csv');
+> >
+> > for i = 1:length(files)
+> >     file_name = files(i).name;
+> >
+> >     % Process each data set, saving figures to disk.
+> >     analyze_dataset(file_name, 1);
+> > end
+> > ```
+> > {: .matlab}
+> {: .solution}
+{: .challenge}
+
+
 We have now solved our original problem: we can analyze
 any number of data files with a single command.
 More importantly, we have met two of the most important
