@@ -296,7 +296,7 @@ To remove all variables from the workspace, execute the command `clear all`.
 {: .challenge}
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its size or [shape](../reference/index.html#shape):
+First, let's find out its [size](../reference/index.html#size):
 
 ~~~
 size(patient_data)
@@ -705,7 +705,7 @@ ans =
 ~~~
 {: .output}
 
-As a quick check, we can check the shape of this array:
+As a quick check, we can check the size of this array:
 
 ~~~
 size(mean(patient_data, 1))
@@ -718,7 +718,7 @@ ans =
 ~~~
 {: .output}
 
-The shape tells us we have a 1-by-40 vector, so this is the average
+The size tells us we have a 1-by-40 vector, so this is the average
 inflammation per day for all patients. If we average across axis 2, we
 get:
 
