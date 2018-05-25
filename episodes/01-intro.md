@@ -120,15 +120,6 @@ csvread('inflammation-01.csv')
 ~~~
 {: .matlab}
 
-> ## GNU Octave
->
-> There are many small differences between Octave and MATLAB. One
-> difference is that
-> the path is *not* used by Octave to search for the file given as the
-> the argument to the `csvread` command. If you are using Octave you will need
-> to specify an absolute or relative path to inflammation-01.csv.
-{: .callout}
-
 You should see a wall of numbers on the screen---these are the values
 from the CSV file.
 It can sometimes
