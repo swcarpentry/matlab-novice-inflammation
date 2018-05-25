@@ -149,13 +149,13 @@ RGB
     Each color's value is typically in the range 0..255
     (i.e., a one-byte integer).
 
-shape
-:   An array's dimensions, represented as a vector.
-    For example, a 5×3 array's shape is `(5,3)`.
-
 silent failure
 :   Failing without producing any warning messages.
     Silent failures are hard to detect and debug.
+
+size
+:   An array's dimensions, represented as a vector.
+    For example, a 5×3 array's size is `(5,3)`.
 
 slice
 :   A regular subsequence of a larger sequence,
