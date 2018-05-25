@@ -61,6 +61,42 @@ Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
 Another way to access the documentation is via the `help` command --- we will return to this later.
 
+## Good practices for project organisation
+Before we get started, let's create some directories to help organise this project.
+
+> ## Tip: Good Enough Practices for Scientific Computing
+>
+> [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+> gives the following recommendations for project organization:
+>
+> 1. Put each project in its own directory, which is named after the project.
+> 2. Put text documents associated with the project in the `doc` directory.
+> 3. Put raw data and metadata in the `data` directory, and files generated during clean-up and analysis in a `results` directory.
+> 4. Put source code for the project in the `src` directory,
+>    and programs brought in from elsewhere or compiled locally in the `bin` directory.
+> 5. Name all files to reflect their content or function.
+>
+{: .callout}
+
+We already have a `data` directory in our `matlab-novice-inflammation` project directory,
+so we only need to create a `results` directory for this project.
+You can use your computer's file browser to create this directory.
+We'll save all our scripts and function files in the main project directory.
+
+A final step is to set the *current folder* in MATLAB to our project folder.
+Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
+(`matlab-novice-inflammation`).
+
+In order to check the current directory, we can run `pwd` to print the working directory.
+A second check we can do is to run the `ls` command in the Command Window ---
+we should get the following output:
+
+```
+data   results
+```
+{: .matlab}
+
+
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
 and admittedly,
