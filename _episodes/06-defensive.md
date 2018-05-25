@@ -459,7 +459,7 @@ i.e.,
 that we're actually exercising the problem that we think we are.
 Every programmer has spent hours chasing a bug,
 only to realize that they were actually calling their code on the wrong data set
-or with the wrong configuration parameters,
+or with the wrong configuration settings,
 or are using the wrong version of the software entirely.
 Mistakes like these are particularly likely to happen when we're tired,
 frustrated,
