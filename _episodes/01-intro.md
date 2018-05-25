@@ -116,7 +116,7 @@ To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press `Enter`:
 
 ~~~
-csvread('inflammation-01.csv')
+csvread('data/inflammation-01.csv')
 ~~~
 {: .matlab}
 
@@ -128,7 +128,7 @@ To suppress the
 output, simply put a semicolon at the end of your command:
 
 ~~~
-csvread('inflammation-01.csv');
+csvread('data/inflammation-01.csv');
 ~~~
 {: .matlab}
 
@@ -148,7 +148,7 @@ or compute with them. To do that, we need to assign the array to a
 [variable](../reference/index.html#variable).
 
 ~~~
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 ~~~
 {: .matlab}
 
