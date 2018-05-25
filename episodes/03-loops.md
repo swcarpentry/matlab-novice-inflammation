@@ -349,75 +349,69 @@ u
 
 We now have almost everything we need to process
 multiple data files with our `analyze` script.
-You'll notice that our data files are named
-`inflammation-01.csv`, `inflammation-02.csv`, etc.
-Let's write a loop that tries to print the names of each one of our files:
+
+We need to generate a list of data files to process,
+and then we can use a loop to repeat the analysis for each file.
+
+We can use the `dir` command to return a **structure array** containing
+the names of the files in the `data` directory.
+Each element in this *structure array* is a **structure**, containing
+information about a single file in the form of named **fields**.
+
+```
+files = dir('data/inflammation-*.csv')
+```
+{: .matlab}
+
+```
+files = 
+  12×1 struct array with fields:
+    name
+    folder
+    date
+    bytes
+    isdir
+    datenum
+```
+{: .output}
+
+To access the *name* field of the first file, we can use the following syntax:
+
+```
+filename = files(1).name;
+disp(filename)
+```
+{: .matlab}
+
+```
+inflammation-01.csv
+```
+{: .output}
+
+To get the modification date of the third file, we can do:
 
 ~~~
-for idx = 1:12
-    file_name = sprintf('inflammation-%d.csv', idx);
-    disp(file_name);
-end
+mod_date = files(3).date;
+disp(mod_date)
 ~~~
 {: .matlab}
 
 ~~~
-inflammation-1.csv
-inflammation-2.csv
-inflammation-3.csv
-inflammation-4.csv
-inflammation-5.csv
-inflammation-6.csv
-inflammation-7.csv
-inflammation-8.csv
-inflammation-9.csv
-inflammation-10.csv
-inflammation-11.csv
-inflammation-12.csv
+26-Jul-2015 22:24:31
 ~~~
 {: .output}
 
-This is close, but not quite right.
-The `sprintf` function is useful when we want to
-generate MATLAB strings based on a _template_.
-In our case,
-that template is the string `inflammation-%d.csv`.
-`sprintf`
-generates a new string from our template by
-replacing the `%d` with
-the data referred to by our second argument, `i`.
+A good first step towards processing multiple files is to write a loop which prints
+the name of each of our files:
 
-Again, let's trace the execution of our loop:
-in the beginning of our loop,
-`i` starts by referring to the value 1.
-So, when MATLAB executes the command
+```
+files = dir('data/*.csv');
 
-~~~
-file_name = sprintf('inflammation-%d.csv', idx);
-~~~
-{: .matlab}
-
-it substitutes the `%d` in the template `inflammation-%d.csv`,
-with the value of `i`, i.e., 1.
-The resulting string is `inflammation-1.csv`,
-which is assigned to the variable `file_name`.
-The `disp` command prints that string to screen.
-The second time around, `sprintf` generates the string `inflammation-2.csv`,
-which is assigned to the variable `file_name`,
-and printed to screen.
-And so on, till `i` finally refers to the value 12.
-
-Notice that there's a mistake.
-Our files are actually named
-`inflammation-01.csv`, `inflammation-02.csv`, etc.
-To get it right, we have to modify our template:
-
-~~~
-for idx = 1:12
-    file_name = sprintf('inflammation-%02d.csv', idx);
-    disp(file_name);
+for i = 1:length(files)
+	data_file = files(i).name;
+	disp(data_file)
 end
-~~~
+```
 {: .matlab}
 
 ~~~
@@ -436,24 +430,56 @@ inflammation-12.csv
 ~~~
 {: .output}
 
-We've replaced `%d` in our earlier template with `%02d`.
-With this,
-we're specifying that we want our data to be displayed
-with a minimum width of 2 characters,
-and that we want to _pad_ with 0 for data
-that isn't at least 2 digits long.
+The final task is to generate the file names for the figures we're going to save.
+Let's name the output file after the data file used to generate the figure.
+So for the data set `inflammation-01.csv` we will call the figure `inflammation-01.png`.
+We can use the `replace` command for this purpose.
+
+The syntax for the `replace` command is like this:
+
+```
+NEWSTR = replace(STR, OLD, NEW)
+```
+{: .matlab}
+
+So for example if we have the string `big_shark` and want to get the string
+`terror_shark`, we can execute the following command:
+
+```
+new_string = replace('big_shark', 'big', 'terror');
+disp(new_string)
+```
+{: .matlab}
+
+```
+terror_shark
+```
+{: .output}
+
+Recall that we're saving our figures to the `results` directory.
+The best way to generate a path to a file in MATLAB is by using the `fullfile` command.
+This generates a file path with the correct separators for the platform you're using
+(i.e. forward slash for Linux and macOS, and backslash for Windows).
+This makes your code more portable which is great for collaboration.
 
 We're now ready to modify `analyze.m` to process multiple data files:
 
 ~~~
-% script analyze_loops.m
+%ANALYSE Process first three inflammation data sets
 
+files = dir('data/*.csv');
+
+% Process first three files only
 for idx = 1:3
+    file_name = files(idx).name;
+	
+    % Generate strings for image names:
+    img_name  = replace(file_name, '.csv', '.png');
 
-    % Generate strings for file and image names:
-    file_name = sprintf('data/inflammation-%02d.csv', idx);
-    img_name = sprintf ('patient_data-%02d.png', idx);
-
+    % Generate path to data file and image file
+    file_name = fullfile('data', file_name);
+    img_name  = fullfile('results', img_name);
+	
     patient_data = csvread(file_name);
 
     disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
@@ -462,6 +488,7 @@ for idx = 1:3
 
     ave_inflammation = mean(patient_data, 1);
 
+    % Create figures
     figure('visible', 'off')
 
     subplot(2, 2, 1);
@@ -478,21 +505,18 @@ for idx = 1:3
 
     print('-dpng', img_name);
     close();
-
 end
 ~~~
 {: .matlab}
 
-Save the `analyze.m` script as a new script called `analyze_loops.m`.
-To do this, we go to the `Editor` tab, click on the arrow below `Save`,
-and then on `Save As...`.
-Remember that to run our script,
-we simply type in its name in the command line:
+We run the modified script using its name in the Command Window:
 
 ~~~
-analyze_loops
+analyze
 ~~~
 {: .matlab}
+
+The figures output to the `results` directory are as shown below:
 
 <img src="../img/02-loop_1.png" style="width:500px; height:400px">
 
@@ -506,87 +530,9 @@ and their minima show the same staircase structure.
 
 We've now automated the analysis and have confirmed that all the data
 files show the same artifact. This is what we set out to test, and now
-we can just call one function to do it. With minor modifications, this
-function could be re-used to check all our future data files.
+we can just call one script to do it. With minor modifications, this
+script could be re-used to check all our future data files.
 
-> ## Another Way to Analyze Multiple Files
->
-> In cases where our file names don't follow such a regular pattern,
-> we might want to process all files that end with a given extension,
-> say `.csv`.
-> At the command line we could get this list of files by using a
-> [wildcard](../reference/index.html#wildcard):
->
-> ~~~
-> ls *.csv
-> ~~~
-> {: .bash}
->
-> We can also do something similar with MATLAB, using the `dir` command:
->
-> ~~~
-> files = dir('*.csv')
-> ~~~
-> {: .matlab}
->
-> ~~~
->
-> files =
->
-> 12x1 struct array with fields:
->
->     name
->     date
->     bytes
->     isdir
->     datenum
-> ~~~
-> {: .output}
->
-> The `dir` command returns a special MATLAB data type called
-> a "struct array". Each element in this array is
-> a "struct", containing information about a single file
-> in the form of "fields".
->
-> To access the "name" field of, say, the first file,
-> we can do the following:
->
-> ~~~
-> name = files(1).name;
-> disp(name)
-> ~~~
-> {: .matlab}
->
-> ~~~
-> inflammation-01.csv
-> ~~~
-> {: .output}
->
-> To get the modification date of the third file, we can do:
->
-> ~~~
-> mod_date = files(3).date;
-> disp(mod_date)
-> ~~~
-> {: .matlab}
->
-> ~~~
-> 26-Jul-2015 22:24:31
-> ~~~
-> {: .output}
->
-> Information about the other fields like `bytes` and `isdir`
-> is available in the documentation of the `dir` function:
->
-> ~~~
-> help dir
-> ~~~
-> {: .matlab}
->
-> Using `dir`,
-> rewrite the `analyze` script to analyze all `csv` files in
-> the current directory.
-{: .challenge}
 
 > ## GNU Octave
 >
