@@ -401,59 +401,62 @@ DATA centered around the value.
 > {: .solution}
 {: .challenge}
 
-> ## Automate our analysis
+> ## Convert a script into a function
 >
-> 1. Convert the script from the previous episode into a function called `run_analysis`.
->    The function should operate on a single data file,
->    and should have two parameters: `file_name` and `plot_switch`.
->    When called, the function should create the three graphs produced in the
->    previous lesson. Whether they are displayed or saved to disk should be controlled
->    by the value of `plot_switch`
->    i.e. `run_analysis('inflammation-01.csv', 0)`
->    should display the corresponding graphs for the first data set.
+> Convert the script from the previous episode into a function called `analyze_dataset`.
+> The function should operate on a single data file,
+> and should have two parameters: `file_name` and `plot_switch`.
+> When called, the function should create the three graphs produced in the
+> previous lesson. Whether they are displayed or saved to the `results` directory
+> should be controlled by the value of `plot_switch`
+> i.e. `analyze_dataset('inflammation-01.csv', 0)`
+> should display the corresponding graphs for the first data set;
+> `analyze_dataset('inflammation-02.csv', 1)` should save the figures for the second
+> dataset to the `results` directory.
 >
->    Be sure to give your function help text.
+> Be sure to give your function help text.
 >
 > > ## Solution
 > > ```
-> > function run_analysis(file_name, plot_switch)
-> > 	% RUN_ANALYSIS    Perform analysis for named data file.
-> > 	%   Create figures to show average, max and min inflammation.
-> > 	%   Display plots in GUI using plot_switch = 0,
-> > 	%   or save to disk using plot_switch = 1.
-> > 	%
-> > 	%   Example:
-> > 	%       run_analysis('data/inflammation-01.csv', 0)
-> > 	
-> > 	% Generate string for image name:
-> > 	img_name = replace(file_name, 'inflammation', 'patient_data');
-> > 	img_name = replace(img_name, '.csv', '.png');
-> > 	
-> > 	patient_data = csvread(file_name);
-> > 	ave_inflammation = mean(patient_data, 1);
-> > 	
-> > 	if plot_switch == 1
-> > 		figure('visible', 'off')
-> > 	else
-> > 		figure('visible', 'on')
-> > 	end
-> > 	
-> > 	subplot(2, 2, 1);
-> > 	plot(ave_inflammation);
-> > 	ylabel('average')
-> > 	
-> > 	subplot(2, 2, 2);
-> > 	plot(max(patient_data, [], 1));
-> > 	ylabel('max')
-> > 	
-> > 	subplot(2, 2, 3);
-> > 	plot(min(patient_data, [], 1));
-> > 	ylabel('min')
-> > 	
-> > 	if plot_switch == 1
-> > 		print('-dpng', img_name);
-> > 		close()
-> > 	end
+> > function analyze_dataset(file_name, plot_switch)
+> >     %ANALYZE_DATASET    Perform analysis for named data file.
+> >     %   Create figures to show average, max and min inflammation.
+> >     %   Display plots in GUI using plot_switch = 0,
+> >     %   or save to disk using plot_switch = 1.
+> >     %
+> >     %   Example:
+> >     %       analyze_dataset('data/inflammation-01.csv', 0)
+> >     
+> >     % Generate string for image name:
+> >     img_name = replace(file_name, 'inflammation', 'patient_data');
+> >     img_name = replace(img_name, '.csv', '.png');
+> >     img_name = fullfile('results', img_name);
+> >
+> >     patient_data = csvread(file_name);
+> >     ave_inflammation = mean(patient_data, 1);
+> >     
+> >     if plot_switch == 1
+> >     	figure('visible', 'off')
+> >     else
+> >     	figure('visible', 'on')
+> >     end
+> >     
+> >     subplot(2, 2, 1);
+> >     plot(ave_inflammation);
+> >     ylabel('average')
+> >     
+> >     subplot(2, 2, 2);
+> >     plot(max(patient_data, [], 1));
+> >     ylabel('max')
+> >     
+> >     subplot(2, 2, 3);
+> >     plot(min(patient_data, [], 1));
+> >     ylabel('min')
+> >     
+> >     if plot_switch == 1
+> >         print('-dpng', img_name);
+> >         close()
+> >     end
 > >  ```
 > > {: .matlab}
 > {: .solution}
