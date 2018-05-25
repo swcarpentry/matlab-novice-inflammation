@@ -96,7 +96,7 @@ images on disk:
 
 ~~~
 % save plot to disk as png image:
-print ('average','-dpng')
+print('average','-dpng')
 ~~~
 {: .matlab}
 
@@ -107,7 +107,9 @@ your code to make it easier to understand when you come
 back to it after a while.
 
 Let's extend our `analyze` script with commands to
-create and save plots:
+create and save plots.
+In order to maintain an organised project we'll save the images
+in the `results` directory:
 
 ~~~
 % script analyze.m
@@ -132,8 +134,8 @@ subplot(1, 3, 3);
 plot(min(patient_data, [], 1));
 ylabel('min')
 
-% save plot to disk as png image:
-print ('patient_data-01','-dpng')
+% Save plot in 'results' directory as png image.
+print('results/patient_data-01','-dpng')
 ~~~
 {: .matlab}
 
@@ -169,8 +171,8 @@ subplot(1, 3, 3);
 plot(min(patient_data, [], 1));
 ylabel('min')
 
-% save plot to disk as png image:
-print ('patient_data-01','-dpng')
+% Save plot in 'results' directory as png image.
+print('results/patient_data-01','-dpng')
 
 close()
 ~~~
