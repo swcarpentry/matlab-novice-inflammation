@@ -170,6 +170,19 @@ disp(weight_kg);
 ~~~
 {: .output}
 
+or simply typing its name, followed by <kbd>Enter</kbd>
+
+```
+weight_kg
+```
+{: .matlab}
+
+```
+w =
+    55
+```
+{: .output}
+
 and do arithmetic with it:
 
 ~~~
@@ -189,10 +202,8 @@ of values. All values in this array need to be the same type. So, if
 we want to print a string and a numerical value together, we *have* to
 convert that numerical value to a string with the `num2str` function.
 
-If we imagine the variable as a sticky note with a name written on
-it, assignment is like putting the sticky note on a particular value:
-
-![Variables as Sticky Notes](../fig/matlab-sticky-note-variables-01.svg)
+Assignment is giving a name to a value so that it can be used again,
+and accessed by other parts of a program.
 
 Assigning a value to one variable does not change the values of other
 variables.
@@ -212,7 +223,6 @@ Weight in pounds: 126.5
 ~~~
 {: .output}
 
-![Creating another variable](../fig/matlab-sticky-note-variables-02.svg)
 
 Let's update the value of one of our variables, and print the values
 of both:
@@ -229,8 +239,6 @@ Weight in kg: 100
 Weight in pounds: 126.5
 ~~~
 {: .output}
-
-![Updating one variable](../fig/matlab-sticky-note-variables-03.svg)
 
 Since `weight_lb` doesn't "remember" where its value came from, it isn't
 automatically updated when `weight_kg` changes. This is important to
@@ -272,7 +280,7 @@ The workspace contains all variable names and assigned values that we currently 
 As long as they pop up in the workspace,
 they are universally available.
 It's generally a good idea to keep the workspace as clean as possible.
-To do that, simply type `clear all`.
+To remove all variables from the workspace, execute the command `clear all`.
 
 > ## Predicting Variable Values
 >
