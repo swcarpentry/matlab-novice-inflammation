@@ -272,7 +272,7 @@ ans =
 That looks right, so let's try out `center` function on our real data:
 
 ~~~
-data = csvread('inflammation-01.csv');
+data = csvread('data/inflammation-01.csv');
 centered = center(data(:), 0)
 ~~~
 {: .matlab}

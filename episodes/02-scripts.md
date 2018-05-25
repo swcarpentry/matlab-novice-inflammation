@@ -99,7 +99,7 @@ create and save plots:
 ~~~
 % script analyze.m
 
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
@@ -134,7 +134,7 @@ Let's add a couple of lines of code to do this:
 ~~~
 % script analyze.m
 
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
