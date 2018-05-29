@@ -359,7 +359,7 @@ Each element in this *structure array* is a **structure**, containing
 information about a single file in the form of named **fields**.
 
 ```
-files = dir('data/inflammation-*.csv')
+files = dir('data/inflammation-inflammation-*.csv')
 ```
 {: .matlab}
 
@@ -405,7 +405,7 @@ A good first step towards processing multiple files is to write a loop which pri
 the name of each of our files:
 
 ```
-files = dir('data/*.csv');
+files = dir('data/inflammation-*.csv');
 
 for i = 1:length(files)
 	data_file = files(i).name;
@@ -467,7 +467,7 @@ We're now ready to modify `analyze.m` to process multiple data files:
 ~~~
 %ANALYSE Process first three inflammation data sets
 
-files = dir('data/*.csv');
+files = dir('data/inflammation-*.csv');
 
 % Process first three files only
 for idx = 1:3
