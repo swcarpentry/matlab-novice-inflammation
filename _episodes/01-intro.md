@@ -44,29 +44,7 @@ We want to:
 
 To do all that, we'll have to learn a little bit about programming.
 
-We have a dozen datasets that need analysis, stored as `.csv` files -
-but MATLAB doesn't know about these files yet.
-The first thing we need to do is set MATLAB's
-[path](../reference/index.html#matlab-path)
-to include the directory containing the files. The MATLAB path is a list of directories
-on your computer that MATLAB knows about.
-To do this,
-we go to the `Home` tab,
-click on `Set Path`,
-and then on `Add with Subfolders...`.
-We navigate to the directory containing our files and
-add it to the path to tell MATLAB where to look for our files. When you refer
-to a file (either code or data), MATLAB will search all the directories in the path
-to find it. Alternatively, for data files, we can also provide the relative or
-absolute file path.
-
-> ## GNU Octave
->
-> Octave has only recently gained a MATLAB-like user interface. To change the
-> path in any version of Octave, including command-line-only installations, use
-> `addpath('path/to/directory')`
-{: .callout}
-
+## Introduction to the MATLAB GUI
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
@@ -75,11 +53,49 @@ Everything that's typed into the command window is executed immediately.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
 The upside of this is that
 we can save our code and run it again in the same way at a later stage.
-
+* The **Workspace** contains all the variables which we have loaded into memory.
+* The **Current Folder** window shows files in the current directory,
+  and we can change the current folder using this window.
 * **Search Documentation** on the top right of your screen lets you search for functions.
 Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
 Another way to access the documentation is via the `help` command --- we will return to this later.
+
+## Good practices for project organisation
+Before we get started, let's create some directories to help organise this project.
+
+> ## Tip: Good Enough Practices for Scientific Computing
+>
+> [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+> gives the following recommendations for project organization:
+>
+> 1. Put each project in its own directory, which is named after the project.
+> 2. Put text documents associated with the project in the `doc` directory.
+> 3. Put raw data and metadata in the `data` directory, and files generated during clean-up and analysis in a `results` directory.
+> 4. Put source code for the project in the `src` directory,
+>    and programs brought in from elsewhere or compiled locally in the `bin` directory.
+> 5. Name all files to reflect their content or function.
+>
+{: .callout}
+
+We already have a `data` directory in our `matlab-novice-inflammation` project directory,
+so we only need to create a `results` directory for this project.
+You can use your computer's file browser to create this directory.
+We'll save all our scripts and function files in the main project directory.
+
+A final step is to set the *current folder* in MATLAB to our project folder.
+Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
+(`matlab-novice-inflammation`).
+
+In order to check the current directory, we can run `pwd` to print the working directory.
+A second check we can do is to run the `ls` command in the Command Window ---
+we should get the following output:
+
+```
+data   results
+```
+{: .matlab}
+
 
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
@@ -100,18 +116,9 @@ To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press `Enter`:
 
 ~~~
-csvread('inflammation-01.csv')
+csvread('data/inflammation-01.csv')
 ~~~
 {: .matlab}
-
-> ## GNU Octave
->
-> There are many small differences between Octave and MATLAB. One
-> difference is that
-> the path is *not* used by Octave to search for the file given as the
-> the argument to the `csvread` command. If you are using Octave you will need
-> to specify an absolute or relative path to inflammation-01.csv.
-{: .callout}
 
 You should see a wall of numbers on the screen---these are the values
 from the CSV file.
@@ -121,7 +128,7 @@ To suppress the
 output, simply put a semicolon at the end of your command:
 
 ~~~
-csvread('inflammation-01.csv');
+csvread('data/inflammation-01.csv');
 ~~~
 {: .matlab}
 
@@ -141,7 +148,7 @@ or compute with them. To do that, we need to assign the array to a
 [variable](../reference/index.html#variable).
 
 ~~~
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 ~~~
 {: .matlab}
 

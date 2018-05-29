@@ -39,6 +39,7 @@ The name of that file must be the same as the function defined
 inside it. The name must start with a letter and cannot contain spaces.
 So, you will need to save the above code in a file called
 `fahr_to_kelvin.m`.
+Remember to save your m-files in the current directory.
 
 The first line of our function:
 
@@ -272,7 +273,7 @@ ans =
 That looks right, so let's try out `center` function on our real data:
 
 ~~~
-data = csvread('inflammation-01.csv');
+data = csvread('data/inflammation-01.csv');
 centered = center(data(:), 0)
 ~~~
 {: .matlab}
@@ -375,7 +376,6 @@ DATA centered around the value.
 > 1. Run `help linspace` to see how to use `linspace` to generate
 >    regularly-spaced values. Use arrays like this to test your `normalise` function.
 >
-<<<<<<< 0c30490a538043327950a07887624f5f76cbb5b3
 > > ## Solution
 > >
 > > 1. 
@@ -461,13 +461,6 @@ DATA centered around the value.
 > >  ```
 > > {: .matlab}
 > {: .solution}
-=======
-> 1. Write a function `run_analysis` that accepts a filename
->    as the input argument, and displays the three graphs produced in the
->    previous lesson, i.e., `run_analysis('inflammation-01.csv')`
->    should produce the corresponding graphs for the first
->    data set. Be sure to give your function help text.
->>>>>>> Avoid usage of parameters in place of arguments
 {: .challenge}
 
 > ## Automate the analysis for all files
