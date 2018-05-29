@@ -485,7 +485,7 @@ DATA centered around the value.
 > > %   Create figures to show average, max and min inflammation.
 > > %   Save figures to 'results' directory.
 > >
-> > files = dir('data/*.csv');
+> > files = dir('data/inflammation-*.csv');
 > >
 > > for i = 1:length(files)
 > >     file_name = files(i).name;
