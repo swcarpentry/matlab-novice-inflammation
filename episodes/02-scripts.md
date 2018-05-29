@@ -26,7 +26,8 @@ also write several commands in a _script_. A MATLAB script
 is just a text file with a `.m` extension. We've written
 commands to load data from a `.csv` file and
 displays some statistics about that data. Let's
-put those commands in a script called `analyze.m`:
+put those commands in a script called `analyze.m`,
+which we'll save in our current directory,`matlab-novice-inflammation`:
 
 ~~~
 % script analyze.m
@@ -40,20 +41,7 @@ disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
 ~~~
 {: .matlab}
 
-Before we can use it, we need to make sure that this file is
-visible to MATLAB. MATLAB doesn't know about all the files on your
-computer, but it keeps an eye on several directories.
-The most convenient of these directories is generally the
-"working directory", or "current directory". To find out the
-working directory, use the `pwd` (print working directory) command:
-
-~~~
-pwd
-~~~
-{: .matlab}
-
-Once you have a script saved in a location that MATLAB knows about,
-you can get MATLAB to run those commands by typing in the name
+You can get MATLAB to run those commands by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
 
 ~~~
@@ -68,6 +56,31 @@ Standard deviation: 4.6148
 ~~~
 {: .matlab}
 
+> ## The MATLAB path
+> MATLAB knows about files in the current directory, but if we want to
+> run a script saved in a different location, we need to make sure that
+> this file is visible to MATLAB.
+> We do this by adding directories to the MATLAB **path**.
+> The *path* is a list of directories MATLAB will search through to locate
+> files.
+> 
+> To add a directory to the MATLAB path,
+> we go to the `Home` tab,
+> click on `Set Path`,
+> and then on `Add with Subfolders...`.
+> We navigate to the directory and
+> add it to the path to tell MATLAB where to look for our files. When you refer
+> to a file (either code or data), MATLAB will search all the directories in the path
+> to find it. Alternatively, for data files, we can provide the relative or
+> absolute file path.
+{: .callout}
+
+> ## GNU Octave
+>
+> Octave has only recently gained a MATLAB-like user interface. To change the
+> path in any version of Octave, including command-line-only installations, use
+> `addpath('path/to/directory')`
+{: .callout}
 We've also written commands to create plots:
 
 ~~~
@@ -83,7 +96,7 @@ images on disk:
 
 ~~~
 % save plot to disk as png image:
-print ('average','-dpng')
+print('average','-dpng')
 ~~~
 {: .matlab}
 
@@ -94,12 +107,14 @@ your code to make it easier to understand when you come
 back to it after a while.
 
 Let's extend our `analyze` script with commands to
-create and save plots:
+create and save plots.
+In order to maintain an organised project we'll save the images
+in the `results` directory:
 
 ~~~
 % script analyze.m
 
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
@@ -119,8 +134,8 @@ subplot(1, 3, 3);
 plot(min(patient_data, [], 1));
 ylabel('min')
 
-% save plot to disk as png image:
-print ('patient_data-01','-dpng')
+% Save plot in 'results' directory as png image.
+print('results/patient_data-01','-dpng')
 ~~~
 {: .matlab}
 
@@ -134,7 +149,7 @@ Let's add a couple of lines of code to do this:
 ~~~
 % script analyze.m
 
-patient_data = csvread('inflammation-01.csv');
+patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
@@ -156,8 +171,8 @@ subplot(1, 3, 3);
 plot(min(patient_data, [], 1));
 ylabel('min')
 
-% save plot to disk as png image:
-print ('patient_data-01','-dpng')
+% Save plot in 'results' directory as png image.
+print('results/patient_data-01','-dpng')
 
 close()
 ~~~
