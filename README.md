@@ -12,6 +12,6 @@ Maintainers:
 * [Isabell Kiral-Kornek][kiral-kornek_isabell]
 * [Ashwin Srinath][srinath_ashwin]
 
-[lesson-example]: https://swcarpentry.github.io/lesson-example
+[lesson-example]: https://carpentries.github.io/lesson-example
 [kiral-kornek_isabell]: http://software-carpentry.org/team/#kiral-kornek_isabell
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
