@@ -30,7 +30,7 @@ put those commands in a script called `analyze.m`,
 which we'll save in our current directory,`matlab-novice-inflammation`:
 
 ~~~
-% script analyze.m
+%ANALYZE   Print statistics for first patient
 
 patient_data = csvread('data/inflammation-01.csv');
 
@@ -111,7 +111,8 @@ The first two parameters describe the grid we want to use, while the third
 parameter indicates the placement on the grid.
 
 ~~~
-% script analyze.m
+%ANALYZE   Print statistics for first patient.
+%           Save plots of statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 
@@ -152,7 +153,8 @@ not displaying the figures could make the script run faster.
 Let's add a couple of lines of code to do this:
 
 ~~~
-% script analyze.m
+%ANALYZE   Print statistics for first patient.
+%           Save plots of statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 

@@ -489,7 +489,8 @@ This makes your code more portable which is great for collaboration.
 We're now ready to modify `analyze.m` to process multiple data files:
 
 ~~~
-%ANALYSE Process first three inflammation data sets
+%ANALYZE   Print statistics for first three patients.
+%          Save plots of statistics to disk.
 
 files = dir('data/inflammation-*.csv');
 

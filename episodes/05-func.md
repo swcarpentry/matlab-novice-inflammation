@@ -26,9 +26,9 @@ so that we can repeat several operations with a single command.
 Let's start by defining a function `fahr_to_kelvin` that converts temperatures from Fahrenheit to Kelvin:
 
 ~~~
-% file fahr_to_kelvin.m
-
 function ktemp = fahr_to_kelvin(ftemp)
+    %FAHR_TO_KELVIN   Convert Fahrenheit to Kelvin
+
     ktemp = ((ftemp - 32) * (5/9)) + 273.15;
 end
 ~~~
@@ -93,9 +93,9 @@ Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
 Kelvin to Celsius.
 
 ~~~
-% file kelvin_to_celsius.m
-
 function ctemp = kelvin_to_celsius(ktemp)
+    %KELVIN_TO_CELSIUS   Convert from Kelvin to Celcius
+
     ctemp = ktemp - 273.15;
 end
 ~~~
@@ -119,9 +119,9 @@ Instead, we can [compose](../reference/index.html#function-composition) the two
 functions we have already created:
 
 ~~~
-% file fahr_to_celsius.m
-
 function ctemp = fahr_to_celsius(ftemp)
+    %FAHR_TO_CELSIUS   Convert Fahrenheit to Celcius
+
     ktemp = fahr_to_kelvin(ftemp);
     ctemp = kelvin_to_celsius(ktemp);
 end
@@ -189,9 +189,9 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .output}
 > > ## Solution
 > > ```
-> > % fence Return original string, with wrapper prepended and appended
+> > function wrapped = fence(original, wrapper)
+> >     %FENCE   Return original string, with wrapper prepended and appended
 > >
-> > function wrapped = fence(original ,wrapper)
 > >     wrapped = strcat(wrapper, original, wrapper);
 > > end
 > > ```
@@ -216,9 +216,9 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .output}
 > > ## Solution
 > > ```
-> > % outer    Return first and last characters from a string
-> > 
 > > function ends = outer(s)
+> >     %OUTER   Return first and last characters from a string
+> > 
 > >     ends = strcat(s(1), s(end));
 > > end
 > > ```
@@ -334,7 +334,7 @@ how to use it.
 
 ~~~
 function out = center(data, desired)
-    %   Center data around a desired value.
+    %CENTER   Center data around a desired value.
     %
     %       center(DATA, DESIRED)
     %
@@ -356,7 +356,7 @@ help center
 {: .matlab}
 
 ~~~
-Center data around a desired value.
+Center   Center data around a desired value.
 
     center(DATA, DESIRED)
 
@@ -381,9 +381,10 @@ DATA centered around the value.
 > > 1. 
 > >
 > >     ```
-> >     % Normalise    Return original array, normalised so that the
-> >     %              new values lie in the range 0 to 1.
 > >     function out = normalise(in)
+> >         %NORMALISE   Return original array, normalised so that the
+> >         %            new values lie in the range 0 to 1.
+> >
 > >         H = max(max(in));
 > >         L = min(min(in));
 > >         out = (in-L)/(H-L);

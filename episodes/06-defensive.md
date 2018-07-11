@@ -90,6 +90,7 @@ formatted and that its result makes sense:
 
 ~~~
 function normalized = normalize_rectangle(rect)
+    %NORMALIZE_RECTANGLE
     % Normalizes a rectangle so that it is at the origin
     % measures 1.0 units on its longest axis
     % and is oriented with the longest axis in the y direction:
@@ -281,7 +282,7 @@ Below are three test functions for `range_overlap`, but first we need a brief as
 {: .callout}
 
 ~~~
-% script test_range_overlap.m
+%TEST_RANGE_OVERLAP   Test script for range_overlap function.
 
 % assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));
 % assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])));
@@ -319,8 +320,7 @@ Let's write `range_overlap`:
 
 ~~~
 function output_range = range_overlap(varargin)
-
-    % Return common overlap among a set of [low, high] ranges.
+    %RANGE_OVERLAP   Return common overlap among a set of [low, high] ranges.
 
     lowest = -inf;
     highest = +inf;
