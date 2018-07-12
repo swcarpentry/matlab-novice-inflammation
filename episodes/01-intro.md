@@ -813,6 +813,9 @@ Let's display a heat map of our data:
 
 ~~~
 imagesc(patient_data)
+title('Inflammation')
+xlabel('Day of trial')
+ylabel('Patient number')
 ~~~
 {: .matlab}
 
@@ -820,14 +823,23 @@ imagesc(patient_data)
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
-are low values, while red shows high values.
+are low values, while yellow shows high values.
 As we can see,
 inflammation rises and falls over a 40 day period.
+
+It's good practice to give the figure a `title`,
+and to label the axes using `xlabel` and `ylabel`
+so that other people can understand what it shows
+(including us if we return to this plot 6 months from now).
+
 Let's take a look at the average inflammation over time:
 
 ~~~
 ave_inflammation = mean(patient_data, 1);
-plot(ave_inflammation);
+plot(ave_inflammation)
+title('Daily average inflammation')
+xlabel('Day of trial')
+ylabel('Inflammation')
 ~~~
 {: .matlab}
 
@@ -843,16 +855,21 @@ Let's have a look at two other statistics: the maximum and minimum
 inflammation per day across all patients.
 
 ~~~
-plot(max(patient_data, [], 1));
-title('Maximum inflammation per day');
+plot(max(patient_data, [], 1))
+title('Maximum inflammation per day')
+title('Daily average inflammation')
+ylabel('Inflammation')
+xlabel('Day of trial')
 ~~~
 {: .matlab}
 
 ![Third Heat Map](../fig/01-intro_3.png)
 
 ~~~
-plot(min(patient_data, [], 1));
-title('Minimum inflammation per day');
+plot(min(patient_data, [], 1))
+title('Minimum inflammation per day')
+ylabel('Inflammation')
+xlabel('Day of trial')
 ~~~
 {: .matlab}
 
