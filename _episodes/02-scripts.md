@@ -81,22 +81,21 @@ Standard deviation: 4.6148
 > path in any version of Octave, including command-line-only installations, use
 > `addpath('path/to/directory')`
 {: .callout}
-We've also written commands to create plots:
+
+We've also written commands to create plots, so let's include those in our script too,
+but this time we'll save the figures to disk as image files using the `print` command.
+In order to maintain an organised project we'll save the images
+in the `results` directory:
 
 ~~~
-ave_inflammation = mean(patient_data, 1);
-
+% Plot average inflammation per day
 plot(ave_inflammation);
-ylabel('average')
-~~~
-{: .matlab}
+title('Daily average inflammation')
+xlabel('Day of trial')
+ylabel('Inflammation')
 
-MATLAB lets us save those as
-images on disk:
-
-~~~
-% save plot to disk as png image:
-print('average','-dpng')
+% Save plot in 'results' folder as png image:
+print('results/average','-dpng')
 ~~~
 {: .matlab}
 
@@ -106,10 +105,10 @@ This is another plus of writing scripts: you can comment
 your code to make it easier to understand when you come
 back to it after a while.
 
-Let's extend our `analyze` script with commands to
-create and save plots.
-In order to maintain an organised project we'll save the images
-in the `results` directory:
+We can combine multiple plots into one figure using the `subplot` command
+which plots our graphs in a grid pattern.
+The first two parameters describe the grid we want to use, while the third
+parameter indicates the placement on the grid.
 
 ~~~
 % script analyze.m
@@ -122,17 +121,23 @@ disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
 
 ave_inflammation = mean(patient_data, 1);
 
-subplot(1, 3, 1);
-plot(ave_inflammation);
-ylabel('average')
+subplot(1, 3, 1)
+plot(ave_inflammation)
+title('Average')
+ylabel('Inflammation')
+xlabel('Day')
 
-subplot(1, 3, 2);
-plot(max(patient_data, [], 1));
-ylabel('max')
+subplot(1, 3, 2)
+plot(max(patient_data, [], 1))
+title('Max')
+ylabel('Inflammation')
+xlabel('Day')
 
-subplot(1, 3, 3);
-plot(min(patient_data, [], 1));
-ylabel('min')
+subplot(1, 3, 3)
+plot(min(patient_data, [], 1))
+title('Min')
+ylabel('Inflammation')
+xlabel('Day')
 
 % Save plot in 'results' directory as png image.
 print('results/patient_data-01','-dpng')
@@ -159,17 +164,24 @@ ave_inflammation = mean(patient_data, 1);
 
 figure('visible', 'off')
 
-subplot(1, 3, 1);
-plot(ave_inflammation);
-ylabel('average')
+subplot(1, 3, 1)
+plot(ave_inflammation)
+title('Average')
+ylabel('inflammation')
+xlabel('Day')
 
-subplot(1, 3, 2);
-plot(max(patient_data, [], 1));
-ylabel('max')
+subplot(1, 3, 2)
+plot(max(patient_data, [], 1))
+title('Max')
+ylabel('Inflammation')
+xlabel('Day')
 
-subplot(1, 3, 3);
-plot(min(patient_data, [], 1));
-ylabel('min')
+subplot(1, 3, 3)
+plot(min(patient_data, [], 1))
+title('Min')
+ylabel('Inflammation')
+xlabel('Day')
+subplot(1, 3, 1)
 
 % Save plot in 'results' directory as png image.
 print('results/patient_data-01','-dpng')
