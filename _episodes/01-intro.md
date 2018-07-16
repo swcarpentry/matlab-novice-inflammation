@@ -870,10 +870,33 @@ calculations or something is wrong with our data.
 
 > ## Plots
 >
-> 1. Why do our graphs stop just short of 0 at their left edge?
->    Why are the vertical lines in our plot of the minimum inflammation per day not perfectly vertical?
+> When we plot just one variable using the `plot` command e.g. `plot(Y)` 
+> what do the x-values represent?
 >
-> 2. Create a plot showing the standard deviation of the inflammation data for each day across all patients.
+> > ## Solution
+> > The x-values are the indices of the y-data, so the first y-value is plotted
+> > against index 1, the second y-value against 2 etc.
+> {: .solution}
+>
+> Why are the vertical lines in our plot of the minimum inflammation per day 
+> not perfectly vertical?
+>
+> > ## Solution
+> > MATLAB interpolates between the points on a 2D line plot.
+> {: .solution}
+>
+> Create a plot showing the standard deviation of the inflammation data for each day across all patients.
+> Hint: search the documentation for *standard deviation*
+>
+> > ## Solution
+> > ```
+> > plot(std(patient_data, 0, 2))
+> > xlabel('Day of trial')
+> > ylabel('Inflammation')
+> > title('Standard deviation across all patients')
+> > ```
+> > {: .language-matlab}
+> {: .solution}
 {: .challenge}
 
 It's common to put multiple figures "side-by-side" in a single
