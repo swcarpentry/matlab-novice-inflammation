@@ -517,15 +517,21 @@ for idx = 1:3
 
     subplot(2, 2, 1);
     plot(ave_inflammation);
-    ylabel('average')
+    title('Average')
+    ylabel('Inflammation')
+    xlabel('Day')
 
     subplot(2, 2, 2);
     plot(max(patient_data, [], 1));
-    ylabel('max')
+    title('Max')
+    ylabel('Inflammation')
+    xlabel('Day')
 
     subplot(2, 2, 3);
     plot(min(patient_data, [], 1));
-    ylabel('min')
+    title('Min')
+    ylabel('Inflammation')
+    xlabel('Day')
 
     print('-dpng', img_name);
     close();
