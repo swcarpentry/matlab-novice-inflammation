@@ -192,6 +192,30 @@ disp(['Number of vowels: ', num2str(len)])
 {: .matlab}
 
 It's worth tracing the execution of this little program step by step.
+
+> ## The debugger
+> We can use the MATLAB debugger to trace the execution of a program.
+>
+> The first step is to set a **break point** by clicking just to the
+> right of a line number on the `-` symbol.
+> A red circle will appear --- this is the break point,
+> and when we run the script, MATLAB will pause execution at that line.
+>
+> A green arrow appears, pointing to the next line to be run.
+> To continue running the program one line at a time, we use the `step` button.
+>
+> We can then inspect variables in the workspace or by hovering the cursor
+> over where they appear in the code,
+> or get MATLAB to evaluate expressions in the command window
+> (notice the prompt changes to `K>>`).
+>
+> This process is useful to check your understanding of a program,
+> in order to correct mistakes.
+>
+> This process is illustrated below:
+> ![debugger-demo]({{ page.root }}/fig/debugger.gif)
+{: .callout}
+
 Since there are five characters in "aeiou",
 the loop body will be executed five times.
 When we enter the loop, `len` is zero -
