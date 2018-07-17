@@ -33,9 +33,9 @@ which we'll save in our current directory,`matlab-novice-inflammation`:
 patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Analyzing "inflammation-01.csv": '])
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
-disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
+disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
+disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 ~~~
 {: .matlab}
 
@@ -139,9 +139,9 @@ We'll also update the help text to reflect this.
 
 patient_data = csvread('data/inflammation-01.csv');
 
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
-disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
+disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
+disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
 ave_inflammation = mean(patient_data, 1);
 
@@ -181,9 +181,9 @@ Let's add a couple of lines of code to do this:
 
 patient_data = csvread('data/inflammation-01.csv');
 
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
-disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
+disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
+disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
 ave_inflammation = mean(patient_data, 1);
 
