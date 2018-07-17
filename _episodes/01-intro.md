@@ -921,12 +921,12 @@ window for presentation and convenience. Here's how to use
 the `subplot` function to do this:
 
 ~~~
-subplot(1, 2, 1);
-plot(max(patient_data, [], 1));
+subplot(1, 2, 1)
+plot(max(patient_data, [], 1))
 ylabel('max')
 
-subplot(1, 2, 2);
-plot(min(patient_data, [], 1));
+subplot(1, 2, 2)
+plot(min(patient_data, [], 1))
 ylabel('min')
 ~~~
 {: .matlab}

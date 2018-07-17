@@ -443,20 +443,20 @@ DATA centered around the value.
 > >     	figure('visible', 'on')
 > >     end
 > >     
-> >     subplot(2, 2, 1);
-> >     plot(ave_inflammation);
+> >     subplot(2, 2, 1)
+> >     plot(ave_inflammation)
 > >     ylabel('average')
 > >     
-> >     subplot(2, 2, 2);
-> >     plot(max(patient_data, [], 1));
+> >     subplot(2, 2, 2)
+> >     plot(max(patient_data, [], 1))
 > >     ylabel('max')
 > >     
-> >     subplot(2, 2, 3);
-> >     plot(min(patient_data, [], 1));
+> >     subplot(2, 2, 3)
+> >     plot(min(patient_data, [], 1))
 > >     ylabel('min')
 > >     
 > >     if plot_switch == 1
-> >         print('-dpng', img_name);
+> >         print('-dpng', img_name)
 > >         close()
 > >     end
 > >  ```
