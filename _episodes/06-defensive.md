@@ -368,6 +368,36 @@ as a final assignment.
 >
 > Hint: read about the `isnan` function in the help files
 > to make sure you understand what these first two lines are doing.
+>
+> > ## Solution
+> >
+> > ```
+> > function overlap = range_overlap(varargin)
+> >     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+> > 
+> >     lowest = -inf;
+> >     highest = +inf;
+> >
+> >     % Loop over input arguments
+> >     for i = 1:nargin
+> >         % Set range equal to each input argument
+> >         range   = varargin{i};
+> >         low     = range(1);
+> >         high    = range(2);
+> >         lowest  = max(lowest, low);
+> >         highest = min(highest, high);
+> >         
+> >         % Catch non-overlapping ranges
+> > 	    if low >= highest || high<=lowest
+> >             output_range = NaN;
+> >             return
+> > 	    end
+> >     end
+> > 
+> >     overlap = [lowest, highest];
+> > ```
+> > {: .matlab}
+> {: .solution}
 {: .challenge}
 
 Once testing has uncovered problems,
