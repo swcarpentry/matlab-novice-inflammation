@@ -916,9 +916,10 @@ calculations or something is wrong with our data.
 > {: .solution}
 {: .challenge}
 
-It's common to put multiple figures "side-by-side" in a single
-window for presentation and convenience. Here's how to use
-the `subplot` function to do this:
+It is often convenient to combine multiple plots into one figure 
+using the `subplot`command which plots our graphs in a grid pattern.
+The first two parameters describe the grid we want to use, while the third
+parameter indicates the placement on the grid.
 
 ~~~
 subplot(1, 2, 1);
