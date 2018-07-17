@@ -341,8 +341,8 @@ If we would rather display the plots interactively,
 we would have to remove (or *comment out*) the following code:
 
 ~~~
-print('-dpng', img_name);
-close();
+print('-dpng', img_name)
+close()
 ~~~
 {: .matlab}
 
@@ -392,26 +392,26 @@ for idx = 1:3
         figure('visible', 'on')
     end
 
-    subplot(2, 2, 1);
-    plot(ave_inflammation);
+    subplot(2, 2, 1)
+    plot(ave_inflammation)
     title('Average')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 2);
-    plot(max(patient_data, [], 1));
+    subplot(2, 2, 2)
+    plot(max(patient_data, [], 1))
     title('Max')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 3);
-    plot(min(patient_data, [], 1));
+    subplot(2, 2, 3)
+    plot(min(patient_data, [], 1))
     title('Min')
     ylabel('Inflammation')
     xlabel('Day')
 
     if plot_switch == 1
-        print('-dpng', img_name);
+        print('-dpng', img_name)
         close()
     end
 

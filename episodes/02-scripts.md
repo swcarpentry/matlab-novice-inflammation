@@ -87,7 +87,7 @@ in the `results` directory:
 
 ~~~
 % Plot average inflammation per day
-plot(ave_inflammation);
+plot(ave_inflammation)
 title('Daily average inflammation')
 xlabel('Day of trial')
 ylabel('Inflammation')
