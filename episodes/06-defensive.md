@@ -13,7 +13,6 @@ objectives:
 - "Debug code containing an error systematically."
 keypoints:
 - "Use assertions to catch errors, and to document what behavior is expected."
-- "Initialize variables with actual values rather than arbitrary constants."
 - "Write tests *before* code."
 ---
 
