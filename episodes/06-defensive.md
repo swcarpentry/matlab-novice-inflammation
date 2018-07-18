@@ -312,9 +312,10 @@ it would be a sign that someone else had
 and that we were accidentally using their function.
 
 And as a bonus of writing these tests,
-we've implicitly defined what our input and output look like:
-we expect a list of pairs as input,
-and produce a single pair as output.
+we've implicitly defined what our inputs and output look like:
+we expect two or more input arguments, each of which is
+a vector with length = 2,
+and we return a single vector as output.
 
 Let's write `range_overlap`:
 
