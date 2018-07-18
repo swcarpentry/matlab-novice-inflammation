@@ -317,6 +317,51 @@ we expect two or more input arguments, each of which is
 a vector with length = 2,
 and we return a single vector as output.
 
+Given that `range_overlap` will have to accept varying numbers of input arguments,
+we need to learn how to deal with an unknown number of input arguments
+before we can write `range_overlap`.
+Consider the example below from the MATLAB documentation:
+
+```
+function varlist(varargin)
+   %VARLIST Demonstrate variable number of input arguments
+
+   fprintf('Number of arguments: %d\n',nargin)
+   celldisp(varargin)
+```
+{: .matlab}
+
+```
+varlist(ones(3),'some text',pi)
+```
+{: .matlab}
+
+```
+Number of arguments: 3
+
+varargin{1} =
+     1     1     1
+     1     1     1
+     1     1     1
+ 
+varargin{2} =
+some text
+
+varargin{3} =
+    3.1416
+```
+{: .output}
+
+MATLAB has a special variable `varargin` which can be used as the
+last parameter in a function definition to represent a variable
+number of inputs.
+Within the function `varargin` is a **cell array** containing
+the input arguments, and the variable `nargin` gives the number
+of input arguments used during the function call.
+A *cell array* is a MATLAB data type with indexed data containers called
+cells. Each cell can contain any type of data, and is indexed using
+braces, or "curly brackets" `{}`.
+
 Let's write `range_overlap`:
 
 ~~~
