@@ -329,12 +329,12 @@ function varlist(varargin)
    fprintf('Number of arguments: %d\n',nargin)
    celldisp(varargin)
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 varlist(ones(3),'some text',pi)
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 Number of arguments: 3
@@ -362,30 +362,58 @@ A *cell array* is a MATLAB data type with indexed data containers called
 cells. Each cell can contain any type of data, and is indexed using
 braces, or "curly brackets" `{}`.
 
-Let's write `range_overlap`:
+> ## Variable number of input arguments
+> Using what we have just learned about `varargin` and `nargin`
+> fill in the blanks below to complete the first draft of our
+> `range_overlap` function.
+>
+> ```
+> function overlap = range_overlap(________)
+>     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+>
+>     lowest  = -inf;
+>     highest = +inf;
+>
+>     % Loop over input arguments
+>     for i = 1:______
+>         % Set range equal to each input argument
+>         range   = ________{i};
+>         low     = range(1);
+>         high    = range(2);
+>         lowest  = max(lowest, low);
+>         highest = min(highest, high);
+>     end
+>
+>     overlap = [lowest, highest];
+> ```
+> {: .language-matlab}
+>
+> > ## Solution
+> > ```
+> > function overlap = range_overlap(varargin)
+> >     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+> >
+> >     lowest  = -inf;
+> >     highest = +inf;
+> >
+> >     % Loop over input arguments
+> >     for i = 1:nargin
+> >         % Set range equal to each input argument
+> >         range   = varargin{i};
+> >         low     = range(1);
+> >         high    = range(2);
+> >         lowest  = max(lowest, low);
+> >         highest = min(highest, high);
+> >     end
+> >
+> >     overlap = [lowest, highest];
+> > ```
+> > {: .language-matlab}
+> {: .solution}
+{: .challenge}
 
-~~~
-function output_range = range_overlap(varargin)
-    %RANGE_OVERLAP   Return common overlap among a set of [low, high] ranges.
-
-    lowest = -inf;
-    highest = +inf;
-
-    for i = 1:nargin
-        range = varargin{i};
-        low = range(1);
-        high = range(2);
-        lowest = max(lowest, low);
-        highest = min(highest, high);
-    end
-
-    output_range = [lowest, highest];
-
-end
-~~~
-{: .language-matlab}
-
-And now when we run the tests:
+Now that we have written the function `range_overlap`,
+when we run the tests:
 
 ~~~
 test_range_overlap
@@ -442,7 +470,7 @@ as a final assignment.
 > > 
 > >     overlap = [lowest, highest];
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
