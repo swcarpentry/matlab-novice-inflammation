@@ -89,6 +89,13 @@ Outside of the function, the names `ftemp` and `ktemp` don't matter,
 they are only used by the function body to refer to the input and
 output values.
 
+This is one of the major differences between scripts and functions:
+a script can be thought of as automating the command line,
+with full access to all variables in the base workspace,
+whereas a function can only read and write variables from the calling workspace
+if they are passed as arguments ---
+i.e. a function has its own separate workspace.
+
 Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
 Kelvin to Celsius.
 
