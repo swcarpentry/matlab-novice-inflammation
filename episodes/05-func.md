@@ -85,7 +85,7 @@ want to return a value from the function, we must assign that value to a
 variable named `ktemp`---in the first line of our function, we promised
 that the output of our function would be named `ktemp`.
 
-Outside of the function, the names `ftemp` and `ktemp` don't matter,
+Outside of the function, the variables `ftemp` and `ktemp` aren't visible;
 they are only used by the function body to refer to the input and
 output values.
 
@@ -96,7 +96,7 @@ whereas a function can only read and write variables from the calling workspace
 if they are passed as arguments ---
 i.e. a function has its own separate workspace.
 
-Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
+Now that we've seen how to convert Fahrenheit to Kelvin, it's easy to convert
 Kelvin to Celsius.
 
 ~~~
