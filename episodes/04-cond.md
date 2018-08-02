@@ -75,7 +75,7 @@ We can also chain several tests together using `elseif`. This makes it
 simple to write a script that gives the sign of a number:
 
 ~~~
-% Demo script to illustrate use of conditionals
+%CONDITIONAL_DEMO   Demo script to illustrate use of conditionals
 
 if num > 0
 	sign_of_num = 1;
@@ -204,8 +204,8 @@ In this case, "either" means "either or both", not
 >
 > > ## Solution
 > > ```
-> > % near Display 1 if variable a is within 10% of variable b
-> > %      and display 0 otherwise
+> > %NEAR   Display 1 if variable a is within 10% of variable b
+> > %       and display 0 otherwise
 > > a = 1.1;
 > > b = 1.2;
 > >
@@ -345,9 +345,12 @@ to switch between saving plots as images and plotting them interactively:
 
 ~~~
 
-% plot_switch:
-%   0 - show plots interactively
-%   1 - save plots to disk
+%ANALYZE   Print statistics for three patients.
+%          Save plots of statistics to disk.
+%          Use variable plot_switch to control interactive plotting
+%          vs saving images to disk.
+%            plot_switch = 0: show plots interactively
+%            plot_switch = 1: save plots to disk
 
 plot_switch = 0;
 

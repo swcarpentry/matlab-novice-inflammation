@@ -30,8 +30,6 @@ put those commands in a script called `analyze.m`,
 which we'll save in our current directory,`matlab-novice-inflammation`:
 
 ~~~
-% script analyze.m
-
 patient_data = csvread('data/inflammation-01.csv');
 
 disp(['Analyzing "inflammation-01.csv": '])
@@ -105,13 +103,39 @@ This is another plus of writing scripts: you can comment
 your code to make it easier to understand when you come
 back to it after a while.
 
-We can combine multiple plots into one figure using the `subplot` command
-which plots our graphs in a grid pattern.
-The first two parameters describe the grid we want to use, while the third
-parameter indicates the placement on the grid.
+A comment can appear on any line, but be aware that the first line
+or block of comments in a script or function is used by MATLAB as the
+**help text**.
+When we use the `help` command, MATLAB returns the *help text*.
+The first help text line (known as the **H1 line**)
+typically includes the name of the program, and a brief description.
+The `help` command works in just the same way for our own programs as for
+built-in MATLAB functions.
+You should write help text for all of your own scripts and functions.
+
+Let's write an H1 line at the top of our script:
+
+```
+%ANALYZE   Print statistics for first patient.
+```
+{: .matlab}
+
+We can then get help for our script by running
+
+```
+help analyze
+```
+{: .matlab}
+
+Let's extend our `analyze` script with commands to
+create and save plots.
+In order to maintain an organised project we'll save the images
+in the `results` directory.
+We'll also update the help text to reflect this.
 
 ~~~
-% script analyze.m
+%ANALYZE   Print statistics for first patient.
+%          Save plots of statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 
@@ -152,7 +176,8 @@ not displaying the figures could make the script run faster.
 Let's add a couple of lines of code to do this:
 
 ~~~
-% script analyze.m
+%ANALYZE   Print statistics for first patient.
+%           Save plots of statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 
