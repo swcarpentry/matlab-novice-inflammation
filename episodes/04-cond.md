@@ -77,15 +77,15 @@ simple to write a script that gives the sign of a number:
 ~~~
 %CONDITIONAL_DEMO   Demo script to illustrate use of conditionals
 
-if num > 0
-	sign_of_num = 1;
-elseif num == 0
-	sign_of_num = 0;
-else
-	sign_of_num = -1;
-end
+num = 53;
 
-disp(['Sign of num = ', num2str(sign_of_num)]);
+if num > 0
+    disp([num2str(num), ' is positive'])
+elseif num == 0
+    disp([num2str(num), ' is zero'])
+else
+    disp([num2str(num), ' is negative'])
+end
 ~~~
 {: .matlab}
 
@@ -95,6 +95,29 @@ single equals sign. This is because the latter is used to mean
 assignment. In our test, we want to check for the equality of `num`
 and `0`, not *assign* 0 to `num`. This convention was inherited
 from C, and it does take a bit of getting used to...
+
+During a conditional statement, if one of the conditions is true,
+this marks the end of the test: no subsequent conditions will be tested
+and execution jumps to the end of the conditional.
+
+Let's demonstrate this by adding another condition which is true.
+
+```
+% Demo script to illustrate use of conditionals
+num = 53;
+
+if num > 0
+    disp([num2str(num), ' is positive'])
+elseif num == 0
+    disp([num2str(num), ' is zero'])
+elseif num > 50
+    # This block will never be executed
+    disp([num2str(num), ' is greater than 50'])
+else
+    disp([num2str(num), ' is negative'])
+end
+```
+{: .matlab}
 
 We can also combine tests, using `&&` (and) and `||` (or). `&&`
 is true if both tests are true:
