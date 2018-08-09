@@ -28,12 +28,12 @@ and it looks like this:
 num = 37;
 
 if num > 100
-    disp('greater');
+    disp('greater')
 else
-    disp('not greater');
+    disp('not greater')
 end
 
-disp('done');
+disp('done')
 ~~~
 {: .matlab}
 
@@ -55,13 +55,13 @@ isn't one, MATLAB simply doesn't do anything if the test is false:
 
 ~~~
 num = 53;
-disp('before conditional...');
+disp('before conditional...')
 
 if num > 100
-    disp('53 is greater than 100');
+    disp('53 is greater than 100')
 end
 
-disp('...after conditional');
+disp('...after conditional')
 ~~~
 {: .matlab}
 
@@ -124,9 +124,9 @@ is true if both tests are true:
 
 ~~~
 if ((1 > 0) && (-1 > 0))
-    disp('both parts are true');
+    disp('both parts are true')
 else
-    disp('one part is not true');
+    disp('one part is not true')
 end
 ~~~
 {: .matlab}
@@ -140,7 +140,7 @@ one part is not true
 
 ~~~
 if (1 < 0) || (3 < 4)
-    disp('at least one part is true');
+    disp('at least one part is true')
 end
 ~~~
 {: .matlab}
@@ -281,8 +281,8 @@ for n = numbers
     end
 end
 
-disp(['sum of positive values: ', num2str(pos_total)]);
-disp(['sum of negative values: ', num2str(neg_total)]);
+disp(['sum of positive values: ', num2str(pos_total)])
+disp(['sum of negative values: ', num2str(neg_total)])
 ~~~
 {: .matlab}
 
@@ -297,7 +297,7 @@ We can even put one loop inside another:
 ~~~
 for consonant = 'bcd'
     for vowel = 'ae'
-        disp (strcat(consonant, vowel));
+        disp (strcat(consonant, vowel))
     end
 end
 ~~~
@@ -324,7 +324,7 @@ de
 > > ~~~
 > > for vowel = 'ae'
 > >     for consonant = 'bcd'
-> >         disp (strcat(consonant, vowel));
+> >         disp (strcat(consonant, vowel))
 > >     end
 > > end
 > > ~~~
@@ -341,8 +341,8 @@ If we would rather display the plots interactively,
 we would have to remove (or *comment out*) the following code:
 
 ~~~
-print('-dpng', img_name);
-close();
+print('-dpng', img_name)
+close()
 ~~~
 {: .matlab}
 
@@ -392,26 +392,26 @@ for idx = 1:3
         figure('visible', 'on')
     end
 
-    subplot(2, 2, 1);
-    plot(ave_inflammation);
+    subplot(2, 2, 1)
+    plot(ave_inflammation)
     title('Average')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 2);
-    plot(max(patient_data, [], 1));
+    subplot(2, 2, 2)
+    plot(max(patient_data, [], 1))
     title('Max')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 3);
-    plot(min(patient_data, [], 1));
+    subplot(2, 2, 3)
+    plot(min(patient_data, [], 1))
     title('Min')
     ylabel('Inflammation')
     xlabel('Day')
 
     if plot_switch == 1
-        print('-dpng', img_name);
+        print('-dpng', img_name)
         close()
     end
 

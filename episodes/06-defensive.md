@@ -56,7 +56,7 @@ numbers = [1.5, 2.3, 0.7, -0.001, 4.4];
 total = 0;
 
 for n = numbers
-    assert(n >= 0);
+    assert(n >= 0)
     total = total + n;
 end
 ~~~
@@ -95,15 +95,15 @@ function normalized = normalize_rectangle(rect)
     % measures 1.0 units on its longest axis
     % and is oriented with the longest axis in the y direction:
 
-    assert(length(rect) == 4, 'Rectangle must contain 4 coordinates');
+    assert(length(rect) == 4, 'Rectangle must contain 4 coordinates')
 
     x0 = rect(1);
     y0 = rect(2);
     x1 = rect(3);
     y1 = rect(4);
 
-    assert(x0 < x1, 'Invalid X coordinates');
-    assert(y0 < y1, 'Invalid Y coordinates');
+    assert(x0 < x1, 'Invalid X coordinates')
+    assert(y0 < y1, 'Invalid Y coordinates')
 
     dx = x1 - x0;
     dy = y1 - y0;
@@ -284,10 +284,10 @@ Below are three test functions for `range_overlap`, but first we need a brief as
 ~~~
 %TEST_RANGE_OVERLAP   Test script for range_overlap function.
 
-% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])));
-% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])));
-assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
-assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]));
+% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])))
+% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])))
+assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))
+assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]))
 assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
 ~~~
 {: .matlab}
@@ -301,7 +301,7 @@ test_range_overlap
 Undefined function or variable 'range_overlap'.
 
 Error in test_range_overlap (line 6)
-assert(isequal(range_overlap([0, 1.0]),[0, 1.0]));
+assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))
 ~~~
 {: .error}
 
