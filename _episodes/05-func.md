@@ -51,6 +51,21 @@ function won't know about any code after `end`.
 
 ![function-definition]({{ page.root }}/fig/function_definition.png)
 
+A function can have multiple input and output parameters if required,
+but isn't required to have any of either.
+The general form of a function is shown in the pseudo-code below:
+
+```
+function [out1, out2] = function_name(in1, in2)
+    %FUNCTION_NAME   Function description
+
+    % This section below is called the body of the function
+    out1 = something calculated;
+    out2 = something else;
+end
+```
+{: .matlab}
+
 Just as we saw with scripts, functions must be _visible_ to MATLAB, i.e.,
 a file containing a function has to be placed in a directory that
 MATLAB knows  about. The most convenient of those directories is the
