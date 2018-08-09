@@ -168,7 +168,7 @@ weight_kg = 55;
 Once a variable has a value, we can print it using the `disp` function:
 
 ~~~
-disp(weight_kg);
+disp(weight_kg)
 ~~~
 {: .matlab}
 
@@ -194,7 +194,7 @@ and do arithmetic with it:
 
 ~~~
 weight_lb = 2.2 * weight_kg;
-disp(['Weight in pounds: ', num2str(weight_lb)]);
+disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
 {: .matlab}
 
@@ -219,8 +219,8 @@ For example,
 ~~~
 weight_kg = 57.5;
 weight_lb = 2.2 * weight_kg;
-disp(['Weight in kg: ', num2str(weight_kg)]);
-disp(['Weight in pounds: ', num2str(weight_lb)]);
+disp(['Weight in kg: ', num2str(weight_kg)])
+disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
 {: .matlab}
 
@@ -237,7 +237,7 @@ of both:
 ~~~
 weight_kg = 100;
 disp(['Weight in kg: ', num2str(weight_kg)])
-disp(['Weight in pounds: ', num2str(weight_lb)]);
+disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
 {: .matlab}
 
@@ -632,9 +632,9 @@ We can also compute other statistics, like the maximum, minimum and
 standard deviation.
 
 ~~~
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
-disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
+disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
+disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 ~~~
 {: .matlab}
 
@@ -652,7 +652,7 @@ array, then ask it to do the calculation:
 
 ~~~
 patient_1 = patient_data(1, :)
-disp(['Maximum inflation for patient 1: ', num2str(max(patient_1))]);
+disp(['Maximum inflation for patient 1: ', num2str(max(patient_1))])
 ~~~
 {: .matlab}
 
@@ -922,12 +922,12 @@ The first two parameters describe the grid we want to use, while the third
 parameter indicates the placement on the grid.
 
 ~~~
-subplot(1, 2, 1);
-plot(max(patient_data, [], 1));
+subplot(1, 2, 1)
+plot(max(patient_data, [], 1))
 ylabel('max')
 
-subplot(1, 2, 2);
-plot(min(patient_data, [], 1));
+subplot(1, 2, 2)
+plot(min(patient_data, [], 1))
 ylabel('min')
 ~~~
 {: .matlab}

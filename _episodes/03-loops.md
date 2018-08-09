@@ -31,10 +31,10 @@ a line of its own. One way is to use four `disp` statements:
 ~~~
 word = 'lead';
 
-disp(word(1));
-disp(word(2));
-disp(word(3));
-disp(word(4));
+disp(word(1))
+disp(word(2))
+disp(word(3))
+disp(word(4))
 ~~~
 {: .matlab}
 
@@ -62,10 +62,10 @@ that don't exist.
 ~~~
 word = 'tin';
 
-disp(word(1));
-disp(word(2));
-disp(word(3));
-disp(word(4));
+disp(word(1))
+disp(word(2))
+disp(word(3))
+disp(word(4))
 ~~~
 {: .matlab}
 
@@ -129,7 +129,7 @@ we have to change the first line of our loop by hand:
 word = 'tin';
 
 for letter = 1:3
-    disp(word(letter));
+    disp(word(letter))
 end
 ~~~
 {: .matlab}
@@ -158,7 +158,7 @@ write a better loop:
 word = 'aluminum';
 
 for letter = 1:length(word)
-    disp(word(letter));
+    disp(word(letter))
 end
 ~~~
 {: .matlab}
@@ -507,35 +507,35 @@ for idx = 1:3
 	
     patient_data = csvread(file_name);
 
-    disp(['Maximum inflammation: ', num2str(max(patient_data(:)))]);
-    disp(['Minimum inflammation: ', num2str(min(patient_data(:)))]);
-    disp(['Standard deviation: ', num2str(std(patient_data(:)))]);
+    disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
+    disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
+    disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
     ave_inflammation = mean(patient_data, 1);
 
     % Create figures
     figure('visible', 'off')
 
-    subplot(2, 2, 1);
-    plot(ave_inflammation);
+    subplot(2, 2, 1)
+    plot(ave_inflammation)
     title('Average')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 2);
-    plot(max(patient_data, [], 1));
+    subplot(2, 2, 2)
+    plot(max(patient_data, [], 1))
     title('Max')
     ylabel('Inflammation')
     xlabel('Day')
 
-    subplot(2, 2, 3);
-    plot(min(patient_data, [], 1));
+    subplot(2, 2, 3)
+    plot(min(patient_data, [], 1))
     title('Min')
     ylabel('Inflammation')
     xlabel('Day')
 
-    print('-dpng', img_name);
-    close();
+    print('-dpng', img_name)
+    close()
 end
 ~~~
 {: .matlab}
