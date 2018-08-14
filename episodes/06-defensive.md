@@ -370,6 +370,7 @@ as a final assignment.
 > to make sure you understand what these first two lines are doing.
 {: .challenge}
 
+## Debugging strategies
 Once testing has uncovered problems,
 the next step is to fix them.
 Many novices do this by making more-or-less random changes to their code

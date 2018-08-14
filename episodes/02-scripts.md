@@ -97,21 +97,23 @@ print('results/average','-dpng')
 ~~~
 {: .matlab}
 
-You might have noticed that we described what we want
-our code to do using the percent sign: `%`.
-This is another plus of writing scripts: you can comment
-your code to make it easier to understand when you come
-back to it after a while.
-
-A comment can appear on any line, but be aware that the first line
-or block of comments in a script or function is used by MATLAB as the
-**help text**.
-When we use the `help` command, MATLAB returns the *help text*.
-The first help text line (known as the **H1 line**)
-typically includes the name of the program, and a brief description.
-The `help` command works in just the same way for our own programs as for
-built-in MATLAB functions.
-You should write help text for all of your own scripts and functions.
+> ## Help text
+> You might have noticed that we described what we want
+> our code to do using the percent sign: `%`.
+> This is another plus of writing scripts: you can comment
+> your code to make it easier to understand when you come
+> back to it after a while.
+> 
+> A comment can appear on any line, but be aware that the first line
+> or block of comments in a script or function is used by MATLAB as the
+> **help text**.
+> When we use the `help` command, MATLAB returns the *help text*.
+> The first help text line (known as the **H1 line**)
+> typically includes the name of the program, and a brief description.
+> The `help` command works in just the same way for our own programs as for
+> built-in MATLAB functions.
+> You should write help text for all of your own scripts and functions.
+{: .callout}
 
 Let's write an H1 line at the top of our script:
 
