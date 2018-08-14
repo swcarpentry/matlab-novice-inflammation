@@ -560,7 +560,7 @@ the same ramp as the first,
 and their minima show the same staircase structure.
 
 We've now automated the analysis and have confirmed that all the data
-files show the same artifact. This is what we set out to test, and now
+files we have looked at show the same artifact. This is what we set out to test, and now
 we can just call one script to do it. With minor modifications, this
 script could be re-used to check all our future data files.
 
