@@ -93,7 +93,7 @@ d
 ~~~
 {: .output}
 
-This improved version uses a [for loop](../reference/index.html#for-loop) to
+This improved version uses a [for loop]({{ page.root }}/reference.html#for-loop) to
 repeat an operation---in this case, printing to the screen---once for
 each element in an array.
 
@@ -107,9 +107,9 @@ end
 {: .source}
 
 The for loop executes the commands in the
-[loop body](../reference/index.html#loop-body)
+[loop body]({{ page.root }}/reference.html#loop-body)
 for every value in the array `collection`.
-This value is called the [loop variable](../reference/index.html#loop-variable),
+This value is called the [loop variable]({{ page.root }}/reference.html#loop-variable),
 and we can call it whatever we like.
 In our example, we gave it the name `letter`.
 
@@ -319,7 +319,7 @@ u
 > ## Looping in Reverse
 >
 > In MATLAB, the colon operator (`:`) accepts a
-> [stride](../reference/index.html#stride)
+> [stride]({{ page.root }}/reference.html#stride)
 > or skip argument between the start and stop:
 >
 > ~~~

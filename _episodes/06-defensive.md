@@ -37,8 +37,8 @@ programming, not slow it down.
 The first step toward getting the right answers from our programs
 is to assume that mistakes *will* happen
 and to guard against them.
-This is called [defensive programming](../reference/index.html#defensive-programming),
-and the most common way to do it is to add [assertions](../reference/index.html#assertion) to our code
+This is called [defensive programming]({{ page.root }}/reference.html#defensive-programming),
+and the most common way to do it is to add [assertions]({{ page.root }}/reference.html#assertion) to our code
 so that it checks itself as it runs.
 An assertion is simply a statement that something must be true at a certain point in a program.
 When MATLAB sees one,
@@ -72,7 +72,7 @@ of the code they contain are there to check that the other
 80-90% are working correctly. Broadly speaking, assertions fall into
 three categories:
 
-- A [precondition](../reference/index.html#precondition) is something that must
+- A [precondition]({{ page.root }}/reference.html#precondition) is something that must
 be true at the start of a function in order for it to work correctly.
 - A postcondition is something that the function guarantees is true when
 it finishes.
@@ -212,7 +212,7 @@ If you made a mistake in a piece of code,
 the odds are good that you have made other mistakes nearby,
 or will make the same mistake (or a related one)
 the next time you change it.
-Writing assertions to check that you haven't [regressed](../reference/index.html#regression)
+Writing assertions to check that you haven't [regressed]({{ page.root }}/reference.html#regression)
 (i.e., haven't re-introduced an old problem)
 can save a lot of time in the long run,
 and helps to warn people who are reading the code
@@ -254,7 +254,7 @@ there's a better way:
 3. If `range_overlap` produces any wrong answers, fix it and re-run the test functions.
 
 Writing the tests *before* writing the function they exercise
-is called [test-driven development](../reference/index.html#test-driven-development) (TDD).
+is called [test-driven development]({{ page.root }}/reference.html#test-driven-development) (TDD).
 Its advocates believe it produces better code faster because:
 
 1. If people write tests after writing the thing to be tested,
@@ -512,7 +512,7 @@ the harder it is to know what's responsible for what
 (those N<sup>2</sup> interactions again).
 And we should re-run *all* of our tests:
 more than half of fixes made to code introduce (or re-introduce) bugs,
-so re-running all of our tests tells us whether we have [regressed](../reference/index.html#regression).
+so re-running all of our tests tells us whether we have [regressed]({{ page.root }}/reference.html#regression).
 
 Good scientists keep track of what they've done
 so that they can reproduce their work,
