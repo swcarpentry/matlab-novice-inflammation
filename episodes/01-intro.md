@@ -21,7 +21,7 @@ keypoints:
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)](../reference/index.html#comma-separated-values) format:
+[Comma Separated Values (CSV)]({{ page.root }}/reference.html#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
@@ -133,19 +133,19 @@ csvread('data/inflammation-01.csv');
 {: .matlab}
 
 The expression `csvread(...)` is a
-[function call](../reference/index.html#function-call).
-Functions generally need [arguments](../reference/index.html#arguments)
+[function call]({{ page.root }}/reference.html#function-call).
+Functions generally need [arguments]({{ page.root }}/reference.html#argument)
 to run.
 In the case of the `csvread` function, we need to provide a single
 argument: the name of the file we want to read data from. This
 argument needs to be a character string or
-[string](../reference/index.html#string), so we put it in quotes.
+[string]({{ page.root }}/reference.html#string), so we put it in quotes.
 
 Our call to `csvread` read our file, and printed the data inside
 to the screen. And adding a semicolon rendered it even less useful---
 we have no way to modify those values
 or compute with them. To do that, we need to assign the array to a
-[variable](../reference/index.html#variable).
+[variable]({{ page.root }}/reference.html#variable).
 
 ~~~
 patient_data = csvread('data/inflammation-01.csv');
@@ -303,7 +303,7 @@ To remove all variables from the workspace, execute the command `clear all`.
 {: .challenge}
 
 Now that our data is in memory, we can start doing things with it.
-First, let's find out its [size](../reference/index.html#size):
+First, let's find out its [size]({{ page.root }}/reference.html#size):
 
 ~~~
 size(patient_data)
@@ -387,7 +387,7 @@ We want to access a single value from the matrix:
 ![Accessing a single value](../fig/matrix-single-element.svg)
 
 To do that, we must provide
-its [index](../reference/index.html#index) in parentheses:
+its [index]({{ page.root }}/reference.html#index) in parentheses:
 
 ~~~
 M(5, 6)
@@ -403,7 +403,7 @@ Indices are provided as (row, column). So the index `(5, 6)` selects the element
 on the fifth row and sixth column.
 
 An index like `(5, 6)` selects a single element of
-an array, but we can also access sections of the matrix, or [slices](../reference/index.html#slice).
+an array, but we can also access sections of the matrix, or [slices]({{ page.root }}/reference.html#slice).
 To access a row of values:
 
 ![Accessing a single value](../fig/matrix-row.svg)
@@ -492,7 +492,7 @@ ans =
 {: .output}
 
 We don't have to take all the values in the slice---if we provide
-a [stride](../reference/index.html#stride). Let's say we want to start with row `2`,
+a [stride]({{ page.root }}/reference.html#stride). Let's say we want to start with row `2`,
 and subsequently select every third row:
 
 ![Accessing strided columns](../fig/matrix-strided-rows.svg)
@@ -533,7 +533,7 @@ ans =
 
 > ## Slicing
 >
-> A subsection of an array is called a [slice](../reference/index.html#slice). We can take slices of character strings as well:
+> A subsection of an array is called a [slice]({{ page.root }}/reference.html#slice). We can take slices of character strings as well:
 >
 > ~~~
 > element = 'oxygen';

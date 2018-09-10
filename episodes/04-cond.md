@@ -21,7 +21,7 @@ We want programs to make choices based on the values
 they are manipulating.
 
 The tool that MATLAB gives us for doing this is called
-a [conditional statement](../reference/index.html#conditional-statement),
+a [conditional statement]({{ page.root }}/reference.html#conditional-statement),
 and it looks like this:
 
 ~~~
