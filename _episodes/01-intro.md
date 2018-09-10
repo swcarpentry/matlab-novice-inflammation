@@ -203,9 +203,15 @@ Weight in pounds: 121
 ~~~
 {: .output}
 
-The `disp` function takes a single argument -- the value to print. To
-print more than one value on a single line, we could print an *array*
-of values. All values in this array need to be the same type. So, if
+That last command contains several new concepts,
+so let's break it down:
+
+The `disp` function takes a single argument --- the value to print.
+To print more than one value on a single line, we can print an *array*
+of values.
+Arrays are created using square brackets, with each element separated by
+a comma e.g. `a = [1, 2, 3]`.
+All values in an array need to be the same type, so if
 we want to print a string and a numerical value together, we *have* to
 convert that numerical value to a string with the `num2str` function.
 
