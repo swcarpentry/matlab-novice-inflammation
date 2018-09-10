@@ -367,7 +367,6 @@ Here's our script re-written to use *conditionals*
 to switch between saving plots as images and plotting them interactively:
 
 ~~~
-
 %ANALYZE   Print statistics for three patients.
 %          Save plots of statistics to disk.
 %          Use variable plot_switch to control interactive plotting
