@@ -113,7 +113,7 @@ If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
 To load the data from our CSV file into MATLAB, type the following
-command into the MATLAB command window, and press `Enter`:
+command into the MATLAB command window, and press <kbd>Enter</kbd>:
 
 ~~~
 csvread('data/inflammation-01.csv')
