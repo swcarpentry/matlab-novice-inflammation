@@ -147,6 +147,7 @@ disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
 ave_inflammation = mean(patient_data, 1);
 
+% Plot inflammation stats for first patient
 subplot(1, 3, 1)
 plot(ave_inflammation)
 title('Average')
@@ -189,6 +190,7 @@ disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
 ave_inflammation = mean(patient_data, 1);
 
+% Plot inflammation stats for first patient
 figure('visible', 'off')
 
 subplot(1, 3, 1)
