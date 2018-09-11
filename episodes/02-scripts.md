@@ -130,10 +130,10 @@ help analyze
 {: .language-matlab}
 
 Let's extend our `analyze` script with commands to
-create and save plots.
-In order to maintain an organised project we'll save the images
-in the `results` directory.
-We'll also update the help text to reflect this.
+create and save sub-plots.
+As before we'll save the images in the `results` directory.
+We also need to add a further line of help text after the H1 line
+to explain the plots.
 
 ~~~
 %ANALYZE   Print statistics for first patient.
