@@ -470,6 +470,7 @@ DATA centered around the value.
 > >         print('-dpng', img_name)
 > >         close()
 > >     end
+> >  end
 > >  ```
 > > {: .language-matlab}
 > {: .solution}
