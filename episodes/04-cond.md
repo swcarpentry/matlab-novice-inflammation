@@ -35,7 +35,7 @@ end
 
 disp('done')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 not greater
@@ -63,7 +63,7 @@ end
 
 disp('...after conditional')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 before conditional...
@@ -87,7 +87,7 @@ else
     disp([num2str(num), ' is negative'])
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 One important thing to notice in the code above is that we use
 a double equals sign `==` to test for equality rather than a
@@ -117,7 +117,7 @@ else
     disp([num2str(num), ' is negative'])
 end
 ```
-{: .matlab}
+{: .language-matlab}
 
 We can also combine tests, using `&&` (and) and `||` (or). `&&`
 is true if both tests are true:
@@ -129,7 +129,7 @@ else
     disp('one part is not true')
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 one part is not true
@@ -143,7 +143,7 @@ if (1 < 0) || (3 < 4)
     disp('at least one part is true')
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 at least one part is true
@@ -169,7 +169,7 @@ In this case, "either" means "either or both", not
 >     disp('empty string is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > b.
 >
@@ -178,7 +178,7 @@ In this case, "either" means "either or both", not
 >     disp('non empty string is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > c.
 >
@@ -187,7 +187,7 @@ In this case, "either" means "either or both", not
 >     disp ('empty array is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > d.
 >
@@ -196,7 +196,7 @@ In this case, "either" means "either or both", not
 >     disp ('non empty array is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > e.
 >
@@ -205,7 +205,7 @@ In this case, "either" means "either or both", not
 >     disp ('array of zeros is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > f.
 >
@@ -214,7 +214,7 @@ In this case, "either" means "either or both", not
 >     disp('true is true')
 > end
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 {: .challenge}
 
 > ## Close Enough
@@ -238,7 +238,7 @@ In this case, "either" means "either or both", not
 > >     disp(0)
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -259,7 +259,7 @@ end
 
 disp(['sum of positive values: ', num2str(total)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 sum of positive values: 20
@@ -284,7 +284,7 @@ end
 disp(['sum of positive values: ', num2str(pos_total)])
 disp(['sum of negative values: ', num2str(neg_total)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 sum of positive values: 26
@@ -301,7 +301,7 @@ for consonant = 'bcd'
     end
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ba
@@ -328,7 +328,7 @@ de
 > >     end
 > > end
 > > ~~~
-> > {: .matlab}
+> > {: .language-matlab}
 > > Reordering the nested loops changes the output. In the new code,
 > > the consonants loop happens within the vowel loop, so while vowel
 > > = a, consonant takes the values b, c, and d in turn.
@@ -344,14 +344,14 @@ we would have to remove (or *comment out*) the following code:
 print('-dpng', img_name)
 close()
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 And, we'd also have to change this line of code, from:
 
 ~~~
 figure('visible', 'off')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 to:
 
@@ -359,7 +359,7 @@ to:
 figure('visible', 'on')
 % or equivalently: figure()
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 This is not a lot of code to change every time,
 but it's still work that's easily avoided using conditionals.
@@ -416,4 +416,4 @@ for idx = 1:3
 
 end
 ~~~
-{: .matlab}
+{: .language-matlab}

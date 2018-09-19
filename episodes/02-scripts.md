@@ -37,7 +37,7 @@ disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
 disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 You can get MATLAB to run those commands by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
@@ -45,14 +45,14 @@ of the script (without the `.m`) in the MATLAB command line:
 ~~~
 analyze
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Maximum inflammation: 20
 Minimum inflammation: 0
 Standard deviation: 4.6148
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 > ## The MATLAB path
 > MATLAB knows about files in the current directory, but if we want to
@@ -95,7 +95,7 @@ ylabel('Inflammation')
 % Save plot in 'results' folder as png image:
 print('results/average','-dpng')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 You might have noticed that we described what we want
 our code to do using the percent sign: `%`.
@@ -118,14 +118,14 @@ Let's write an H1 line at the top of our script:
 ```
 %ANALYZE   Print statistics for first patient.
 ```
-{: .matlab}
+{: .language-matlab}
 
 We can then get help for our script by running
 
 ```
 help analyze
 ```
-{: .matlab}
+{: .language-matlab}
 
 Let's extend our `analyze` script with commands to
 create and save plots.
@@ -166,7 +166,7 @@ xlabel('Day')
 % Save plot in 'results' directory as png image.
 print('results/patient_data-01','-dpng')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 When saving plots to disk,
 it's sometimes useful to turn off their visibility as MATLAB plots them.
@@ -212,7 +212,7 @@ print('results/patient_data-01','-dpng')
 
 close()
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 If we call the `figure` function without any options,
 MATLAB will open up an empty figure window.
@@ -221,7 +221,7 @@ Try this on the command line:
 ~~~
 figure()
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 We can ask MATLAB to create an empty figure window without
 displaying it by setting its `'visible'` property to `'off'`, like so:
@@ -229,7 +229,7 @@ displaying it by setting its `'visible'` property to `'off'`, like so:
 ~~~
 figure('visible', 'off')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 When we do this, we have to be careful to manually "close" the figure
 after we are doing plotting on it - the same as we would "close"
@@ -238,4 +238,4 @@ an actual figure window if it were open:
 ~~~
 close()
 ~~~
-{: .matlab}
+{: .language-matlab}
