@@ -60,7 +60,7 @@ for n = numbers
     total = total + n;
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 error: assert (n >= 0) failed
@@ -124,14 +124,14 @@ function normalized = normalize_rectangle(rect)
     normalized = [0, 0, upper_x, upper_y];
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 The three preconditions catch invalid inputs:
 
 ~~~
 normalize_rectangle([0, 0, 1])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Error using normalize_rectangle (line 6)
@@ -142,7 +142,7 @@ Rectangle must contain 4 coordinates
 ~~~
 normalize_rectangle([1,0,0,0,0])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Error: Rectangle must contain 4 coordinates
@@ -152,7 +152,7 @@ Error: Rectangle must contain 4 coordinates
 ~~~
 normalize_rectangle([1, 0, 0, 2]);
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 error: Invalid X coordinates
@@ -167,7 +167,7 @@ wide, everything seems OK:
 ~~~
 normalize_rectangle([0, 0, 1.0, 5.0]);
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 0.00000   0.00000   0.20000   1.00000
@@ -180,7 +180,7 @@ the assertion is triggered:
 ~~~
 normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 error: Calculated upper X coordinate invalid
@@ -290,12 +290,12 @@ assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))
 assert(isequal(range_overlap([2.0, 3.0], [2.0, 4.0]),[2.0, 3.0]))
 assert(isequal(range_overlap([0.0, 1.0], [0.0, 2.0], [-1.0, 1.0]),[0.0, 1.0]))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 test_range_overlap
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Undefined function or variable 'range_overlap'.
@@ -337,14 +337,14 @@ function output_range = range_overlap(varargin)
 
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 And now when we run the tests:
 
 ~~~
 test_range_overlap
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 we shouldn't see an error.
 
