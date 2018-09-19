@@ -206,7 +206,6 @@ plot(min(patient_data, [], 1))
 title('Min')
 ylabel('Inflammation')
 xlabel('Day')
-subplot(1, 3, 1)
 
 % Save plot in 'results' directory as png image.
 print('results/patient_data-01','-dpng')
