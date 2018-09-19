@@ -32,7 +32,7 @@ function ktemp = fahr_to_kelvin(ftemp)
     ktemp = ((ftemp - 32) * (5/9)) + 273.15;
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 A MATLAB function *must* be saved in a text file with a `.m` extension.
 The name of that file must be the same as the function defined
@@ -46,7 +46,7 @@ The first line of our function:
 ~~~
 function ktemp = fahr_to_kelvin(ftemp)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 is called the *function definition*, and it declares that we're
 writing a function named `fahr_to_kelvin`, that has a single parameter,
@@ -72,7 +72,7 @@ like any other MATLAB function:
 ~~~
 fahr_to_kelvin(32)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = 273.15
@@ -99,14 +99,14 @@ function ctemp = kelvin_to_celsius(ktemp)
     ctemp = ktemp - 273.15;
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 Again, we can call this function like any other:
 
 ~~~
 kelvin_to_celsius(0.0)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = -273.15
@@ -126,14 +126,14 @@ function ctemp = fahr_to_celsius(ftemp)
     ctemp = kelvin_to_celsius(ktemp);
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 Calling this function,
 
 ~~~
 fahr_to_celsius(32.0)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 we get, as expected:
 
@@ -158,7 +158,7 @@ or the next person who reads it won't be able to understand what's going on.
 > ~~~
 > disp(['abra', 'cad', 'abra'])
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > abracadabra
@@ -168,7 +168,7 @@ or the next person who reads it won't be able to understand what's going on.
 > ~~~
 > disp(strcat('a', 'b'))
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > ab
@@ -181,7 +181,7 @@ or the next person who reads it won't be able to understand what's going on.
 > ~~~
 > disp(fence('name', '*'))
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > *name*
@@ -195,7 +195,7 @@ or the next person who reads it won't be able to understand what's going on.
 > >     wrapped = strcat(wrapper, original, wrapper);
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -208,7 +208,7 @@ or the next person who reads it won't be able to understand what's going on.
 > ~~~
 > disp(outer('helium'))
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > hm
@@ -222,7 +222,7 @@ or the next person who reads it won't be able to understand what's going on.
 > >     ends = strcat(s(1), s(end));
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -235,7 +235,7 @@ in a variable and store the final result in one as well:
 original = 32.0;
 final = fahr_to_celsius(original);
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 Once we start putting things in functions so that we can
 re-use them, we need to start testing that those functions are
@@ -248,7 +248,7 @@ function out = center(data, desired)
     out = (data - mean(data(:))) + desired;
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 We could test this on our actual data, but since we
 don't know what the values ought to be,
@@ -260,7 +260,7 @@ around 3:
 z = zeros(2,2);
 center(z, 3)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -276,7 +276,7 @@ That looks right, so let's try out `center` function on our real data:
 data = csvread('data/inflammation-01.csv');
 centered = center(data(:), 0)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 It's hard to tell from the default output whether the
 result is correct--this is often the case when working with
@@ -288,7 +288,7 @@ Let's calculate some simple statistics:
 ~~~
 disp([min(data(:)), mean(data(:)), max(data(:))])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 0.00000    6.14875   20.00000
@@ -301,7 +301,7 @@ to the data:
 ~~~
 disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
    -6.1487   -0.0000   13.8513
@@ -318,7 +318,7 @@ deviation hasn't changed:
 ~~~
 std(data(:)) - std(centered(:))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 5.3291e-15
@@ -344,7 +344,7 @@ function out = center(data, desired)
     out = (data  - mean(data(:))) + desired;
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 Comment lines immediately below the function definition line
 are called "help text". Typing `help function_name` brings
@@ -353,7 +353,7 @@ up the help text for that function:
 ~~~
 help center
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Center   Center data around a desired value.
@@ -390,7 +390,7 @@ DATA centered around the value.
 > >         out = (in-L)/(H-L);
 > >     end
 > >     ```
-> >     {: .matlab}
+> >     {: .language-matlab}
 > >
 > > 2. 
 > >
@@ -399,7 +399,7 @@ DATA centered around the value.
 > >     norm_a = normalise(a); % Normalise vector
 > >     plot(a, norm_a)        % Visually check normalisation
 > >     ```
-> >     {: .matlab}
+> >     {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -460,7 +460,7 @@ DATA centered around the value.
 > >         close()
 > >     end
 > >  ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -488,7 +488,7 @@ DATA centered around the value.
 > >     analyze_dataset(file_name, 1);
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 

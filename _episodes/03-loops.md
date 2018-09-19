@@ -36,7 +36,7 @@ disp(word(2))
 disp(word(3))
 disp(word(4))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 l
@@ -67,7 +67,7 @@ disp(word(2))
 disp(word(3))
 disp(word(4))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 error: A(I): index out of bounds; value 4 out of bound 3
@@ -83,7 +83,7 @@ for letter = 1:4
     disp(word(letter))
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 l
@@ -132,7 +132,7 @@ for letter = 1:3
     disp(word(letter))
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 t
@@ -161,7 +161,7 @@ for letter = 1:length(word)
     disp(word(letter))
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 a
@@ -189,7 +189,7 @@ end
 
 disp(['Number of vowels: ', num2str(len)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 It's worth tracing the execution of this little program step by step.
 
@@ -241,7 +241,7 @@ and we can re-use variables previously defined as loop variables as well:
 ~~~
 disp(vowel)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 u
@@ -255,7 +255,7 @@ u
 > ~~~
 > disp(5^3)
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > 125
@@ -283,7 +283,7 @@ u
 > > 
 > > disp([num2str(b), '^', num2str(x), ' = ', num2str(result)])
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -312,7 +312,7 @@ u
 > >     disp(word(1:letter))
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
  {: .challenge}
  
@@ -325,7 +325,7 @@ u
 > ~~~
 > disp(1:3:11)
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > 1 4 7 10
@@ -335,7 +335,7 @@ u
 > ~~~
 > disp(11:-3:1)
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > 11 8 5 2
@@ -367,7 +367,7 @@ u
 > >     disp(word(letter))
 > > end
 > > ```
-> > {: .matlab}
+> > {: .language-matlab}
 > {: .solution}
 {: .challenge}
 
@@ -385,7 +385,7 @@ information about a single file in the form of named **fields**.
 ```
 files = dir('data/inflammation-inflammation-*.csv')
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 files = 
@@ -405,7 +405,7 @@ To access the *name* field of the first file, we can use the following syntax:
 filename = files(1).name;
 disp(filename)
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 inflammation-01.csv
@@ -418,7 +418,7 @@ To get the modification date of the third file, we can do:
 mod_date = files(3).date;
 disp(mod_date)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 26-Jul-2015 22:24:31
@@ -436,7 +436,7 @@ for i = 1:length(files)
 	disp(data_file)
 end
 ```
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 inflammation-01.csv
@@ -464,7 +464,7 @@ The syntax for the `replace` command is like this:
 ```
 NEWSTR = replace(STR, OLD, NEW)
 ```
-{: .matlab}
+{: .language-matlab}
 
 So for example if we have the string `big_shark` and want to get the string
 `terror_shark`, we can execute the following command:
@@ -473,7 +473,7 @@ So for example if we have the string `big_shark` and want to get the string
 new_string = replace('big_shark', 'big', 'terror');
 disp(new_string)
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 terror_shark
@@ -538,14 +538,14 @@ for idx = 1:3
     close()
 end
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 We run the modified script using its name in the Command Window:
 
 ~~~
 analyze
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 The figures output to the `results` directory are as shown below:
 

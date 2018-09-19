@@ -94,7 +94,7 @@ we should get the following output:
 ```
 data   results
 ```
-{: .matlab}
+{: .language-matlab}
 
 
 Reading data from files and writing data to them
@@ -118,7 +118,7 @@ command into the MATLAB command window, and press <kbd>Enter</kbd>:
 ~~~
 csvread('data/inflammation-01.csv')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 You should see a wall of numbers on the screen---these are the values
 from the CSV file.
@@ -130,7 +130,7 @@ output, simply put a semicolon at the end of your command:
 ~~~
 csvread('data/inflammation-01.csv');
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 The expression `csvread(...)` is a
 [function call]({{ page.root }}/reference.html#function-call).
@@ -150,7 +150,7 @@ or compute with them. To do that, we need to assign the array to a
 ~~~
 patient_data = csvread('data/inflammation-01.csv');
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 A variable is just a name for a piece of data or *value*.
 Variable names must begin with a letter, and can contain
@@ -163,14 +163,14 @@ We can create a new variable simply by assigning a value to it using
 ~~~
 weight_kg = 55;
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 Once a variable has a value, we can print it using the `disp` function:
 
 ~~~
 disp(weight_kg)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 55
@@ -182,7 +182,7 @@ or simply typing its name, followed by <kbd>Enter</kbd>
 ```
 weight_kg
 ```
-{: .matlab}
+{: .language-matlab}
 
 ```
 w =
@@ -196,7 +196,7 @@ and do arithmetic with it:
 weight_lb = 2.2 * weight_kg;
 disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Weight in pounds: 121
@@ -222,7 +222,7 @@ weight_lb = 2.2 * weight_kg;
 disp(['Weight in kg: ', num2str(weight_kg)])
 disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Weight in kg: 57.5
@@ -239,7 +239,7 @@ weight_kg = 100;
 disp(['Weight in kg: ', num2str(weight_kg)])
 disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Weight in kg: 100
@@ -257,7 +257,7 @@ view a list of all the variables in our workspace:
 ~~~
 who
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Your variables are:
@@ -272,7 +272,7 @@ To remove a variable from MATLAB, use the `clear` command:
 clear weight_lb
 who
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 
 ~~~
@@ -299,7 +299,7 @@ To remove all variables from the workspace, execute the command `clear all`.
 > mass = mass * 2.0
 > age = age - 20
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 {: .challenge}
 
 Now that our data is in memory, we can start doing things with it.
@@ -308,7 +308,7 @@ First, let's find out its [size]({{ page.root }}/reference.html#size):
 ~~~
 size(patient_data)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -340,7 +340,7 @@ inside an array:
 ~~~
 class(patient_data)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = double
@@ -355,7 +355,7 @@ you need to tell MATLAB explicitly. For example, the command,
 ~~~
 x = int16(325);
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 
 assigns the value `325` to the name `x`, storing it as a 16-bit signed
@@ -366,7 +366,7 @@ Let's create an 8-by-8 "magic" Matrix:
 ~~~
 M = magic(8)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -392,7 +392,7 @@ its [index]({{ page.root }}/reference.html#index) in parentheses:
 ~~~
 M(5, 6)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = 38
@@ -413,7 +413,7 @@ we can do:
 ~~~
 M(5, :)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -435,7 +435,7 @@ select multiple rows,
 ~~~
 M(1:4, :)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -454,7 +454,7 @@ and columns:
 ~~~
 M(:, 6:end)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -479,7 +479,7 @@ we have to take slices in both dimensions:
 ~~~
 M(4:6, 5:7)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -500,7 +500,7 @@ and subsequently select every third row:
 ~~~
 M(2:3:end, :)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -520,7 +520,7 @@ by taking appropriate strides in both dimensions:
 ~~~
 M(1:3:end, 2:2:end)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -540,7 +540,7 @@ ans =
 > disp(['first three characters: ', element(1:3)])
 > disp(['last three characters: ', element(4:6)])
 > ~~~
-> {: .matlab}
+> {: .language-matlab}
 >
 > ~~~
 > first three characters: oxy
@@ -567,7 +567,7 @@ we can just ask for the mean of the array:
 ~~~
 mean(patient_data(:))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = 6.1487
@@ -585,7 +585,7 @@ does and how to use it, we can search the documentation, or use MATLAB's `help` 
 ~~~
 help mean
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 mean   Average or mean value.
@@ -636,7 +636,7 @@ disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
 disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Maximum inflammation: 20
@@ -654,7 +654,7 @@ array, then ask it to do the calculation:
 patient_1 = patient_data(1, :)
 disp(['Maximum inflation for patient 1: ', num2str(max(patient_1))])
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 Maximum inflation for patient 1: 18
@@ -667,7 +667,7 @@ Instead, we can combine the selection and the function call:
 ~~~
 max(patient_data(1, :))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans = 18
@@ -688,7 +688,7 @@ we get:
 ~~~
 mean(patient_data, 1)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -717,7 +717,7 @@ As a quick check, we can check the size of this array:
 ~~~
 size(mean(patient_data, 1))
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -732,7 +732,7 @@ get:
 ~~~
 mean(patient_data, 2)
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ~~~
 ans =
@@ -817,7 +817,7 @@ title('Inflammation')
 xlabel('Day of trial')
 ylabel('Patient number')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ![First Heat Map](../fig/01-intro_1.png)
 
@@ -841,7 +841,7 @@ title('Daily average inflammation')
 xlabel('Day of trial')
 ylabel('Inflammation')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ![Second Heat Map](../fig/01-intro_2.png)
 
@@ -861,7 +861,7 @@ title('Daily average inflammation')
 ylabel('Inflammation')
 xlabel('Day of trial')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ![Third Heat Map](../fig/01-intro_3.png)
 
@@ -871,7 +871,7 @@ title('Minimum inflammation per day')
 ylabel('Inflammation')
 xlabel('Day of trial')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ![Fourth Heat Map](../fig/01-intro_4.png)
 
@@ -930,7 +930,7 @@ subplot(1, 2, 2)
 plot(min(patient_data, [], 1))
 ylabel('min')
 ~~~
-{: .matlab}
+{: .language-matlab}
 
 ![Fifth Heat Map](../fig/01-intro_5.png)
 
