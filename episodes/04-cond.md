@@ -155,61 +155,38 @@ In this case, "either" means "either or both", not
 
 > ## True and False Statements
 >
-> `1` and `0` aren't the only values
-> in MATLAB that are true or false. In fact, *any* value
-> can be used in an `if` or `elseif`. After reading and
-> running the code below, explain what the rule is for
-> which values that are considered true and which are
-> considered false.
+> The conditions we have tested above evaluate to a logical value:
+> `true` or `false`.
+> However these numerical comparison tests aren't the only values
+> which are `true` or `false` in MATLAB.
+> For example, `1` is considered `true` and `0` is considered `false`.
+> In fact, *any* value can be used in a conditional statement.
 >
-> a.
+> Run the code below in order to discover
+> which values are considered `true` and which are
+> considered `false`.
 >
 > ~~~
 > if ''
 >     disp('empty string is true')
 > end
-> ~~~
-> {: .language-matlab}
 >
-> b.
->
-> ~~~
 > if 'foo'
 >     disp('non empty string is true')
 > end
-> ~~~
-> {: .language-matlab}
 >
-> c.
->
-> ~~~
 > if []
 >     disp ('empty array is true')
 > end
-> ~~~
-> {: .language-matlab}
 >
-> d.
->
-> ~~~
 > if [22.5, 1.0]
 >     disp ('non empty array is true')
 > end
-> ~~~
-> {: .language-matlab}
 >
-> e.
->
-> ~~~
 > if [0, 0]
 >     disp ('array of zeros is true')
 > end
-> ~~~
-> {: .language-matlab}
 >
-> f.
->
-> ~~~
 > if true
 >     disp('true is true')
 > end
