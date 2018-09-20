@@ -111,7 +111,7 @@ if num > 0
 elseif num == 0
     disp([num2str(num), ' is zero'])
 elseif num > 50
-    # This block will never be executed
+    % This block will never be executed
     disp([num2str(num), ' is greater than 50'])
 else
     disp([num2str(num), ' is negative'])
