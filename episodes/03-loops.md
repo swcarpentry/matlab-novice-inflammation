@@ -29,6 +29,8 @@ Suppose we want to print each character in the word "lead" on
 a line of its own. One way is to use four `disp` statements:
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 word = 'lead';
 
 disp(word(1))
@@ -60,6 +62,8 @@ it produces an error, because we're asking for characters
 that don't exist.
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 word = 'tin';
 
 disp(word(1))
@@ -77,6 +81,8 @@ error: A(I): index out of bounds; value 4 out of bound 3
 There's a better approach:
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 word = 'lead';
 
 for letter = 1:4
@@ -126,6 +132,8 @@ For our loop to deal appropriately with shorter or longer words,
 we have to change the first line of our loop by hand:
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 word = 'tin';
 
 for letter = 1:3
@@ -155,6 +163,8 @@ MATLAB provides us with a convenient function to
 write a better loop:
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 word = 'aluminum';
 
 for letter = 1:length(word)
@@ -182,6 +192,8 @@ Here's another loop that
 repeatedly updates the variable `len`:
 
 ~~~
+%LOOP_DEMO   Demo script to explain loops
+
 len = 0
 for vowel = 'aeiou'
     len = len + 1;
