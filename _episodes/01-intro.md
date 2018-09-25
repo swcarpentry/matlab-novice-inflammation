@@ -18,6 +18,7 @@ keypoints:
 - "Use `plot` to visualize data."
 ---
 
+## Overview of the data
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
@@ -97,6 +98,7 @@ data   results
 {: .language-matlab}
 
 
+## Working with variables
 Reading data from files and writing data to them
 are essential tasks in scientific computing,
 and admittedly,
@@ -361,6 +363,7 @@ x = int16(325);
 assigns the value `325` to the name `x`, storing it as a 16-bit signed
 integer.
 
+## Array indexing
 Let's create an 8-by-8 "magic" Matrix:
 
 ~~~
@@ -558,6 +561,7 @@ ans =
 >    What seems to be happening when we use the single colon operator for slicing?
 {: .challenge}
 
+## Analyzing patient data
 Now that we know how to access data we want to compute with,
 we're ready to analyze `patient_data`.
 MATLAB knows how to perform common mathematical operations on arrays.
@@ -803,6 +807,7 @@ ans =
 which is the average inflammation per patient across
 all days.
 
+## Plotting
 The mathematician Richard Hamming once said,
 "The purpose of computing is insight, not numbers," and the best
 way to develop insight is often to visualize data. Visualization
