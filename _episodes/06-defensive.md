@@ -13,7 +13,6 @@ objectives:
 - "Debug code containing an error systematically."
 keypoints:
 - "Use assertions to catch errors, and to document what behavior is expected."
-- "Initialize variables with actual values rather than arbitrary constants."
 - "Write tests *before* code."
 ---
 
@@ -312,34 +311,108 @@ it would be a sign that someone else had
 and that we were accidentally using their function.
 
 And as a bonus of writing these tests,
-we've implicitly defined what our input and output look like:
-we expect a list of pairs as input,
-and produce a single pair as output.
+we've implicitly defined what our inputs and output look like:
+we expect two or more input arguments, each of which is
+a vector with length = 2,
+and we return a single vector as output.
 
-Let's write `range_overlap`:
+Given that `range_overlap` will have to accept varying numbers of input arguments,
+we need to learn how to deal with an unknown number of input arguments
+before we can write `range_overlap`.
+Consider the example below from the MATLAB documentation:
 
-~~~
-function output_range = range_overlap(varargin)
-    %RANGE_OVERLAP   Return common overlap among a set of [low, high] ranges.
+```
+function varlist(varargin)
+   %VARLIST Demonstrate variable number of input arguments
 
-    lowest = -inf;
-    highest = +inf;
-
-    for i = 1:nargin
-        range = varargin{i};
-        low = range(1);
-        high = range(2);
-        lowest = max(lowest, low);
-        highest = min(highest, high);
-    end
-
-    output_range = [lowest, highest];
-
-end
-~~~
+   fprintf('Number of arguments: %d\n',nargin)
+   celldisp(varargin)
+```
 {: .language-matlab}
 
-And now when we run the tests:
+```
+varlist(ones(3),'some text',pi)
+```
+{: .language-matlab}
+
+```
+Number of arguments: 3
+
+varargin{1} =
+     1     1     1
+     1     1     1
+     1     1     1
+ 
+varargin{2} =
+some text
+
+varargin{3} =
+    3.1416
+```
+{: .output}
+
+MATLAB has a special variable `varargin` which can be used as the
+last parameter in a function definition to represent a variable
+number of inputs.
+Within the function `varargin` is a **cell array** containing
+the input arguments, and the variable `nargin` gives the number
+of input arguments used during the function call.
+A *cell array* is a MATLAB data type with indexed data containers called
+cells. Each cell can contain any type of data, and is indexed using
+braces, or "curly brackets" `{}`.
+
+> ## Variable number of input arguments
+> Using what we have just learned about `varargin` and `nargin`
+> fill in the blanks below to complete the first draft of our
+> `range_overlap` function.
+>
+> ```
+> function overlap = range_overlap(________)
+>     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+>
+>     lowest  = -inf;
+>     highest = +inf;
+>
+>     % Loop over input arguments
+>     for i = 1:______
+>         % Set range equal to each input argument
+>         range   = ________{i};
+>         low     = range(1);
+>         high    = range(2);
+>         lowest  = max(lowest, low);
+>         highest = min(highest, high);
+>     end
+>
+>     overlap = [lowest, highest];
+> ```
+> {: .language-matlab}
+>
+> > ## Solution
+> > ```
+> > function overlap = range_overlap(varargin)
+> >     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+> >
+> >     lowest  = -inf;
+> >     highest = +inf;
+> >
+> >     % Loop over input arguments
+> >     for i = 1:nargin
+> >         % Set range equal to each input argument
+> >         range   = varargin{i};
+> >         low     = range(1);
+> >         high    = range(2);
+> >         lowest  = max(lowest, low);
+> >         highest = min(highest, high);
+> >     end
+> >
+> >     overlap = [lowest, highest];
+> > ```
+> > {: .language-matlab}
+> {: .solution}
+{: .challenge}
+
+Now that we have written the function `range_overlap`,
+when we run the tests:
 
 ~~~
 test_range_overlap
@@ -368,6 +441,36 @@ as a final assignment.
 >
 > Hint: read about the `isnan` function in the help files
 > to make sure you understand what these first two lines are doing.
+>
+> > ## Solution
+> >
+> > ```
+> > function overlap = range_overlap(varargin)
+> >     %RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.
+> > 
+> >     lowest = -inf;
+> >     highest = +inf;
+> >
+> >     % Loop over input arguments
+> >     for i = 1:nargin
+> >         % Set range equal to each input argument
+> >         range   = varargin{i};
+> >         low     = range(1);
+> >         high    = range(2);
+> >         lowest  = max(lowest, low);
+> >         highest = min(highest, high);
+> >         
+> >         % Catch non-overlapping ranges
+> > 	    if low >= highest || high<=lowest
+> >             output_range = NaN;
+> >             return
+> > 	    end
+> >     end
+> > 
+> >     overlap = [lowest, highest];
+> > ```
+> > {: .language-matlab}
+> {: .solution}
 {: .challenge}
 
 Once testing has uncovered problems,
