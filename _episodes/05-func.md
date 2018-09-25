@@ -96,11 +96,18 @@ want to return a value from the function, we must assign that value to a
 variable named `ktemp`---in the first line of our function, we promised
 that the output of our function would be named `ktemp`.
 
-Outside of the function, the names `ftemp` and `ktemp` don't matter,
+Outside of the function, the variables `ftemp` and `ktemp` aren't visible;
 they are only used by the function body to refer to the input and
 output values.
 
-Now that we've seen how to turn Fahrenheit to Kelvin, it's easy to turn
+This is one of the major differences between scripts and functions:
+a script can be thought of as automating the command line,
+with full access to all variables in the base workspace,
+whereas a function can only read and write variables from the calling workspace
+if they are passed as arguments ---
+i.e. a function has its own separate workspace.
+
+Now that we've seen how to convert Fahrenheit to Kelvin, it's easy to convert
 Kelvin to Celsius.
 
 ~~~
@@ -237,16 +244,44 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .solution}
 {: .challenge}
 
-Let's take a closer look at what happens when we call
-`fahr_to_celsius(32.0)`.
-To make things clearer, we'll start by putting the initial value 32.0
-in a variable and store the final result in one as well:
-
-~~~
-original = 32.0;
-final = fahr_to_celsius(original);
-~~~
-{: .language-matlab}
+> ## Variables Inside and Outside Functions
+>
+> Consider our function `fahr_to_kelvin` from earlier in the episode:
+> ```
+> function ktemp = fahr_to_kelvin(ftemp)
+>   %FAHR_TO_KELVIN   Convert Fahrenheit to Kelvin
+>   ktemp = ((ftemp-32)*(5.0/9.0)) + 273.15;
+> end
+> ```
+> {: .language-matlab}
+> 
+> What does the following code display when run --- and why?
+>
+> ~~~
+> ftemp = 0
+> ktemp = 0
+>
+> disp(fahr_to_kelvin(8))
+> disp(fahr_to_kelvin(41))
+> disp(fahr_to_kelvin(32))
+>
+> disp(ktemp)
+> ~~~
+> {: .language-matlab}
+>
+> > ## Solution
+> > ```
+> > 259.8167
+> > 278.1500
+> > 273.1500
+> > 0
+> > ```
+> > {: .output}
+> >
+> > `ktemp` is 0 because the function `fahr_to_kelvin` has no knowledge of
+> > the variable `ktemp` which exists outside of the function.
+> {: .solution}
+{: .challenge}
 
 Once we start putting things in functions so that we can
 re-use them, we need to start testing that those functions are
