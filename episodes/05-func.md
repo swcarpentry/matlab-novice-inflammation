@@ -41,19 +41,30 @@ So, you will need to save the above code in a file called
 `fahr_to_kelvin.m`.
 Remember to save your m-files in the current directory.
 
-The first line of our function:
-
-~~~
-function ktemp = fahr_to_kelvin(ftemp)
-~~~
-{: .language-matlab}
-
-is called the *function definition*, and it declares that we're
-writing a function named `fahr_to_kelvin`, that has a single parameter,
-`ftemp`, and outputs a single value, `ktemp`.  Anything following the
-function definition line is called the *body* of the
+The first line of our function is called the *function definition*,
+and it declares that we're writing a function named `fahr_to_kelvin`,
+that has a single input parameter,`ftemp`,
+and a single output parameter, `ktemp`.
+Anything following the function definition line is called the *body* of the
 function. The keyword `end` marks the end of the function body, and the
 function won't know about any code after `end`.
+
+![function-definition]({{ page.root }}/fig/function_definition.png)
+
+A function can have multiple input and output parameters if required,
+but isn't required to have any of either.
+The general form of a function is shown in the pseudo-code below:
+
+```
+function [out1, out2] = function_name(in1, in2)
+    %FUNCTION_NAME   Function description
+
+    % This section below is called the body of the function
+    out1 = something calculated;
+    out2 = something else;
+end
+```
+{: .matlab}
 
 Just as we saw with scripts, functions must be _visible_ to MATLAB, i.e.,
 a file containing a function has to be placed in a directory that
@@ -459,6 +470,7 @@ DATA centered around the value.
 > >         print('-dpng', img_name)
 > >         close()
 > >     end
+> >  end
 > >  ```
 > > {: .language-matlab}
 > {: .solution}
