@@ -371,6 +371,7 @@ u
 > {: .solution}
 {: .challenge}
 
+## Analyzing patient data from multiple files
 We now have almost everything we need to process
 multiple data files with our `analyze` script.
 
