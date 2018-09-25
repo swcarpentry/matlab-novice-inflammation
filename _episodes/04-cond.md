@@ -353,15 +353,24 @@ to switch between saving plots as images and plotting them interactively:
 
 plot_switch = 0;
 
-for idx = 1:3
+files = dir('data/inflammation-*.csv');
 
-    % Generate strings for file and image names:
-    file_name = sprintf('data/inflammation-%02d.csv', idx);
-    img_name = sprintf ('data/patient_data-%02d.png', idx);
+% Process first three files only
+for idx = 1:3
+    file_name = files(idx).name;
+
+    % Generate strings for image names:
+    img_name = replace(file_name, '.csv', '.png');
+
+    % Generate path to data file and image file
+    file_name = fullfile('data', filename);
+    img_name  = fullfile('results', img_name);
 
     patient_data = csvread(file_name);
+
     ave_inflammation = mean(patient_data, 1);
 
+    % Create figures
     if plot_switch == 1
         figure('visible', 'off')
     else
