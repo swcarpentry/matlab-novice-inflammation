@@ -289,7 +289,7 @@ The workspace contains all variable names and assigned values that we currently 
 As long as they pop up in the workspace,
 they are universally available.
 It's generally a good idea to keep the workspace as clean as possible.
-To remove all variables from the workspace, execute the command `clear all`.
+To remove all variables from the workspace, execute the command `clear` on its own.
 
 > ## Predicting Variable Values
 >
