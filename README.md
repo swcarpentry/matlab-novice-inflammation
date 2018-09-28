@@ -13,8 +13,6 @@ or run `make` in this directory for a list of helpful commands.
 Maintainers:
 
 * [Gerard Capes][capes_gerard]
-* [Ashwin Srinath][srinath_ashwin]
 
 [lesson-example]: https://carpentries.github.io/lesson-example
 [capes_gerard]: http://software-carpentry.org/team/#capes_gerard
-[srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
