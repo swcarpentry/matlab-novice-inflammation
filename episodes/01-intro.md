@@ -37,110 +37,22 @@ Suggestions for functions that would do what you want to do will pop up.
 Clicking on them will open the documentation.
 Another way to access the documentation is via the `help` command --- we will return to this later.
 
-## Good practices for project organisation
-Before we get started, let's create some directories to help organise this project.
-
-> ## Tip: Good Enough Practices for Scientific Computing
->
-> [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-> gives the following recommendations for project organization:
->
-> 1. Put each project in its own directory, which is named after the project.
-> 2. Put text documents associated with the project in the `doc` directory.
-> 3. Put raw data and metadata in the `data` directory, and files generated during clean-up and analysis in a `results` directory.
-> 4. Put source code for the project in the `src` directory,
->    and programs brought in from elsewhere or compiled locally in the `bin` directory.
-> 5. Name all files to reflect their content or function.
->
-{: .callout}
-
-We already have a `data` directory in our `matlab-novice-inflammation` project directory,
-so we only need to create a `results` directory for this project.
-You can use your computer's file browser to create this directory.
-We'll save all our scripts and function files in the main project directory.
-
-A final step is to set the *current folder* in MATLAB to our project folder.
-Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
-(`matlab-novice-inflammation`).
-
-In order to check the current directory, we can run `pwd` to print the working directory.
-A second check we can do is to run the `ls` command in the Command Window ---
-we should get the following output:
-
-```
-data   results
-```
-{: .language-matlab}
-
-
 ## Working with variables
-Reading data from files and writing data to them
-are essential tasks in scientific computing,
-and admittedly,
-something that we'd rather not spend a lot of time thinking about.
-Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently,
-sparing us the grisly detail.
+In this lesson we will learn how to manipulate the inflammation dataset with MATLAB.
+But before we discuss how to deal with many data points,
+we will show how to store a single value on the computer.
 
-If we know what our data looks like (in this case, we have comma-separated values)
-and we're unsure about what command we want to use,
-we can search the documentation.
-Type `read csv` into the documentation toolbar.
-MATLAB suggests using `csvread`.
-If we have a closer look at the documentation,
-MATLAB also tells us, which in- and output arguments this function has.
-
-To load the data from our CSV file into MATLAB, type the following
-command into the MATLAB command window, and press <kbd>Enter</kbd>:
-
-~~~
-csvread('data/inflammation-01.csv')
-~~~
-{: .language-matlab}
-
-You should see a wall of numbers on the screen---these are the values
-from the CSV file.
-It can sometimes
-be useful to see the output from MATLAB commands, but it is often not.
-To suppress the
-output, simply put a semicolon at the end of your command:
-
-~~~
-csvread('data/inflammation-01.csv');
-~~~
-{: .language-matlab}
-
-The expression `csvread(...)` is a
-[function call]({{ page.root }}/reference.html#function-call).
-Functions generally need [arguments]({{ page.root }}/reference.html#argument)
-to run.
-In the case of the `csvread` function, we need to provide a single
-argument: the name of the file we want to read data from. This
-argument needs to be a character string or
-[string]({{ page.root }}/reference.html#string), so we put it in quotes.
-
-Our call to `csvread` read our file, and printed the data inside
-to the screen. And adding a semicolon rendered it even less useful---
-we have no way to modify those values
-or compute with them. To do that, we need to assign the array to a
-[variable]({{ page.root }}/reference.html#variable).
-
-~~~
-patient_data = csvread('data/inflammation-01.csv');
-~~~
-{: .language-matlab}
-
-A variable is just a name for a piece of data or *value*.
-Variable names must begin with a letter, and can contain
-numbers or underscores. Examples of valid variable names are
-`x`, `f_0` or `current_temperature`.
-
-We can create a new variable simply by assigning a value to it using
-`=`:
+We can create a new variable by assigning a value to it using `=`:
 
 ~~~
 weight_kg = 55;
 ~~~
 {: .language-matlab}
+
+A variable is just a name for a piece of data or *value*.
+Variable names must begin with a letter, and are case sensitive.
+They can contain also numbers or underscores. Examples of valid variable names are
+`x`, `f_0` or `current_temperature`.
 
 Once a variable has a value, we can print it using the `disp` function:
 
@@ -195,38 +107,32 @@ convert that numerical value to a string with the `num2str` function.
 Assignment is giving a name to a value so that it can be used again,
 and accessed by other parts of a program.
 
-Assigning a value to one variable does not change the values of other
-variables.
-For example,
-
+We can change the value of a variable by assigning it a new one:
 ~~~
-weight_kg = 57.5;
-weight_lb = 2.2 * weight_kg;
-disp(['Weight in kg: ', num2str(weight_kg)])
-disp(['Weight in pounds: ', num2str(weight_lb)])
+weight_kg = 57.5
 ~~~
 {: .language-matlab}
 
 ~~~
-Weight in kg: 57.5
-Weight in pounds: 126.5
+weight_kg =
+    57.5
 ~~~
 {: .output}
 
+Assigning a value to one variable does not change the values of other
+variables.
 
-Let's update the value of one of our variables, and print the values
-of both:
+For example, we just changed the value of `weight_kg` from 55 to 57.5,
+but `weight_lb` hasn't changed:
 
 ~~~
-weight_kg = 100;
-disp(['Weight in kg: ', num2str(weight_kg)])
-disp(['Weight in pounds: ', num2str(weight_lb)])
+weight_lb
 ~~~
 {: .language-matlab}
 
 ~~~
-Weight in kg: 100
-Weight in pounds: 126.5
+weight_lb =
+    121
 ~~~
 {: .output}
 
@@ -284,6 +190,101 @@ To remove all variables from the workspace, execute the command `clear` on its o
 > ~~~
 > {: .language-matlab}
 {: .challenge}
+
+
+## Good practices for project organisation
+Before we get started, let's create some directories to help organise this project.
+
+> ## Tip: Good Enough Practices for Scientific Computing
+>
+> [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+> gives the following recommendations for project organization:
+>
+> 1. Put each project in its own directory, which is named after the project.
+> 2. Put text documents associated with the project in the `doc` directory.
+> 3. Put raw data and metadata in the `data` directory, and files generated during clean-up and analysis in a `results` directory.
+> 4. Put source code for the project in the `src` directory,
+>    and programs brought in from elsewhere or compiled locally in the `bin` directory.
+> 5. Name all files to reflect their content or function.
+>
+{: .callout}
+
+We already have a `data` directory in our `matlab-novice-inflammation` project directory,
+so we only need to create a `results` directory for this project.
+You can use your computer's file browser to create this directory.
+We'll save all our scripts and function files in the main project directory.
+
+A final step is to set the *current folder* in MATLAB to our project folder.
+Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
+(`matlab-novice-inflammation`).
+
+In order to check the current directory, we can run `pwd` to print the working directory.
+A second check we can do is to run the `ls` command in the Command Window ---
+we should get the following output:
+
+```
+data   results
+```
+{: .language-matlab}
+
+
+
+Reading data from files and writing data to them
+are essential tasks in scientific computing,
+and admittedly,
+something that we'd rather not spend a lot of time thinking about.
+Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently,
+sparing us the grisly detail.
+
+If we know what our data looks like (in this case, we have comma-separated values)
+and we're unsure about what command we want to use,
+we can search the documentation.
+Type `read csv` into the documentation toolbar.
+MATLAB suggests using `csvread`.
+If we have a closer look at the documentation,
+MATLAB also tells us, which in- and output arguments this function has.
+
+To load the data from our CSV file into MATLAB, type the following
+command into the MATLAB command window, and press <kbd>Enter</kbd>:
+
+~~~
+csvread('data/inflammation-01.csv')
+~~~
+{: .language-matlab}
+
+You should see a wall of numbers on the screen---these are the values
+from the CSV file.
+It can sometimes
+be useful to see the output from MATLAB commands, but it is often not.
+To suppress the
+output, simply put a semicolon at the end of your command:
+
+~~~
+csvread('data/inflammation-01.csv');
+~~~
+{: .language-matlab}
+
+The expression `csvread(...)` is a
+[function call]({{ page.root }}/reference.html#function-call).
+Functions generally need [arguments]({{ page.root }}/reference.html#argument)
+to run.
+In the case of the `csvread` function, we need to provide a single
+argument: the name of the file we want to read data from. This
+argument needs to be a character string or
+[string]({{ page.root }}/reference.html#string), so we put it in quotes.
+
+Our call to `csvread` read our file, and printed the data inside
+to the screen. And adding a semicolon rendered it even less useful---
+we have no way to modify those values
+or compute with them. To do that, we need to assign the array to a
+[variable]({{ page.root }}/reference.html#variable).
+
+~~~
+patient_data = csvread('data/inflammation-01.csv');
+~~~
+{: .language-matlab}
+
+
 
 Now that our data is in memory, we can start doing things with it.
 First, let's find out its [size]({{ page.root }}/reference.html#size):
