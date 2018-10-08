@@ -87,7 +87,7 @@ in the `results` directory:
 
 ~~~
 % Plot average inflammation per day
-plot(ave_inflammation)
+plot(mean(patient_data, 1))
 title('Daily average inflammation')
 xlabel('Day of trial')
 ylabel('Inflammation')
@@ -145,11 +145,9 @@ disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
 disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
-ave_inflammation = mean(patient_data, 1);
-
 % Plot inflammation stats for first patient
 subplot(1, 3, 1)
-plot(ave_inflammation)
+plot(mean(patient_data, 1))
 title('Average')
 ylabel('Inflammation')
 xlabel('Day')
@@ -188,13 +186,11 @@ disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
 disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
 disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
-ave_inflammation = mean(patient_data, 1);
-
 % Plot inflammation stats for first patient
 figure('visible', 'off')
 
 subplot(1, 3, 1)
-plot(ave_inflammation)
+plot(mean(patient_data, 1))
 title('Average')
 ylabel('inflammation')
 xlabel('Day')
