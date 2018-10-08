@@ -524,13 +524,11 @@ for idx = 1:3
     disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
     disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
-    ave_inflammation = mean(patient_data, 1);
-
     % Create figures
     figure('visible', 'off')
 
     subplot(2, 2, 1)
-    plot(ave_inflammation)
+    plot(mean(patient_data, 1))
     title('Average')
     ylabel('Inflammation')
     xlabel('Day')
