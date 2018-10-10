@@ -481,7 +481,6 @@ DATA centered around the value.
 > >     img_name = fullfile('results', img_name);
 > >
 > >     patient_data = csvread(file_name);
-> >     ave_inflammation = mean(patient_data, 1);
 > >     
 > >     if plot_switch == 1
 > >     	figure('visible', 'off')
@@ -490,7 +489,7 @@ DATA centered around the value.
 > >     end
 > >     
 > >     subplot(2, 2, 1)
-> >     plot(ave_inflammation)
+> >     plot(mean(patient_data, 1))
 > >     ylabel('average')
 > >     
 > >     subplot(2, 2, 2)
