@@ -80,11 +80,11 @@ simple to write a script that gives the sign of a number:
 num = 53;
 
 if num > 0
-    disp([num2str(num), ' is positive'])
+    disp('num is positive')
 elseif num == 0
-    disp([num2str(num), ' is zero'])
+    disp('num is zero')
 else
-    disp([num2str(num), ' is negative'])
+    disp('num is negative')
 end
 ~~~
 {: .language-matlab}
@@ -107,14 +107,14 @@ Let's demonstrate this by adding another condition which is true.
 num = 53;
 
 if num > 0
-    disp([num2str(num), ' is positive'])
+    disp('num is positive')
 elseif num == 0
-    disp([num2str(num), ' is zero'])
+    disp('num is zero')
 elseif num > 50
     % This block will never be executed
-    disp([num2str(num), ' is greater than 50'])
+    disp('num is greater than 50')
 else
-    disp([num2str(num), ' is negative'])
+    disp('num is negative')
 end
 ```
 {: .language-matlab}
