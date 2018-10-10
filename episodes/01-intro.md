@@ -192,7 +192,49 @@ w =
 ```
 {: .output}
 
-and do arithmetic with it:
+
+Storing single values is fine, but how can we store multiple values in the same variable?
+We can create an array using square brackets, separating each value with a comma:
+
+```
+a = [1, 2, 3]
+```
+{: .language-matlab}
+
+```
+a =
+     1     2     3
+```
+{: .output}
+
+In a similar way, we can create matrices using semi-colons to separate rows:
+
+```
+b = [a; 4, 5, 6]
+``` 
+{: .language-matlab}
+
+
+```
+b =
+     1     2     3
+     4     5     6
+```
+{: .output}
+
+Something to bear in mind about arrays and matrices is that all values in an array
+must be of the same type e.g. all numbers or all strings.
+It is however possible to convert between data types e.g. `num2str` which converts
+numbers to a string representation.
+
+```
+>> num2str(a)
+ans =
+    '1  2  3'
+```
+{: .language-matlab}
+
+So once we have a numeric value stored in a variable, we can do arithmetic with it:
 
 ~~~
 weight_lb = 2.2 * weight_kg;
@@ -205,17 +247,16 @@ Weight in pounds: 121
 ~~~
 {: .output}
 
-That last command contains several new concepts,
+That last command combines several new concepts,
 so let's break it down:
 
 The `disp` function takes a single argument --- the value to print.
-To print more than one value on a single line, we can print an *array*
-of values.
-Arrays are created using square brackets, with each element separated by
-a comma e.g. `a = [1, 2, 3]`.
-All values in an array need to be the same type, so if
-we want to print a string and a numerical value together, we *have* to
-convert that numerical value to a string with the `num2str` function.
+So if we want to print more than one value on a single line,
+we can print an *array* of values (i.e. one argument),
+which we create using square brackets,
+and recall that an array must contain values all of the same type.
+In this case we convert the number to a string so that we
+can print a single character array.
 
 Assignment is giving a name to a value so that it can be used again,
 and accessed by other parts of a program.
