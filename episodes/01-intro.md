@@ -145,7 +145,6 @@ and recall that an array must contain values all of the same type.
 In this case we convert the number to a string so that we
 can print an arry of characters.
 
-
 We can change the value of a variable by assigning it a new one:
 ~~~
 weight_kg = 57.5
@@ -657,32 +656,40 @@ We can also compute other statistics, like the maximum, minimum and
 standard deviation.
 
 ~~~
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
-disp(['Standard deviation: ', num2str(std(patient_data(:)))])
+disp('Maximum inflammation:)
+disp(max(patient_data(:))
+disp('Minimum inflammation:')
+disp(min(patient_data(:))
+disp('Standard deviation:')
+disp(std(patient_data(:)))
 ~~~
 {: .language-matlab}
 
 ~~~
-Maximum inflammation: 20
-Minimum inflammation: 0
-Standard deviation: 4.6148
+Maximum inflammation:
+20
+Minimum inflammation:
+0
+Standard deviation:
+4.6148
 ~~~
 {: .output}
 
-When analyzing data, though, we often want to look at partial statistics,
+When analyzing data though, we often want to look at partial statistics,
 such as the maximum value per patient or the average value per day.
 One way to do this is to assign the data we want to a new temporary
 array, then ask it to do the calculation:
 
 ~~~
 patient_1 = patient_data(1, :)
-disp(['Maximum inflation for patient 1: ', num2str(max(patient_1))])
+disp('Maximum inflation for patient 1:')
+disp(max(patient_1))
 ~~~
 {: .language-matlab}
 
 ~~~
-Maximum inflation for patient 1: 18
+Maximum inflation for patient 1:
+18
 ~~~
 {: .output}
 
