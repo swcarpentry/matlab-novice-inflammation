@@ -25,17 +25,18 @@ command line, we can
 also write several commands in a _script_. A MATLAB script
 is just a text file with a `.m` extension. We've written
 commands to load data from a `.csv` file and
-displays some statistics about that data. Let's
+display some plots of statistics about that data. Let's
 put those commands in a script called `analyze.m`,
 which we'll save in our current directory,`matlab-novice-inflammation`:
 
 ~~~
 patient_data = csvread('data/inflammation-01.csv');
 
-disp(['Analyzing "inflammation-01.csv": '])
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
-disp(['Standard deviation: ', num2str(std(patient_data(:)))])
+% Plot average inflammation per day
+plot(mean(patient_data, 1))
+title('Daily average inflammation')
+xlabel('Day of trial')
+ylabel('Inflammation')
 ~~~
 {: .language-matlab}
 
@@ -47,12 +48,6 @@ analyze
 ~~~
 {: .language-matlab}
 
-~~~
-Maximum inflammation: 20
-Minimum inflammation: 0
-Standard deviation: 4.6148
-~~~
-{: .language-matlab}
 
 > ## The MATLAB path
 > MATLAB knows about files in the current directory, but if we want to
@@ -118,7 +113,7 @@ print('results/average','-dpng')
 Let's write an H1 line at the top of our script:
 
 ```
-%ANALYZE   Print statistics for first patient.
+%ANALYZE   Save plots of inflammation statistics to disk.
 ```
 {: .language-matlab}
 
@@ -129,21 +124,14 @@ help analyze
 ```
 {: .language-matlab}
 
-Let's extend our `analyze` script with commands to
-create and save sub-plots.
+Let's modify our `analyze` script so that it creates and saves sub-plots,
+rather than individual plots.
 As before we'll save the images in the `results` directory.
-We also need to add a further line of help text after the H1 line
-to explain the plots.
 
 ~~~
-%ANALYZE   Print statistics for first patient.
-%          Save plots of statistics to disk.
+%ANALYZE   Save plots of inflammation statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
-
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
-disp(['Standard deviation: ', num2str(std(patient_data(:)))])
 
 % Plot inflammation stats for first patient
 subplot(1, 3, 1)
@@ -182,9 +170,7 @@ Let's add a couple of lines of code to do this:
 
 patient_data = csvread('data/inflammation-01.csv');
 
-disp(['Maximum inflammation: ', num2str(max(patient_data(:)))])
-disp(['Minimum inflammation: ', num2str(min(patient_data(:)))])
-disp(['Standard deviation: ', num2str(std(patient_data(:)))])
+ave_inflammation = mean(patient_data, 1);
 
 % Plot inflammation stats for first patient
 figure('visible', 'off')
