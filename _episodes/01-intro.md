@@ -861,8 +861,7 @@ so that other people can understand what it shows
 Let's take a look at the average inflammation over time:
 
 ~~~
-ave_inflammation = mean(patient_data, 1);
-plot(ave_inflammation)
+plot(mean(patient_data, 1))
 title('Daily average inflammation')
 xlabel('Day of trial')
 ylabel('Inflammation')
@@ -871,8 +870,7 @@ ylabel('Inflammation')
 
 ![Second Heat Map](../fig/01-intro_2.png)
 
-Here, we have put the average per day across all patients in the
-variable `ave_inflammation`, then used the `plot` function to display
+Here, we have calculated the average per day across all patients then used the `plot` function to display
 a line graph of those values.
 The result is roughly a linear rise and fall,
 which is suspicious:

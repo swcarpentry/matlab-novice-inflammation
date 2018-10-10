@@ -368,8 +368,6 @@ for idx = 1:3
 
     patient_data = csvread(file_name);
 
-    ave_inflammation = mean(patient_data, 1);
-
     % Create figures
     if plot_switch == 1
         figure('visible', 'off')
@@ -378,7 +376,7 @@ for idx = 1:3
     end
 
     subplot(2, 2, 1)
-    plot(ave_inflammation)
+    plot(mean(patient_data, 1))
     title('Average')
     ylabel('Inflammation')
     xlabel('Day')
