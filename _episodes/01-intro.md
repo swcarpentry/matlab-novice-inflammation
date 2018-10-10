@@ -189,7 +189,7 @@ who
 ~~~
 Your variables are:
 
-patient_data  weight_kg  weight_lb
+a  b  weight_kg  weight_lb
 ~~~
 {: .output}
 
@@ -205,7 +205,7 @@ who
 ~~~
 Your variables are:
 
-patient_data  weight_kg
+a  b  weight_kg
 ~~~
 {: .output}
 
