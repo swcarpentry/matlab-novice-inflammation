@@ -143,10 +143,8 @@ we can print an *array* of values (i.e. one argument),
 which we create using square brackets,
 and recall that an array must contain values all of the same type.
 In this case we convert the number to a string so that we
-can print a single character array.
+can print an arry of characters.
 
-Assignment is giving a name to a value so that it can be used again,
-and accessed by other parts of a program.
 
 We can change the value of a variable by assigning it a new one:
 ~~~
