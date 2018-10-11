@@ -251,7 +251,7 @@ It still exists after the loop is over,
 and we can re-use variables previously defined as loop variables as well:
 
 ~~~
-disp(vowel)
+>> disp(vowel)
 ~~~
 {: .language-matlab}
 
@@ -265,7 +265,7 @@ u
 > MATLAB uses the caret (`^`) to perform exponentiation:
 >
 > ~~~
-> disp(5^3)
+> >> disp(5^3)
 > ~~~
 > {: .language-matlab}
 >
@@ -335,7 +335,7 @@ u
 > or skip argument between the start and stop:
 >
 > ~~~
-> disp(1:3:11)
+> >> disp(1:3:11)
 > ~~~
 > {: .language-matlab}
 >
@@ -345,7 +345,7 @@ u
 > {: .output}
 >
 > ~~~
-> disp(11:-3:1)
+> >> disp(11:-3:1)
 > ~~~
 > {: .language-matlab}
 >
@@ -396,7 +396,7 @@ Each element in this *structure array* is a **structure**, containing
 information about a single file in the form of named **fields**.
 
 ```
-files = dir('data/inflammation-inflammation-*.csv')
+>> files = dir('data/inflammation-inflammation-*.csv')
 ```
 {: .language-matlab}
 
@@ -415,8 +415,8 @@ files =
 To access the *name* field of the first file, we can use the following syntax:
 
 ```
-filename = files(1).name;
-disp(filename)
+>> filename = files(1).name;
+>> disp(filename)
 ```
 {: .language-matlab}
 
@@ -428,8 +428,8 @@ inflammation-01.csv
 To get the modification date of the third file, we can do:
 
 ~~~
-mod_date = files(3).date;
-disp(mod_date)
+>> mod_date = files(3).date;
+>> disp(mod_date)
 ~~~
 {: .language-matlab}
 
@@ -439,7 +439,8 @@ disp(mod_date)
 {: .output}
 
 A good first step towards processing multiple files is to write a loop which prints
-the name of each of our files:
+the name of each of our files.
+Let's write this in a temporary script `temp.m` so that it's easier to develop further:
 
 ```
 files = dir('data/inflammation-*.csv');
@@ -483,8 +484,8 @@ So for example if we have the string `big_shark` and want to get the string
 `terror_shark`, we can execute the following command:
 
 ```
-new_string = replace('big_shark', 'big', 'terror');
-disp(new_string)
+>> new_string = replace('big_shark', 'big', 'terror');
+>> disp(new_string)
 ```
 {: .language-matlab}
 
@@ -550,7 +551,7 @@ end
 We run the modified script using its name in the Command Window:
 
 ~~~
-analyze
+>> analyze
 ~~~
 {: .language-matlab}
 

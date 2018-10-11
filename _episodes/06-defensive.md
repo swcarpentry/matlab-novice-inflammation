@@ -128,7 +128,7 @@ end
 The three preconditions catch invalid inputs:
 
 ~~~
-normalize_rectangle([0, 0, 1])
+>> normalize_rectangle([0, 0, 1])
 ~~~
 {: .language-matlab}
 
@@ -139,7 +139,7 @@ Rectangle must contain 4 coordinates
 {: .error}
 
 ~~~
-normalize_rectangle([1,0,0,0,0])
+>> normalize_rectangle([1,0,0,0,0])
 ~~~
 {: .language-matlab}
 
@@ -149,7 +149,7 @@ Error: Rectangle must contain 4 coordinates
 {: .error}
 
 ~~~
-normalize_rectangle([1, 0, 0, 2]);
+>> normalize_rectangle([1, 0, 0, 2]);
 ~~~
 {: .language-matlab}
 
@@ -164,7 +164,7 @@ if we normalize a rectangle that is taller than it is
 wide, everything seems OK:
 
 ~~~
-normalize_rectangle([0, 0, 1.0, 5.0]);
+>> normalize_rectangle([0, 0, 1.0, 5.0]);
 ~~~
 {: .language-matlab}
 
@@ -177,7 +177,7 @@ but if we normalize one that's wider than it is tall,
 the assertion is triggered:
 
 ~~~
-normalize_rectangle([0.0, 0.0, 5.0, 1.0])
+>> normalize_rectangle([0.0, 0.0, 5.0, 1.0])
 ~~~
 {: .language-matlab}
 

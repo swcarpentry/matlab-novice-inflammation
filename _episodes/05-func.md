@@ -81,7 +81,7 @@ We can call our function from the command line
 like any other MATLAB function:
 
 ~~~
-fahr_to_kelvin(32)
+>> fahr_to_kelvin(32)
 ~~~
 {: .language-matlab}
 
@@ -122,7 +122,7 @@ end
 Again, we can call this function like any other:
 
 ~~~
-kelvin_to_celsius(0.0)
+>> kelvin_to_celsius(0.0)
 ~~~
 {: .language-matlab}
 
@@ -149,7 +149,7 @@ end
 Calling this function,
 
 ~~~
-fahr_to_celsius(32.0)
+>> fahr_to_celsius(32.0)
 ~~~
 {: .language-matlab}
 
@@ -174,7 +174,7 @@ or the next person who reads it won't be able to understand what's going on.
 > `strcat` function:
 >
 > ~~~
-> disp(['abra', 'cad', 'abra'])
+> >> disp(['abra', 'cad', 'abra'])
 > ~~~
 > {: .language-matlab}
 >
@@ -184,7 +184,7 @@ or the next person who reads it won't be able to understand what's going on.
 > {: .output}
 >
 > ~~~
-> disp(strcat('a', 'b'))
+> >> disp(strcat('a', 'b'))
 > ~~~
 > {: .language-matlab}
 >
@@ -197,7 +197,7 @@ or the next person who reads it won't be able to understand what's going on.
 > `wrapper` and adds `wrapper` before and after `original`:
 >
 > ~~~
-> disp(fence('name', '*'))
+> >> disp(fence('name', '*'))
 > ~~~
 > {: .language-matlab}
 >
@@ -224,7 +224,7 @@ or the next person who reads it won't be able to understand what's going on.
 > a string made up of just the first and last characters of its input:
 >
 > ~~~
-> disp(outer('helium'))
+> >> disp(outer('helium'))
 > ~~~
 > {: .language-matlab}
 >
@@ -303,8 +303,8 @@ Instead, let's create a matrix of 0's, and then center that
 around 3:
 
 ~~~
-z = zeros(2,2);
-center(z, 3)
+>> z = zeros(2,2);
+>> center(z, 3)
 ~~~
 {: .language-matlab}
 
@@ -319,8 +319,8 @@ ans =
 That looks right, so let's try out `center` function on our real data:
 
 ~~~
-data = csvread('data/inflammation-01.csv');
-centered = center(data(:), 0)
+>> data = csvread('data/inflammation-01.csv');
+>> centered = center(data(:), 0)
 ~~~
 {: .language-matlab}
 
@@ -332,7 +332,7 @@ will reassure us.
 Let's calculate some simple statistics:
 
 ~~~
-disp([min(data(:)), mean(data(:)), max(data(:))])
+>> disp([min(data(:)), mean(data(:)), max(data(:))])
 ~~~
 {: .language-matlab}
 
@@ -345,7 +345,7 @@ And let's do the same after applying our `center` function
 to the data:
 
 ~~~
-disp([min(centered(:)), mean(centered(:)), max(centered(:))])
+>> disp([min(centered(:)), mean(centered(:)), max(centered(:))])
 ~~~
 {: .language-matlab}
 
@@ -362,7 +362,7 @@ go further and check that the standard
 deviation hasn't changed:
 
 ~~~
-std(data(:)) - std(centered(:))
+>> std(data(:)) - std(centered(:))
 ~~~
 {: .language-matlab}
 
@@ -397,7 +397,7 @@ are called "help text". Typing `help function_name` brings
 up the help text for that function:
 
 ~~~
-help center
+>> help center
 ~~~
 {: .language-matlab}
 

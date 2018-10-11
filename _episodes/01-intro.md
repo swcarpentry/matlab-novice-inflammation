@@ -24,10 +24,10 @@ keypoints:
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
-* In the **Command Window** we can run and debug our code.
-Everything that's typed into the command window is executed immediately.
+* In the **Command Window** we can execute commands.
+Commands are typed after the prompt `>>` and are executed immediately after pressing <kbd>Enter</kbd>.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
-The upside of this is that
+The advantage of this is that
 we can save our code and run it again in the same way at a later stage.
 * The **Workspace** contains all the variables which we have loaded into memory.
 * The **Current Folder** window shows files in the current directory,
@@ -45,7 +45,7 @@ we will show how to store a single value on the computer.
 We can create a new variable by assigning a value to it using `=`:
 
 ~~~
-weight_kg = 55;
+>> weight_kg = 55;
 ~~~
 {: .language-matlab}
 
@@ -57,24 +57,24 @@ They can contain also numbers or underscores. Examples of valid variable names a
 Once a variable has a value, we can print it using the `disp` function:
 
 ~~~
-disp(weight_kg)
+>> disp(weight_kg)
 ~~~
 {: .language-matlab}
 
 ~~~
-55
+    55
 ~~~
 {: .output}
 
 or simply typing its name, followed by <kbd>Enter</kbd>
 
 ```
-weight_kg
+>> weight_kg
 ```
 {: .language-matlab}
 
 ```
-w =
+weight_kg =
     55
 ```
 {: .output}
@@ -84,7 +84,7 @@ Storing single values is fine, but how can we store multiple values in the same 
 We can create an array using square brackets, separating each value with a comma:
 
 ```
-a = [1, 2, 3]
+>> a = [1, 2, 3]
 ```
 {: .language-matlab}
 
@@ -97,7 +97,7 @@ a =
 In a similar way, we can create matrices using semi-colons to separate rows:
 
 ```
-b = [a; 4, 5, 6]
+>> b = [a; 4, 5, 6]
 ``` 
 {: .language-matlab}
 
@@ -124,8 +124,8 @@ ans =
 So once we have a numeric value stored in a variable, we can do arithmetic with it:
 
 ~~~
-weight_lb = 2.2 * weight_kg;
-disp(['Weight in pounds: ', num2str(weight_lb)])
+>> weight_lb = 2.2 * weight_kg;
+>> disp(['Weight in pounds: ', num2str(weight_lb)])
 ~~~
 {: .language-matlab}
 
@@ -147,7 +147,7 @@ can print an arry of characters.
 
 We can change the value of a variable by assigning it a new one:
 ~~~
-weight_kg = 57.5
+>> weight_kg = 57.5
 ~~~
 {: .language-matlab}
 
@@ -164,7 +164,7 @@ For example, we just changed the value of `weight_kg` from 55 to 57.5,
 but `weight_lb` hasn't changed:
 
 ~~~
-weight_lb
+>> weight_lb
 ~~~
 {: .language-matlab}
 
@@ -182,7 +182,7 @@ Now that we know how to assign values to variables, let's
 view a list of all the variables in our workspace:
 
 ~~~
-who
+>> who
 ~~~
 {: .language-matlab}
 
@@ -196,8 +196,8 @@ a  b  weight_kg  weight_lb
 To remove a variable from MATLAB, use the `clear` command:
 
 ~~~
-clear weight_lb
-who
+>> clear weight_lb
+>> who
 ~~~
 {: .language-matlab}
 
@@ -221,10 +221,10 @@ To remove all variables from the workspace, execute the command `clear` on its o
 > Predict what variables refer to what values after each statement in the following program:
 >
 > ~~~
-> mass = 47.5
-> age = 122
-> mass = mass * 2.0
-> age = age - 20
+> >> mass = 47.5
+> >> age = 122
+> >> mass = mass * 2.0
+> >> age = age - 20
 > ~~~
 > {: .language-matlab}
 {: .challenge}
@@ -286,7 +286,7 @@ To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press <kbd>Enter</kbd>:
 
 ~~~
-csvread('data/inflammation-01.csv')
+>> csvread('data/inflammation-01.csv')
 ~~~
 {: .language-matlab}
 
@@ -298,7 +298,7 @@ To suppress the
 output, simply put a semicolon at the end of your command:
 
 ~~~
-csvread('data/inflammation-01.csv');
+>> csvread('data/inflammation-01.csv');
 ~~~
 {: .language-matlab}
 
@@ -318,7 +318,7 @@ or compute with them. To do that, we need to assign the array to a
 [variable]({{ page.root }}/reference.html#variable).
 
 ~~~
-patient_data = csvread('data/inflammation-01.csv');
+>> patient_data = csvread('data/inflammation-01.csv');
 ~~~
 {: .language-matlab}
 
@@ -328,7 +328,7 @@ Now that our data is in memory, we can start doing things with it.
 First, let's find out its [size]({{ page.root }}/reference.html#size):
 
 ~~~
-size(patient_data)
+>> size(patient_data)
 ~~~
 {: .language-matlab}
 
@@ -360,7 +360,7 @@ We can use the `class` function to find out what kind of data lives
 inside an array:
 
 ~~~
-class(patient_data)
+>> class(patient_data)
 ~~~
 {: .language-matlab}
 
@@ -375,7 +375,7 @@ data type in MATLAB. If you want to store other numeric data types,
 you need to tell MATLAB explicitly. For example, the command,
 
 ~~~
-x = int16(325);
+>> x = int16(325);
 ~~~
 {: .language-matlab}
 
@@ -387,7 +387,7 @@ integer.
 Let's create an 8-by-8 "magic" Matrix:
 
 ~~~
-M = magic(8)
+>> M = magic(8)
 ~~~
 {: .language-matlab}
 
@@ -413,7 +413,7 @@ To do that, we must provide
 its [index]({{ page.root }}/reference.html#index) in parentheses:
 
 ~~~
-M(5, 6)
+>> M(5, 6)
 ~~~
 {: .language-matlab}
 
@@ -434,7 +434,7 @@ To access a row of values:
 we can do:
 
 ~~~
-M(5, :)
+>> M(5, :)
 ~~~
 {: .language-matlab}
 
@@ -456,7 +456,7 @@ select multiple rows,
 ![Accessing multiple rows](../fig/matrix-multi-rows.svg)
 
 ~~~
-M(1:4, :)
+>> M(1:4, :)
 ~~~
 {: .language-matlab}
 
@@ -475,7 +475,7 @@ and columns:
 ![Accessing multiple columns](../fig/matrix-multi-cols.svg)
 
 ~~~
-M(:, 6:end)
+>> M(:, 6:end)
 ~~~
 {: .language-matlab}
 
@@ -500,7 +500,7 @@ To select a submatrix,
 we have to take slices in both dimensions:
 
 ~~~
-M(4:6, 5:7)
+>> M(4:6, 5:7)
 ~~~
 {: .language-matlab}
 
@@ -521,7 +521,7 @@ and subsequently select every third row:
 ![Accessing strided columns](../fig/matrix-strided-rows.svg)
 
 ~~~
-M(2:3:end, :)
+>> M(2:3:end, :)
 ~~~
 {: .language-matlab}
 
@@ -541,7 +541,7 @@ And we can also select values in a "checkerboard",
 by taking appropriate strides in both dimensions:
 
 ~~~
-M(1:3:end, 2:2:end)
+>> M(1:3:end, 2:2:end)
 ~~~
 {: .language-matlab}
 
@@ -559,9 +559,9 @@ ans =
 > A subsection of an array is called a [slice]({{ page.root }}/reference.html#slice). We can take slices of character strings as well:
 >
 > ~~~
-> element = 'oxygen';
-> disp(['first three characters: ', element(1:3)])
-> disp(['last three characters: ', element(4:6)])
+> >> element = 'oxygen';
+> >> disp(['first three characters: ', element(1:3)])
+> >> disp(['last three characters: ', element(4:6)])
 > ~~~
 > {: .language-matlab}
 >
@@ -589,7 +589,7 @@ If we want to find the average inflammation for all patients on all days,
 we can just ask for the mean of the array:
 
 ~~~
-mean(patient_data(:))
+>> mean(patient_data(:))
 ~~~
 {: .language-matlab}
 
@@ -607,7 +607,7 @@ To get details about what a function, like `mean`,
 does and how to use it, we can search the documentation, or use MATLAB's `help` command.
 
 ~~~
-help mean
+>> help mean
 ~~~
 {: .language-matlab}
 
@@ -656,12 +656,12 @@ We can also compute other statistics, like the maximum, minimum and
 standard deviation.
 
 ~~~
-disp('Maximum inflammation:)
-disp(max(patient_data(:))
-disp('Minimum inflammation:')
-disp(min(patient_data(:))
-disp('Standard deviation:')
-disp(std(patient_data(:)))
+>> disp('Maximum inflammation:)
+>> disp(max(patient_data(:))
+>> disp('Minimum inflammation:')
+>> disp(min(patient_data(:))
+>> disp('Standard deviation:')
+>> disp(std(patient_data(:)))
 ~~~
 {: .language-matlab}
 
@@ -681,9 +681,9 @@ One way to do this is to assign the data we want to a new temporary
 array, then ask it to do the calculation:
 
 ~~~
-patient_1 = patient_data(1, :)
-disp('Maximum inflation for patient 1:')
-disp(max(patient_1))
+>> patient_1 = patient_data(1, :)
+>> disp('Maximum inflation for patient 1:')
+>> disp(max(patient_1))
 ~~~
 {: .language-matlab}
 
@@ -697,7 +697,7 @@ We don't actually need to store the row in a variable of its own.
 Instead, we can combine the selection and the function call:
 
 ~~~
-max(patient_data(1, :))
+>> max(patient_data(1, :))
 ~~~
 {: .language-matlab}
 
@@ -718,7 +718,7 @@ want to work on. If we ask for the average across the dimension 1,
 we get:
 
 ~~~
-mean(patient_data, 1)
+>> mean(patient_data, 1)
 ~~~
 {: .language-matlab}
 
@@ -747,7 +747,7 @@ ans =
 As a quick check, we can check the size of this array:
 
 ~~~
-size(mean(patient_data, 1))
+>> size(mean(patient_data, 1))
 ~~~
 {: .language-matlab}
 
@@ -762,7 +762,7 @@ inflammation per day for all patients. If we average across axis 2, we
 get:
 
 ~~~
-mean(patient_data, 2)
+>> mean(patient_data, 2)
 ~~~
 {: .language-matlab}
 
@@ -845,10 +845,10 @@ explore a few features of MATLAB here.
 Let's display a heat map of our data:
 
 ~~~
-imagesc(patient_data)
-title('Inflammation')
-xlabel('Day of trial')
-ylabel('Patient number')
+>> imagesc(patient_data)
+>> title('Inflammation')
+>> xlabel('Day of trial')
+>> ylabel('Patient number')
 ~~~
 {: .language-matlab}
 
@@ -868,10 +868,10 @@ so that other people can understand what it shows
 Let's take a look at the average inflammation over time:
 
 ~~~
-plot(mean(patient_data, 1))
-title('Daily average inflammation')
-xlabel('Day of trial')
-ylabel('Inflammation')
+>> plot(mean(patient_data, 1))
+>> title('Daily average inflammation')
+>> xlabel('Day of trial')
+>> ylabel('Inflammation')
 ~~~
 {: .language-matlab}
 
@@ -886,21 +886,21 @@ Let's have a look at two other statistics: the maximum and minimum
 inflammation per day across all patients.
 
 ~~~
-plot(max(patient_data, [], 1))
-title('Maximum inflammation per day')
-title('Daily average inflammation')
-ylabel('Inflammation')
-xlabel('Day of trial')
+>> plot(max(patient_data, [], 1))
+>> title('Maximum inflammation per day')
+>> title('Daily average inflammation')
+>> ylabel('Inflammation')
+>> xlabel('Day of trial')
 ~~~
 {: .language-matlab}
 
 ![Third Heat Map](../fig/01-intro_3.png)
 
 ~~~
-plot(min(patient_data, [], 1))
-title('Minimum inflammation per day')
-ylabel('Inflammation')
-xlabel('Day of trial')
+>> plot(min(patient_data, [], 1))
+>> title('Minimum inflammation per day')
+>> ylabel('Inflammation')
+>> xlabel('Day of trial')
 ~~~
 {: .language-matlab}
 
@@ -938,10 +938,10 @@ calculations or something is wrong with our data.
 >
 > > ## Solution
 > > ```
-> > plot(std(patient_data, 0, 2))
-> > xlabel('Day of trial')
-> > ylabel('Inflammation')
-> > title('Standard deviation across all patients')
+> > >> plot(std(patient_data, 0, 2))
+> > >> xlabel('Day of trial')
+> > >> ylabel('Inflammation')
+> > >> title('Standard deviation across all patients')
 > > ```
 > > {: .language-matlab}
 > {: .solution}
@@ -953,13 +953,13 @@ The first two parameters describe the grid we want to use, while the third
 parameter indicates the placement on the grid.
 
 ~~~
-subplot(1, 2, 1)
-plot(max(patient_data, [], 1))
-ylabel('max')
+>> subplot(1, 2, 1)
+>> plot(max(patient_data, [], 1))
+>> ylabel('max')
 
-subplot(1, 2, 2)
-plot(min(patient_data, [], 1))
-ylabel('min')
+>> subplot(1, 2, 2)
+>> plot(min(patient_data, [], 1))
+>> ylabel('min')
 ~~~
 {: .language-matlab}
 
