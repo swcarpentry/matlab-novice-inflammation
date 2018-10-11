@@ -42,12 +42,28 @@ In this lesson we will learn how to manipulate the inflammation dataset with MAT
 But before we discuss how to deal with many data points,
 we will show how to store a single value on the computer.
 
-We can create a new variable by assigning a value to it using `=`:
+We can create a new [variable]({{ page.root }}/reference.html#variable) by assigning a value to it using `=`:
 
 ~~~
 >> weight_kg = 55;
 ~~~
 {: .language-matlab}
+
+At first glance nothing appears to have happened!
+We don't get any output in the command window because we put a semi-colon after the variable assignment:
+this suppresses output, which is generally a good thing because it makes code run more quickly.
+Let's run the command again without the semi-colon, and this time we have some output in the command window:
+
+~~~
+>> weight_kg = 55
+~~~
+{: .language-matlab}
+
+```
+weight_kg =
+    55
+```
+{: .output}
 
 A variable is just a name for a piece of data or *value*.
 Variable names must begin with a letter, and are case sensitive.
@@ -286,19 +302,17 @@ To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press <kbd>Enter</kbd>:
 
 ~~~
->> csvread('data/inflammation-01.csv')
+>> patient_data = csvread('data/inflammation-01.csv');
 ~~~
 {: .language-matlab}
 
-You should see a wall of numbers on the screen---these are the values
-from the CSV file.
-It can sometimes
-be useful to see the output from MATLAB commands, but it is often not.
-To suppress the
-output, simply put a semicolon at the end of your command:
+This loads the data and assigns it to a variable, *patient_data*.
+This is a good example of when to use a semi-colon to suppress output ---
+try re-running the command without the semi-colon to find out why.
+You should see a wall of numbers printed, which is the data from the file.
 
 ~~~
->> csvread('data/inflammation-01.csv');
+>> patient_data = csvread('data/inflammation-01.csv')
 ~~~
 {: .language-matlab}
 
@@ -310,18 +324,6 @@ In the case of the `csvread` function, we need to provide a single
 argument: the name of the file we want to read data from. This
 argument needs to be a character string or
 [string]({{ page.root }}/reference.html#string), so we put it in quotes.
-
-Our call to `csvread` read our file, and printed the data inside
-to the screen. And adding a semicolon rendered it even less useful---
-we have no way to modify those values
-or compute with them. To do that, we need to assign the array to a
-[variable]({{ page.root }}/reference.html#variable).
-
-~~~
->> patient_data = csvread('data/inflammation-01.csv');
-~~~
-{: .language-matlab}
-
 
 
 Now that our data is in memory, we can start doing things with it.
