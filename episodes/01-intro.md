@@ -24,10 +24,10 @@ keypoints:
 Before we can start programming, we need to know a little about the MATLAB interface.
 Using the default setup, the MATLAB desktop contains several important sections:
 
-* In the **Command Window** we can run and debug our code.
-Everything that's typed into the command window is executed immediately.
+* In the **Command Window** we can execute commands.
+Commands are typed after the prompt `>>` and are executed immediately after pressing <kbd>Enter</kbd>.
 * Alternatively, we can open the **Editor**, write our code and run it all at once.
-The upside of this is that
+The advantage of this is that
 we can save our code and run it again in the same way at a later stage.
 * The **Workspace** contains all the variables which we have loaded into memory.
 * The **Current Folder** window shows files in the current directory,
