@@ -494,6 +494,19 @@ terror_shark
 ```
 {: .output}
 
+
+> ## GNU Octave
+>
+> In Octave, the `replace` function doesn't exist,
+> but the `strrep` function is a direct replacement.
+> The above example becomes
+> ```
+> >> new_string = strep('big_shark', 'big', 'terror')
+> terror_shark
+> ```
+> {: .language-matlab}
+{: .callout}
+
 Recall that we're saving our figures to the `results` directory.
 The best way to generate a path to a file in MATLAB is by using the `fullfile` command.
 This generates a file path with the correct separators for the platform you're using
@@ -571,12 +584,3 @@ We've now automated the analysis and have confirmed that all the data
 files we have looked at show the same artifact. This is what we set out to test, and now
 we can just call one script to do it. With minor modifications, this
 script could be re-used to check all our future data files.
-
-> ## GNU Octave
->
-> Lastly, in the above trick using `ls` with the wildcard `*`,
-> another small Octave/MATLAB
-> difference shows up. In Octave, the value returned by
-> `filestr = ls('path/to/data/*.csv')` is an array of strings, so we can loop
-> over `filestr` directly without the need to split it with `strsplit`.
-{: .callout}
