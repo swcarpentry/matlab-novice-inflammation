@@ -570,11 +570,11 @@ We run the modified script using its name in the Command Window:
 
 The figures output to the `results` directory are as shown below:
 
-<img src="../img/02-loop_1.png" style="width:500px; height:400px">
+<img src="../fig/inflammation-01.png" style="width:500px; height:400px">
 
-<img src="../img/02-loop_2.png" style="width:500px; height:400px">
+<img src="../fig/inflammation-02.png" style="width:500px; height:400px">
 
-<img src="../img/02-loop_3.png" style="width:500px; height:400px">
+<img src="../fig/inflammation-03.png" style="width:500px; height:400px">
 
 Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
