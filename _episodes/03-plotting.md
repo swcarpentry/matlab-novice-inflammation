@@ -377,14 +377,16 @@ parameter indicates the placement on the grid.
 >> subplot(1, 2, 1)
 >> plot(max(patient_data, [], 1))
 >> ylabel('max')
+>> xlabel('day')
 
 >> subplot(1, 2, 2)
 >> plot(min(patient_data, [], 1))
 >> ylabel('min')
+>> xlabel('day')
 ~~~
 {: .language-matlab}
 
-![Fifth Heat Map](../fig/01-intro_5.png)
+![Max Min subplot]({{ page.root }}/fig/max-min-subplot.png)
 
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
