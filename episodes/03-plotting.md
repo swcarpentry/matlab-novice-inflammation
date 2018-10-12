@@ -273,7 +273,7 @@ Let's display a heat map of our data:
 ~~~
 {: .language-matlab}
 
-![First Heat Map](../fig/01-intro_1.png)
+![Heat map]({{ page.root }}/fig/inflammation-heatmap.png)
 
 The `imagesc` function represents the matrix as a color image. Every
 value in the matrix is *mapped* to a color. Blue regions in this heat map
@@ -296,7 +296,7 @@ Let's take a look at the average inflammation over time:
 ~~~
 {: .language-matlab}
 
-![Second Heat Map](../fig/01-intro_2.png)
+![Average inflammation]({{ page.root }}/fig/average-inflammation.png)
 
 Here, we have calculated the average per day across all patients then used the `plot` function to display
 a line graph of those values.
@@ -315,7 +315,7 @@ inflammation per day across all patients.
 ~~~
 {: .language-matlab}
 
-![Third Heat Map](../fig/01-intro_3.png)
+![Maximum inflammation]({{ page.root }}/fig/max-inflammation.png)
 
 ~~~
 >> plot(min(patient_data, [], 1))
@@ -325,7 +325,7 @@ inflammation per day across all patients.
 ~~~
 {: .language-matlab}
 
-![Fourth Heat Map](../fig/01-intro_4.png)
+![Minumum inflammation]({{ page.root }}/fig/min-inflammation.png)
 
 Like `mean()`, the functions
 `max()` and `min()` can also operate across a specified dimension of
@@ -377,14 +377,16 @@ parameter indicates the placement on the grid.
 >> subplot(1, 2, 1)
 >> plot(max(patient_data, [], 1))
 >> ylabel('max')
+>> xlabel('day')
 
 >> subplot(1, 2, 2)
 >> plot(min(patient_data, [], 1))
 >> ylabel('min')
+>> xlabel('day')
 ~~~
 {: .language-matlab}
 
-![Fifth Heat Map](../fig/01-intro_5.png)
+![Max Min subplot]({{ page.root }}/fig/max-min-subplot.png)
 
 Our work so far has convinced us that something is wrong with our
 first data file. We would like to check the other 11 the same way,
