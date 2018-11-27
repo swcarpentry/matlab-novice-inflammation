@@ -396,7 +396,7 @@ Each element in this *structure array* is a **structure**, containing
 information about a single file in the form of named **fields**.
 
 ```
->> files = dir('data/inflammation-inflammation-*.csv')
+>> files = dir('data/inflammation-*.csv')
 ```
 {: .language-matlab}
 
