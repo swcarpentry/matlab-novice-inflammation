@@ -64,7 +64,7 @@ function [out1, out2] = function_name(in1, in2)
     out2 = something else;
 end
 ```
-{: .matlab}
+{: .language-matlab}
 
 Just as we saw with scripts, functions must be _visible_ to MATLAB, i.e.,
 a file containing a function has to be placed in a directory that
