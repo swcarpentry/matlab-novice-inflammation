@@ -27,7 +27,15 @@ is just a text file with a `.m` extension. We've written
 commands to load data from a `.csv` file and
 display some plots of statistics about that data. Let's
 put those commands in a script called `analyze.m`,
-which we'll save in our current directory,`matlab-novice-inflammation`:
+which we'll save in our current directory,`matlab-novice-inflammation`.
+
+To create a new script in the current directory, we use
+```
+edit analyze.m
+```
+{: .language-matlab}
+
+then we type the contents of the script:
 
 ~~~
 patient_data = csvread('data/inflammation-01.csv');
@@ -75,8 +83,8 @@ analyze
 > `addpath('path/to/directory')`
 {: .callout}
 
-We've also written commands to create plots, so let's include those in our script too,
-but this time we'll save the figures to disk as image files using the `print` command.
+In this script,
+let's save the figures to disk as image files using the `print` command.
 In order to maintain an organised project we'll save the images
 in the `results` directory:
 
@@ -165,12 +173,9 @@ not displaying the figures could make the script run faster.
 Let's add a couple of lines of code to do this:
 
 ~~~
-%ANALYZE   Print statistics for first patient.
-%           Save plots of statistics to disk.
+%ANALYZE   Save plots of inflammation statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
-
-ave_inflammation = mean(patient_data, 1);
 
 % Plot inflammation stats for first patient
 figure('visible', 'off')
