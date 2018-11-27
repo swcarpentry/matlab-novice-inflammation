@@ -27,7 +27,15 @@ is just a text file with a `.m` extension. We've written
 commands to load data from a `.csv` file and
 display some plots of statistics about that data. Let's
 put those commands in a script called `analyze.m`,
-which we'll save in our current directory,`matlab-novice-inflammation`:
+which we'll save in our current directory,`matlab-novice-inflammation`.
+
+To create a new script in the current directory, we use
+```
+edit analyze.m
+```
+{: .language-matlab}
+
+then we type the contents of the script:
 
 ~~~
 patient_data = csvread('data/inflammation-01.csv');
