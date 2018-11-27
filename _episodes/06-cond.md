@@ -344,7 +344,7 @@ Here's our script re-written to use *conditionals*
 to switch between saving plots as images and plotting them interactively:
 
 ~~~
-%ANALYZE   Print statistics for three patients.
+%ANALYZE   Print statistics for all patients.
 %          Save plots of statistics to disk.
 %          Use variable plot_switch to control interactive plotting
 %          vs saving images to disk.
@@ -355,9 +355,9 @@ plot_switch = 0;
 
 files = dir('data/inflammation-*.csv');
 
-% Process first three files only
-for idx = 1:3
-    file_name = files(idx).name;
+% Process each file in turn
+for i = 1:length(files)
+    file_name = files(i).name;
 
     % Generate strings for image names:
     img_name = replace(file_name, '.csv', '.png');

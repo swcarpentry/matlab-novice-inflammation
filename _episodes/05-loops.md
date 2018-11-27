@@ -468,7 +468,7 @@ inflammation-12.csv
 ~~~
 {: .output}
 
-The final task is to generate the file names for the figures we're going to save.
+Another task is to generate the file names for the figures we're going to save.
 Let's name the output file after the data file used to generate the figure.
 So for the data set `inflammation-01.csv` we will call the figure `inflammation-01.png`.
 We can use the `replace` command for this purpose.
@@ -516,14 +516,14 @@ This makes your code more portable which is great for collaboration.
 We're now ready to modify `analyze.m` to process multiple data files:
 
 ~~~
-%ANALYZE   Print statistics for first three patients.
+%ANALYZE   Print statistics for all patients.
 %          Save plots of statistics to disk.
 
 files = dir('data/inflammation-*.csv');
 
-% Process first three files only
-for idx = 1:3
-    file_name = files(idx).name;
+% Process each file in turn
+for i = 1:length(files)
+    file_name = files(i).name;
 	
     % Generate strings for image names:
     img_name  = replace(file_name, '.csv', '.png');
@@ -568,7 +568,7 @@ We run the modified script using its name in the Command Window:
 ~~~
 {: .language-matlab}
 
-The figures output to the `results` directory are as shown below:
+The first three figures output to the `results` directory are as shown below:
 
 <img src="../fig/inflammation-01.png" style="width:500px; height:400px">
 
