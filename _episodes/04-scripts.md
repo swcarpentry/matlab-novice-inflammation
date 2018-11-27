@@ -173,12 +173,9 @@ not displaying the figures could make the script run faster.
 Let's add a couple of lines of code to do this:
 
 ~~~
-%ANALYZE   Print statistics for first patient.
-%           Save plots of statistics to disk.
+%ANALYZE   Save plots of inflammation statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
-
-ave_inflammation = mean(patient_data, 1);
 
 % Plot inflammation stats for first patient
 figure('visible', 'off')
