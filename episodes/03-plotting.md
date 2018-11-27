@@ -339,8 +339,8 @@ calculations or something is wrong with our data.
 
 > ## Plots
 >
-> When we plot just one variable using the `plot` command e.g. `plot(Y)` 
-> what do the x-values represent?
+> When we plot just one variable using the `plot` command e.g. `plot(Y)`
+> or `plot(mean(patient_data, 1))`, what do the x-values represent?
 >
 > > ## Solution
 > > The x-values are the indices of the y-data, so the first y-value is plotted
