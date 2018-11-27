@@ -446,8 +446,8 @@ Let's write this in a temporary script `temp.m` so that it's easier to develop f
 files = dir('data/inflammation-*.csv');
 
 for i = 1:length(files)
-	data_file = files(i).name;
-	disp(data_file)
+	file_name = files(i).name;
+	disp(file_name)
 end
 ```
 {: .language-matlab}
