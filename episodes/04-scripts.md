@@ -161,7 +161,7 @@ ylabel('Inflammation')
 xlabel('Day')
 
 % Save plot in 'results' directory as png image.
-print('results/patient_data-01','-dpng')
+print('results/inflammation-01','-dpng')
 ~~~
 {: .language-matlab}
 
@@ -199,7 +199,7 @@ ylabel('Inflammation')
 xlabel('Day')
 
 % Save plot in 'results' directory as png image.
-print('results/patient_data-01','-dpng')
+print('results/inflammation-01','-dpng')
 
 close()
 ~~~

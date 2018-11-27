@@ -64,7 +64,7 @@ function [out1, out2] = function_name(in1, in2)
     out2 = something else;
 end
 ```
-{: .matlab}
+{: .language-matlab}
 
 Just as we saw with scripts, functions must be _visible_ to MATLAB, i.e.,
 a file containing a function has to be placed in a directory that
@@ -457,9 +457,9 @@ DATA centered around the value.
 > When called, the function should create the three graphs produced in the
 > previous lesson. Whether they are displayed or saved to the `results` directory
 > should be controlled by the value of `plot_switch`
-> i.e. `analyze_dataset('inflammation-01.csv', 0)`
+> i.e. `analyze_dataset('data/inflammation-01.csv', 0)`
 > should display the corresponding graphs for the first data set;
-> `analyze_dataset('inflammation-02.csv', 1)` should save the figures for the second
+> `analyze_dataset('data/inflammation-02.csv', 1)` should save the figures for the second
 > dataset to the `results` directory.
 >
 > Be sure to give your function help text.
@@ -476,9 +476,8 @@ DATA centered around the value.
 > >     %       analyze_dataset('data/inflammation-01.csv', 0)
 > >     
 > >     % Generate string for image name:
-> >     img_name = replace(file_name, 'inflammation', 'patient_data');
-> >     img_name = replace(img_name, '.csv', '.png');
-> >     img_name = fullfile('results', img_name);
+> >     img_name = replace(file_name, '.csv', '.png');
+> >     img_name = replace(img_name, 'data', 'results');
 > >
 > >     patient_data = csvread(file_name);
 > >     
@@ -529,6 +528,7 @@ DATA centered around the value.
 > >
 > > for i = 1:length(files)
 > >     file_name = files(i).name;
+> >     file_name = fullfile('data', file_name);
 > >
 > >     % Process each data set, saving figures to disk.
 > >     analyze_dataset(file_name, 1);
