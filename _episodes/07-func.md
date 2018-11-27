@@ -476,9 +476,8 @@ DATA centered around the value.
 > >     %       analyze_dataset('data/inflammation-01.csv', 0)
 > >     
 > >     % Generate string for image name:
-> >     img_name = replace(file_name, 'inflammation', 'patient_data');
-> >     img_name = replace(img_name, '.csv', '.png');
-> >     img_name = fullfile('results', img_name);
+> >     img_name = replace(file_name, '.csv', '.png');
+> >     img_name = replace(img_name, 'data', 'results');
 > >
 > >     patient_data = csvread(file_name);
 > >     
