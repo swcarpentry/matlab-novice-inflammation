@@ -443,12 +443,20 @@ the name of each of our files.
 Let's write this in a temporary script `temp.m` so that it's easier to develop further:
 
 ```
+%TEMP	Developing code to automate inflammation analysis
+
 files = dir('data/inflammation-*.csv');
 
 for i = 1:length(files)
 	file_name = files(i).name;
 	disp(file_name)
 end
+```
+{: .language-matlab}
+
+
+```
+>> temp
 ```
 {: .language-matlab}
 
@@ -512,6 +520,58 @@ The best way to generate a path to a file in MATLAB is by using the `fullfile` c
 This generates a file path with the correct separators for the platform you're using
 (i.e. forward slash for Linux and macOS, and backslash for Windows).
 This makes your code more portable which is great for collaboration.
+
+Putting these concepts together, we can now generate the paths for the data files,
+and the image files we want to save:
+
+```
+%TEMP	Developing code to automate inflammation analysis
+
+files = dir('data/inflammation-*.csv');
+
+for i = 1:length(files)
+    file_name = files(i).name;
+
+    % Generate string for image name
+    img_name = replace(file_name, '.csv', '.png');
+
+    % Generate path to data file and image file
+    file_name = fullfile('data', file_name);
+    img_name = fullfile('results',img_name);
+    
+    disp(file_name)
+    disp(img_name)
+end
+```
+{: .language-matlab}
+
+```
+data/inflammation-01.csv
+results/inflammation-01.png
+data/inflammation-02.csv
+results/inflammation-02.png
+data/inflammation-03.csv
+results/inflammation-03.png
+data/inflammation-04.csv
+results/inflammation-04.png
+data/inflammation-05.csv
+results/inflammation-05.png
+data/inflammation-06.csv
+results/inflammation-06.png
+data/inflammation-07.csv
+results/inflammation-07.png
+data/inflammation-08.csv
+results/inflammation-08.png
+data/inflammation-09.csv
+results/inflammation-09.png
+data/inflammation-10.csv
+results/inflammation-10.png
+data/inflammation-11.csv
+results/inflammation-11.png
+data/inflammation-12.csv
+results/inflammation-12.png
+```
+{: .output}
 
 We're now ready to modify `analyze.m` to process multiple data files:
 
