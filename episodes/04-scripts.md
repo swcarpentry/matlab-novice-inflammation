@@ -83,8 +83,8 @@ analyze
 > `addpath('path/to/directory')`
 {: .callout}
 
-We've also written commands to create plots, so let's include those in our script too,
-but this time we'll save the figures to disk as image files using the `print` command.
+In this script,
+let's save the figures to disk as image files using the `print` command.
 In order to maintain an organised project we'll save the images
 in the `results` directory:
 
