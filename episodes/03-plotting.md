@@ -145,7 +145,8 @@ axis:
 
 To support this, MATLAB allows us to specify the *dimension* we
 want to work on. If we ask for the average across the dimension 1,
-we get:
+we're asking for one summary value per column, which is the average of all the rows.
+In other words, we're asking for the average inflammation per day for all patients.
 
 ~~~
 >> mean(patient_data, 1)
@@ -165,22 +166,10 @@ ans =
 ~~~
 {: .output}
 
-As a quick check, we can check the size of this array:
 
-~~~
->> size(mean(patient_data, 1))
-~~~
-{: .language-matlab}
-
-~~~
-ans =
-    1    40
-~~~
-{: .output}
-
-The size tells us we have a 1-by-40 vector, so this is the average
-inflammation per day for all patients. If we average across axis 2, we
-get:
+If we average across axis 2, we're asking for one summary value per row,
+which is the average of all the columns.
+In other words, we're asking for the average inflammation per patient over all the days:
 
 ~~~
 >> mean(patient_data, 2)
@@ -253,8 +242,21 @@ ans =
 ~~~
 {: .output}
 
-which is the average inflammation per patient across
-all days.
+We can quickly check the size of this array:
+
+~~~
+>> size(mean(patient_data, 2))
+~~~
+{: .language-matlab}
+
+~~~
+ans =
+    60    1
+~~~
+{: .output}
+
+The size tells us we have a 60-by-1 vector, confirming that this is the average
+inflammation per patient over all days in the trial.
 
 ## Plotting
 The mathematician Richard Hamming once said,
