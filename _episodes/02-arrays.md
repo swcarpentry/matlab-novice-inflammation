@@ -207,5 +207,28 @@ ans =
 >    Finally,
 >    try using the single colon on the matrix `M` above: `M(:)`.
 >    What seems to be happening when we use the single colon operator for slicing?
+>
+> > ## Solution
+> >
+> > 1. Exercises using slicing
+> >
+> > 	```
+> > 	element(4:end)   % Select all elements from 4th to last
+> > 	ans =
+> > 	    'gen'
+> > 	element(1:2:end) % Select every other element starting at first
+> > 	ans =
+> > 	    'oye
+> > 	element(2:end-1) % Select elements starting with 2nd, until last-but-one
+> > 	ans =
+> > 	    'xyge'
+> > 	```
+> > 	{: .language-matlab}
+> >
+> > 2. The colon operator 'flattens' a vector or matrix into a column vector.
+> > The order of the elements in the resulting vector comes from appending 
+> > each column of the original array in turn.
+> > Have a look at the order of the values in `M(:)` vs `M`
+> {: .solution}
 {: .challenge}
 
