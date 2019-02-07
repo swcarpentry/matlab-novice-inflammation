@@ -239,6 +239,17 @@ To remove all variables from the workspace, execute the command `clear` on its o
 > >> age = age - 20
 > ~~~
 > {: .language-matlab}
+>
+> > ## Solution
+> > The first two lines assign the initial values to the variables, so mass = 47.5 and age = 122.
+> > The next line evaluates `mass * 2.0` i.e. `47.5 * 2.0 = 95`,
+> > *then* assigns the result to the variable `mass`. 
+> > The last line evaulates `age - 20` i.e. `122 - 20`, *then* assigns the result to the variable `age`.
+> > So the final values are mass = 95, and age = 102.
+> >
+> > The key point to understand here is that the expression to the right of the `=` sign is evaluated first,
+> > and the result is then assigned to the variable specified to the left of the `=` sign.
+> {: .solution}
 {: .challenge}
 
 
