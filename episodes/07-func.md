@@ -500,7 +500,7 @@ DATA centered around the value.
 > >     ylabel('min')
 > >     
 > >     if plot_switch == 1
-> >         print('-dpng', img_name)
+> >         print(img_name, '-dpng')
 > >         close()
 > >     end
 > >  end
