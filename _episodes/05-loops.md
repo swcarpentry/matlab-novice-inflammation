@@ -615,7 +615,7 @@ for i = 1:length(files)
     ylabel('Inflammation')
     xlabel('Day')
 
-    print('-dpng', img_name)
+    print(img_name, '-dpng')
     close()
 end
 ~~~
