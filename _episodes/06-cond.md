@@ -272,21 +272,21 @@ sum of negative values: -6
 We can even put one loop inside another:
 
 ~~~
-for consonant = 'bcd'
-    for vowel = 'ae'
-        disp (strcat(consonant, vowel))
+for number = 1:3
+    for letter = 'ab'
+        disp([num2str(number), letter])
     end
 end
 ~~~
 {: .language-matlab}
 
 ~~~
-ba
-be
-ca
-ce
-da
-de
+1a
+1b
+2a
+2b
+3a
+3b
 ~~~
 {: .output}
 
@@ -299,16 +299,17 @@ de
 >
 > > ## Solution
 > > ~~~
-> > for vowel = 'ae'
-> >     for consonant = 'bcd'
-> >         disp (strcat(consonant, vowel))
+> > for letter = 'ab'
+> >     for number = 1:3
+> >         disp([num2str(number), letter])
 > >     end
 > > end
 > > ~~~
 > > {: .language-matlab}
+> >
 > > Reordering the nested loops changes the output. In the new code,
-> > the consonants loop happens within the vowel loop, so while vowel
-> > = a, consonant takes the values b, c, and d in turn.
+> > the number loop happens within the letter loop, so while letter
+> > = a, number takes the values 1, 2, and 3 in turn.
 > {: .solution}
 {: .challenge}
 
