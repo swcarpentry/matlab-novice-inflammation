@@ -318,7 +318,7 @@ If we would rather display the plots interactively,
 we would have to remove (or *comment out*) the following code:
 
 ~~~
-print('-dpng', img_name)
+print(img_name,'-dpng')
 close()
 ~~~
 {: .language-matlab}
@@ -394,7 +394,7 @@ for i = 1:length(files)
     xlabel('Day')
 
     if plot_switch == 1
-        print('-dpng', img_name)
+        print(img_name, '-dpng')
         close()
     end
 
