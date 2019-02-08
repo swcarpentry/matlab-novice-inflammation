@@ -1,7 +1,7 @@
 ---
 title: Repeating With Loops
-teaching: 30
-exercises: 0
+teaching: 65
+exercises: 10
 questions:
 - "How can I repeat the same operations on multiple values?"
 objectives:

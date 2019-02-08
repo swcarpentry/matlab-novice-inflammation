@@ -1,6 +1,6 @@
 ---
 title: Creating Functions
-teaching: 30
+teaching: 50
 exercises: 0
 questions:
 - "How can I teach MATLAB how to do new things?"
