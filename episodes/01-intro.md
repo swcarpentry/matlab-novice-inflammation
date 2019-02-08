@@ -155,7 +155,7 @@ we can print an *array* of values (i.e. one argument),
 which we create using square brackets,
 and recall that an array must contain values all of the same type.
 In this case we convert the number to a string so that we
-can print an arry of characters.
+can print an array of characters.
 
 We can change the value of a variable by assigning it a new one:
 ~~~
