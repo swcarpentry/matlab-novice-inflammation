@@ -1,7 +1,7 @@
 ---
 title: Creating Functions
-teaching: 50
-exercises: 0
+teaching: 45
+exercises: 20
 questions:
 - "How can I teach MATLAB how to do new things?"
 objectives:
