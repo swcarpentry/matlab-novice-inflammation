@@ -1,6 +1,6 @@
 ---
 title: Writing MATLAB Scripts
-teaching: 45
+teaching: 35
 exercises: 0
 questions:
 - "How can I save and re-use my programs?"
