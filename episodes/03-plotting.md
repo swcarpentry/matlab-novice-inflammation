@@ -361,7 +361,7 @@ calculations or something is wrong with our data.
 >
 > > ## Solution
 > > ```
-> > >> plot(std(patient_data, 0, 2))
+> > >> plot(std(patient_data, 0, 1))
 > > >> xlabel('Day of trial')
 > > >> ylabel('Inflammation')
 > > >> title('Standard deviation across all patients')
