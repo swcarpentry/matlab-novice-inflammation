@@ -41,12 +41,20 @@ then we type the contents of the script:
 patient_data = csvread('data/inflammation-01.csv');
 
 % Plot average inflammation per day
+figure
 plot(mean(patient_data, 1))
 title('Daily average inflammation')
 xlabel('Day of trial')
 ylabel('Inflammation')
 ~~~
 {: .language-matlab}
+
+Note that we are explicitly creating a new figure window using the `figure` command.
+MATLAB's plotting commands only create a new figure window if one doesn't already exist:
+the default behaviour is to reuse the current figure window as we saw in the previous episode.
+Explicitly creating a new figure window avoids any unexpected results from
+plotting on top of existing figures.
+
 
 You can get MATLAB to run those commands by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
@@ -64,7 +72,7 @@ analyze
 > We do this by adding directories to the MATLAB **path**.
 > The *path* is a list of directories MATLAB will search through to locate
 > files.
-> 
+>
 > To add a directory to the MATLAB path,
 > we go to the `Home` tab,
 > click on `Set Path`,
@@ -90,6 +98,7 @@ in the `results` directory:
 
 ~~~
 % Plot average inflammation per day
+figure
 plot(mean(patient_data, 1))
 title('Daily average inflammation')
 xlabel('Day of trial')
@@ -106,7 +115,7 @@ print('results/average','-dpng')
 > This is another plus of writing scripts: you can comment
 > your code to make it easier to understand when you come
 > back to it after a while.
-> 
+>
 > A comment can appear on any line, but be aware that the first line
 > or block of comments in a script or function is used by MATLAB as the
 > **help text**.
@@ -142,6 +151,7 @@ As before we'll save the images in the `results` directory.
 patient_data = csvread('data/inflammation-01.csv');
 
 % Plot inflammation stats for first patient
+figure
 subplot(1, 3, 1)
 plot(mean(patient_data, 1))
 title('Average')
@@ -210,7 +220,7 @@ MATLAB will open up an empty figure window.
 Try this on the command line:
 
 ~~~
-figure()
+figure
 ~~~
 {: .language-matlab}
 
