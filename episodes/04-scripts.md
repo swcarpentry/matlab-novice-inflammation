@@ -50,13 +50,20 @@ ylabel('Inflammation')
 {: .language-matlab}
 
 Note that we are explicitly creating a new figure window using the `figure` command.
+
+Try this on the command line:
+
+~~~
+figure
+~~~
+{: .language-matlab}
+
 MATLAB's plotting commands only create a new figure window if one doesn't already exist:
 the default behaviour is to reuse the current figure window as we saw in the previous episode.
-Explicitly creating a new figure window avoids any unexpected results from
+Explicitly creating a new figure window in the script avoids any unexpected results from
 plotting on top of existing figures.
 
-
-You can get MATLAB to run those commands by typing in the name
+You can get MATLAB to run the commands in the scrit by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
 
 ~~~
@@ -212,15 +219,6 @@ xlabel('Day')
 print('results/inflammation-01','-dpng')
 
 close()
-~~~
-{: .language-matlab}
-
-If we call the `figure` function without any options,
-MATLAB will open up an empty figure window.
-Try this on the command line:
-
-~~~
-figure
 ~~~
 {: .language-matlab}
 
