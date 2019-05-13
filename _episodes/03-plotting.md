@@ -1,6 +1,6 @@
 ---
 title: Plotting data
-teaching: 35
+teaching: 30
 exercises: 5
 questions:
 - "How can I process and visualize my data?"
