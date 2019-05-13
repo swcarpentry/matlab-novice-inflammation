@@ -1,6 +1,6 @@
 ---
 title: Arrays
-teaching: 20
+teaching: 15
 exercises: 5
 questions:
 - "How can I access subsets of data?"

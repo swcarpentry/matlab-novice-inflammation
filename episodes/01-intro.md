@@ -1,7 +1,7 @@
 ---
 title: Working With Variables
-teaching: 75
-exercises: 0
+teaching: 60
+exercises: 5
 questions:
 - "How can I store values and do simple calculations with them?"
 objectives:
