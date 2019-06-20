@@ -42,7 +42,7 @@ The data sets are stored in
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
-[`inflammation-01.csv`](data/inflammation-01.csv), look like this:
+[`inflammation-01.csv`]({{ page.root }}/data/inflammation-01.csv), look like this:
 
 ~~~
 0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
