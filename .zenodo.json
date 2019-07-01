@@ -1,0 +1,133 @@
+{
+  "contributors": [
+    {
+      "type": "Editor",
+      "name": "Gerard Capes"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Greg Wilson",
+      "orcid": "0000-0001-8659-8979"
+    },
+    {
+      "name": "Gerard Capes"
+    },
+    {
+      "name": "Ashwin Srinath"
+    },
+    {
+      "name": "Raniere Silva"
+    },
+    {
+      "name": "Ashwin Srinath"
+    },
+    {
+      "name": "Andrew Boughton",
+      "orcid": "0000-0002-0318-4912"
+    },
+    {
+      "name": "Isabell Kiral-Kornek"
+    },
+    {
+      "name": "gcapes"
+    },
+    {
+      "name": "John Pearson",
+      "orcid": "0000-0002-9876-7837"
+    },
+    {
+      "name": "Rémi Emonet",
+      "orcid": "0000-0002-1870-1329"
+    },
+    {
+      "name": "Seb James",
+      "orcid": "0000-0003-0208-0588"
+    },
+    {
+      "name": "Jared Berghold"
+    },
+    {
+      "name": "Fran Navarro"
+    },
+    {
+      "name": "Isabell Kiral",
+      "orcid": "0000-0003-4007-7590"
+    },
+    {
+      "name": "Trevor Bekolay",
+      "orcid": "0000-0001-5215-7999"
+    },
+    {
+      "name": "John Blischak",
+      "orcid": "0000-0003-2634-9879"
+    },
+    {
+      "name": "Jared Berghold"
+    },
+    {
+      "name": "Jonah Duckles",
+      "orcid": "0000-0002-8985-3119"
+    },
+    {
+      "name": "Remi Daigle"
+    },
+    {
+      "name": "Adam Thomas"
+    },
+    {
+      "name": "Amy Boyle"
+    },
+    {
+      "name": "Ian Hawke"
+    },
+    {
+      "name": "Jake Lever"
+    },
+    {
+      "name": "Jason Keith Moore",
+      "orcid": "0000-0002-8698-6143"
+    },
+    {
+      "name": "Luca Di Stasio",
+      "orcid": "0000-0002-9261-301X"
+    },
+    {
+      "name": "Alex Kotliarskyi"
+    },
+    {
+      "name": "Bill Mills",
+      "orcid": "0000-0002-5887-6270"
+    },
+    {
+      "name": "Carolyn Voter",
+      "orcid": "0000-0002-4023-7390"
+    },
+    {
+      "name": "dounia"
+    },
+    {
+      "name": "Erin Alison Becker",
+      "orcid": "0000-0002-6832-0233"
+    },
+    {
+      "name": "James A. Desjardins"
+    },
+    {
+      "name": "Mike Croucher"
+    },
+    {
+      "name": "Mike Jackson",
+      "orcid": "0000-0002-1765-8234"
+    },
+    {
+      "name": "Piotr Banaszkiewicz"
+    },
+    {
+      "name": "Richard"
+    }
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  }
+}
