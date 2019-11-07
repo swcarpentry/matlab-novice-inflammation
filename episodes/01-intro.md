@@ -374,7 +374,8 @@ inside an array:
 {: .language-matlab}
 
 ~~~
-ans = double
+ans =
+    'double'
 ~~~
 {: .output}
 
