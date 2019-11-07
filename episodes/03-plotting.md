@@ -87,9 +87,9 @@ standard deviation.
 
 ~~~
 >> disp('Maximum inflammation:)
->> disp(max(patient_data(:))
+>> disp(max(patient_data(:)))
 >> disp('Minimum inflammation:')
->> disp(min(patient_data(:))
+>> disp(min(patient_data(:)))
 >> disp('Standard deviation:')
 >> disp(std(patient_data(:)))
 ~~~
