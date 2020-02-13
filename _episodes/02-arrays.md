@@ -12,7 +12,9 @@ keypoints:
 ---
 
 ## Array indexing
-Let's create an 8-by-8 "magic" Matrix:
+Now that we understand what kind of data can be stored in an array, we need to learn the proper syntax for working with arrays in MATLAB. To do this we will begin by discussing array indexing, this is the method by which we can select one or more different elements of an array. A solid understanding of array indexing will greatly assist our ability to organize our data.
+
+Let's start by creating an 8-by-8 "magic" Matrix:
 
 ~~~
 >> M = magic(8)
