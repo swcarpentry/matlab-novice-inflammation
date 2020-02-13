@@ -311,7 +311,6 @@ inflammation per day across all patients.
 ~~~
 >> plot(max(patient_data, [], 1))
 >> title('Maximum inflammation per day')
->> title('Daily average inflammation')
 >> ylabel('Inflammation')
 >> xlabel('Day of trial')
 ~~~
