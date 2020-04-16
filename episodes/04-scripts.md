@@ -26,12 +26,12 @@ also write several commands in a _script_. A MATLAB script
 is just a text file with a `.m` extension. We've written
 commands to load data from a `.csv` file and
 display some plots of statistics about that data. Let's
-put those commands in a script called `analyze.m`,
+put those commands in a script called `plot_patient1.m`,
 which we'll save in our current directory,`matlab-novice-inflammation`.
 
 To create a new script in the current directory, we use
 ```
-edit analyze.m
+edit plot_patient1.m
 ```
 {: .language-matlab}
 
@@ -67,7 +67,7 @@ You can get MATLAB to run the commands in the scrit by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
 
 ~~~
-analyze
+plot_patient1
 ~~~
 {: .language-matlab}
 
@@ -137,23 +137,23 @@ print('results/average','-dpng')
 Let's write an H1 line at the top of our script:
 
 ```
-%ANALYZE   Save plots of inflammation statistics to disk.
+%PLOT_PATIENT1   Save plots of inflammation statistics to disk.
 ```
 {: .language-matlab}
 
 We can then get help for our script by running
 
 ```
-help analyze
+help plot_patient1
 ```
 {: .language-matlab}
 
-Let's modify our `analyze` script so that it creates and saves sub-plots,
+Let's modify our `plot_patient1` script so that it creates and saves sub-plots,
 rather than individual plots.
 As before we'll save the images in the `results` directory.
 
 ~~~
-%ANALYZE   Save plots of inflammation statistics to disk.
+%PLOT_PATIENT1   Save plots of inflammation statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 
@@ -190,7 +190,7 @@ not displaying the figures could make the script run faster.
 Let's add a couple of lines of code to do this:
 
 ~~~
-%ANALYZE   Save plots of inflammation statistics to disk.
+%PLOT_PATIENT1   Save plots of inflammation statistics to disk.
 
 patient_data = csvread('data/inflammation-01.csv');
 
