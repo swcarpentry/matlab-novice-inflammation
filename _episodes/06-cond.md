@@ -313,7 +313,7 @@ end
 > {: .solution}
 {: .challenge}
 
-Currently, our script `analyze.m` reads in data, analyzes it,
+Currently, our script `plot_all.m` reads in data, analyzes it,
 and saves plots of the results.
 If we would rather display the plots interactively,
 we would have to remove (or *comment out*) the following code:
@@ -345,7 +345,7 @@ Here's our script re-written to use *conditionals*
 to switch between saving plots as images and plotting them interactively:
 
 ~~~
-%ANALYZE   Print statistics for all patients.
+%PLOT_ALL  Print statistics for all patients.
 %          Save plots of statistics to disk.
 %          Use variable plot_switch to control interactive plotting
 %          vs saving images to disk.

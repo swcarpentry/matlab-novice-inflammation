@@ -451,29 +451,33 @@ DATA centered around the value.
 
 > ## Convert a script into a function
 >
-> Convert the script from the previous episode into a function called `analyze_dataset`.
+> Write a function called `plot_dataset` which plots the three summary graphs
+> (max, min, std) for a given inflammation data file.
+>
 > The function should operate on a single data file,
 > and should have two parameters: `file_name` and `plot_switch`.
 > When called, the function should create the three graphs produced in the
 > previous lesson. Whether they are displayed or saved to the `results` directory
 > should be controlled by the value of `plot_switch`
-> i.e. `analyze_dataset('data/inflammation-01.csv', 0)`
+> i.e. `plot_dataset('data/inflammation-01.csv', 0)`
 > should display the corresponding graphs for the first data set;
-> `analyze_dataset('data/inflammation-02.csv', 1)` should save the figures for the second
+> `plot_dataset('data/inflammation-02.csv', 1)` should save the figures for the second
 > dataset to the `results` directory.
+>
+> You should mostly be reusing code from the `plot_all` script.
 >
 > Be sure to give your function help text.
 >
 > > ## Solution
 > > ```
-> > function analyze_dataset(file_name, plot_switch)
-> >     %ANALYZE_DATASET    Perform analysis for named data file.
+> > function plot_dataset(file_name, plot_switch)
+> >     %PLOT_DATASET    Perform analysis for named data file.
 > >     %   Create figures to show average, max and min inflammation.
 > >     %   Display plots in GUI using plot_switch = 0,
 > >     %   or save to disk using plot_switch = 1.
 > >     %
 > >     %   Example:
-> >     %       analyze_dataset('data/inflammation-01.csv', 0)
+> >     %       plot_dataset('data/inflammation-01.csv', 0)
 > >     
 > >     % Generate string for image name:
 > >     img_name = replace(file_name, '.csv', '.png');
@@ -511,8 +515,8 @@ DATA centered around the value.
 
 > ## Automate the analysis for all files
 >
-> Write a script called `process_all` which loops over all of the
-> data files, and calls the function `analyze_dataset` for each file
+> Modify the `plot_all` script so that as it loops over the
+> data files, it calls the function `plot_dataset` for each file
 > in turn.
 > Your script should save the image files to the 'results' directory
 > rather than displaying the figures in the MATLAB GUI.
@@ -520,7 +524,7 @@ DATA centered around the value.
 > > ## Solution
 > >
 > > ```
-> > %PROCESS_ALL    Analyse all inflammation datasets
+> > %PLOT_ALL    Analyse all inflammation datasets
 > > %   Create figures to show average, max and min inflammation.
 > > %   Save figures to 'results' directory.
 > >
@@ -531,7 +535,7 @@ DATA centered around the value.
 > >     file_name = fullfile('data', file_name);
 > >
 > >     % Process each data set, saving figures to disk.
-> >     analyze_dataset(file_name, 1);
+> >     plot_dataset(file_name, 1);
 > > end
 > > ```
 > > {: .language-matlab}
