@@ -385,9 +385,10 @@ u
 
 ## Analyzing patient data from multiple files
 We now have almost everything we need to process
-multiple data files with our `analyze` script.
+multiple data files using a loop and the plotting code in our
+`plot_patient1` script.
 
-We need to generate a list of data files to process,
+We still need to generate a list of data files to process,
 and then we can use a loop to repeat the analysis for each file.
 
 We can use the `dir` command to return a **structure array** containing
@@ -440,10 +441,10 @@ To get the modification date of the third file, we can do:
 
 A good first step towards processing multiple files is to write a loop which prints
 the name of each of our files.
-Let's write this in a temporary script `temp.m` so that it's easier to develop further:
+Let's write this in a script `plot_all.m` which we will then develop further:
 
 ```
-%TEMP	Developing code to automate inflammation analysis
+%PLOT_ALL	Developing code to automate inflammation analysis
 
 files = dir('data/inflammation-*.csv');
 
@@ -456,7 +457,7 @@ end
 
 
 ```
->> temp
+>> plot_all
 ```
 {: .language-matlab}
 
@@ -525,7 +526,7 @@ Putting these concepts together, we can now generate the paths for the data file
 and the image files we want to save:
 
 ```
-%TEMP	Developing code to automate inflammation analysis
+%PLOT_ALL	Developing code to automate inflammation analysis
 
 files = dir('data/inflammation-*.csv');
 
@@ -573,11 +574,11 @@ results/inflammation-12.png
 ```
 {: .output}
 
-We're now ready to modify `analyze.m` to process multiple data files:
+We're now ready to modify `plot_all.m` to actually process multiple data files:
 
 ~~~
-%ANALYZE   Print statistics for all patients.
-%          Save plots of statistics to disk.
+%PLOT_ALL   Print statistics for all patients.
+%           Save plots of statistics to disk.
 
 files = dir('data/inflammation-*.csv');
 
@@ -624,7 +625,7 @@ end
 We run the modified script using its name in the Command Window:
 
 ~~~
->> analyze
+>> plot_all
 ~~~
 {: .language-matlab}
 
