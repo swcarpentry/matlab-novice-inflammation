@@ -63,7 +63,7 @@ the default behaviour is to reuse the current figure window as we saw in the pre
 Explicitly creating a new figure window in the script avoids any unexpected results from
 plotting on top of existing figures.
 
-You can get MATLAB to run the commands in the scrit by typing in the name
+You can get MATLAB to run the commands in the script by typing in the name
 of the script (without the `.m`) in the MATLAB command line:
 
 ~~~
