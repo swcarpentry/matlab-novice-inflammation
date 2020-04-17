@@ -11,7 +11,7 @@ objectives:
 - "Read tabular data from a file into a program."
 keypoints:
 - "MATLAB stores data in arrays."
-- "Use `csvread` to read tabular CSV data into a program."
+- "Use `readmatrix` to read tabular CSV data into a program."
 ---
 
 
@@ -300,8 +300,8 @@ sparing us the grisly detail.
 If we know what our data looks like (in this case, we have comma-separated values)
 and we're unsure about what command we want to use,
 we can search the documentation.
-Type `read csv` into the documentation toolbar.
-MATLAB suggests using `csvread`.
+Type `read matrix` into the documentation toolbar.
+MATLAB suggests using `readmatrix`.
 If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
@@ -309,7 +309,7 @@ To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press <kbd>Enter</kbd>:
 
 ~~~
->> patient_data = csvread('data/inflammation-01.csv');
+>> patient_data = readmatrix('data/inflammation-01.csv');
 ~~~
 {: .language-matlab}
 
@@ -319,15 +319,15 @@ try re-running the command without the semi-colon to find out why.
 You should see a wall of numbers printed, which is the data from the file.
 
 ~~~
->> patient_data = csvread('data/inflammation-01.csv')
+>> patient_data = readmatrix('data/inflammation-01.csv')
 ~~~
 {: .language-matlab}
 
-The expression `csvread(...)` is a
+The expression `readmatrix(...)` is a
 [function call]({{ page.root }}/reference.html#function-call).
 Functions generally need [arguments]({{ page.root }}/reference.html#argument)
 to run.
-In the case of the `csvread` function, we need to provide a single
+In the case of the `readmatrix` function, we need to provide a single
 argument: the name of the file we want to read data from. This
 argument needs to be a character string or
 [string]({{ page.root }}/reference.html#string), so we put it in quotes.

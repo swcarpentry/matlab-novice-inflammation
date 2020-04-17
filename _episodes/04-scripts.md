@@ -38,7 +38,7 @@ edit plot_patient1.m
 then we type the contents of the script:
 
 ~~~
-patient_data = csvread('data/inflammation-01.csv');
+patient_data = readmatrix('data/inflammation-01.csv');
 
 % Plot average inflammation per day
 figure
@@ -155,7 +155,7 @@ As before we'll save the images in the `results` directory.
 ~~~
 %PLOT_PATIENT1   Save plots of inflammation statistics to disk.
 
-patient_data = csvread('data/inflammation-01.csv');
+patient_data = readmatrix('data/inflammation-01.csv');
 
 % Plot inflammation stats for first patient
 figure
@@ -192,7 +192,7 @@ Let's add a couple of lines of code to do this:
 ~~~
 %PLOT_PATIENT1   Save plots of inflammation statistics to disk.
 
-patient_data = csvread('data/inflammation-01.csv');
+patient_data = readmatrix('data/inflammation-01.csv');
 
 % Plot inflammation stats for first patient
 figure('visible', 'off')
