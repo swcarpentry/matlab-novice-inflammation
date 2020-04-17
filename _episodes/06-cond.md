@@ -367,7 +367,7 @@ for i = 1:length(files)
     file_name = fullfile('data', filename);
     img_name  = fullfile('results', img_name);
 
-    patient_data = csvread(file_name);
+    patient_data = readmatrix(file_name);
 
     % Create figures
     if plot_switch == 1

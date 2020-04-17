@@ -319,7 +319,7 @@ ans =
 That looks right, so let's try out `center` function on our real data:
 
 ~~~
->> data = csvread('data/inflammation-01.csv');
+>> data = readmatrix('data/inflammation-01.csv');
 >> centered = center(data(:), 0)
 ~~~
 {: .language-matlab}
@@ -483,7 +483,7 @@ DATA centered around the value.
 > >     img_name = replace(file_name, '.csv', '.png');
 > >     img_name = replace(img_name, 'data', 'results');
 > >
-> >     patient_data = csvread(file_name);
+> >     patient_data = readmatrix(file_name);
 > >     
 > >     if plot_switch == 1
 > >     	figure('visible', 'off')
