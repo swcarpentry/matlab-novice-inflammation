@@ -259,7 +259,9 @@ Before we get started, let's create some directories to help organise this proje
 > ## Tip: Good Enough Practices for Scientific Computing
 >
 > [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-> gives the following recommendations for project organization:
+> is a paper written by researchers involved with the Carpentries,
+> which covers basic workflow skills for research computing.
+> It recommends the following for project organization:
 >
 > 1. Put each project in its own directory, which is named after the project.
 > 2. Put text documents associated with the project in the `doc` directory.
