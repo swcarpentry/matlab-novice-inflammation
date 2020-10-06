@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Navigate among important sections of the MATLAB environment."
 - "Assign values to variables."
-- "Identify what kind of data is stored in MATLAB arrays."
+- "Identify what type of data is stored in MATLAB arrays."
 - "Read tabular data from a file into a program."
 keypoints:
 - "MATLAB stores data in arrays."
@@ -366,7 +366,7 @@ Normally, MATLAB arrays can't store elements of different data types. For
 instance, a MATLAB array can't store both a `float` and a `char`. To do that,
 you have to use a [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html).
 
-We can use the `class` function to find out what kind of data lives
+We can use the `class` function to find out what type of data lives
 inside an array:
 
 ~~~
