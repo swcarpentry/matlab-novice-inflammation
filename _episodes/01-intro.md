@@ -298,7 +298,7 @@ something that we'd rather not spend a lot of time thinking about.
 Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently,
 sparing us the grisly detail.
 
-If we know what our data looks like (in this case, we have comma-separated values)
+If we know what our data looks like (in this case, we have a matrix stored as comma-separated values)
 and we're unsure about what command we want to use,
 we can search the documentation.
 Type `read matrix` into the documentation toolbar.
