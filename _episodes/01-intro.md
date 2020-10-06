@@ -380,7 +380,7 @@ ans =
 ~~~
 {: .output}
 
-This output tells us that `patient_data` refers to an array of
+This output tells us that `patient_data` contains
 double precision floating-point numbers. This is the default numeric
 data type in MATLAB. If you want to store other numeric data types,
 you need to tell MATLAB explicitly. For example, the command,
