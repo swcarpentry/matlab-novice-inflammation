@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Navigate among important sections of the MATLAB environment."
 - "Assign values to variables."
-- "Identify what kind of data is stored in MATLAB arrays."
+- "Identify what type of data is stored in MATLAB arrays."
 - "Read tabular data from a file into a program."
 keypoints:
 - "MATLAB stores data in arrays."
@@ -259,7 +259,9 @@ Before we get started, let's create some directories to help organise this proje
 > ## Tip: Good Enough Practices for Scientific Computing
 >
 > [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-> gives the following recommendations for project organization:
+> is a paper written by researchers involved with the Carpentries,
+> which covers basic workflow skills for research computing.
+> It recommends the following for project organization:
 >
 > 1. Put each project in its own directory, which is named after the project.
 > 2. Put text documents associated with the project in the `doc` directory.
@@ -279,8 +281,9 @@ A final step is to set the *current folder* in MATLAB to our project folder.
 Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
 (`matlab-novice-inflammation`).
 
-In order to check the current directory, we can run `pwd` to print the working directory.
-A second check we can do is to run the `ls` command in the Command Window ---
+In order to check the current directory, we can run `pwd` (print working directory).
+A second check we can do is to run the `ls` (list) command in the Command Window to list the contents
+of the working directory ---
 we should get the following output:
 
 ```
@@ -297,7 +300,7 @@ something that we'd rather not spend a lot of time thinking about.
 Fortunately, MATLAB comes with a number of high-level tools to do these things efficiently,
 sparing us the grisly detail.
 
-If we know what our data looks like (in this case, we have comma-separated values)
+If we know what our data looks like (in this case, we have a matrix stored as comma-separated values)
 and we're unsure about what command we want to use,
 we can search the documentation.
 Type `read matrix` into the documentation toolbar.
@@ -365,7 +368,7 @@ Normally, MATLAB arrays can't store elements of different data types. For
 instance, a MATLAB array can't store both a `float` and a `char`. To do that,
 you have to use a [Cell Array](http://www.mathworks.com/help/matlab/cell-arrays.html).
 
-We can use the `class` function to find out what kind of data lives
+We can use the `class` function to find out what type of data lives
 inside an array:
 
 ~~~
@@ -379,7 +382,7 @@ ans =
 ~~~
 {: .output}
 
-This output tells us that `patient_data` refers to an array of
+This output tells us that `patient_data` contains
 double precision floating-point numbers. This is the default numeric
 data type in MATLAB. If you want to store other numeric data types,
 you need to tell MATLAB explicitly. For example, the command,
