@@ -279,8 +279,9 @@ A final step is to set the *current folder* in MATLAB to our project folder.
 Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
 (`matlab-novice-inflammation`).
 
-In order to check the current directory, we can run `pwd` to print the working directory.
-A second check we can do is to run the `ls` command in the Command Window ---
+In order to check the current directory, we can run `pwd` (print working directory).
+A second check we can do is to run the `ls` (list) command in the Command Window to list the contents
+of the working directory ---
 we should get the following output:
 
 ```
