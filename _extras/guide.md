@@ -1,7 +1,5 @@
 ---
-layout: page
-title: "Instructor Notes"
-permalink: /guide/
+title: Instructor Notes
 ---
 # Lesson design
 The timings for this lesson are reasonably accurate, but will be updated based on experience.
