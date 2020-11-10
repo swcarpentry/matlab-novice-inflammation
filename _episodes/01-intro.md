@@ -110,7 +110,7 @@ In a similar way, we can create matrices using semi-colons to separate rows:
 
 ```
 >> b = [a; 4, 5, 6]
-``` 
+```
 {: .language-matlab}
 
 
@@ -243,7 +243,7 @@ To remove all variables from the workspace, execute the command `clear` on its o
 > > ## Solution
 > > The first two lines assign the initial values to the variables, so mass = 47.5 and age = 122.
 > > The next line evaluates `mass * 2.0` i.e. `47.5 * 2.0 = 95`,
-> > *then* assigns the result to the variable `mass`. 
+> > *then* assigns the result to the variable `mass`.
 > > The last line evaulates `age - 20` i.e. `122 - 20`, *then* assigns the result to the variable `age`.
 > > So the final values are mass = 95, and age = 102.
 > >
@@ -289,7 +289,7 @@ we should get the following output:
 ```
 data   results
 ```
-{: .language-matlab}
+{: .output}
 
 
 
@@ -357,7 +357,7 @@ that has 60 rows and 40 columns.
 
 MATLAB stores *all* data in the form of multi-dimensional arrays. For example:
 
-* Numbers, or *scalars* are represented as two dimensional arrays with only one row and one column, as are single characters. 
+* Numbers, or *scalars* are represented as two dimensional arrays with only one row and one column, as are single characters.
 * Lists of numbers, or *vectors* are two dimensional as well, but the value of one of the dimensions equals one.
   By default vectors are row vectors, meaning they have one row and as many columns as there are elements in the vector.
 * Tables of numbers, or *matrices* are arrays with more than one column and more than one row.
