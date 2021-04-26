@@ -188,8 +188,8 @@ m
 This is much more robust code,
 as it can deal identically with
 words of arbitrary length.
-Loops are not only for working with strings, 
-they allow us to do repetitive 
+Loops are not only for working with strings,
+they allow us to do repetitive
 calculations regardless of data type.
 Here's another loop that
 calculates the sum of all even numbers between 1 and 10:
@@ -232,23 +232,22 @@ It's worth tracing the execution of this little program step by step.
 > ![debugger-demo]({{ page.root }}/fig/debugger.gif)
 {: .callout}
 
-Since we want to sum only even numbers, 
+Since we want to sum only even numbers,
 the loop index `even_number` starts at 2
-
 and increases by 2 with every iteration.
 When we enter the loop, `total` is zero -
 the value assigned to it beforehand.
-The first time through, the loop body adds 
+The first time through, the loop body adds
 the value of the first even number 2 to the
-old value of `total`, producing 2, and updates 
+old value of `total`, producing 2, and updates
 `total` to refer to that new value.
 The next time around, `even_number` is 4,
 and `total` is 2,
-so `total` is updated to 6. 
+so `total` is updated to 6.
 After `even_number` reaches the final value, 10,
-`total` is 30; 
+`total` is 30;
 since this is the end of the range for `even_number`
-the loop finishes and the `disp` statements give us the 
+the loop finishes and the `disp` statements give us the
 final answer.
 
 Note that a loop variable is just a variable
@@ -293,12 +292,12 @@ and we can re-use variables previously defined as loop variables as well:
 > > % Loop to perform exponentiation
 > > b = 4;    % base
 > > x = 5;    % exponent
-> > 
+> >
 > > result=1;
 > > for i = 1:x
 > >     result = result * b;
 > > end
-> > 
+> >
 > > disp([num2str(b), '^', num2str(x), ' = ', num2str(result)])
 > > ```
 > > {: .language-matlab}
@@ -325,7 +324,7 @@ and we can re-use variables previously defined as loop variables as well:
 > > % spell a string adding one letter at a time using a loop
 > >
 > > word = 'aluminium';
-> > 
+> >
 > > for letter = 1:length(word)
 > >     disp(word(1:letter))
 > > end
@@ -333,7 +332,7 @@ and we can re-use variables previously defined as loop variables as well:
 > > {: .language-matlab}
 > {: .solution}
  {: .challenge}
- 
+
 > ## Looping in Reverse
 >
 > In MATLAB, the colon operator (`:`) accepts a
@@ -378,9 +377,9 @@ and we can re-use variables previously defined as loop variables as well:
 > > ## Solution
 > > ```
 > > % Spell a string in reverse using a loop
-> > 
+> >
 > > word = 'aluminium';
-> > 
+> >
 > > for letter = length(word):-1:1
 > >     disp(word(letter))
 > > end
@@ -408,7 +407,7 @@ information about a single file in the form of named **fields**.
 {: .language-matlab}
 
 ```
-files = 
+files =
   12×1 struct array with fields:
     name
     folder
@@ -545,7 +544,7 @@ for i = 1:length(files)
     % Generate path to data file and image file
     file_name = fullfile('data', file_name);
     img_name = fullfile('results',img_name);
-    
+
     disp(file_name)
     disp(img_name)
 end
@@ -591,14 +590,14 @@ files = dir('data/inflammation-*.csv');
 % Process each file in turn
 for i = 1:length(files)
     file_name = files(i).name;
-	
+
     % Generate strings for image names:
     img_name  = replace(file_name, '.csv', '.png');
 
     % Generate path to data file and image file
     file_name = fullfile('data', file_name);
     img_name  = fullfile('results', img_name);
-	
+
     patient_data = readmatrix(file_name);
 
     % Create figures
