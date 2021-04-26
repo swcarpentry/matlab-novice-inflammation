@@ -188,18 +188,22 @@ m
 This is much more robust code,
 as it can deal identically with
 words of arbitrary length.
+Loops are not only for working with strings,
+they allow us to do repetitive
+calculations regardless of data type.
 Here's another loop that
-repeatedly updates the variable `len`:
+calculates the sum of all even numbers between 1 and 10:
 
 ~~~
 %LOOP_DEMO   Demo script to explain loops
 
-len = 0
-for vowel = 'aeiou'
-    len = len + 1;
+total = 0;
+for even_number = 2 : 2 : 10
+    total = total + even_number;
 end
 
-disp(['Number of vowels: ', num2str(len)])
+disp('The sum of all even numbers between 1 and 10 is:')
+disp(total)
 ~~~
 {: .language-matlab}
 
@@ -228,22 +232,23 @@ It's worth tracing the execution of this little program step by step.
 > ![debugger-demo]({{ page.root }}/fig/debugger.gif)
 {: .callout}
 
-Since there are five characters in "aeiou",
-the loop body will be executed five times.
-When we enter the loop, `len` is zero -
+Since we want to sum only even numbers,
+the loop index `even_number` starts at 2
+and increases by 2 with every iteration.
+When we enter the loop, `total` is zero -
 the value assigned to it beforehand.
-The first time through,
-the loop body adds 1 to the old value of `len`,
-producing 1,
-and updates `len` to refer to that new value.
-The next time around,
-`vowel` is `e`,
-and `len` is 1,
-so `len` is updated to 2.
-After three more updates,
-`len` is 5;
-since there's nothing left in `aeiou` for MATLAB to process,
-the loop finishes and the `disp` statement tells us our final answer.
+The first time through, the loop body adds
+the value of the first even number (2) to the
+old value of `total` (0), and updates
+`total` to refer to that new value.
+On the next loop iteration, `even_number` is 4
+and the initial value of `total` is 2,
+so the new value assigned to `total` is 6.
+After `even_number` reaches the final value (10),
+`total` is 30;
+since this is the end of the range for `even_number`
+the loop finishes and the `disp` statements give us the
+final answer.
 
 Note that a loop variable is just a variable
 that's being used to record progress in a loop.
@@ -251,12 +256,12 @@ It still exists after the loop is over,
 and we can re-use variables previously defined as loop variables as well:
 
 ~~~
->> disp(vowel)
+>> disp(even_number)
 ~~~
 {: .language-matlab}
 
 ~~~
-u
+10
 ~~~
 {: .output}
 
@@ -287,12 +292,12 @@ u
 > > % Loop to perform exponentiation
 > > b = 4;    % base
 > > x = 5;    % exponent
-> > 
+> >
 > > result=1;
 > > for i = 1:x
 > >     result = result * b;
 > > end
-> > 
+> >
 > > disp([num2str(b), '^', num2str(x), ' = ', num2str(result)])
 > > ```
 > > {: .language-matlab}
@@ -319,7 +324,7 @@ u
 > > % spell a string adding one letter at a time using a loop
 > >
 > > word = 'aluminium';
-> > 
+> >
 > > for letter = 1:length(word)
 > >     disp(word(1:letter))
 > > end
@@ -327,7 +332,7 @@ u
 > > {: .language-matlab}
 > {: .solution}
  {: .challenge}
- 
+
 > ## Looping in Reverse
 >
 > In MATLAB, the colon operator (`:`) accepts a
@@ -372,9 +377,9 @@ u
 > > ## Solution
 > > ```
 > > % Spell a string in reverse using a loop
-> > 
+> >
 > > word = 'aluminium';
-> > 
+> >
 > > for letter = length(word):-1:1
 > >     disp(word(letter))
 > > end
@@ -402,7 +407,7 @@ information about a single file in the form of named **fields**.
 {: .language-matlab}
 
 ```
-files = 
+files =
   12×1 struct array with fields:
     name
     folder
@@ -539,7 +544,7 @@ for i = 1:length(files)
     % Generate path to data file and image file
     file_name = fullfile('data', file_name);
     img_name = fullfile('results',img_name);
-    
+
     disp(file_name)
     disp(img_name)
 end
@@ -585,14 +590,14 @@ files = dir('data/inflammation-*.csv');
 % Process each file in turn
 for i = 1:length(files)
     file_name = files(i).name;
-	
+
     % Generate strings for image names:
     img_name  = replace(file_name, '.csv', '.png');
 
     % Generate path to data file and image file
     file_name = fullfile('data', file_name);
     img_name  = fullfile('results', img_name);
-	
+
     patient_data = readmatrix(file_name);
 
     % Create figures
