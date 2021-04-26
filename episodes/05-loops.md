@@ -238,13 +238,13 @@ and increases by 2 with every iteration.
 When we enter the loop, `total` is zero -
 the value assigned to it beforehand.
 The first time through, the loop body adds
-the value of the first even number 2 to the
-old value of `total`, producing 2, and updates
+the value of the first even number (2) to the
+old value of `total` (0), and updates
 `total` to refer to that new value.
-The next time around, `even_number` is 4,
-and `total` is 2,
-so `total` is updated to 6.
-After `even_number` reaches the final value, 10,
+On the next loop iteration, `even_number` is 4
+and the initial value of `total` is 2,
+so the new value assigned to `total` is 6.
+After `even_number` reaches the final value (10),
 `total` is 30;
 since this is the end of the range for `even_number`
 the loop finishes and the `disp` statements give us the
