@@ -86,7 +86,7 @@ We can also compute other statistics, like the maximum, minimum and
 standard deviation.
 
 ~~~
->> disp('Maximum inflammation:)
+>> disp('Maximum inflammation:')
 >> disp(max(patient_data(:)))
 >> disp('Minimum inflammation:')
 >> disp(min(patient_data(:)))
