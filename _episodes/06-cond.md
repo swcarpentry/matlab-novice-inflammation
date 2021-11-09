@@ -345,8 +345,7 @@ Here's our script re-written to use *conditionals*
 to switch between saving plots as images and plotting them interactively:
 
 ~~~
-%PLOT_ALL  Print statistics for all patients.
-%          Save plots of statistics to disk.
+%PLOT_ALL  Save plots of statistics to disk.
 %          Use variable plot_switch to control interactive plotting
 %          vs saving images to disk.
 %            plot_switch = 0: show plots interactively
