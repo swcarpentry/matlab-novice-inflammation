@@ -30,7 +30,7 @@ language *well*.
 >
 > To begin tackling this lesson, you will need to:
 >
-> * Understand the concepts of files and directories, and the concept of a "working directory".
+> * Understand the concepts of files and directories, and the concept of a "working directory". (A good place to start could be the ["Navigating Files and Directories"](https://swcarpentry.github.io/shell-novice/02-filedir/index.html) episode in ["The Unix Shell"](https://swcarpentry.github.io/shell-novice/) lesson)
 > * Know how to start up MATLAB, and access the *command window* (which generally has a `>>` prompt).
 > * Know how to create, edit and save text files.
 {: .prereq}
