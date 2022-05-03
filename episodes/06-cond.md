@@ -169,26 +169,38 @@ In this case, "either" means "either or both", not
 > ~~~
 > if ''
 >     disp('empty string is true')
+> else
+>     disp('empty string is false')
 > end
 >
 > if 'foo'
 >     disp('non empty string is true')
+> else
+>     disp('non empty string is false')
 > end
 >
 > if []
->     disp ('empty array is true')
+>     disp('empty array is true')
+> else
+>     disp('empty array is false')
 > end
 >
 > if [22.5, 1.0]
->     disp ('non empty array is true')
+>     disp('non empty array is true')
+> else
+>     disp('non empty array is false')
 > end
 >
 > if [0, 0]
->     disp ('array of zeros is true')
+>     disp('array of zeros is true')
+> else
+>     disp('array of zeros is false')
 > end
 >
 > if true
 >     disp('true is true')
+> else
+>     disp('true is false')
 > end
 > ~~~
 > {: .language-matlab}
