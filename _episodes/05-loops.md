@@ -495,16 +495,16 @@ NEWSTR = replace(STR, OLD, NEW)
 {: .language-matlab}
 
 So for example if we have the string `big_shark` and want to get the string
-`terror_shark`, we can execute the following command:
+`little_shark`, we can execute the following command:
 
 ```
->> new_string = replace('big_shark', 'big', 'terror');
+>> new_string = replace('big_shark', 'big', 'little');
 >> disp(new_string)
 ```
 {: .language-matlab}
 
 ```
-terror_shark
+little_shark
 ```
 {: .output}
 
@@ -515,8 +515,8 @@ terror_shark
 > but the `strrep` function is a direct replacement.
 > The above example becomes
 > ```
-> >> new_string = strep('big_shark', 'big', 'terror')
-> terror_shark
+> >> new_string = strep('big_shark', 'big', 'little')
+> little_shark
 > ```
 > {: .language-matlab}
 {: .callout}
