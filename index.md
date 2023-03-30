@@ -18,6 +18,10 @@ But the two most important things are to use whatever language your colleagues
 are using, so that you can share your work with them easily, and to use that
 language *well*.
 
+### Introductory slides
+
+Some slides to introduce the training can be found [here]({{ page.root }} /files/intro_slides.pdf).
+
 > ## GNU Octave
 >
 > [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
