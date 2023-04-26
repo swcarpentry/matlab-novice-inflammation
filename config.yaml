@@ -14,7 +14,7 @@ carpentry: 'swc'
 title: 'Programming with MATLAB'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 
+created: '2014-12-12'
 
 # Comma-separated list of keywords for the lesson
 keywords: 'software, data, lesson, The Carpentries'
@@ -27,7 +27,7 @@ life_cycle: 'stable'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/fishtree-attempt/matlab-novice-inflammation/'
+source: 'https://github.com/swcarpentry/matlab-novice-inflammation'
 
 # Default branch of your lesson
 branch: 'main'
@@ -83,7 +83,6 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: https://preview.carpentries.org/matlab-novice-inflammation
+url: 'https://swcarpentry.github.io/matlab-novice-inflammation'
 analytics: carpentries
 lang: en
-workbench-beta: 'true'
