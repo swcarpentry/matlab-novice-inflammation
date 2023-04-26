@@ -1,7 +1,6 @@
 ---
-layout: lesson
-root: .
 permalink: index.html
+site: sandpaper::sandpaper_site
 ---
 
 The best way to learn how to program is to do something useful, so this
@@ -18,32 +17,41 @@ But the two most important things are to use whatever language your colleagues
 are using, so that you can share your work with them easily, and to use that
 language *well*.
 
-> ## GNU Octave
->
-> [GNU Octave](http://www.gnu.org/software/octave/) is a free and open-source alternative
-> to MATLAB which shares its syntax ([see more about compatibility](http://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
-> Thus, if you don't have access to MATLAB, you can easily set up Octave
-> on your computer and still work through the lesson.
-{: .callout}
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-> ## Prerequisites
->
-> To begin tackling this lesson, you will need to:
->
-> * Understand the concepts of files and directories, and the concept of a "working directory".
-> * Know how to start up MATLAB, and access the *command window* (which generally has a `>>` prompt).
-> * Know how to create, edit and save text files.
-{: .prereq}
+## GNU Octave
+
+[GNU Octave](https://www.gnu.org/software/octave/) is a free and open-source alternative
+to MATLAB which shares its syntax ([see more about compatibility](https://en.wikipedia.org/wiki/GNU_Octave#MATLAB_compatibility)).
+Thus, if you don't have access to MATLAB, you can easily set up Octave
+on your computer and still work through the lesson.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::  prereq
+
+## Prerequisites
+
+To begin tackling this lesson, you will need to:
+
+- Understand the concepts of files and directories, and the concept of a "working directory".
+- Know how to start up MATLAB, and access the *command window* (which generally has a `>>` prompt).
+- Know how to create, edit and save text files.
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Overview of the data
+
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
 The data sets are stored in
-[Comma Separated Values (CSV)]({{ page.root }}/reference.html#comma-separated-values) format:
+[Comma Separated Values (CSV)](learners/reference.md#comma-separated-values) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file,
-[`inflammation-01.csv`]({{ page.root }}/data/matlab-novice-inflammation/data/inflammation-01.csv), look like this:
+[`inflammation-01.csv`](data/matlab-novice-inflammation/data/inflammation-01.csv), look like this:
 
 ```
 0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
@@ -55,8 +63,10 @@ The first few rows of our first file,
 
 We want to:
 
-* load that data into memory,
-* calculate the average inflammation per day across all patients, and
-* plot the result.
+- load that data into memory,
+- calculate the average inflammation per day across all patients, and
+- plot the result.
 
 To do all that, we'll have to learn a little bit about programming.
+
+
