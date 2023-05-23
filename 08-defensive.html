@@ -484,12 +484,12 @@ haven’t <a href="reference.html#regression">regressed</a> (i.e., haven’t
 re-introduced an old problem) can save a lot of time in the long run,
 and helps to warn people who are reading the code (including your future
 self) that this bit is tricky.</p>
-<div id="discussion1" class="callout discussion">
+<div id="finding-conditions" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="finding-conditions" class="callout-inner">
-<h3 class="callout-title">Finding Conditions<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Finding Conditions<a class="anchor" aria-label="anchor" href="#finding-conditions"></a>
 </h3>
 <div class="callout-content">
 <p>Suppose you are writing a function called <code>average</code> that
@@ -540,12 +540,12 @@ first we need a brief aside to explain some MATLAB behaviour.</p>
 values. If we just want a <code>true</code> or <code>false</code> answer
 for the whole matrix (e.g. to use with <code>assert</code>), we need to
 use <code>isequal</code> instead.</p>
-<div id="callout1" class="callout callout">
+<div id="looking-for-help" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="looking-for-help" class="callout-inner">
-<h3 class="callout-title">Looking For Help<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Looking For Help<a class="anchor" aria-label="anchor" href="#looking-for-help"></a>
 </h3>
 <div class="callout-content">
 <p>For a more detailed explanation, search the MATLAB help files (or
@@ -629,12 +629,12 @@ during the function call. A <em>cell array</em> is a MATLAB data type
 with indexed data containers called cells. Each cell can contain any
 type of data, and is indexed using braces, or “curly brackets”
 <code>{}</code>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="variable-number-of-input-arguments" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="variable-number-of-input-arguments" class="callout-inner">
-<h3 class="callout-title">Variable number of input arguments<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Variable number of input arguments<a class="anchor" aria-label="anchor" href="#variable-number-of-input-arguments"></a>
 </h3>
 <div class="callout-content">
 <p>Using what we have just learned about <code>varargin</code> and
@@ -671,7 +671,7 @@ of our <code>range_overlap</code> function.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -710,12 +710,12 @@ when we run the tests:</p>
 the case where the ranges don’t overlap at all, or for the case where
 the ranges overlap at a point. We’ll leave this as a final
 assignment.</p>
-<div id="challenge2" class="callout challenge">
+<div id="fixing-code-through-testing" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="fixing-code-through-testing" class="callout-inner">
-<h3 class="callout-title">Fixing Code Through Testing<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Fixing Code Through Testing<a class="anchor" aria-label="anchor" href="#fixing-code-through-testing"></a>
 </h3>
 <div class="callout-content">
 <p>Fix <code>range_overlap</code>. Uncomment the two commented lines in
@@ -739,7 +739,7 @@ make sure you understand what these first two lines are doing.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -954,7 +954,7 @@ expected.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -978,7 +978,7 @@ expected.</li>
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/08-defensive.html",
   "dateCreated": "2014-12-12",
   "dateModified": "2023-04-26",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

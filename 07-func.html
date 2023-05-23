@@ -346,12 +346,12 @@ is shown in the pseudo-code below:</p>
 MATLAB, i.e., a file containing a function has to be placed in a
 directory that MATLAB knows about. The most convenient of those
 directories is the current working directory.</p>
-<div id="callout1" class="callout callout">
+<div id="gnu-octave" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="gnu-octave" class="callout-inner">
-<h3 class="callout-title">GNU Octave<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">GNU Octave<a class="anchor" aria-label="anchor" href="#gnu-octave"></a>
 </h3>
 <div class="callout-content">
 <p>In common with MATLAB, Octave searches the current working directory
@@ -439,12 +439,12 @@ effect we want. Real-life functions will usually be larger than the ones
 shown here—typically half a dozen to a few dozen lines—but they
 shouldn’t ever be much longer than that, or the next person who reads it
 won’t be able to understand what’s going on.</p>
-<div id="challenge1" class="callout challenge">
+<div id="concatenating-in-a-function" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="concatenating-in-a-function" class="callout-inner">
-<h3 class="callout-title">Concatenating in a Function<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Concatenating in a Function<a class="anchor" aria-label="anchor" href="#concatenating-in-a-function"></a>
 </h3>
 <div class="callout-content">
 <p>In MATLAB, we concatenate strings by putting them into an array or
@@ -492,7 +492,7 @@ using the <code>strcat</code> function:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -507,12 +507,12 @@ using the <code>strcat</code> function:</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="getting-the-outside" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="getting-the-outside" class="callout-inner">
-<h3 class="callout-title">Getting the Outside<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Getting the Outside<a class="anchor" aria-label="anchor" href="#getting-the-outside"></a>
 </h3>
 <div class="callout-content">
 <p>If the variable <code>s</code> refers to a string, then
@@ -540,7 +540,7 @@ last characters of its input:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -555,12 +555,12 @@ last characters of its input:</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="variables-inside-and-outside-functions" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="variables-inside-and-outside-functions" class="callout-inner">
-<h3 class="callout-title">Variables Inside and Outside Functions<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Variables Inside and Outside Functions<a class="anchor" aria-label="anchor" href="#variables-inside-and-outside-functions"></a>
 </h3>
 <div class="callout-content">
 <p>Consider our function <code>fahr_to_kelvin</code> from earlier in the
@@ -596,7 +596,7 @@ episode:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -729,12 +729,12 @@ help text for that function:</p>
 Returns a new array containing the values in
 DATA centered around the value.</code></pre>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="testing-a-function" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="testing-a-function" class="callout-inner">
-<h3 class="callout-title">Testing a Function<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Testing a Function<a class="anchor" aria-label="anchor" href="#testing-a-function"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Write a function called <code>normalise</code> that takes an
@@ -756,7 +756,7 @@ like this to test your <code>normalise</code> function.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 </li></ol><pre><code>```
@@ -781,12 +781,12 @@ plot(a, norm_a)        % Visually check normalisation
 </div>
 </div>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="convert-a-script-into-a-function" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="convert-a-script-into-a-function" class="callout-inner">
-<h3 class="callout-title">Convert a script into a function<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Convert a script into a function<a class="anchor" aria-label="anchor" href="#convert-a-script-into-a-function"></a>
 </h3>
 <div class="callout-content">
 <p>Write a function called <code>plot_dataset</code> which plots the
@@ -816,7 +816,7 @@ script.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -864,12 +864,12 @@ script.</p>
 </div>
 </div>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="automate-the-analysis-for-all-files" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="automate-the-analysis-for-all-files" class="callout-inner">
-<h3 class="callout-title">Automate the analysis for all files<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Automate the analysis for all files<a class="anchor" aria-label="anchor" href="#automate-the-analysis-for-all-files"></a>
 </h3>
 <div class="callout-content">
 <p>Modify the <code>plot_all</code> script so that as it loops over the
@@ -886,7 +886,7 @@ directory rather than displaying the figures in the MATLAB GUI.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -963,7 +963,7 @@ meaningful names.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -987,7 +987,7 @@ meaningful names.</li>
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/07-func.html",
   "dateCreated": "2014-12-12",
   "dateModified": "2023-04-26",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
