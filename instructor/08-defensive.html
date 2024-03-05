@@ -345,13 +345,13 @@ as the loop encounters a value that isn’t positive:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">numbers</span> <span class="op">=</span> [<span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.3</span><span class="op">,</span> <span class="fl">0.7</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.001</span><span class="op">,</span> <span class="fl">4.4</span>]<span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">total</span> <span class="op">=</span> <span class="fl">0</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">n</span> <span class="op">=</span> <span class="va">numbers</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">n</span> <span class="op">&gt;=</span> <span class="fl">0</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">total</span> <span class="op">=</span> <span class="va">total</span> <span class="op">+</span> <span class="va">n</span><span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">numbers</span> <span class="op">=</span> [<span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.3</span><span class="op">,</span> <span class="fl">0.7</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.001</span><span class="op">,</span> <span class="fl">4.4</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="va">total</span> <span class="op">=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="kw">for</span> <span class="va">n</span> <span class="op">=</span> <span class="va">numbers</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">n</span> <span class="op">&gt;=</span> <span class="fl">0</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>    <span class="va">total</span> <span class="op">=</span> <span class="va">total</span> <span class="op">+</span> <span class="va">n</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -380,46 +380,46 @@ result makes sense:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">normalized</span> <span class="op">=</span> <span class="va">normalize_rectangle</span>(<span class="va">rect</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">%NORMALIZE_RECTANGLE</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Normalizes a rectangle so that it is at the origin</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">% measures 1.0 units on its longest axis</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">% and is oriented with the longest axis in the y direction:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">length</span>(<span class="va">rect</span>) <span class="op">==</span> <span class="fl">4</span><span class="op">,</span> <span class="ss">'Rectangle must contain 4 coordinates'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">x0</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">y0</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="va">x1</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">3</span>)<span class="op">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">y1</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">4</span>)<span class="op">;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">x0</span> <span class="op">&lt;</span> <span class="va">x1</span><span class="op">,</span> <span class="ss">'Invalid X coordinates'</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">y0</span> <span class="op">&lt;</span> <span class="va">y1</span><span class="op">,</span> <span class="ss">'Invalid Y coordinates'</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">dx</span> <span class="op">=</span> <span class="va">x1</span> <span class="op">-</span> <span class="va">x0</span><span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="va">dy</span> <span class="op">=</span> <span class="va">y1</span> <span class="op">-</span> <span class="va">y0</span><span class="op">;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">dx</span> <span class="op">&gt;</span> <span class="va">dy</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">scaled</span> <span class="op">=</span> <span class="va">dx</span><span class="op">/</span><span class="va">dy</span><span class="op">;</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">upper_x</span> <span class="op">=</span> <span class="va">scaled</span><span class="op">;</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">upper_y</span> <span class="op">=</span> <span class="fl">1.0</span><span class="op">;</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">scaled</span> <span class="op">=</span> <span class="va">dx</span><span class="op">/</span><span class="va">dy</span><span class="op">;</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">upper_x</span> <span class="op">=</span> <span class="va">scaled</span><span class="op">;</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">upper_y</span> <span class="op">=</span> <span class="fl">1.0</span><span class="op">;</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span> ((<span class="fl">0</span> <span class="op">&lt;</span> <span class="va">upper_x</span>) <span class="op">&amp;&amp;</span> (<span class="va">upper_x</span> <span class="op">&lt;=</span> <span class="fl">1.0</span>)<span class="op">,</span> <span class="ss">'Calculated upper X coordinate invalid'</span>)<span class="op">;</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="va">assert</span> ((<span class="fl">0</span> <span class="op">&lt;</span> <span class="va">upper_y</span>) <span class="op">&amp;&amp;</span> (<span class="va">upper_y</span> <span class="op">&lt;=</span> <span class="fl">1.0</span>)<span class="op">,</span> <span class="ss">'Calculated upper Y coordinate invalid'</span>)<span class="op">;</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="va">normalized</span> <span class="op">=</span> [<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="va">upper_x</span><span class="op">,</span> <span class="va">upper_y</span>]<span class="op">;</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">normalized</span> <span class="op">=</span> <span class="va">normalize_rectangle</span>(<span class="va">rect</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="co">%NORMALIZE_RECTANGLE</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="co">% Normalizes a rectangle so that it is at the origin</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="co">% measures 1.0 units on its longest axis</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="co">% and is oriented with the longest axis in the y direction:</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">length</span>(<span class="va">rect</span>) <span class="op">==</span> <span class="fl">4</span><span class="op">,</span> <span class="ss">'Rectangle must contain 4 coordinates'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    <span class="va">x0</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="va">y0</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">2</span>)<span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="va">x1</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">3</span>)<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    <span class="va">y1</span> <span class="op">=</span> <span class="va">rect</span>(<span class="fl">4</span>)<span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">x0</span> <span class="op">&lt;</span> <span class="va">x1</span><span class="op">,</span> <span class="ss">'Invalid X coordinates'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>    <span class="va">assert</span>(<span class="va">y0</span> <span class="op">&lt;</span> <span class="va">y1</span><span class="op">,</span> <span class="ss">'Invalid Y coordinates'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="va">dx</span> <span class="op">=</span> <span class="va">x1</span> <span class="op">-</span> <span class="va">x0</span><span class="op">;</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    <span class="va">dy</span> <span class="op">=</span> <span class="va">y1</span> <span class="op">-</span> <span class="va">y0</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">dx</span> <span class="op">&gt;</span> <span class="va">dy</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>        <span class="va">scaled</span> <span class="op">=</span> <span class="va">dx</span><span class="op">/</span><span class="va">dy</span><span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>        <span class="va">upper_x</span> <span class="op">=</span> <span class="va">scaled</span><span class="op">;</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>        <span class="va">upper_y</span> <span class="op">=</span> <span class="fl">1.0</span><span class="op">;</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>    <span class="kw">else</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>        <span class="va">scaled</span> <span class="op">=</span> <span class="va">dx</span><span class="op">/</span><span class="va">dy</span><span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>        <span class="va">upper_x</span> <span class="op">=</span> <span class="va">scaled</span><span class="op">;</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>        <span class="va">upper_y</span> <span class="op">=</span> <span class="fl">1.0</span><span class="op">;</span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a>    <span class="va">assert</span> ((<span class="fl">0</span> <span class="op">&lt;</span> <span class="va">upper_x</span>) <span class="op">&amp;&amp;</span> (<span class="va">upper_x</span> <span class="op">&lt;=</span> <span class="fl">1.0</span>)<span class="op">,</span> <span class="ss">'Calculated upper X coordinate invalid'</span>)<span class="op">;</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a>    <span class="va">assert</span> ((<span class="fl">0</span> <span class="op">&lt;</span> <span class="va">upper_y</span>) <span class="op">&amp;&amp;</span> (<span class="va">upper_y</span> <span class="op">&lt;=</span> <span class="fl">1.0</span>)<span class="op">,</span> <span class="ss">'Calculated upper Y coordinate invalid'</span>)<span class="op">;</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a>    <span class="va">normalized</span> <span class="op">=</span> [<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="va">upper_x</span><span class="op">,</span> <span class="va">upper_y</span>]<span class="op">;</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 <p>The three preconditions catch invalid inputs:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>])</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -430,7 +430,7 @@ Rectangle must contain 4 coordinates</code></pre>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span>])</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -440,7 +440,7 @@ Rectangle must contain 4 coordinates</code></pre>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">2</span>])<span class="op">;</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">2</span>])<span class="op">;</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -453,7 +453,7 @@ rectangle that is taller than it is wide, everything seems OK:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">5.0</span>])<span class="op">;</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">5.0</span>])<span class="op">;</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -465,7 +465,7 @@ is triggered:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">5.0</span><span class="op">,</span> <span class="fl">1.0</span>])</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="op">&gt;&gt;</span> <span class="va">normalize_rectangle</span>([<span class="fl">0.0</span><span class="op">,</span> <span class="fl">0.0</span><span class="op">,</span> <span class="fl">5.0</span><span class="op">,</span> <span class="fl">1.0</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -551,13 +551,12 @@ first we need a brief aside to explain some MATLAB behaviour.</p>
 values. If we just want a <code>true</code> or <code>false</code> answer
 for the whole matrix (e.g. to use with <code>assert</code>), we need to
 use <code>isequal</code> instead.</p>
-<div id="looking-for-help" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="looking-for-help" class="callout-inner">
-<h3 class="callout-title">Looking For Help<a class="anchor" aria-label="anchor" href="#looking-for-help"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="looking-for-help">Looking For Help<a class="anchor" aria-label="anchor" href="#looking-for-help"></a></h3>
 <div class="callout-content">
 <p>For a more detailed explanation, search the MATLAB help files (or
 type <code>doc eq; doc assert</code> at the command prompt).</p>
@@ -567,18 +566,18 @@ type <code>doc eq; doc assert</code> at the command prompt).</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">%TEST_RANGE_OVERLAP   Test script for range_overlap function.</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])))</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])))</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span>])<span class="op">,</span>[<span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span>]))</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">2.0</span><span class="op">,</span> <span class="fl">3.0</span>]<span class="op">,</span> [<span class="fl">2.0</span><span class="op">,</span> <span class="fl">4.0</span>])<span class="op">,</span>[<span class="fl">2.0</span><span class="op">,</span> <span class="fl">3.0</span>]))</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span>]<span class="op">,</span> [<span class="fl">0.0</span><span class="op">,</span> <span class="fl">2.0</span>]<span class="op">,</span> [<span class="op">-</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])<span class="op">,</span>[<span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span>]))</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co">%TEST_RANGE_OVERLAP   Test script for range_overlap function.</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">% assert(isnan(range_overlap([0.0, 1.0], [5.0, 6.0])))</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">% assert(isnan(range_overlap([0.0, 1.0], [1.0, 2.0])))</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span>])<span class="op">,</span>[<span class="fl">0</span><span class="op">,</span> <span class="fl">1.0</span>]))</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">2.0</span><span class="op">,</span> <span class="fl">3.0</span>]<span class="op">,</span> [<span class="fl">2.0</span><span class="op">,</span> <span class="fl">4.0</span>])<span class="op">,</span>[<span class="fl">2.0</span><span class="op">,</span> <span class="fl">3.0</span>]))</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="va">assert</span>(<span class="va">isequal</span>(<span class="va">range_overlap</span>([<span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span>]<span class="op">,</span> [<span class="fl">0.0</span><span class="op">,</span> <span class="fl">2.0</span>]<span class="op">,</span> [<span class="op">-</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])<span class="op">,</span>[<span class="fl">0.0</span><span class="op">,</span> <span class="fl">1.0</span>]))</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">test_range_overlap</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">test_range_overlap</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -604,16 +603,16 @@ documentation:</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">varlist</span>(<span class="va">varargin</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">%VARLIST Demonstrate variable number of input arguments</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>   <span class="va">fprintf</span>(<span class="ss">'Number of arguments: %d\n'</span><span class="op">,</span><span class="va">nargin</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>   <span class="va">celldisp</span>(<span class="va">varargin</span>)</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">varlist</span>(<span class="va">varargin</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>   <span class="co">%VARLIST Demonstrate variable number of input arguments</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>   <span class="va">fprintf</span>(<span class="ss">'Number of arguments: %d\n'</span><span class="op">,</span><span class="va">nargin</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>   <span class="va">celldisp</span>(<span class="va">varargin</span>)</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="va">varlist</span>(<span class="va">ones</span>(<span class="fl">3</span>)<span class="op">,</span><span class="ss">'some text'</span><span class="op">,</span><span class="va">pi</span>)</span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">varlist</span>(<span class="va">ones</span>(<span class="fl">3</span>)<span class="op">,</span><span class="ss">'some text'</span><span class="op">,</span><span class="va">pi</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -654,23 +653,23 @@ of our <code>range_overlap</code> function.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(________)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">lowest</span>  <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span>______</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> ________{<span class="va">i</span>}<span class="op">;</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(________)</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>    <span class="va">lowest</span>  <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span>______</span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> ________{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -680,28 +679,28 @@ of our <code>range_overlap</code> function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(<span class="va">varargin</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">lowest</span>  <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">nargin</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> <span class="va">varargin</span>{<span class="va">i</span>}<span class="op">;</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(<span class="va">varargin</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>    <span class="va">lowest</span>  <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">nargin</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> <span class="va">varargin</span>{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -712,7 +711,7 @@ when we run the tests:</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">test_range_overlap</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="va">test_range_overlap</span></span></code></pre>
 </div>
 <p>we shouldn’t see an error.</p>
 <p>Something important is missing, though. We don’t have any tests for
@@ -746,34 +745,34 @@ make sure you understand what these first two lines are doing.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(<span class="va">varargin</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">lowest</span> <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">nargin</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> <span class="va">varargin</span>{<span class="va">i</span>}<span class="op">;</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">% Catch non-overlapping ranges</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>	    <span class="kw">if</span> <span class="va">low</span> <span class="op">&gt;=</span> <span class="va">highest</span> <span class="op">||</span> <span class="va">high</span><span class="op">&lt;=</span><span class="va">lowest</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>            <span class="va">output_range</span> <span class="op">=</span> <span class="va">NaN</span><span class="op">;</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>	    <span class="kw">end</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">overlap</span> <span class="op">=</span> <span class="va">range_overlap</span>(<span class="va">varargin</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>    <span class="co">%RANGE_OVERLAP Return common overlap among a set of [low, high] ranges.</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>    <span class="va">lowest</span> <span class="op">=</span> <span class="op">-</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>    <span class="va">highest</span> <span class="op">=</span> <span class="op">+</span><span class="va">inf</span><span class="op">;</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>    <span class="co">% Loop over input arguments</span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">nargin</span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>        <span class="co">% Set range equal to each input argument</span></span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>        <span class="va">range</span>   <span class="op">=</span> <span class="va">varargin</span>{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a>        <span class="va">low</span>     <span class="op">=</span> <span class="va">range</span>(<span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>        <span class="va">high</span>    <span class="op">=</span> <span class="va">range</span>(<span class="fl">2</span>)<span class="op">;</span></span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a>        <span class="va">lowest</span>  <span class="op">=</span> <span class="va">max</span>(<span class="va">lowest</span><span class="op">,</span> <span class="va">low</span>)<span class="op">;</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>        </span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a>        <span class="co">% Catch non-overlapping ranges</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>	    <span class="kw">if</span> <span class="va">low</span> <span class="op">&gt;=</span> <span class="va">highest</span> <span class="op">||</span> <span class="va">high</span><span class="op">&lt;=</span><span class="va">lowest</span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>            <span class="va">output_range</span> <span class="op">=</span> <span class="va">NaN</span><span class="op">;</span></span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>            <span class="kw">return</span></span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>	    <span class="kw">end</span></span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a></span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -990,7 +989,7 @@ expected.</li>
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/instructor/08-defensive.html",
   "dateCreated": "2014-12-12",
   "dateModified": "2023-04-26",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
