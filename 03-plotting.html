@@ -46,7 +46,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Learner View <i data-feather="chevron-down"></i>
@@ -170,7 +170,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -189,7 +189,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Setup</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -198,7 +198,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="01-intro.html">1. Working With Variables</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -207,7 +207,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="02-arrays.html">2. Arrays</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -221,14 +221,14 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#analyzing-patient-data">Analyzing patient data</a></li>
 <li><a href="#plotting">Plotting</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -237,7 +237,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="04-scripts.html">4. Writing MATLAB Scripts</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -246,7 +246,7 @@
     <div class="accordion-header" id="flush-heading6">
         <a href="05-loops.html">5. Repeating With Loops</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -255,7 +255,7 @@
     <div class="accordion-header" id="flush-heading7">
         <a href="06-cond.html">6. Making Choices</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -264,7 +264,7 @@
     <div class="accordion-header" id="flush-heading8">
         <a href="07-func.html">7. Creating Functions</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -273,7 +273,7 @@
     <div class="accordion-header" id="flush-heading9">
         <a href="08-defensive.html">8. Defensive Programming</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -305,10 +305,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -329,18 +329,18 @@
           Previous: Arrays
         </a>
         <a class="chapter-link float-end" href="04-scripts.html" rel="next">
-          Next: Writing MATLAB... 
+          Next: Writing MATLAB...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Plotting data</h1>
         <p>Last updated on 2023-04-26 |
-        
+
         <a href="https://github.com/swcarpentry/matlab-novice-inflammation/edit/main/episodes/03-plotting.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -369,8 +369,8 @@
 </div>
 </div>
 </div>
-<section id="analyzing-patient-data"><h2 class="section-heading">Analyzing patient data<a class="anchor" aria-label="anchor" href="#analyzing-patient-data"></a>
-</h2>
+<section><h2 class="section-heading" id="analyzing-patient-data">Analyzing patient data<a class="anchor" aria-label="anchor" href="#analyzing-patient-data"></a>
+<a class="anchor" aria-label="anchor" href="#analyzing-patient-data"></a></h2>
 <hr class="half-width"><p>Now that we know how to access data we want to compute with, we’re
 ready to analyze <code>patient_data</code>. MATLAB knows how to perform
 common mathematical operations on arrays. If we want to find the average
@@ -402,41 +402,41 @@ and how to use it, we can search the documentation, or use MATLAB’s
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>mean   Average or mean value.
-    S = mean(X) is the mean value of the elements in X if X is a vector. 
-    For matrices, S is a row vector containing the mean value of each 
-    column. 
-    For N-D arrays, S is the mean value of the elements along the first 
+    S = mean(X) is the mean value of the elements in X if X is a vector.
+    For matrices, S is a row vector containing the mean value of each
+    column.
+    For N-D arrays, S is the mean value of the elements along the first
     array dimension whose size does not equal 1.
- 
+
     mean(X,DIM) takes the mean along the dimension DIM of X.
- 
-    S = mean(...,TYPE) specifies the type in which the mean is performed, 
+
+    S = mean(...,TYPE) specifies the type in which the mean is performed,
     and the type of S. Available options are:
- 
+
     'double'    -  S has class double for any input X
     'native'    -  S has the same class as X
     'default'   -  If X is floating point, that is double or single,
-                   S has the same class as X. If X is not floating point, 
+                   S has the same class as X. If X is not floating point,
                    S has class double.
- 
-    S = mean(...,NANFLAG) specifies how NaN (Not-A-Number) values are 
+
+    S = mean(...,NANFLAG) specifies how NaN (Not-A-Number) values are
     treated. The default is 'includenan':
- 
+
     'includenan' - the mean of a vector containing NaN values is also NaN.
-    'omitnan'    - the mean of a vector containing NaN values is the mean 
+    'omitnan'    - the mean of a vector containing NaN values is the mean
                    of all its non-NaN elements. If all elements are NaN,
                    the result is NaN.
- 
+
     Example:
         X = [1 2 3; 3 3 6; 4 6 8; 4 7 7]
         mean(X,1)
         mean(X,2)
- 
+
     Class support for input X:
        float: double, single
        integer: uint8, int8, uint16, int16, uint32,
                 int32, uint64, int64
- 
+
     See also median, std, min, max, var, cov, mode.</code></pre>
 </div>
 <p>We can also compute other statistics, like the maximum, minimum and
@@ -604,8 +604,8 @@ asking for the average inflammation per patient over all the days:</p>
 </div>
 <p>The size tells us we have a 60-by-1 vector, confirming that this is
 the average inflammation per patient over all days in the trial.</p>
-</section><section id="plotting"><h2 class="section-heading">Plotting<a class="anchor" aria-label="anchor" href="#plotting"></a>
-</h2>
+</section><section><h2 class="section-heading" id="plotting">Plotting<a class="anchor" aria-label="anchor" href="#plotting"></a>
+<a class="anchor" aria-label="anchor" href="#plotting"></a></h2>
 <hr class="half-width"><p>The mathematician Richard Hamming once said, “The purpose of
 computing is insight, not numbers,” and the best way to develop insight
 is often to visualize data. Visualization deserves an entire lecture (or
@@ -800,7 +800,7 @@ of the next two lessons.</p>
           Previous: Arrays
         </a>
         <a class="chapter-link float-end" href="04-scripts.html" rel="next">
-          Next: Writing MATLAB... 
+          Next: Writing MATLAB...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -811,18 +811,18 @@ of the next two lessons.</p>
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/swcarpentry/matlab-novice-inflammation/edit/main/episodes/03-plotting.md" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/swcarpentry/matlab-novice-inflammation/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/swcarpentry/matlab-novice-inflammation/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/swcarpentry/matlab-novice-inflammation/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -847,7 +847,7 @@ of the next two lessons.</p>
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/03-plotting.html",
   "dateCreated": "2014-12-12",
   "dateModified": "2023-04-26",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>
