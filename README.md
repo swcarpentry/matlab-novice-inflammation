@@ -9,11 +9,14 @@ Please see [https://swcarpentry.github.io/matlab-novice-inflammation/](https://s
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
-Maintainers:
+Current Maintainers:
 
-- [Gerard Capes][capes_gerard]
+- Daniel Cummins
+- Padem dhar Dwivedi
 
 [lesson-example]: https://carpentries.github.io/lesson-example
+
+Previous Maintainer:
 [capes_gerard]: https://software-carpentry.org/team/#capes_gerard
 
 
