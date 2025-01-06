@@ -378,7 +378,7 @@ for i = 1:length(files)
     img_name = replace(file_name, '.csv', '.png');
 
     % Generate path to data file and image file
-    file_name = fullfile('data', filename);
+    file_name = fullfile('data', file_name);
     img_name  = fullfile('results', img_name);
 
     patient_data = readmatrix(file_name);
