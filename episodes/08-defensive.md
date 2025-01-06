@@ -133,7 +133,7 @@ The three preconditions catch invalid inputs:
 ```
 
 ```error
-Error using normalize_rectangle (line 6)
+Error using normalize_rectangle (line 7)
 Rectangle must contain 4 coordinates
 ```
 
@@ -177,7 +177,7 @@ the assertion is triggered:
 error: Calculated upper X coordinate invalid
 ```
 
-Re-reading our function, we realize that line 19 should
+Re-reading our function, we realize that line 20 should
 divide `dy` by `dx`. If we had left out the assertion
 at the end of the function, we would have created and
 returned something that had the right shape as
