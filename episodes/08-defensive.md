@@ -177,7 +177,7 @@ the assertion is triggered:
 error: Calculated upper X coordinate invalid
 ```
 
-Re-reading our function, we realize that line 20 should
+Re-reading our function, we realize that line 21 should
 divide `dy` by `dx`. If we had left out the assertion
 at the end of the function, we would have created and
 returned something that had the right shape as
@@ -294,7 +294,7 @@ test_range_overlap
 ```error
 Undefined function or variable 'range_overlap'.
 
-Error in test_range_overlap (line 6)
+Error in test_range_overlap (line 5)
 assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))
 ```
 
