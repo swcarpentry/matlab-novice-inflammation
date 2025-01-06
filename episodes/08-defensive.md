@@ -465,7 +465,7 @@ function overlap = range_overlap(varargin)
         
         % Catch non-overlapping ranges
 	    if low >= highest || high<=lowest
-            output_range = NaN;
+            overlap = NaN;
             return
 	    end
     end
