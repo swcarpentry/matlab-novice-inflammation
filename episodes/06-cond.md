@@ -277,7 +277,7 @@ disp(['sum of negative values: ', num2str(neg_total)])
 ```
 
 ```output
-sum of positive values: 26
+sum of positive values: 20
 sum of negative values: -6
 ```
 
