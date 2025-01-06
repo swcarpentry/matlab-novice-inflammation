@@ -321,6 +321,7 @@ function varlist(varargin)
 
    fprintf('Number of arguments: %d\n',nargin)
    celldisp(varargin)
+end
 ```
 
 ```matlab
@@ -378,6 +379,7 @@ function overlap = range_overlap(________)
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::  solution
@@ -402,6 +404,7 @@ function overlap = range_overlap(varargin)
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::::::::::::
@@ -468,6 +471,7 @@ function overlap = range_overlap(varargin)
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::::::::::::
