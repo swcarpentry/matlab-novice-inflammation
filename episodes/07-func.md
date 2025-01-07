@@ -428,8 +428,7 @@ DATA centered around the value.
 ## Solution
 
 1. 
-````
-```
+```matlab
 function out = normalise(in)
     %NORMALISE   Return original array, normalised so that the
     %            new values lie in the range 0 to 1.
@@ -439,18 +438,13 @@ function out = normalise(in)
     out = (in-L)/(H-L);
 end
 ```
-{: .language-matlab}
-````
 
 2. 
-````
-```
+```matlab
 a = linspace(1, 10);   % Create evenly-spaced vector
 norm_a = normalise(a); % Normalise vector
 plot(a, norm_a)        % Visually check normalisation
 ```
-{: .language-matlab}
-````
 
 :::::::::::::::::::::::::
 
