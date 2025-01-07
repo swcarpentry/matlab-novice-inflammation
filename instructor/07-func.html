@@ -327,7 +327,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Creating Functions</h1>
-        <p>Last updated on 2023-04-26 |
+        <p>Last updated on 2025-01-07 |
 
         <a href="https://github.com/swcarpentry/matlab-novice-inflammation/edit/main/episodes/07-func.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -556,7 +556,7 @@ using the <code>strcat</code> function:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -601,7 +601,7 @@ last characters of its input:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -654,7 +654,7 @@ episode:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -811,27 +811,29 @@ like this to test your <code>normalise</code> function.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
-</li></ol><pre><code>```
-function out = normalise(in)
-    %NORMALISE   Return original array, normalised so that the
-    %            new values lie in the range 0 to 1.
-
-    H = max(max(in));
-    L = min(min(in));
-    out = (in-L)/(H-L);
-end
-```
-{: .language-matlab}</code></pre>
+</li></ol><div class="codewrapper sourceCode" id="cb37">
+<h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="kw">function</span> <span class="va">out</span> <span class="op">=</span> <span class="va">normalise</span>(<span class="va">in</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>    <span class="co">%NORMALISE   Return original array, normalised so that the</span></span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>    <span class="co">%            new values lie in the range 0 to 1.</span></span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>    <span class="va">H</span> <span class="op">=</span> <span class="va">max</span>(<span class="va">max</span>(<span class="va">in</span>))<span class="op">;</span></span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a>    <span class="va">L</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">min</span>(<span class="va">in</span>))<span class="op">;</span></span>
+<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a>    <span class="va">out</span> <span class="op">=</span> (<span class="va">in</span><span class="op">-</span><span class="va">L</span>)<span class="op">/</span>(<span class="va">H</span><span class="op">-</span><span class="va">L</span>)<span class="op">;</span></span>
+<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+</div>
 <ol start="2" style="list-style-type: decimal"><li>
-</li></ol><pre><code>```
-a = linspace(1, 10);   % Create evenly-spaced vector
-norm_a = normalise(a); % Normalise vector
-plot(a, norm_a)        % Visually check normalisation
-```
-{: .language-matlab}</code></pre>
+</li></ol><div class="codewrapper sourceCode" id="cb38">
+<h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode matlab" tabindex="0"><code class="sourceCode matlab"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">linspace</span>(<span class="fl">1</span><span class="op">,</span> <span class="fl">10</span>)<span class="op">;</span>   <span class="co">% Create evenly-spaced vector</span></span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a><span class="va">norm_a</span> <span class="op">=</span> <span class="va">normalise</span>(<span class="va">a</span>)<span class="op">;</span> <span class="co">% Normalise vector</span></span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a><span class="va">plot</span>(<span class="va">a</span><span class="op">,</span> <span class="va">norm_a</span>)        <span class="co">% Visually check normalisation</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -868,7 +870,7 @@ script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -935,7 +937,7 @@ directory rather than displaying the figures in the MATLAB GUI.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1039,7 +1041,7 @@ meaningful names.</li>
   "url": "https://swcarpentry.github.io/matlab-novice-inflammation/instructor/07-func.html",
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/instructor/07-func.html",
   "dateCreated": "2014-12-12",
-  "dateModified": "2023-04-26",
+  "dateModified": "2025-01-07",
   "datePublished": "2025-01-07"
 }
 
