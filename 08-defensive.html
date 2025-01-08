@@ -334,7 +334,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Defensive Programming</h1>
-        <p>Last updated on 2023-04-26 |
+        <p>Last updated on 2025-01-08 |
 
         <a href="https://github.com/swcarpentry/matlab-novice-inflammation/edit/main/episodes/08-defensive.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -479,7 +479,7 @@ result makes sense:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error using normalize_rectangle (line 6)
+<pre class="error" tabindex="0"><code>Error using normalize_rectangle (line 7)
 Rectangle must contain 4 coordinates</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb6">
@@ -527,7 +527,7 @@ is triggered:</p>
 </h3>
 <pre class="error" tabindex="0"><code>error: Calculated upper X coordinate invalid</code></pre>
 </div>
-<p>Re-reading our function, we realize that line 19 should divide
+<p>Re-reading our function, we realize that line 21 should divide
 <code>dy</code> by <code>dx</code>. If we had left out the assertion at
 the end of the function, we would have created and returned something
 that had the right shape as a valid answer, but wasn’t. Detecting and
@@ -638,7 +638,7 @@ type <code>doc eq; doc assert</code> at the command prompt).</p>
 </h3>
 <pre class="error" tabindex="0"><code>Undefined function or variable 'range_overlap'.
 
-Error in test_range_overlap (line 6)
+Error in test_range_overlap (line 5)
 assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))</code></pre>
 </div>
 <p>The error is actually reassuring: we haven’t written
@@ -661,7 +661,8 @@ documentation:</p>
 <span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>   <span class="co">%VARLIST Demonstrate variable number of input arguments</span></span>
 <span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>   <span class="va">fprintf</span>(<span class="ss">'Number of arguments: %d\n'</span><span class="op">,</span><span class="va">nargin</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>   <span class="va">celldisp</span>(<span class="va">varargin</span>)</span></code></pre>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>   <span class="va">celldisp</span>(<span class="va">varargin</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -722,7 +723,8 @@ of our <code>range_overlap</code> function.</p>
 <span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
 <span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>    <span class="kw">end</span></span>
 <span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -732,7 +734,7 @@ of our <code>range_overlap</code> function.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -753,7 +755,8 @@ of our <code>range_overlap</code> function.</p>
 <span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>        <span class="va">highest</span> <span class="op">=</span> <span class="va">min</span>(<span class="va">highest</span><span class="op">,</span> <span class="va">high</span>)<span class="op">;</span></span>
 <span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    <span class="kw">end</span></span>
 <span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -797,7 +800,7 @@ make sure you understand what these first two lines are doing.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">MATLAB<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -819,12 +822,13 @@ make sure you understand what these first two lines are doing.</p>
 <span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>        </span>
 <span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a>        <span class="co">% Catch non-overlapping ranges</span></span>
 <span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>	    <span class="kw">if</span> <span class="va">low</span> <span class="op">&gt;=</span> <span class="va">highest</span> <span class="op">||</span> <span class="va">high</span><span class="op">&lt;=</span><span class="va">lowest</span></span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>            <span class="va">output_range</span> <span class="op">=</span> <span class="va">NaN</span><span class="op">;</span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>            <span class="va">overlap</span> <span class="op">=</span> <span class="va">NaN</span><span class="op">;</span></span>
 <span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>            <span class="kw">return</span></span>
 <span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>	    <span class="kw">end</span></span>
 <span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>    <span class="kw">end</span></span>
 <span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a></span>
-<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span></code></pre>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>    <span class="va">overlap</span> <span class="op">=</span> [<span class="va">lowest</span><span class="op">,</span> <span class="va">highest</span>]<span class="op">;</span></span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1038,8 +1042,8 @@ expected.</li>
   "url": "https://swcarpentry.github.io/matlab-novice-inflammation/08-defensive.html",
   "identifier": "https://swcarpentry.github.io/matlab-novice-inflammation/08-defensive.html",
   "dateCreated": "2014-12-12",
-  "dateModified": "2023-04-26",
-  "datePublished": "2025-01-07"
+  "dateModified": "2025-01-08",
+  "datePublished": "2025-01-08"
 }
 
   </script><script>
