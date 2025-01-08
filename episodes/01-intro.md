@@ -263,12 +263,10 @@ It recommends the following for project organization:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We already have a `data` directory in our `matlab-novice-inflammation` project directory,
-so we only need to create a `results` directory for this project.
-You can use your computer's file browser to create this directory.
-We'll save all our scripts and function files in the main project directory.
+Our main project directory is `matlab-novice-inflammation`, where we'll save all our
+scripts and function files. We already have `data` and `results` directories here.
 
-A final step is to set the *current folder* in MATLAB to our project folder.
+A crucial step is to set the *current folder* in MATLAB to our project directory.
 Use the **Current Folder** window in the MATLAB GUI to browse to your project folder
 (`matlab-novice-inflammation`).
 
