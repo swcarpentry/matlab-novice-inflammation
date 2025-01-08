@@ -296,6 +296,17 @@ MATLAB suggests using `readmatrix`.
 If we have a closer look at the documentation,
 MATLAB also tells us, which in- and output arguments this function has.
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## GNU Octave
+
+Octave does not provide a function named `readmatrix`, but the equivalent
+functionality (in both Octave and MATLAB) can be achieved with `dlmread` for the
+files we will work with in this lesson.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 To load the data from our CSV file into MATLAB, type the following
 command into the MATLAB command window, and press <kbd>Enter</kbd>:
 
