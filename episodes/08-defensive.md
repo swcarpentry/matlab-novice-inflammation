@@ -133,7 +133,7 @@ The three preconditions catch invalid inputs:
 ```
 
 ```error
-Error using normalize_rectangle (line 6)
+Error using normalize_rectangle (line 7)
 Rectangle must contain 4 coordinates
 ```
 
@@ -177,7 +177,7 @@ the assertion is triggered:
 error: Calculated upper X coordinate invalid
 ```
 
-Re-reading our function, we realize that line 19 should
+Re-reading our function, we realize that line 21 should
 divide `dy` by `dx`. If we had left out the assertion
 at the end of the function, we would have created and
 returned something that had the right shape as
@@ -294,7 +294,7 @@ test_range_overlap
 ```error
 Undefined function or variable 'range_overlap'.
 
-Error in test_range_overlap (line 6)
+Error in test_range_overlap (line 5)
 assert(isequal(range_overlap([0, 1.0]),[0, 1.0]))
 ```
 
@@ -321,6 +321,7 @@ function varlist(varargin)
 
    fprintf('Number of arguments: %d\n',nargin)
    celldisp(varargin)
+end
 ```
 
 ```matlab
@@ -378,6 +379,7 @@ function overlap = range_overlap(________)
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::  solution
@@ -402,6 +404,7 @@ function overlap = range_overlap(varargin)
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::::::::::::
@@ -462,12 +465,13 @@ function overlap = range_overlap(varargin)
         
         % Catch non-overlapping ranges
 	    if low >= highest || high<=lowest
-            output_range = NaN;
+            overlap = NaN;
             return
 	    end
     end
 
     overlap = [lowest, highest];
+end
 ```
 
 :::::::::::::::::::::::::

@@ -329,7 +329,7 @@ aluminum
 ```matlab
 % spell a string adding one letter at a time using a loop
 
-word = 'aluminium';
+word = 'aluminum';
 
 for letter = 1:length(word)
     disp(word(1:letter))
@@ -386,7 +386,7 @@ a
 ```matlab
 % Spell a string in reverse using a loop
 
-word = 'aluminium';
+word = 'aluminum';
 
 for letter = length(word):-1:1
     disp(word(letter))
