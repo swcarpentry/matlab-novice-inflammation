@@ -373,7 +373,7 @@ Hint: search the documentation for *standard deviation*
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 It is often convenient to combine multiple plots into one figure
-using the `subplot`command which plots our graphs in a grid pattern.
+using the `subplot` command which plots our graphs in a grid pattern.
 The first two parameters describe the grid we want to use, while the third
 parameter indicates the placement on the grid.
 

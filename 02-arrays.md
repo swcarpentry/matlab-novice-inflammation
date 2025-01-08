@@ -217,7 +217,7 @@ last three characters: gen
       'gen'
   element(1:2:end) % Select every other element starting at first
   ans =
-      'oye
+      'oye'
   element(2:end-1) % Select elements starting with 2nd, until last-but-one
   ans =
       'xyge'
