@@ -11,10 +11,9 @@ or run `make` in this directory for a list of helpful commands.
 
 Maintainers:
 
-- [Gerard Capes][capes_gerard]
+- [Daniel Cummins][dc2917]
+- [Padem dhar Dwivedi][padmdhar15ald]
 
 [lesson-example]: https://carpentries.github.io/lesson-example
-[capes_gerard]: https://software-carpentry.org/team/#capes_gerard
-
-
-
+[dc2917]: https://github.com/dc2917
+[padmdhar15ald]: https://github.com/padmdhar15ald
