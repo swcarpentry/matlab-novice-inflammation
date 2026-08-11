@@ -59,8 +59,10 @@ its [index](../learners/reference.md#index) in parentheses:
 ans = 38
 ```
 
-Indices are provided as (row, column). So the index `(5, 6)` selects the element
-on the fifth row and sixth column.
+Indices are provided as (row, column). In Matlab, indexing starts at 1. 
+So the index `(5, 6)` selects the element on the fifth row and sixth column.
+
+![](fig/Matlab_Array_Indexes.svg){alt='8-by-8 matrix with rows for each label and column indicating their number. Rows numbered 1 to 8, as are columns'}
 
 An index like `(5, 6)` selects a single element of
 an array, but we can also access sections of the matrix, or [slices](../learners/reference.md#slice).
