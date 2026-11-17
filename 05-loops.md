@@ -631,11 +631,11 @@ We run the modified script using its name in the Command Window:
 
 The first three figures output to the `results` directory are as shown below:
 
-<img src="fig/inflammation-01.png" style="width:500px; height:400px">
+<img src="fig/inflammation-01.png" alt="Three line plots of inflammation against day for the first data file: the average rises to about 13 at day 20 and falls again, the maximum forms a straight ramp from 0 up to 20 and back to 0, and the minimum rises and falls in a staircase pattern." style="width:500px; height:400px">
 
-<img src="fig/inflammation-02.png" style="width:500px; height:400px">
+<img src="fig/inflammation-02.png" alt="Three line plots of inflammation against day for the second data file, showing the same pattern as the first: a noisy rise and fall in the average, a linear ramp up to 20 and down in the maximum, and a staircase in the minimum." style="width:500px; height:400px">
 
-<img src="fig/inflammation-03.png" style="width:500px; height:400px">
+<img src="fig/inflammation-03.png" alt="Three line plots of inflammation against day for the third data file, again with a noisy rise and fall in the average, a linear ramp up to 20 and down in the maximum, and a staircase in the minimum." style="width:500px; height:400px">
 
 Sure enough, the maxima of these data sets show exactly
 the same ramp as the first,
